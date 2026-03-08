@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "base": {
+    "item": "smc:carrot_pickaxe"
+  },
+  "result": {
+    "item": "smc:golden_carrot_pickaxe"
+  },
+  "template": {
+    "item": "minecraft:rabbit_hide"
+  }
+}

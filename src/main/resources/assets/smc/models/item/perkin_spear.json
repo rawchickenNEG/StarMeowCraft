@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/perkin_spear_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/perkin_spear_item"
+    },
+    "ground": {
+      "parent": "smc:item/perkin_spear_item"
+    },
+    "fixed": {
+      "parent": "smc:item/perkin_spear_item"
+    }
+  }
+}

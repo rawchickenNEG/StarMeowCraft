@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "entries": [
+    "smc:add_broccoli_to_village_plains",
+    "smc:add_broccoli_to_village_taiga",
+    "smc:add_ice_tea_to_fortress",
+    "smc:add_ice_tea_to_bastion_bridge",
+    "smc:add_ice_tea_to_bastion_treasure",
+    "smc:add_cookie_to_jungle_temple",
+    "smc:add_peashooter_to_dungeon",
+    "smc:add_doll_to_frog_eating",
+    "smc:add_doll_to_cat_gift",
+    "smc:add_scroll_to_igloo",
+    "smc:add_knife_to_bonus_chest",
+    "smc:sniffer_beak",
+    "smc:lucky_clover",
+    "smc:katana",
+    "smc:add_jar_to_abandoned_mineshaft",
+    "smc:add_jar_to_buried_treasure"
+  ]
+}

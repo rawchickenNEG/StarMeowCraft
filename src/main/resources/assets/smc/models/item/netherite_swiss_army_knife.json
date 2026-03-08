@@ -1,0 +1,50 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "smc:item/netherite_swiss_army_sword"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "mode": 1
+      },
+      "model": "smc:item/netherite_swiss_army_axe"
+    },
+    {
+      "predicate": {
+        "mode": 2
+      },
+      "model": "smc:item/netherite_swiss_army_pickaxe"
+    },
+    {
+      "predicate": {
+        "mode": 3
+      },
+      "model": "smc:item/netherite_swiss_army_shovel"
+    },
+    {
+      "predicate": {
+        "mode": 4
+      },
+      "model": "smc:item/netherite_swiss_army_hoe"
+    },
+    {
+      "predicate": {
+        "mode": 5
+      },
+      "model": "smc:item/netherite_swiss_army_shears"
+    },
+    {
+      "predicate": {
+        "mode": 6
+      },
+      "model": "smc:item/netherite_swiss_army_brush"
+    },
+    {
+      "predicate": {
+        "mode": 7
+      },
+      "model": "smc:item/netherite_swiss_army_flint"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "smc:item/swiss_army_pickaxe"
+  }
+}

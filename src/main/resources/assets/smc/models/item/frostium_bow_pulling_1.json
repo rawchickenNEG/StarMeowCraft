@@ -1,0 +1,6 @@
+{
+  "parent": "smc:item/frostium_bow",
+  "textures": {
+    "layer0": "smc:item/frostium_bow_pulling_1"
+  }
+}

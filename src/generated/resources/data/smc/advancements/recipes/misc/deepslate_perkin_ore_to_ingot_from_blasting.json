@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "deepslate_perkin_ore_to_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smc:deepslate_perkin_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smc:deepslate_perkin_ore_to_ingot_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "deepslate_perkin_ore_to_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smc:deepslate_perkin_ore_to_ingot_from_blasting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

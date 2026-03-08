@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    "2": {
+      "item": "smc:frostium_ingot"
+    },
+    "3": {
+      "item": "smc:frostium_nugget"
+    }
+  },
+  "pattern": [
+    "323",
+    "212",
+    "323"
+  ],
+  "result": {
+    "item": "smc:frost_eye"
+  },
+  "show_notification": true
+}

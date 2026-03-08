@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/katana_item"
+  },
+  "perspectives": {
+    "thirdperson_righthand": {
+      "parent": "smc:item/katana_handheld"
+    },
+    "thirdperson_lefthand": {
+      "parent": "smc:item/katana_handheld"
+    },
+    "firstperson_righthand": {
+      "parent": "smc:item/katana_handheld"
+    },
+    "firstperson_lefthand": {
+      "parent": "smc:item/katana_handheld"
+    }
+  }
+}

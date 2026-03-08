@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:dried_kelp"
+    },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "item": "minecraft:powder_snow_bucket"
+    }
+  },
+  "pattern": [
+    "1",
+    "2",
+    "3"
+  ],
+  "result": {
+    "item": "smc:fire_extinguisher"
+  },
+  "show_notification": true
+}

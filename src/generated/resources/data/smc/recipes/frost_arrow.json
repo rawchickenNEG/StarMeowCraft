@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "smc:frostium_nugget"
+    },
+    "2": {
+      "item": "minecraft:arrow"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "121",
+    " 1 "
+  ],
+  "result": {
+    "count": 2,
+    "item": "smc:frost_arrow"
+  },
+  "show_notification": true
+}

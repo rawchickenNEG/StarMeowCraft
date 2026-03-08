@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "smc:block/knife",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "smc:block/knife"
+    },
+    "facing=south": {
+      "model": "smc:block/knife",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "smc:block/knife",
+      "y": 270
+    }
+  }
+}

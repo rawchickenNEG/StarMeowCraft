@@ -1,0 +1,25 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"3": "smc:block/frost_pie_side",
+		"side": "smc:block/frost_pie_inner",
+		"top": "smc:block/frost_pie_top",
+		"bottom": "smc:block/frost_pie_bottom",
+		"particle": "smc:block/frost_pie_inner"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 4, 8],
+			"faces": {
+				"north": {"uv": [2, 12, 14, 16], "texture": "#3"},
+				"east": {"uv": [8, 12, 14, 16], "texture": "#3"},
+				"south": {"uv": [2, 12, 14, 16], "texture": "#side"},
+				"west": {"uv": [2, 12, 8, 16], "texture": "#3"},
+				"up": {"uv": [2, 2, 14, 8], "texture": "#top"},
+				"down": {"uv": [2, 8, 14, 14], "texture": "#bottom", "cullface": "down"}
+			}
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "smc:item/candy_jar"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "foodlevel": 1
+      },
+      "model": "smc:item/candy_jar_1"
+    },
+    {
+      "predicate": {
+        "foodlevel": 65
+      },
+      "model": "smc:item/candy_jar_2"
+    },
+    {
+      "predicate": {
+        "foodlevel": 257
+      },
+      "model": "smc:item/candy_jar_3"
+    }
+  ]
+}

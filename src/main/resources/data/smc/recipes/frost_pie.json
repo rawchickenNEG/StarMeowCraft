@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    }
+  ],
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:frostium_ingot"
+    },
+    {
+      "item": "smc:frostium_ingot"
+    },
+    {
+      "item": "smc:frostium_ingot"
+    },
+    {
+      "item": "minecraft:pumpkin_pie"
+    }
+  ],
+  "result": {
+    "item": "smc:frost_pie"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    {
+      "item": "smc:perkin_nugget"
+    },
+    {
+      "item": "smc:perkin_nugget"
+    },
+    {
+      "item": "smc:perkin_nugget"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "smc:star_dust"
+  }
+}

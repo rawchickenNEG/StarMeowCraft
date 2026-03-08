@@ -1,0 +1,36 @@
+{
+  "ice_tea_drunk": {
+    "subtitle": "sounds.smc.ice_tea_drunk",
+    "sounds": [
+      "smc:man"
+    ]
+  },
+  "ice_tea_death": {
+    "subtitle": "sounds.smc.ice_tea_death",
+    "sounds": [
+      "smc:manbaout"
+    ]
+  },
+  "ice_tea_kill": {
+    "subtitle": "sounds.smc.ice_tea_kill",
+    "sounds": [
+      "smc:hahaha"
+    ]
+  },
+  "music_disc_laoda": {
+    "sounds": [
+      {
+        "name": "smc:music_disc_laoda",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc_nyan_cat": {
+    "sounds": [
+      {
+        "name": "smc:music_disc_nyan_cat",
+        "stream": true
+      }
+    ]
+  }
+}

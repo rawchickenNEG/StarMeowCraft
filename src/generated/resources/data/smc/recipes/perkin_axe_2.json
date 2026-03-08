@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "smc:perkin_ingot"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "11",
+    "21",
+    "2 "
+  ],
+  "result": {
+    "item": "smc:perkin_axe"
+  },
+  "show_notification": true
+}

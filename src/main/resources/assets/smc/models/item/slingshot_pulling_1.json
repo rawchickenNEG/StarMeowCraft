@@ -1,0 +1,6 @@
+{
+  "parent": "smc:item/slingshot",
+  "textures": {
+    "layer0": "smc:item/slingshot_pulling"
+  }
+}

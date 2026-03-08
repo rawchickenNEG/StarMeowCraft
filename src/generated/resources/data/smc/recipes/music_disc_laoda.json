@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:ice_tea"
+    }
+  },
+  "pattern": [
+    "111",
+    "111",
+    "111"
+  ],
+  "result": {
+    "item": "smc:music_disc_laoda"
+  },
+  "show_notification": true
+}

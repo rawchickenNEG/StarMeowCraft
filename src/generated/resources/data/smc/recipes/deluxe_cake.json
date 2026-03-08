@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:cooked_dirt"
+    },
+    "2": {
+      "item": "minecraft:cake"
+    }
+  },
+  "pattern": [
+    "111",
+    "121",
+    "111"
+  ],
+  "result": {
+    "item": "smc:deluxe_cake"
+  },
+  "show_notification": true
+}

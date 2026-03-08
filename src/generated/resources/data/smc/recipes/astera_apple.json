@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:star_dust"
+    },
+    "2": {
+      "item": "minecraft:apple"
+    }
+  },
+  "pattern": [
+    "111",
+    "121",
+    "111"
+  ],
+  "result": {
+    "item": "smc:astera_apple"
+  },
+  "show_notification": true
+}

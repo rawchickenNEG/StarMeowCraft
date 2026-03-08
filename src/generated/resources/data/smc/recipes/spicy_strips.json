@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:spicy_bar"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "smc:spicy_strips"
+  }
+}

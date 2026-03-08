@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "smc:chocolate"
+  },
+  "base": {
+    "item": "minecraft:wooden_sword"
+  },
+  "result": {
+    "item": "smc:chocolate_sword"
+  },
+  "template": {
+    "item": "smc:chocolate"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "smc:item/steamed_pea_flour_cake"
+  }
+}

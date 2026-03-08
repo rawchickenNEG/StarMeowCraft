@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:frostium_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "smc:frostium_nugget"
+  }
+}

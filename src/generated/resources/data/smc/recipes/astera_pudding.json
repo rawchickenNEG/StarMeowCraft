@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:star_dust"
+    },
+    "2": {
+      "item": "minecraft:honey_block"
+    }
+  },
+  "pattern": [
+    "111",
+    "121",
+    "111"
+  ],
+  "result": {
+    "item": "smc:astera_pudding"
+  },
+  "show_notification": true
+}

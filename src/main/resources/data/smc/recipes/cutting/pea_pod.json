@@ -1,0 +1,27 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "smc:pea_pod"
+    }
+  ],
+  "result": [
+    {
+      "count": 3,
+      "item": "smc:pea"
+    },
+    {
+      "chance": 0.5,
+      "item": "smc:pea"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,39 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "smc:block/water_dispenser_side",
+		"1": "smc:block/water_dispenser_front",
+		"2": "smc:block/water_dispenser_back",
+		"3": "smc:block/water_dispenser_bottom",
+		"4": "smc:block/water_dispenser_top",
+		"particle": "smc:block/water_dispenser_front"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 16, 15],
+			"faces": {
+				"north": {"uv": [1, 0, 15, 16], "texture": "#1"},
+				"east": {"uv": [15, 0, 1, 16], "texture": "#0"},
+				"south": {"uv": [1, 0, 15, 16], "texture": "#2"},
+				"west": {"uv": [1, 0, 15, 16], "texture": "#0"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#4"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#3"}
+			}
+		},
+		{
+			"from": [5, 11, 1],
+			"to": [6, 13, 2],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [5, 13, 1]},
+			"faces": {
+				"north": {"uv": [10, 3, 11, 5], "texture": "#1"},
+				"east": {"uv": [10, 3, 11, 5], "texture": "#1"},
+				"south": {"uv": [10, 3, 11, 5], "texture": "#1"},
+				"west": {"uv": [10, 3, 11, 5], "texture": "#1"},
+				"up": {"uv": [10, 3, 11, 4], "texture": "#1"},
+				"down": {"uv": [10, 3, 11, 4], "texture": "#1"}
+			}
+		}
+	]
+}

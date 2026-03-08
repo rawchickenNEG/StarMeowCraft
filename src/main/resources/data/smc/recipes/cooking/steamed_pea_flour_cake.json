@@ -1,0 +1,36 @@
+{
+  "type": "farmersdelight:cooking",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "cookingtime": 400,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "smc:pea"
+    },
+    {
+      "item": "smc:pea"
+    },
+    {
+      "item": "smc:pea"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 3,
+    "item": "smc:steamed_pea_flour_cake"
+  }
+}

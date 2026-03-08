@@ -1,0 +1,6 @@
+{
+  "parent": "smc:item/perfrostite_bow",
+  "textures": {
+    "layer0": "smc:item/perfrostite_bow_pulling_1"
+  }
+}

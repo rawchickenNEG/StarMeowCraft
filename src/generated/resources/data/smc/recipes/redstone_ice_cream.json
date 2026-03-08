@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:redstone"
+    },
+    "2": {
+      "item": "minecraft:quartz"
+    },
+    "3": {
+      "item": "minecraft:snowball"
+    },
+    "4": {
+      "item": "minecraft:redstone_torch"
+    },
+    "5": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "234",
+    " 5 "
+  ],
+  "result": {
+    "item": "smc:redstone_ice_cream"
+  },
+  "show_notification": true
+}

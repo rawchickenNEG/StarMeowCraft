@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smc:perkin_ore_to_ingot_from_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "perkin_ore_to_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smc:perkin_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "perkin_ore_to_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smc:perkin_ore_to_ingot_from_smelting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

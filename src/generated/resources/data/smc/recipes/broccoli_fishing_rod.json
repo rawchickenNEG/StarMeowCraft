@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:bamboo"
+    },
+    "2": {
+      "item": "minecraft:vine"
+    },
+    "3": {
+      "item": "smc:broccoli"
+    }
+  },
+  "pattern": [
+    "  1",
+    " 12",
+    "1 3"
+  ],
+  "result": {
+    "item": "smc:broccoli_fishing_rod"
+  },
+  "show_notification": true
+}

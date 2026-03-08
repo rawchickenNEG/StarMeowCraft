@@ -1,0 +1,8 @@
+{
+	"parent": "smc:block/glowing_ore",
+	"textures": {
+		"all": "smc:block/frostium_ore",
+		"cutout": "smc:block/frostium_ore_glow",
+		"particle": "smc:block/frostium_ore_particle"
+	}
+}

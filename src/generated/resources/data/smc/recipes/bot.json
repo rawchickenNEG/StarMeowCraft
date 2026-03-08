@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:tinted_glass"
+    },
+    "2": {
+      "item": "minecraft:iron_ingot"
+    },
+    "3": {
+      "item": "minecraft:dropper"
+    },
+    "4": {
+      "item": "minecraft:experience_bottle"
+    }
+  },
+  "pattern": [
+    "111",
+    "232",
+    "444"
+  ],
+  "result": {
+    "item": "smc:bot"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "smc:item/rainbow_bow",
+  "textures": {
+    "layer0": "smc:item/rainbow_bow_pulling_1"
+  }
+}

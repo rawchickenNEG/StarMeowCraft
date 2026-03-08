@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "smc:block/deluxe_cake_block_0"
+    },
+    "bites=1": {
+      "model": "smc:block/deluxe_cake_block_1"
+    },
+    "bites=2": {
+      "model": "smc:block/deluxe_cake_block_2"
+    },
+    "bites=3": {
+      "model": "smc:block/deluxe_cake_block_3"
+    },
+    "bites=4": {
+      "model": "smc:block/deluxe_cake_block_4"
+    },
+    "bites=5": {
+      "model": "smc:block/deluxe_cake_block_5"
+    },
+    "bites=6": {
+      "model": "smc:block/deluxe_cake_block_6"
+    }
+  }
+}

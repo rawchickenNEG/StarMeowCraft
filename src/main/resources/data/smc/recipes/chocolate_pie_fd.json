@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:chocolate"
+    },
+    "2": {
+      "item": "minecraft:sugar"
+    },
+    "3": {
+      "item": "farmersdelight:pie_crust"
+    }
+  },
+  "pattern": [
+    "111",
+    "232"
+  ],
+  "result": {
+    "item": "farmersdelight:chocolate_pie"
+  },
+  "show_notification": true
+}

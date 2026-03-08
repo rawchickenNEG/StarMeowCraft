@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "minecraft:iron_nugget"
+    },
+    "2": {
+      "item": "minecraft:white_wool"
+    },
+    "3": {
+      "item": "minecraft:pink_wool"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "121",
+    "232"
+  ],
+  "result": {
+    "item": "smc:cat_paw"
+  },
+  "show_notification": true
+}

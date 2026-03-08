@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:pea_pod"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "smc:pea"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:perkin_ingot"
+    },
+    {
+      "item": "smc:perkin_ingot"
+    },
+    {
+      "item": "smc:perkin_ingot"
+    },
+    {
+      "item": "smc:perkin_ingot"
+    },
+    {
+      "item": "smc:frostium_ingot"
+    },
+    {
+      "item": "smc:frostium_ingot"
+    },
+    {
+      "item": "smc:frostium_ingot"
+    },
+    {
+      "item": "smc:frostium_ingot"
+    }
+  ],
+  "result": {
+    "item": "smc:perfrostite_ingot"
+  }
+}

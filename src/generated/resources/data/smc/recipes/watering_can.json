@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:perkin_ingot"
+    },
+    "2": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "121",
+    " 11"
+  ],
+  "result": {
+    "item": "smc:watering_can"
+  },
+  "show_notification": true
+}

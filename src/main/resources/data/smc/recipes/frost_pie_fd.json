@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:frost_berries"
+    },
+    "2": {
+      "tag": "forge:milk"
+    },
+    "3": {
+      "item": "farmersdelight:pie_crust"
+    }
+  },
+  "pattern": [
+    "111",
+    "232"
+  ],
+  "result": {
+    "item": "smc:frost_pie"
+  },
+  "show_notification": true
+}

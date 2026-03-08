@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:perkin_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "smc:perkin_nugget"
+  }
+}

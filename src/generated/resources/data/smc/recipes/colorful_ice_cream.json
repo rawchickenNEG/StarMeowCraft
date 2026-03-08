@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:lollipop_broccoli"
+    },
+    {
+      "item": "smc:lollipop_perkin"
+    },
+    {
+      "item": "smc:lollipop_frost"
+    },
+    {
+      "tag": "smc:milk_compat"
+    },
+    {
+      "item": "minecraft:snow_block"
+    },
+    {
+      "item": "minecraft:hay_block"
+    }
+  ],
+  "result": {
+    "item": "smc:colorful_ice_cream"
+  }
+}

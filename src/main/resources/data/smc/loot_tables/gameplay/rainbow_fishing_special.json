@@ -1,0 +1,88 @@
+{
+  "type": "minecraft:loot_table",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        { "type": "item", "name": "smc:golden_broccoli", "weight": 2 },
+        { "type": "item", "name": "smc:lucky_clover", "weight": 7 },
+        { "type": "item", "name": "smc:lucky_nugget", "weight": 5 },
+        { "type": "item", "name": "smc:ice_tea", "weight": 5 },
+        { "type": "item", "name": "smc:rainbow_cookie", "weight": 3 },
+        { "type": "item", "name": "smc:chicken_chop" },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 60.0,
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.25,
+                "min": 0.0
+              },
+              "function": "minecraft:set_damage"
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 60.0,
+              "treasure": true
+            }
+          ],
+          "name": "smc:swiss_army_knife"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.25,
+                "min": 0.0
+              },
+              "function": "minecraft:set_damage"
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 60.0,
+              "treasure": true
+            }
+          ],
+          "name": "smc:broccoli_fishing_rod"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 0.25,
+                "min": 0.0
+              },
+              "function": "minecraft:set_damage"
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 60.0,
+              "treasure": true
+            }
+          ],
+          "name": "minecraft:trident"
+        }
+      ]
+    }
+  ]
+}

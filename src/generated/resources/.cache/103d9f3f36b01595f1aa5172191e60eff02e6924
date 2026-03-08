@@ -1,0 +1,10 @@
+// 1.20.1	2025-12-19T17:27:24.4781959	Registries
+120a38f151eedb092469c9063b013a59c0377d75 data/smc/forge/biome_modifier/add_blue_frostium_ore.json
+be433ba235cc0bd449dcd3cc3f1eed476456bff4 data/smc/forge/biome_modifier/add_frostium_ore.json
+7fc5f4cd4dedda541c1e4481673d7f317999cd0b data/smc/forge/biome_modifier/add_perkin_ore.json
+6d667fe9ba19045e1b7d30c9d3603631a9e4c8bd data/smc/worldgen/configured_feature/blue_frostium_ore.json
+247455c983d8272a05774fe3df61e54c8f209386 data/smc/worldgen/configured_feature/frostium_ore.json
+e2f3dc623cea352ce6a7b4b75ac83d72ec59cd0c data/smc/worldgen/configured_feature/perkin_ore.json
+97ddb62be4b737ff14e1dda01cd0a9d9bfe4a6dd data/smc/worldgen/placed_feature/blue_frostium_ore_placed.json
+b6a327c971777e81585844602ac30a1dfa90ba3b data/smc/worldgen/placed_feature/frostium_ore_placed.json
+0c1a31367e2cecd5666ca14b3e496771a609755d data/smc/worldgen/placed_feature/perkin_ore_placed.json

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "smc:frostium_ingot"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "111",
+    " 2 ",
+    " 2 "
+  ],
+  "result": {
+    "item": "smc:frostium_pickaxe"
+  },
+  "show_notification": true
+}

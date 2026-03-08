@@ -1,0 +1,27 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"1": "smc:block/deluxe_cake_side",
+		"2": "smc:block/deluxe_cake_top",
+		"3": "smc:block/deluxe_cake_bottom",
+		"4": "smc:block/deluxe_cake_inner",
+		"particle": "smc:block/deluxe_cake_side"
+	},
+	"elements": [
+		{
+			"from": [9, 0, 1],
+			"to": [15, 8, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 8.80576, 6.85714, 16], "texture": "#1"},
+				"east": {"uv": [0, 8.80576, 16, 16], "texture": "#1"},
+				"south": {"uv": [9.14286, 8.80576, 16, 16], "texture": "#1"},
+				"west": {"uv": [0, 8.80576, 16, 16], "texture": "#4"},
+				"up": {"uv": [9.14286, 0, 16, 16], "texture": "#2"},
+				"down": {"uv": [9.14286, 0, 16, 16], "texture": "#3"}
+			}
+		}
+	]
+}

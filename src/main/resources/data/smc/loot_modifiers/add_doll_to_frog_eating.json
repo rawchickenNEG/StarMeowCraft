@@ -1,0 +1,15 @@
+{
+  "type": "smc:add_loot_table",
+  "conditions":
+  [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:entities/slime"
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.01
+    }
+  ],
+  "lootTable": "smc:doll_huacai"
+}

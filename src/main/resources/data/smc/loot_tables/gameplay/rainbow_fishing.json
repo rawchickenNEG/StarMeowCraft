@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "smc:gameplay/rainbow_fishing_special",
+          "quality": -1,
+          "weight": 27
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "smc:gameplay/rainbow_fishing_special_rare",
+          "quality": 2,
+          "weight": 6
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:gameplay/fishing/fish",
+          "quality": -2,
+          "weight": 67
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "minecraft:gameplay/fishing"
+}

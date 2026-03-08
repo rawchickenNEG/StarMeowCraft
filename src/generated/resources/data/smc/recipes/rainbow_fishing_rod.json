@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "2": {
+      "item": "smc:rainbow_chip"
+    },
+    "3": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "  2",
+    " 23",
+    "2 3"
+  ],
+  "result": {
+    "item": "smc:rainbow_fishing_rod"
+  },
+  "show_notification": true
+}

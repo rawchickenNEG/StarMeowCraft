@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,stand=false": {
+      "model": "smc:block/doll_raw_chicken",
+      "y": 90
+    },
+    "facing=north,stand=false": {
+      "model": "smc:block/doll_raw_chicken"
+    },
+    "facing=south,stand=false": {
+      "model": "smc:block/doll_raw_chicken",
+      "y": 180
+    },
+    "facing=west,stand=false": {
+      "model": "smc:block/doll_raw_chicken",
+      "y": 270
+    },
+    "facing=east,stand=true": {
+      "model": "smc:block/doll_raw_chicken_stand",
+      "y": 90
+    },
+    "facing=north,stand=true": {
+      "model": "smc:block/doll_raw_chicken_stand"
+    },
+    "facing=south,stand=true": {
+      "model": "smc:block/doll_raw_chicken_stand",
+      "y": 180
+    },
+    "facing=west,stand=true": {
+      "model": "smc:block/doll_raw_chicken_stand",
+      "y": 270
+    }
+  }
+}

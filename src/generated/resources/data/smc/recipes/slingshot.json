@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:stick"
+    },
+    "2": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "121",
+    " 1 "
+  ],
+  "result": {
+    "item": "smc:slingshot"
+  },
+  "show_notification": true
+}

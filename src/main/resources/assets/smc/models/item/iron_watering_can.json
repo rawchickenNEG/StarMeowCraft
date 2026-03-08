@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/iron_watering_can_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/iron_watering_can_item"
+    },
+    "ground": {
+      "parent": "smc:item/iron_watering_can_item"
+    },
+    "fixed": {
+      "parent": "smc:item/iron_watering_can_item"
+    }
+  },
+  "textures": {
+    "layer0": "smc:item/iron_watering_can"
+  }
+}

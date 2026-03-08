@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/cat_paw_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/cat_paw_item"
+    },
+    "ground": {
+      "parent": "smc:item/cat_paw_item"
+    },
+    "fixed": {
+      "parent": "smc:item/cat_paw_item"
+    }
+  },
+  "textures": {
+    "layer0": "smc:item/cat_paw"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:pea"
+    },
+    {
+      "item": "smc:pea"
+    },
+    {
+      "item": "smc:pea"
+    },
+    {
+      "tag": "smc:milk_compat"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "smc:steamed_pea_flour_cake"
+  }
+}

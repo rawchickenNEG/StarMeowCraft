@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:dried_kelp"
+    },
+    "2": {
+      "item": "minecraft:moss_block"
+    },
+    "3": {
+      "item": "smc:sniffer_beak"
+    },
+    "4": {
+      "item": "minecraft:barrel"
+    }
+  },
+  "pattern": [
+    "12",
+    "34"
+  ],
+  "result": {
+    "item": "smc:vacuum_sniffer"
+  },
+  "show_notification": true
+}

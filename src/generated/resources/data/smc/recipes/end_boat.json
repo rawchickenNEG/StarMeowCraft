@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:shulker_shell"
+    },
+    "2": {
+      "item": "minecraft:end_rod"
+    }
+  },
+  "pattern": [
+    "121",
+    "111"
+  ],
+  "result": {
+    "item": "smc:end_boat"
+  },
+  "show_notification": true
+}

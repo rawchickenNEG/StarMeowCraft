@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:grass"
+    },
+    {
+      "item": "smc:cooked_dirt"
+    },
+    {
+      "item": "smc:cooked_dirt"
+    }
+  ],
+  "result": {
+    "item": "smc:grass_block_pie"
+  }
+}

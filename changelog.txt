@@ -1,0 +1,182 @@
+SMC 1.20.1 Changelog
+
+-1.0.9
+    Add Golden Boat, End Boat and related variants.
+    Add Elbowing Effect for Ice Tea.
+    Add Template Shroud.
+    Change Perfrostite Upgrade Scroll to real upgrade template item.
+    Change Effect provided by Ice Tea.
+    Change Spell Enchantments obtaining back to 1.0.6
+    Change Devour Sword skin changing way.
+    Fix Devour Sword skin model issue.
+-1.0.8
+    Added knives tag for Swiss Army Knive Items for Farmers Delight compat.
+    Added Devour Sword.
+    Added config for Devour Sword.
+    Added config for Watering Can to control whether to enable infinity enchantment.
+    Added Better Combat compat for mod weapons.
+    Added change model ability for Devour Sword.
+    Added Throwable Sword Entity for Devour Sword.
+    Added Zongzi and Peace effect.
+    Changed texture for Effects.
+    Changed Adaptive enchantment trigger.
+    Changed recipe of GuaGua Jelly back to 1.0.6.
+    Changed Attributes for Axe items.
+    Optimized Mini Bedrock.
+    Fixed wrong food level issue of some foods.
+    Fixed Hook Entities Renderer issue.
+    Fixed Perfrostite tool items fixing ingredient item.
+    Fixed issue of B.O.T item pop Xp orb when mending items are not damaged.
+    Fixed bug of Devour Sword when the sword has 0 swords devoured.
+    Removed useless logger info.
+    Removed multi fishing feature of Rainbow Fishing Rod.
+    Spell Enchantments are not discoverable.
+    Composite Fertilizer Enchantment is treasure enchantment now.
+    Life Cycle, Lightning Spell and Infinite Spell are only obtainable through rainbow fishing.
+-1.0.7
+    Added particle for dolls.
+    Added Chocolate Armors.
+    Added some Farmers Delight compat recipes.
+    Added Frost Pie compat of Farmers Delight.
+    Added Deluxe Cake and Pea Pod cutting recipes.
+    Added condition for Farmers Delight compat recipes.
+    Added 3 Effects for Lollipop Items.
+    Added Effect Desc for all effects.
+    Changed recipe of GuaGua Jelly.
+    Changed Effect of GuaGua Jelly.
+    Changed Effect of Chicken Chop.
+    Changed Deluxe Cake as a block, work similar to vanilla cake block.
+    Changed Perkin Lollipop damage type to Indirect Magic.
+    Changed Lollipop items from clearing effects to apply effects when using.
+    Changed MCr Sword functions.
+    Changed interact sound of dolls.
+    Changed some food items food properties.
+    Changed recipe for Chocolate.
+    Changed attack speed for Lollipop items.
+    Changed Life Cycle Enchantment of Watering Can Items, now Life Cycle won't harvest extra seeds.
+    Optimized detector mark particle.
+    Optimized Mini Bedrock, view rot is locked completely now.
+    Optimized mod Fishing Hook entities.
+    Fixed bug of Lure enchantment unable to work on mod Fishing Rod items.
+    Fixed z-fighting issue when dolls playing totem like animation.
+-1.0.6
+    Added High Calcium Milk.
+    Added Rainbow Music Disc.
+    Added some new foods which can only be made when you have Farmers Delight.
+    Added some Farmers Delight cook recipes for some foods
+    Added Rainbow Bow to creative tab.
+    Added particle limitation for Ore Detector, deleted unused functions.
+    Added particle for Sunflower Light Block, outline will visible when you holding Sunflower Pot, that means you can break them easier.
+    Added Blacklist and Whitelist config for Lucky Clover.
+    Added some mysterious things.
+    Changed description of Lucky Clover display when this item is banned.
+    Changed effect duration provided by Rainbow Cookie.
+    Changed the condition of Rainbow Chip spawning, they will never spawn nearby blocks.
+    Changed particle for ores.
+    Removed Rainbow Chip from Rainbow Fishing Rod looting.
+    Ore Blocks are glowing now.
+    Katana is obtainable now, you can obtain it from Ender Dragon.
+-1.0.5
+    Added colorful name for some items.
+    Added RainBow, Rainbow Cookie and Rainbow chip, make Rainbow Fishing Rod obtainable.
+    Added Chocolate Sword.
+    Added Cat Paw.
+    Added a DELICOIUS BEATUFUL TATSY Deluxe Cake.
+    Added Carrot Pickaxe and Golden Carrot Pickaxe.
+    Added Redstone Ice Cream.
+    Changed attributes of Perkin Hoe.
+    Changed the way of Ore Detector displaying marks from entity to client particles.
+    Fixed bug of Perfrostite Tools lose durability when healing.
+    Fixed issue of abnormal damage result when using Chop Kebab, Perkin Lollipop, Colorful Ice Cream.
+    Fixed bug of client crash when the Fishing Rod Items' holder is not Player.
+-1.0.4
+    Added built-in legacy resource pack.
+    Added more Watering Can for basic materials.
+    Changed new textures.
+    Changed texture of Rainbow Fishing Hook.
+    Changed recipe of Chocolate.
+    Changed attributes of Frostium Sword.
+    Fixed ussue of MCr Sword cannot be obtained in survival mode.
+    Fixed issue of Broccoli Fishing Rod and Rainbow Fishing Rod cannot retrieve the fishing hook.
+-1.0.3
+    Added Life Cycle enchantment for Watering Can.
+    Added Rainbow Fishing Rod item.
+    Added B.O.T item for storing xp.
+    Added MCr Sword (Creative 0nly).
+    Added description and display name for Creative Clover.
+    Added description for Broccoli Fishing Rod and Vacuum Sniffer.
+    Added more keywords into Lucky Clover blacklist (infinity, slash, tacz, enigmatic_item, the_judgement, generator).
+    Added config for Lucky Clover CD.
+    Changed string renderer for Broccoli Fishing Rod.
+    Changed all enchantments' rarity.
+    Fixed bug of server crash lead by Watering Can with high level Strong Fertilizer enchantment.
+    Fixed bug of incorrect display of Fishing Rod items.
+    Fixed bug of incorrect anvil sound event when opening any GUI.
+    Fixed bug of Swiss Army Knife and Perfrostite Tools unable to apply Mending and Unbreaking enchantments.
+    Lucky CLover will never obtain from Vacuum Sniffer now.
+    Broccoli Fishing Rod can fish crops now.
+-1.0.2
+    Added Mini Bedrock Item.
+    Added Creative Clover (can only get random creative and debug items).
+    Added compose value for Broccoli and Pea.
+    Changed recipe for Frostium Bow.
+    Changed renderer for Broccoli Fishing Hook.
+    Fixed bug of Frostium Eye texture lost.
+-1.0.1
+    Added Perfrostite Bow.
+    Added Frost Arrow.
+    Added recipe for Chop Kebab.
+    Added Perkin Star and changed recipe and texture of Perkin Wand.
+    Added Frost Eye and changed recipe of Frostium Bow.
+    Changed zh_cn for Perfrostite related items.
+    Changed nutrition level for some food items.
+    Changed texture and recipe of Diamond Swiss Army Knife.
+    Changed Freeze Spell enchantment that use frost effect instead of adding freezing tick.
+    Fixed bug of wrong extend class of Arch Shovel.
+    Fixed bug of game crash led by particle engine in server.
+    Fixed bug of Sniffer Beak has no way to obtain.
+    Hid Perfrostite Bow (yes that exactly happened in the same version).
+    I cannot contribute any acceptable ideas for this mod now, I had given up.
+-1.0.0
+    Added Wallnut pot and Sunflower pot.
+    Added Lucky Nugget (No normal texture yet)
+    Added Config for Lucky Nugget.
+    Changed Perkin Ore textures.
+    Changed food weapons' using condition.
+-1.0.0-pre-4
+    Added Swiss Army Knife.
+    Added Perfrostite Tools and recipes.
+    Added water bar for Watering Can.
+    Added Perkin Tools.
+    Added Recipe for Perkin Wand.
+    Changed Armors Trimmable.
+    Changed Frostium Ore spawn rate.
+    Changed Frostium Pickaxe sound event settings.
+    Changed several textures.
+    Watering Can is able to use infinite enchantment.
+    Fixed bug of using Slingshot not consume durability.
+    Fixed bug of using Perkin Wand not consume durability.
+    Optimized Arch Shovel.
+-1.0.0-pre-3
+    Added Recipe for Frostium Bow.
+    Added Watering Can and it's enchantments.
+    Added Description for AArchaeological Shovel.
+    Added Description for Chicken Chop.
+    Added Chop Shield.
+    Added Arch Shovel.
+    Added composter chance for Broccoli seeds, Broccoli, Pea and Pea Pod.
+    Changed texture of Perkin Nugget.
+    Changed default config for Lucky Clover.
+    Changed function of Frostium Bow.
+    Fixed author name.
+    Hid Fish item.
+-1.0.0-pre-2
+    Added Lucky Clover.
+    Added Config for Lucky Clover.
+    Added some foods and recipes.
+    Removed Sniffer Beak random item function.
+    Fixed bug of functional foods recover 0 food level.
+    Fixed bug of Broccoli Fishing Rod not work when enchanted.
+    Fixed bug of selecting Pea plant gives broccoli seeds.
+
+

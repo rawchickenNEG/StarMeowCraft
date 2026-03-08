@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "package": "com.starmeow.smc.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "smc.refmap.json",
+  "client": [
+    "MouseHandlerMixin"
+  ],
+  "mixins": [
+    "LivingEntityMixin",
+    "EntityMixin",
+    "MixinBoat",
+    "MixinBoatType",
+    "MixinChestBoat"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

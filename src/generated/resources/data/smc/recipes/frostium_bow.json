@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "smc:frostium_ingot"
+    },
+    "2": {
+      "item": "minecraft:string"
+    },
+    "3": {
+      "item": "smc:frost_eye"
+    }
+  },
+  "pattern": [
+    " 12",
+    "3 2",
+    " 12"
+  ],
+  "result": {
+    "item": "smc:frostium_bow"
+  },
+  "show_notification": true
+}

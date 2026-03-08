@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:broccoli"
+    },
+    {
+      "item": "smc:broccoli"
+    },
+    {
+      "item": "smc:broccoli"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "smc:boiled_broccoli"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:golden_broccoli"
+    },
+    "2": {
+      "item": "smc:perfrostite_upgrade_scroll"
+    },
+    "3": {
+      "item": "smc:perkin_ingot"
+    },
+    "4": {
+      "item": "smc:frostium_ingot"
+    }
+  },
+  "pattern": [
+    "314",
+    "324",
+    "314"
+  ],
+  "result": {
+    "count": 2,
+    "item": "smc:perfrostite_upgrade_scroll"
+  },
+  "show_notification": true
+}

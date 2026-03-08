@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:pea"
+    },
+    {
+      "item": "smc:pea"
+    },
+    {
+      "item": "smc:pea"
+    },
+    {
+      "tag": "smc:milk_compat"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "smc:pea_soup"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    }
+  },
+  "pattern": [
+    "1 1",
+    "111",
+    "111"
+  ],
+  "result": {
+    "item": "smc:template_shroud"
+  },
+  "show_notification": true
+}

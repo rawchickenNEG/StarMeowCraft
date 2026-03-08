@@ -1,0 +1,6 @@
+{
+  "parent": "smc:item/broccoli_fishing_rod",
+  "textures": {
+    "layer0": "smc:item/broccoli_fishing_rod_cast"
+  }
+}

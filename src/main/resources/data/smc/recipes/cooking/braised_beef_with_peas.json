@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 400,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "smc:pea"
+    },
+    {
+      "item": "smc:pea"
+    },
+    {
+      "item": "smc:pea"
+    },
+    {
+      "tag": "smc:meat_compat"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "smc:braised_beef_with_peas"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "smc:item/long_knife_large"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, -90, 55 ],
+      "translation": [ 0, 15, -1.25 ],
+      "scale": [ 1.8, 1.8, 0.9 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 90, -55 ],
+      "translation": [ 0, 15, -1.25 ],
+      "scale": [ 1.8, 1.8, 0.9 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 25 ],
+      "translation": [ 1.13, 6.4, -1.57 ],
+      "scale": [ 1.36, 1.36, 0.68 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, -25 ],
+      "translation": [ 1.13, 6.4, -1.57 ],
+      "scale": [ 1.36, 1.36, 0.68 ]
+    }
+  }
+}

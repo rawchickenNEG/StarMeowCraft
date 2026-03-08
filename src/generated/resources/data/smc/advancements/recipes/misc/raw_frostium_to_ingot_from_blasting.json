@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smc:raw_frostium_to_ingot_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "raw_frostium_to_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smc:raw_frostium"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "raw_frostium_to_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smc:raw_frostium_to_ingot_from_blasting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

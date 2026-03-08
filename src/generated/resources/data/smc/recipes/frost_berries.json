@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:frostium_nugget"
+    },
+    "2": {
+      "item": "minecraft:sweet_berries"
+    }
+  },
+  "pattern": [
+    "111",
+    "121",
+    "111"
+  ],
+  "result": {
+    "item": "smc:frost_berries"
+  },
+  "show_notification": true
+}

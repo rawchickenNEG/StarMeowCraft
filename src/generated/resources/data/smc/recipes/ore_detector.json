@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:perkin_ingot"
+    },
+    "2": {
+      "item": "minecraft:tinted_glass"
+    },
+    "3": {
+      "item": "minecraft:calibrated_sculk_sensor"
+    },
+    "4": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "121",
+    "131",
+    "141"
+  ],
+  "result": {
+    "item": "smc:ore_detector"
+  },
+  "show_notification": true
+}

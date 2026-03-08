@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "smc:perfrostite_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_hoe"
+  },
+  "result": {
+    "item": "smc:perfrostite_hoe"
+  },
+  "template": {
+    "item": "smc:perfrostite_upgrade_scroll"
+  }
+}

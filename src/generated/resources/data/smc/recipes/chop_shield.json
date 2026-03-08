@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:quartz"
+    },
+    "2": {
+      "item": "smc:chicken_chop"
+    },
+    "3": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "131",
+    "121",
+    " 1 "
+  ],
+  "result": {
+    "item": "smc:chop_shield"
+  },
+  "show_notification": true
+}

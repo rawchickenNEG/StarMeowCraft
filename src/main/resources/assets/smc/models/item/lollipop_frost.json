@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/lollipop_frost_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/lollipop_frost_item"
+    },
+    "ground": {
+      "parent": "smc:item/lollipop_frost_item"
+    },
+    "fixed": {
+      "parent": "smc:item/lollipop_frost_item"
+    }
+  },
+  "textures": {
+    "layer0": "smc:item/lollipop_frost"
+  }
+}

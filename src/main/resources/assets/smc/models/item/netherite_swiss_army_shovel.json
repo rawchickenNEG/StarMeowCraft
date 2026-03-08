@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "smc:item/netherite_swiss_army_shovel"
+  }
+}

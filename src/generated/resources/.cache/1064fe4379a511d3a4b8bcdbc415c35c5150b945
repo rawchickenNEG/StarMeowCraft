@@ -1,0 +1,10 @@
+// 1.20.1	2026-01-27T09:14:12.6899215	Block States: smc
+e56c4c061aa35ce3d7c38935f8a13758445c94ea assets/smc/blockstates/broccoli_crate.json
+d6ece312a9b59f257d47b149450f463a6b5f96ae assets/smc/blockstates/frostium_block.json
+733c0aa50c5b74c4518317ef3ea559d2c056a6fa assets/smc/blockstates/perkin_block.json
+b69a9f818cbeccf96a8ecda10e3504ad76febd0d assets/smc/models/block/broccoli_crate.json
+411fc3033ceab180d4bf3be7e494dfd4f7434317 assets/smc/models/block/frostium_block.json
+2ce716aa9757c9f11db3f7773d0ea4504a47e809 assets/smc/models/block/perkin_block.json
+e0f4f6cbd483bf681f7da499578f1ebf129eb807 assets/smc/models/item/broccoli_crate.json
+a5ec985890aade23118fc04af950983f2d24a5c2 assets/smc/models/item/frostium_block.json
+74488c106cbb7516d934eefeb9ff8a0d351c78f3 assets/smc/models/item/perkin_block.json

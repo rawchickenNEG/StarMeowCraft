@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "smc:item/wallnut_pot_handheld",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "smc:item/wallnut_pot_handheld"
+    },
+    "facing=south": {
+      "model": "smc:item/wallnut_pot_handheld",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "smc:item/wallnut_pot_handheld",
+      "y": 270
+    }
+  }
+}

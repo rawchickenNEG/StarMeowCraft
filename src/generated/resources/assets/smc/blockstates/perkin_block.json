@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "smc:block/perkin_block"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "smc:chicken_chop"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "1",
+    "1",
+    "2"
+  ],
+  "result": {
+    "item": "smc:chop_kebab"
+  },
+  "show_notification": true
+}

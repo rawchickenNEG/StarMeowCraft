@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "smc:broccoli"
+    },
+    "2": {
+      "item": "minecraft:bamboo"
+    }
+  },
+  "pattern": [
+    "11",
+    " 2",
+    " 2"
+  ],
+  "result": {
+    "item": "smc:broccoli_hoe"
+  },
+  "show_notification": true
+}

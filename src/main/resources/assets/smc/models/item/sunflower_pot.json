@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/sunflower_pot_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/sunflower_pot_item"
+    },
+    "ground": {
+      "parent": "smc:item/sunflower_pot_item"
+    },
+    "fixed": {
+      "parent": "smc:item/sunflower_pot_item"
+    }
+  }
+}

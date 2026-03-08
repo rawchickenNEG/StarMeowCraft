@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:broccoli"
+    },
+    {
+      "item": "smc:broccoli"
+    },
+    {
+      "tag": "smc:chicken_compat"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "smc:light_meal"
+  }
+}

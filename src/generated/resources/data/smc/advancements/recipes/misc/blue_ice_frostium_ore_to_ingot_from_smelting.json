@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "blue_ice_frostium_ore_to_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "smc:blue_ice_frostium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "smc:blue_ice_frostium_ore_to_ingot_from_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "blue_ice_frostium_ore_to_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "smc:blue_ice_frostium_ore_to_ingot_from_smelting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

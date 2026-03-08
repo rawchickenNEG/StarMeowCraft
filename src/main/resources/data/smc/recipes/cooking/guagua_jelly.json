@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 400,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "smc:broccoli"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "tag": "forge:slimeballs"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "smc:guagua_jelly"
+  }
+}

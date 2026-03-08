@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "smc:block/broccoli_crate_bottom",
+    "side": "smc:block/broccoli_crate_side",
+    "top": "smc:block/broccoli_crate_top"
+  }
+}

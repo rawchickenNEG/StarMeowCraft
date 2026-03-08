@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:deluxe_cake_slice"
+    },
+    {
+      "item": "smc:deluxe_cake_slice"
+    },
+    {
+      "item": "smc:deluxe_cake_slice"
+    },
+    {
+      "item": "smc:deluxe_cake_slice"
+    },
+    {
+      "item": "smc:deluxe_cake_slice"
+    },
+    {
+      "item": "smc:deluxe_cake_slice"
+    },
+    {
+      "item": "smc:deluxe_cake_slice"
+    }
+  ],
+  "result": {
+    "item": "smc:deluxe_cake"
+  }
+}

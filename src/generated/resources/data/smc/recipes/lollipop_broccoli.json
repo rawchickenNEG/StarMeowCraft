@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "minecraft:sugar"
+    },
+    "2": {
+      "item": "smc:broccoli"
+    },
+    "3": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "111",
+    "121",
+    "131"
+  ],
+  "result": {
+    "item": "smc:lollipop_broccoli"
+  },
+  "show_notification": true
+}

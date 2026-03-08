@@ -1,0 +1,6 @@
+{
+  "parent": "smc:item/rainbow_fishing_rod",
+  "textures": {
+    "layer0": "smc:item/rainbow_fishing_rod_cast"
+  }
+}

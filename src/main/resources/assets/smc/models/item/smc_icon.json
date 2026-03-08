@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "smc:item/smc_icon"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "aprilfoolsday": 1
+      },
+      "model": "smc:item/smc_icon_special"
+    }
+  ]
+}

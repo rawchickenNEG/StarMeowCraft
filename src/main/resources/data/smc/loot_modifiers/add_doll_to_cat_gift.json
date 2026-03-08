@@ -1,0 +1,15 @@
+{
+  "type": "smc:add_item",
+  "conditions":
+  [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:gameplay/cat_morning_gift"
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.065
+    }
+  ],
+  "item": "smc:doll_bf_meow"
+}

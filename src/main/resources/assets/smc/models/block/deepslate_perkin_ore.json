@@ -1,0 +1,8 @@
+{
+	"parent": "smc:block/glowing_ore",
+	"textures": {
+		"all": "smc:block/deepslate_perkin_ore",
+		"cutout": "smc:block/deepslate_perkin_ore_glow",
+		"particle": "smc:block/deepslate_perkin_ore_particle"
+	}
+}

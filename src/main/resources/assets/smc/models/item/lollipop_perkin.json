@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/lollipop_perkin_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/lollipop_perkin_item"
+    },
+    "ground": {
+      "parent": "smc:item/lollipop_perkin_item"
+    },
+    "fixed": {
+      "parent": "smc:item/lollipop_perkin_item"
+    }
+  },
+  "textures": {
+    "layer0": "smc:item/lollipop_perkin"
+  }
+}

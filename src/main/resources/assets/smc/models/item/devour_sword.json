@@ -1,0 +1,14 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "smc:item/devour_sword"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "smc:disguised": 1.0
+      },
+      "model": "smc:item/devour_sword_disguise"
+    }
+  ]
+}

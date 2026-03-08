@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "tag": "minecraft:decorated_pot_sherds"
+    },
+    "2": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "1",
+    "2",
+    "2"
+  ],
+  "result": {
+    "item": "smc:archaeological_shovel"
+  },
+  "show_notification": true
+}

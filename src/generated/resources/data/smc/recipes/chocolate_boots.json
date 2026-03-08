@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "smc:chocolate"
+    }
+  },
+  "pattern": [
+    "1 1",
+    "1 1"
+  ],
+  "result": {
+    "item": "smc:chocolate_boots"
+  },
+  "show_notification": true
+}
