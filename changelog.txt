@@ -3,7 +3,8 @@ SMC 1.20.1 Changelog
 -1.0.9
     Add Golden Boat, End Boat and related variants.
     Add Elbowing Effect for Ice Tea.
-    Add Template Shroud.
+    Add Template Shroud and config for them.
+    Add Heirloom Knife item and block and config for them.
     Change Perfrostite Upgrade Scroll to real upgrade template item.
     Change Effect provided by Ice Tea.
     Change Spell Enchantments obtaining back to 1.0.6

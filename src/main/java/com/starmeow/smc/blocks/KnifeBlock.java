@@ -64,7 +64,7 @@ public class KnifeBlock extends CommonBlocks {
         if (level.isClientSide) return InteractionResult.SUCCESS;
         if(!player.isCrouching()){
             Random random = new Random();
-            List<Item> items = Config.whitelistItems.stream().filter(item -> item instanceof SwordItem sword && sword.getDamage() >= 5 && sword.getDamage() <= 8 && item != ItemRegistry.KNIFE.get()).toList();
+            List<Item> items = Config.whitelistSwordItems.stream().filter(item -> item instanceof SwordItem sword && sword.getDamage() >= Config.KNIFE_MIN_ATK.get() && sword.getDamage() <= Config.KNIFE_MAX_ATK.get() && item != ItemRegistry.KNIFE.get()).toList();
             Item randomItem = items.get(random.nextInt(items.size()));
             ItemStack spawnedItem = new ItemStack(randomItem);
             level.addFreshEntity(new ItemEntity(level, player.getX(), player.getY(), player.getZ(), spawnedItem));

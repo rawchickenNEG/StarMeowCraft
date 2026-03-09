@@ -141,7 +141,11 @@ public class Config
                 .define("WateringCanInfinite", true);
         COMMON_BUILDER.pop();
 
-        COMMON_BUILDER.push(WATERING_CAN);
+        COMMON_BUILDER.push(HEIRLOOM_KNIFE);
+        KNIFE_MIN_ATK = COMMON_BUILDER.comment("Define the min damage provided by sword from Heirloom Knife.")
+                .defineInRange("MinDamageRage", 5, 0, Double.MAX_VALUE);
+        KNIFE_MAX_ATK = COMMON_BUILDER.comment("Define the max damage provided by sword from Heirloom Knife.")
+                .defineInRange("MaxDamageRage", 8, 0, Double.MAX_VALUE);
         KNIFE_WHITELIST_ITEM_STRINGS = COMMON_BUILDER
                 .comment("A list of sword items which Heirloom Knife can only contain. Empty means no whitelist.")
                 .comment("If anything in this list, it will not be limited by the blacklist from Lucky Clover.")
