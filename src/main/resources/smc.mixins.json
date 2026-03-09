@@ -5,11 +5,12 @@
   "minVersion": "0.8",
   "refmap": "smc.refmap.json",
   "client": [
+    "KeyboardHanderMixin",
     "MouseHandlerMixin"
   ],
   "mixins": [
-    "LivingEntityMixin",
     "EntityMixin",
+    "LivingEntityMixin",
     "MixinBoat",
     "MixinBoatType",
     "MixinChestBoat"

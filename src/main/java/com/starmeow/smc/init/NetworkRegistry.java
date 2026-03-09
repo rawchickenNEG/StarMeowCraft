@@ -1,6 +1,7 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.StarMeowCraft;
+import com.starmeow.smc.packet.CoffeeGetC2S;
 import com.starmeow.smc.packet.SwordSlashC2S;
 import com.starmeow.smc.packet.TotemActivatePacket;
 import net.minecraft.resources.ResourceLocation;
@@ -22,8 +23,7 @@ public class NetworkRegistry {
     private static int id = 0;
 
     public static void register() {
-        CHANNEL.registerMessage(
-                id++,
+        CHANNEL.registerMessage(id++,
                 TotemActivatePacket.class,
                 TotemActivatePacket::encode,
                 TotemActivatePacket::decode,
@@ -33,6 +33,11 @@ public class NetworkRegistry {
                 .encoder(SwordSlashC2S::encode)
                 .decoder(SwordSlashC2S::decode)
                 .consumerMainThread(SwordSlashC2S::handle)
+                .add();
+        CHANNEL.messageBuilder(CoffeeGetC2S.class, id++)
+                .encoder(CoffeeGetC2S::encode)
+                .decoder(CoffeeGetC2S::decode)
+                .consumerMainThread(CoffeeGetC2S::handle)
                 .add();
     }
 
