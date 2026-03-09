@@ -43,11 +43,6 @@ public class MiniBedrock extends Item {
     }
 
     @Override
-    public float getDestroySpeed(ItemStack p_41004_, BlockState p_41005_) {
-        return p_41005_.is(Blocks.BEDROCK) ? -1.0F : 1.0F;
-    }
-
-    @Override
     public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
         entity.setInvulnerable(true);
         return false;
