@@ -1,6 +1,7 @@
 SMC 1.20.1 Changelog
 
 -1.0.9
+    Add Granite Anvil Block.
     Add JAVA Coffee item.
     Add Golden Boat, End Boat and related variants.
     Add Elbowing Effect for Ice Tea.
