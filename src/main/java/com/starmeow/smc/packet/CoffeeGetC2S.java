@@ -20,7 +20,7 @@ public class CoffeeGetC2S {
         if (player == null) return;
 
         ctx.enqueueWork(() -> {
-            ItemStack item = new ItemStack(ItemRegistry.BOWL_OF_HOT_WATER.get());
+            ItemStack item = new ItemStack(ItemRegistry.COFFEE.get());
             if (!player.getInventory().add(item)) {
                 player.drop(item, false);
             }

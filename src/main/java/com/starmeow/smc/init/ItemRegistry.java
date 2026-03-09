@@ -190,6 +190,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> KNIFE = ITEMS.register("knife", () -> new KnifeItem(Tiers.IRON, 3, -2.4F, defaultBuilder().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> LUCKY_NUGGET = ITEMS.register("lucky_nugget", () -> new LuckyNugget(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(1.1f).fast().build())));
     public static final RegistryObject<Item> MINI_BEDROCK = ITEMS.register("mini_bedrock", () -> new MiniBedrock(defaultBuilder().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee", () -> new CoffeeItem(defaultBuilder().food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.5f).build())));
     public static final RegistryObject<Item> BOT = ITEMS.register("bot", () -> new BotItem(defaultBuilder().stacksTo(1).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> CARROT_PICKAXE = ITEMS.register("carrot_pickaxe", () -> new CarrotPickaxe(ItemTier.CARROT, -1, -2.8F, defaultBuilder(), false));
     public static final RegistryObject<Item> GOLDEN_CARROT_PICKAXE = ITEMS.register("golden_carrot_pickaxe", () -> new CarrotPickaxe(ItemTier.GOLDEN_CARROT, -1, -2.8F, defaultBuilder(), true));

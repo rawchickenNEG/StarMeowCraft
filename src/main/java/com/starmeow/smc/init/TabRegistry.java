@@ -144,6 +144,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.BROCCOLI_CANDY.get());
                 output.accept(ItemRegistry.FROST_CANDY.get());
                 output.accept(ItemRegistry.STAR_CANDY.get());
+                output.accept(ItemRegistry.COFFEE.get());
                 output.accept(ItemRegistry.COPPER_WATERING_CAN.get());
                 output.accept(ItemRegistry.IRON_WATERING_CAN.get());
                 output.accept(ItemRegistry.WATERING_CAN.get());

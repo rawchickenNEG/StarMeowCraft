@@ -45,6 +45,8 @@ public class Config
     public static final String HEIRLOOM_KNIFE = "HeirloomKnife";
     public static ForgeConfigSpec.DoubleValue KNIFE_MIN_ATK;
     public static ForgeConfigSpec.DoubleValue KNIFE_MAX_ATK;
+    public static final String COFFEE = "CoffeeItem";
+    public static ForgeConfigSpec.IntValue COFFEE_COOLDOWN;
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_BLACKLIST_KEYWORDS_STRINGS;
@@ -158,6 +160,9 @@ public class Config
                         List.of("smc:devour_sword"
                         ), Config::validateItemName);
         COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(COFFEE);
+        COFFEE_COOLDOWN = COMMON_BUILDER.comment("Define the cooldown of Java Coffee (in MC tick)")
+                .defineInRange("CoffeeCD", 200, 0, Integer.MAX_VALUE);
         COMMON_CONFIG = COMMON_BUILDER.build();
     }
 
