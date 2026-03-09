@@ -9,6 +9,7 @@
     "MouseHandlerMixin"
   ],
   "mixins": [
+    "AnvilBlockMixin",
     "EntityMixin",
     "LivingEntityMixin",
     "MixinBoat",
