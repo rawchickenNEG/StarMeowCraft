@@ -20,6 +20,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
@@ -80,6 +81,10 @@ public class KnifeBlock extends CommonBlocks {
         Direction dir = p_152019_.getHorizontalDirection().getOpposite();
         return this.defaultBlockState()
                 .setValue(FACING, dir);
+    }
+
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        return level.getBlockState(pos.below()).isSolid();
     }
 
     public BlockState rotate(BlockState p_152033_, Rotation p_152034_) {
