@@ -90,8 +90,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> FROSTIUM_BOW = ITEMS.register("frostium_bow", () -> new FrostiumBow(defaultBuilder().durability(1260)));
     public static final RegistryObject<Item> FROST_ARROW = ITEMS.register("frost_arrow", () -> new FrostArrowItem(defaultBuilder()));
 
+    public static final RegistryObject<Item> GRANITE_ANVIL = ITEMS.register("granite_anvil", () -> new ItemNameBlockItem(BlockRegistry.GRANITE_ANVIL.get(), defaultBuilder()));
 
     public static final RegistryObject<Item> GRIMOIRE = ITEMS.register("perkin_wand", () -> new Grimoire(defaultBuilder().durability(350)));
+
     public static final RegistryObject<Item> ICE_TEA = ITEMS.register("ice_tea", () -> new IceTea(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.75f)
             .effect(new MobEffectInstance(MobEffects.SLOW_FALLING, 1200, 1), 1.0F)
             .effect(new MobEffectInstance(PotionEffectRegistry.ELBOWING.get(), 1000, 2), 1.0F)
@@ -190,7 +192,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> KNIFE = ITEMS.register("knife", () -> new KnifeItem(Tiers.IRON, 3, -2.4F, defaultBuilder().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> LUCKY_NUGGET = ITEMS.register("lucky_nugget", () -> new LuckyNugget(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(1.1f).fast().build())));
     public static final RegistryObject<Item> MINI_BEDROCK = ITEMS.register("mini_bedrock", () -> new MiniBedrock(defaultBuilder().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
-    public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee", () -> new CoffeeItem(defaultBuilder().food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.5f).build())));
+    public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee", () -> new CoffeeItem(defaultBuilder().rarity(Rarity.UNCOMMON).food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.5f).build())));
     public static final RegistryObject<Item> BOT = ITEMS.register("bot", () -> new BotItem(defaultBuilder().stacksTo(1).rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> CARROT_PICKAXE = ITEMS.register("carrot_pickaxe", () -> new CarrotPickaxe(ItemTier.CARROT, -1, -2.8F, defaultBuilder(), false));
     public static final RegistryObject<Item> GOLDEN_CARROT_PICKAXE = ITEMS.register("golden_carrot_pickaxe", () -> new CarrotPickaxe(ItemTier.GOLDEN_CARROT, -1, -2.8F, defaultBuilder(), true));

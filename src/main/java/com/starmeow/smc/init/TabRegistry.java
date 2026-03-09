@@ -40,8 +40,8 @@ public class TabRegistry {
                 output.accept(ItemRegistry.BROCCOLI_CRATE.get());
 
                 output.accept(ItemRegistry.EASTER_BUNNY_SPAWN_EGG.get());
-
-
+                //blocks
+                output.accept(ItemRegistry.GRANITE_ANVIL.get());
                 //foods
                 output.accept(ItemRegistry.BROCCOLI.get());
                 output.accept(ItemRegistry.GOLDEN_BROCCOLI.get());
@@ -138,6 +138,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.ARCHAEOLOGICAL_SHOVEL.get());
                 output.accept(ItemRegistry.LUCKY_CLOVER.get());
                 output.accept(ItemRegistry.LUCKY_NUGGET.get());
+                output.accept(ItemRegistry.KNIFE.get());
                 output.accept(ItemRegistry.ORE_DETECTOR.get());
                 output.accept(ItemRegistry.BOT.get());
                 output.accept(ItemRegistry.CANDY_JAR.get());

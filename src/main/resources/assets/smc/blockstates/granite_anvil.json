@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "smc:block/granite_anvil",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "smc:block/granite_anvil",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "smc:block/granite_anvil"
+    },
+    "facing=west": {
+      "model": "smc:block/granite_anvil",
+      "y": 90
+    }
+  }
+}

@@ -28,7 +28,8 @@ public class BlocktagProvider extends BlockTagsProvider {
                         BlockRegistry.PERKIN_ORE.get(),
                         BlockRegistry.DEEPSLATE_PERKIN_ORE.get(),
                         BlockRegistry.WATER_DISPENSER.get(),
-                        BlockRegistry.KNIFE.get()
+                        BlockRegistry.KNIFE.get(),
+                        BlockRegistry.GRANITE_ANVIL.get()
                 );
 
 
@@ -40,7 +41,11 @@ public class BlocktagProvider extends BlockTagsProvider {
                         BlockRegistry.PERKIN_BLOCK.get(),
                         BlockRegistry.PERKIN_ORE.get(),
                         BlockRegistry.DEEPSLATE_PERKIN_ORE.get()
-                        );
+                );
 
+        this.tag(BlockTags.ANVIL)
+                .add(
+                        BlockRegistry.GRANITE_ANVIL.get()
+                );
     }
 }
