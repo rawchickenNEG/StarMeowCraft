@@ -228,7 +228,7 @@
   "item.smc.end_chest_boat": "End Boat With Box",
   "item.smc.template_shroud": "Template Shroud",
   "item.smc.knife": "Heirloom Knife",
-  "item.smc.coffee": "Java Coffee",
+  "item.smc.coffee": "A Cup Of Java",
 
   "item.smc.music_disc_laoda": "Music Disc",
   "item.smc.music_disc_laoda.desc": "牢大の小曲 - See You Again But Children",
@@ -326,6 +326,9 @@
   "tooltip.smc.knife_1": "unbroken through a millennium",
   "tooltip.smc.knife_2": "When the blade’s point touches ground",
   "tooltip.smc.knife_3": "it turns elusive—mutable beyond measure",
+  "tooltip.smc.coffee": "Stop before the world crashing",
+  "tooltip.smc.coffee_1": "Insomnia cure for the restraint",
+
   "tooltip.smc.swiss_army_knife_brush": "Brush Module Loaded",
   "tooltip.smc.swiss_army_knife_shears": "Shears Module Loaded",
   "tooltip.smc.template_shroud": "Can absorb Smithing Template Items to increase armor value. Cannot absorb Smithing Template Items which had been absorbed.",

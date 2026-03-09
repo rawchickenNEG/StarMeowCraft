@@ -241,7 +241,7 @@
   "item.smc.end_chest_boat": "末地运输船",
   "item.smc.template_shroud": "万板护体",
   "item.smc.knife": "传家宝刀",
-  "item.smc.coffee": "Java咖啡",
+  "item.smc.coffee": "一杯Java",
 
   "item.smc.easter_bunny_spawn_egg": "复活节兔子刷怪蛋",
   "item.smc.salt_fish_spawn_egg": "咸鱼刷怪蛋",
@@ -329,6 +329,8 @@
   "tooltip.smc.knife_1": "千年不坏",
   "tooltip.smc.knife_2": "刀尖触地",
   "tooltip.smc.knife_3": "变幻莫测",
+  "tooltip.smc.coffee": "世界崩溃前一秒收手",
+  "tooltip.smc.coffee_1": "克制之人不寐的解药",
 
   "tooltip.smc.swiss_army_knife_brush": "已装载刷子模块",
   "tooltip.smc.swiss_army_knife_shears": "已装载剪刀模块",
