@@ -139,7 +139,10 @@ public class DataGen {
             list.add(String.valueOf(ItemRegistry.BOWL_OF_WATER.get()));
             list.add(String.valueOf(ItemRegistry.GOLDEN_BOAT.get()));
             list.add(String.valueOf(ItemRegistry.GOLDEN_TRANSPARENT_BOAT.get()));
+            list.add(String.valueOf(ItemRegistry.GOLDEN_CHEST_BOAT.get()));
             list.add(String.valueOf(ItemRegistry.END_BOAT.get()));
+            list.add(String.valueOf(ItemRegistry.END_CHEST_BOAT.get()));
+            list.add(String.valueOf(ItemRegistry.COFFEE.get()));
             list.add(String.valueOf(ItemRegistry.TEMPLATE_SHROUD.get()));
 
             for (Object o : list) {
