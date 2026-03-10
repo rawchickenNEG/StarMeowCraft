@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:gold_ingot"
+    },
+    "2": {
+      "item": "minecraft:golden_shovel"
+    },
+    "3": {
+      "item": "smc:star_dust"
+    },
+    "4": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "pattern": [
+    "121",
+    "111",
+    "343"
+  ],
+  "result": {
+    "item": "smc:golden_transparent_boat"
+  },
+  "show_notification": true
+}

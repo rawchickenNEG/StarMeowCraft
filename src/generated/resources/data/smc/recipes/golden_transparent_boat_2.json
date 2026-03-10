@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "2": {
+      "item": "smc:golden_boat"
+    },
+    "3": {
+      "item": "smc:star_dust"
+    },
+    "4": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "pattern": [
+    " 2 ",
+    "343"
+  ],
+  "result": {
+    "item": "smc:golden_transparent_boat"
+  },
+  "show_notification": true
+}
