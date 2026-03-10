@@ -37,7 +37,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DOLL_4 = BLOCKS.register("doll_starjump", () -> new DollBlocks(Block.Properties.copy(Blocks.WHITE_WOOL), SoundEvents.FOX_AMBIENT));
     public static final RegistryObject<Block> WATER_DISPENSER = BLOCKS.register("water_dispenser", () -> new WaterDispenserBlock(Block.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> KNIFE = BLOCKS.register("knife", () -> new KnifeBlock(Block.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistryObject<Block> GRANITE_ANVIL = BLOCKS.register("granite_anvil", () -> new GraniteAnvilBlock(Block.Properties.copy(Blocks.ANVIL)));
+    public static final RegistryObject<Block> GRANITE_ANVIL = BLOCKS.register("granite_anvil", () -> new GraniteAnvilBlock(Block.Properties.copy(Blocks.ANVIL).sound(SoundType.STONE)));
 
     public static final RegistryObject<Block> FROST_PIE_BLOCK = BLOCKS.register("frost_pie_block", () -> new BasePieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), ItemRegistry.FROST_PIE_SLICE));
 

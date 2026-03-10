@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:polished_granite"
+    },
+    "2": {
+      "item": "minecraft:granite_wall"
+    },
+    "3": {
+      "item": "minecraft:polished_granite_slab"
+    }
+  },
+  "pattern": [
+    "111",
+    " 2 ",
+    "333"
+  ],
+  "result": {
+    "item": "smc:granite_anvil"
+  },
+  "show_notification": true
+}
