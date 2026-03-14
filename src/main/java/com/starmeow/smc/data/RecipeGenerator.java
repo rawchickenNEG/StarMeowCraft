@@ -820,6 +820,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('3', Items.POLISHED_GRANITE_SLAB)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.POLISHED_GRANITE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.GRANITE_ANVIL.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.ANCIENT_SMITHING_TABLE.get())
+                .pattern("111")
+                .pattern("323")
+                .pattern("343")
+                .define('1', Items.NETHERITE_INGOT)
+                .define('2', Items.SMITHING_TABLE)
+                .define('3', Items.GOLD_INGOT)
+                .define('4', ItemRegistry.PERKIN_STAR.get())
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SMITHING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.ANCIENT_SMITHING_TABLE.get().toString()));
         /*
         ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ItemRegistry.NETHERITE_SWISS_ARMY_KNIFE.get())
                 .requires(Items.NETHERITE_AXE)
