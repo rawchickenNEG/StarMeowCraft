@@ -48,7 +48,7 @@ public class StarMeowCraft
         EntityTypeRegistry.ENTITY_TYPES.register(modEventBus);
         EnchantmentRegistry.ENCHANTMENT.register(modEventBus);
         PotionEffectRegistry.MOB_EFFECTS.register(modEventBus);
-        RecipeSerializerRegistry.register(modEventBus);
+        RecipeSerializerRegistry.SERIALIZERS.register(modEventBus);
         TabRegistry.CREATIVE_MODE_TABS.register(modEventBus);
         LootModifierRegistry.LOOT_MODIFIER.register(modEventBus);
         ParticleRegistry.PARTICLES.register(modEventBus);
