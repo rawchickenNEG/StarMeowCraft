@@ -41,7 +41,7 @@ public enum ArmorTier implements ArmorMaterial {
     TEMPLATE("template", 30, Util.make(new EnumMap<>(ArmorItem.Type.class), armor -> {
         armor.put(ArmorItem.Type.BOOTS, 0);
         armor.put(ArmorItem.Type.LEGGINGS, 0);
-        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.CHESTPLATE, 0);
         armor.put(ArmorItem.Type.HELMET, 0);
     }), 10, SoundEvents.ARMOR_EQUIP_NETHERITE, 1.0f, 0.0f, Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE));
 

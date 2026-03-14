@@ -4,6 +4,7 @@ SMC 1.20.1 Changelog
     Add Granite Anvil Block.
     Add JAVA Coffee item.
     Add Golden Boat, End Boat and related variants.
+    Add Swiss Army Knife loading shear and brush recipe on crafting table.
     Add Elbowing Effect for Ice Tea.
     Add Template Shroud and config for them.
     Add Heirloom Knife item and block and config for them.
@@ -12,6 +13,7 @@ SMC 1.20.1 Changelog
     Change Spell Enchantments obtaining back to 1.0.6
     Change Devour Sword skin changing way.
     Fix Devour Sword skin model issue.
+    Remove Swiss Army Knife anvil event.
 -1.0.8
     Added knives tag for Swiss Army Knive Items for Farmers Delight compat.
     Added Devour Sword.

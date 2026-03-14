@@ -120,7 +120,6 @@ public class TabRegistry {
                 output.accept(ItemRegistry.KNIFE.get());
                 output.accept(ItemRegistry.CAT_PAW.get());
                 //output.accept(ItemRegistry.SPEAR_GUN.get());
-                output.accept(ItemRegistry.COMMAND_BLOCK_WAND.get());
                 output.accept(ItemRegistry.CARROT_PICKAXE.get());
                 output.accept(ItemRegistry.GOLDEN_CARROT_PICKAXE.get());
                 output.accept(ItemRegistry.CHOCOLATE_SWORD.get());
@@ -128,6 +127,12 @@ public class TabRegistry {
                 output.accept(ItemRegistry.CHOCOLATE_CHESTPLATE.get());
                 output.accept(ItemRegistry.CHOCOLATE_LEGGINGS.get());
                 output.accept(ItemRegistry.CHOCOLATE_BOOTS.get());
+                output.accept(ItemRegistry.DELUXE_CAKE.get());
+                output.accept(ItemRegistry.GOLDEN_BOAT.get());
+                output.accept(ItemRegistry.GOLDEN_CHEST_BOAT.get());
+                output.accept(ItemRegistry.GOLDEN_TRANSPARENT_BOAT.get());
+                output.accept(ItemRegistry.END_BOAT.get());
+                output.accept(ItemRegistry.END_CHEST_BOAT.get());
                 output.accept(ItemRegistry.STAR_DUST.get());
                 output.accept(ItemRegistry.PEA_SHOOTER_POT.get());
                 output.accept(ItemRegistry.SUNFLOWER_POT.get());
@@ -155,12 +160,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.WATER_DISPENSER.get());
                 output.accept(ItemRegistry.MINI_BEDROCK.get());
                 output.accept(ItemRegistry.MCR_SWORD.get());
-                output.accept(ItemRegistry.DELUXE_CAKE.get());
-                output.accept(ItemRegistry.GOLDEN_BOAT.get());
-                output.accept(ItemRegistry.GOLDEN_CHEST_BOAT.get());
-                output.accept(ItemRegistry.GOLDEN_TRANSPARENT_BOAT.get());
-                output.accept(ItemRegistry.END_BOAT.get());
-                output.accept(ItemRegistry.END_CHEST_BOAT.get());
+                output.accept(ItemRegistry.COMMAND_BLOCK_WAND.get());
                 if (ModList.get().isLoaded("farmersdelight")) {
                     output.accept(ItemRegistry.DELUXE_CAKE_SLICE.get());
                 }

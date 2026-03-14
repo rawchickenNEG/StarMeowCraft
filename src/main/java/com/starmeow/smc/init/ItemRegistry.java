@@ -91,6 +91,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> FROST_ARROW = ITEMS.register("frost_arrow", () -> new FrostArrowItem(defaultBuilder()));
 
     public static final RegistryObject<Item> GRANITE_ANVIL = ITEMS.register("granite_anvil", () -> new ItemNameBlockItem(BlockRegistry.GRANITE_ANVIL.get(), defaultBuilder()));
+    public static final RegistryObject<Item> ANCIENT_SMITHING_TABLE = ITEMS.register("ancient_smithing_table", () -> new ItemNameBlockItem(BlockRegistry.ANCIENT_SMITHING_TABLE.get(), defaultBuilder()));
 
     public static final RegistryObject<Item> GRIMOIRE = ITEMS.register("perkin_wand", () -> new Grimoire(defaultBuilder().durability(350)));
 

@@ -3,6 +3,7 @@ package com.starmeow.smc.items;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.starmeow.smc.config.Config;
+import com.starmeow.smc.helper.ItemHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -57,7 +58,7 @@ public class TemplateShroud extends SMCArmorItems{
             ListTag list = tag.getList("SMCTemplateStored", Tag.TAG_STRING);
             ResourceLocation res = ForgeRegistries.ITEMS.getKey(selected.getItem());
             StringTag newID = StringTag.valueOf(res.toString());
-            if(list.contains(newID) || !(selected.getItem() instanceof SmithingTemplateItem)){
+            if(list.contains(newID) || !(ItemHelper.isTemplateItem(selected))){
                 p_150736_.level().playSound(p_150736_, p_150736_.getOnPos(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, SoundSource.PLAYERS);
             }else{
                 p_150734_.safeTake(selected.getCount(), 1, p_150736_);

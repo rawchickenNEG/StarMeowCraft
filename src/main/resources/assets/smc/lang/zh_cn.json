@@ -244,6 +244,8 @@
   "item.smc.knife": "传家宝刀",
   "item.smc.coffee": "一杯Java",
   "item.smc.granite_anvil": "花岗砧",
+  "item.smc.ancient_smithing_table": "远古锻造台",
+  "item.smc.command_wand": "命令权杖",
 
   "item.smc.easter_bunny_spawn_egg": "复活节兔子刷怪蛋",
   "item.smc.salt_fish_spawn_egg": "咸鱼刷怪蛋",
@@ -346,5 +348,7 @@
   "tooltip.smc.bot_mode_0": "关闭",
   "tooltip.smc.bot_mode_1": "开启",
   "tooltip.smc.bot_mode_2": "吸收",
-  "tooltip.smc.bot_mode_3": "释放"
+  "tooltip.smc.bot_mode_3": "释放",
+
+  "container.smc.upgrade": "升级装备（不消耗模板）"
 }

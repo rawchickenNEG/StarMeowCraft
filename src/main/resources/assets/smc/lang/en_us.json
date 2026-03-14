@@ -231,6 +231,8 @@
   "item.smc.knife": "Heirloom Knife",
   "item.smc.coffee": "A Cup Of Java",
   "item.smc.granite_anvil": "Granvil",
+  "item.smc.ancient_smithing_table": "Ancient Smithing Table",
+  "item.smc.command_wand": "Command Wand",
 
   "item.smc.music_disc_laoda": "Music Disc",
   "item.smc.music_disc_laoda.desc": "牢大の小曲 - See You Again But Children",
@@ -343,5 +345,7 @@
   "tooltip.smc.bot_mode_0": "OFF",
   "tooltip.smc.bot_mode_1": "ON",
   "tooltip.smc.bot_mode_2": "ABSORBING",
-  "tooltip.smc.bot_mode_3": "RELEASING"
+  "tooltip.smc.bot_mode_3": "RELEASING",
+
+  "container.smc.upgrade": "Upgrade Gear (No Template Consumption)"
 }

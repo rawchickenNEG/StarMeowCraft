@@ -5,8 +5,10 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,5 +67,11 @@ public class ItemHelper {
             result.append(Component.literal(String.valueOf(ch)).withStyle(style -> style.withColor(rgb).withBold(isBold)));
         }
         return result;
+    }
+
+    public static boolean isTemplateItem(ItemStack itemStack){
+        if(itemStack == null) return false;
+        return itemStack.getItem() instanceof SmithingTemplateItem
+                || ForgeRegistries.ITEMS.getKey(itemStack.getItem()).toString().matches(".*smithing_template.*");
     }
 }
