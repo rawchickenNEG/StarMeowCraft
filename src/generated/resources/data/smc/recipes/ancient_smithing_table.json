@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "2": {
+      "item": "minecraft:smithing_table"
+    },
+    "3": {
+      "item": "minecraft:gold_ingot"
+    },
+    "4": {
+      "item": "smc:perkin_star"
+    }
+  },
+  "pattern": [
+    "111",
+    "323",
+    "343"
+  ],
+  "result": {
+    "item": "smc:ancient_smithing_table"
+  },
+  "show_notification": true
+}

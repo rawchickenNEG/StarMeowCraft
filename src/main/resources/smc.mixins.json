@@ -14,7 +14,8 @@
     "LivingEntityMixin",
     "MixinBoat",
     "MixinBoatType",
-    "MixinChestBoat"
+    "MixinChestBoat",
+    "SmithingMenuMixin"
   ],
   "injectors": {
     "defaultRequire": 1
