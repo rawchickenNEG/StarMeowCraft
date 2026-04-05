@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 25241315,
+    "spacing": 48,
+    "separation": 8
+  },
+  "structures": [
+    {
+      "structure": "smc:calibur_basement",
+      "weight": 1
+    }
+  ]
+}
