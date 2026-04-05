@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,upper=false": {
+      "model": "smc:block/calibur_block_lower",
+      "y": 180
+    },
+    "facing=north,upper=false": {
+      "model": "smc:block/calibur_block_lower",
+      "y": 90
+    },
+    "facing=south,upper=false": {
+      "model": "smc:block/calibur_block_lower",
+      "y": 270
+    },
+    "facing=west,upper=false": {
+      "model": "smc:block/calibur_block_lower"
+    },
+    "facing=east,upper=true": {
+      "model": "smc:block/calibur_block_upper",
+      "y": 180
+    },
+    "facing=north,upper=true": {
+      "model": "smc:block/calibur_block_upper",
+      "y": 90
+    },
+    "facing=south,upper=true": {
+      "model": "smc:block/calibur_block_upper",
+      "y": 270
+    },
+    "facing=west,upper=true": {
+      "model": "smc:block/calibur_block_upper"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/excalibur_item"
+  },
+  "perspectives": {
+    "thirdperson_righthand": {
+      "parent": "smc:item/excalibur_handheld"
+    },
+    "thirdperson_lefthand": {
+      "parent": "smc:item/excalibur_handheld"
+    },
+    "firstperson_righthand": {
+      "parent": "smc:item/excalibur_handheld"
+    },
+    "firstperson_lefthand": {
+      "parent": "smc:item/excalibur_handheld"
+    }
+  }
+}

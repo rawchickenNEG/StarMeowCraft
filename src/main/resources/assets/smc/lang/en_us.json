@@ -84,6 +84,7 @@
   "block.smc.sunflower_pot_block": "Sunflower Pot",
   "block.smc.wallnut_pot_block": "Wallnut Pot",
   "block.smc.water_dispenser": "Water Dispenser",
+  "block.smc.calibur_block": "Calibur Block",
 
   "item.smc.broccoli": "Broccoli",
   "item.smc.broccoli_crate": "Broccoli Crate",
@@ -213,6 +214,7 @@
   "item.smc.chocolate_chestplate": "Chocolate Chestplate",
   "item.smc.chocolate_leggings": "Chocolate Leggings",
   "item.smc.chocolate_boots": "Chocolate Boots",
+  "item.smc.command_block_wand": "Command Wand",
   "item.smc.googoo_stew": "Cooing Stew",
   "item.smc.guagua_jelly": "Ribbit Jelly",
   "item.smc.end_rod_candy": "End Rod Candy",
@@ -232,7 +234,9 @@
   "item.smc.coffee": "A Cup Of Java",
   "item.smc.granite_anvil": "Granvil",
   "item.smc.ancient_smithing_table": "Ancient Smithing Table",
-  "item.smc.command_wand": "Command Wand",
+  "item.smc.calibur": "Calibur",
+  "item.smc.excalibur": "Excalibur",
+  "item.smc.calibur_block": "Calibur Block",
 
   "item.smc.music_disc_laoda": "Music Disc",
   "item.smc.music_disc_laoda.desc": "牢大の小曲 - See You Again But Children",
@@ -251,6 +255,7 @@
   "item.smc.salt_fish_spawn_egg": "Salt Fish Spawn Egg",
 
   "message.smc.you_cheated_first": "You Cheated First!",
+  "message.smc.need_strength": "You don't have enough STRENGTH to pull it out.",
 
   "tooltip.smc.broccoli_boots": "Provides Luck and Speed when equipped.",
   "tooltip.smc.broccoli_hoe": "Has chance to get Bone Meal.",
@@ -258,6 +263,8 @@
   "tooltip.smc.cat_paw": "You smell like a cat...perhaps some creatures think so.",
   "tooltip.smc.carrot_pickaxe": "Has chance to recover your food level when breaking blocks.",
   "tooltip.smc.carrot_pickaxe_1": "Obtained when Rabbit Digging Carrots.",
+  "tooltip.smc.command_block_wand": "Shooting magic arrows very quickly.",
+  "tooltip.smc.command_block_wand_1": "Creative Mode: Applying loot table for containers and suspicious blocks by Shift + Right Click after change the item name.",
   "tooltip.smc.golden_carrot_pickaxe": "Has chance to recover your food level when breaking blocks.",
   "tooltip.smc.golden_carrot_pickaxe_1": "Providing Night Vision effect when holding.",
   "tooltip.smc.frostium_sword": "Freeze the target, deal double damage to fire immune and water sensitive entities.",
@@ -332,6 +339,7 @@
   "tooltip.smc.knife_3": "it turns elusive—mutable beyond measure",
   "tooltip.smc.coffee": "Stop before the world crashing",
   "tooltip.smc.coffee_1": "Insomnia cure for the restraint",
+  "tooltip.smc.excalibur": "Emitting a sword aura when swinging, which can go through entities and blocks, and causes %s%s extra damage based on target's current health.",
 
   "tooltip.smc.swiss_army_knife_brush": "Brush Module Loaded",
   "tooltip.smc.swiss_army_knife_shears": "Shears Module Loaded",

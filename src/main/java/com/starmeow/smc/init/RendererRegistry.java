@@ -1,7 +1,9 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.client.renderer.*;
+import net.minecraft.client.renderer.entity.ChickenRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.world.entity.animal.Chicken;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,6 +29,10 @@ public class RendererRegistry {
         event.registerEntityRenderer(EntityTypeRegistry.RAINBOW_FISHING_HOOK.get(), RainbowFishingHookRenderer::new);
         event.registerEntityRenderer(EntityTypeRegistry.SPEAR_HOOK.get(), SpearHookRenderer::new);
         event.registerEntityRenderer(EntityTypeRegistry.THROWN_SWORD.get(), ThrownSwordRenderer::new);
+        event.registerEntityRenderer(EntityTypeRegistry.CHICKEN_HARVESTER.get(), ChickenHarvesterRenderer::new);
+        event.registerEntityRenderer(EntityTypeRegistry.SWORD_AURA.get(), SwordAuraRenderer::new);
+
+
     }
 
 }
