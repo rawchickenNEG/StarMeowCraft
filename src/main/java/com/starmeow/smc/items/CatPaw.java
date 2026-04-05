@@ -46,7 +46,7 @@ public class CatPaw extends SwordItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return ItemHelper.customColor(super.getName(stack), 255, 150, 255);
+        return ItemHelper.customColor(super.getName(stack), 255, 150, 255, false);
     }
 
     @OnlyIn(Dist.CLIENT)

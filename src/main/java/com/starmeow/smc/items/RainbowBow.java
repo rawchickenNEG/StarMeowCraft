@@ -99,7 +99,7 @@ public class RainbowBow extends BowItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return ItemHelper.rainbowColor(super.getName(stack), (long)(System.currentTimeMillis()), 0);
+        return ItemHelper.rainbowColor(super.getName(stack), 20, 0);
     }
 
     @OnlyIn(Dist.CLIENT)

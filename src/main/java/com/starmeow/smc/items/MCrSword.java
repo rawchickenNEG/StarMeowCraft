@@ -50,6 +50,6 @@ public class MCrSword extends SwordItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return ItemHelper.rainbowColor(super.getName(stack), (long)(System.currentTimeMillis() * 5), 0.5);
+        return ItemHelper.rainbowColor(super.getName(stack), 100, 0.5);
     }
 }
