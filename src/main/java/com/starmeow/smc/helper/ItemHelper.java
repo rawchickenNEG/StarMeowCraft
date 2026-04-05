@@ -1,5 +1,6 @@
 package com.starmeow.smc.helper;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.util.Mth;
@@ -47,14 +48,20 @@ public class ItemHelper {
         return -1;
     }
 
-    public static Component customColor(Component name, int r, int g, int b){
-        String text = name.getString();
-        int rgb = (r << 16) | (g << 8) | b;
-        return Component.literal(text).withStyle(style -> style.withColor(rgb));
+    public static int colorToInt(int r, int g, int b){
+        return (r << 16) | (g << 8) | b;
     }
 
-    public static Component rainbowColor(Component name, Long time, double boldRate){
+    public static Component customColor(Component name, int r, int g, int b, boolean bold){
         String text = name.getString();
+        return Component.literal(text).withStyle(style -> style.withColor(colorToInt(r,g,b)));
+    }
+
+    public static Component rainbowColor(Component name, long speed, double boldRate){
+        String text = name.getString();
+        long time = Minecraft.getInstance().level != null
+                ? Minecraft.getInstance().level.getGameTime() * speed
+                : System.currentTimeMillis() * speed;
         float baseHue = ((time % 2000L) / 2000.0F);
 
         MutableComponent result = Component.literal("");
@@ -67,6 +74,56 @@ public class ItemHelper {
             result.append(Component.literal(String.valueOf(ch)).withStyle(style -> style.withColor(rgb).withBold(isBold)));
         }
         return result;
+    }
+
+    public static Component customRainbowColor(Component name, long speed, boolean bold, float factor, int... colors) {
+        String text = name.getString();
+        if (text.isEmpty()) return name;
+        long gameTime = Minecraft.getInstance().level != null
+                ? Minecraft.getInstance().level.getGameTime()
+                : System.currentTimeMillis() / 50;
+        long time = gameTime * speed;
+
+        int colorCount = colors.length;
+        float progress = (time % (2000L * colorCount)) / (2000.0F * colorCount);
+        float segment = progress * colorCount;
+
+        int currentIndex = (int) segment;
+        float lerpFactor = segment - currentIndex;
+
+        MutableComponent result = Component.literal("");
+        for (int i = text.length() - 1; i >= 0; i--) {
+            char ch = text.charAt(text.length() - 1 - i);
+
+            int color1 = colors[currentIndex % colorCount];
+            int color2 = colors[(currentIndex + 1) % colorCount];
+
+            float finalFactor = (lerpFactor + (i)) % 1.0f;
+            int finalColor = lerpColor(color1, color2, finalFactor);
+
+            result.append(Component.literal(String.valueOf(ch))
+                    .withStyle(style -> style.withColor(finalColor).withBold(bold)));
+        }
+        return result;
+    }
+
+    public static int lerpColor(int color1, int color2, float factor) {
+        int r1 = (color1 >> 16) & 0xFF;
+        int g1 = (color1 >> 8) & 0xFF;
+        int b1 = color1 & 0xFF;
+
+        int r2 = (color2 >> 16) & 0xFF;
+        int g2 = (color2 >> 8) & 0xFF;
+        int b2 = color2 & 0xFF;
+
+        int r = (int) (r1 + (r2 - r1) * factor);
+        int g = (int) (g1 + (g2 - g1) * factor);
+        int b = (int) (b1 + (b2 - b1) * factor);
+        r = Mth.clamp(r, 0, 255);
+        g = Mth.clamp(g, 0, 255);
+        b = Mth.clamp(b, 0, 255);
+
+        return (r << 16) | (g << 8) | b;
     }
 
     public static boolean isTemplateItem(ItemStack itemStack){
