@@ -85,6 +85,9 @@
   "block.smc.sunflower_pot_block": "向日葵盆栽",
   "block.smc.wallnut_pot_block": "坚果墙盆栽",
   "block.smc.water_dispenser": "饮水机",
+  "block.smc.calibur_block": "石中剑（方块）",
+  "block.smc.potted_broccoli": "西兰花盆栽",
+
 
   "item.smc.broccoli": "西兰花",
   "item.smc.broccoli_crate": "箱装西兰花",
@@ -226,6 +229,7 @@
   "item.smc.chocolate_chestplate": "巧克力胸甲",
   "item.smc.chocolate_leggings": "巧克力护腿",
   "item.smc.chocolate_boots": "巧克力靴子",
+  "item.smc.command_block_wand": "命令之杖",
   "item.smc.googoo_stew": "咕咕煲",
   "item.smc.guagua_jelly": "呱呱果冻",
   "item.smc.end_rod_candy": "末地烛糖",
@@ -245,12 +249,15 @@
   "item.smc.coffee": "一杯Java",
   "item.smc.granite_anvil": "花岗砧",
   "item.smc.ancient_smithing_table": "远古锻造台",
-  "item.smc.command_wand": "命令权杖",
+  "item.smc.calibur": "石中剑",
+  "item.smc.excalibur": "誓约圣剑",
+  "item.smc.calibur_block": "石中剑（方块）",
 
   "item.smc.easter_bunny_spawn_egg": "复活节兔子刷怪蛋",
   "item.smc.salt_fish_spawn_egg": "咸鱼刷怪蛋",
 
   "message.smc.you_cheated_first": "是你先开的！",
+  "message.smc.need_strength": "你没有足够的力量拔出它",
 
   "tooltip.smc.broccoli_boots": "装备时提供幸运和速度。",
   "tooltip.smc.broccoli_hoe": "有概率获取骨粉。",
@@ -258,6 +265,8 @@
   "tooltip.smc.cat_paw": "你闻起来像一只猫……也许有些生物也是这么认为的。",
   "tooltip.smc.carrot_pickaxe": "破坏方块时有概率恢复饱食度。",
   "tooltip.smc.carrot_pickaxe_1": "通过兔子挖掘胡萝卜获取。",
+  "tooltip.smc.command_block_wand": "极快发射魔法箭。",
+  "tooltip.smc.command_block_wand_1": "创造模式：命名后shift右击赋予容器和可疑方块战利品表。",
   "tooltip.smc.golden_carrot_pickaxe": "破坏方块时有概率恢复饱食度。",
   "tooltip.smc.golden_carrot_pickaxe_1": "手持时提供夜视效果。",
   "tooltip.smc.frostium_sword": "冰冻目标，对火焰免疫以及对水敏感的生物造成双倍伤害。",
@@ -335,6 +344,7 @@
   "tooltip.smc.knife_3": "变幻莫测",
   "tooltip.smc.coffee": "世界崩溃前一秒收手",
   "tooltip.smc.coffee_1": "克制之人不寐的解药",
+  "tooltip.smc.excalibur": "挥动时发射一道剑气，剑气可以穿透方块和实体并对目标额外造成%s%s当前生命值的伤害。",
 
   "tooltip.smc.swiss_army_knife_brush": "已装载刷子模块",
   "tooltip.smc.swiss_army_knife_shears": "已装载剪刀模块",

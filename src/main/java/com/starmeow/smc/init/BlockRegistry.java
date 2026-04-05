@@ -39,6 +39,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> KNIFE = BLOCKS.register("knife", () -> new KnifeBlock(Block.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> GRANITE_ANVIL = BLOCKS.register("granite_anvil", () -> new GraniteAnvilBlock(Block.Properties.copy(Blocks.ANVIL).sound(SoundType.STONE)));
     public static final RegistryObject<Block> ANCIENT_SMITHING_TABLE = BLOCKS.register("ancient_smithing_table", () -> new AncientSmithingTable(Block.Properties.copy(Blocks.SMITHING_TABLE).sound(SoundType.NETHERITE_BLOCK)));
+    public static final RegistryObject<Block> CALIBUR_BLOCK = BLOCKS.register("calibur_block", () -> new CaliburBlock(Block.Properties.copy(Blocks.BEDROCK).sound(SoundType.METAL)));
+    
+    public static final RegistryObject<Block> POTTED_BROCCOLI = BLOCKS.register("potted_broccoli", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BlockRegistry.BROCCOLI_PLANT_BLOCK, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
+    //public static final RegistryObject<Block> POTTED_LUCKY_CLOVER = BLOCKS.register("potted_broccoli", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, BlockRegistry.BROCCOLI_PLANT_BLOCK, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
 
     public static final RegistryObject<Block> FROST_PIE_BLOCK = BLOCKS.register("frost_pie_block", () -> new BasePieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), ItemRegistry.FROST_PIE_SLICE));
 
