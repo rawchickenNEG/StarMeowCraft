@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "smc:block/advanced_smithing_table_bottom",
+    "east": "smc:block/advanced_smithing_table_side",
+    "north": "smc:block/advanced_smithing_table_side_tool",
+    "particle": "smc:block/advanced_smithing_table_side_tool",
+    "south": "smc:block/advanced_smithing_table_side_tool",
+    "up": "smc:block/advanced_smithing_table_top",
+    "west": "smc:block/advanced_smithing_table_side"
+  }
+}

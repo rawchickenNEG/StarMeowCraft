@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "block/smithing_table"
+      "model": "smc:block/ancient_smithing_table"
     }
   }
 }
