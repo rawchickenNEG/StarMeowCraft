@@ -1,10 +1,7 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.StarMeowCraft;
-import com.starmeow.smc.entities.ChickenHarvester;
-import com.starmeow.smc.entities.EasterBunny;
-import com.starmeow.smc.entities.SaltFish;
-import com.starmeow.smc.entities.ThrownSwordEntity;
+import com.starmeow.smc.entities.*;
 import com.starmeow.smc.entities.projectiles.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -42,6 +39,7 @@ public class EntityTypeRegistry {
     public static final RegistryObject<EntityType<SaltFish>> SALT_FISH = register("salt_fish", EntityType.Builder.of(SaltFish::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final RegistryObject<EntityType<EasterBunny>> EASTER_BUNNY = register("easter_bunny", EntityType.Builder.of(EasterBunny::new, MobCategory.CREATURE).sized(0.8F, 1).clientTrackingRange(12));
     public static final RegistryObject<EntityType<ChickenHarvester>> CHICKEN_HARVESTER = register("chicken_harvester", EntityType.Builder.of(ChickenHarvester::new, MobCategory.CREATURE).sized(0.8F, 1).clientTrackingRange(12));
+    public static final RegistryObject<EntityType<Cloudian>> CLOUDIAN = register("cloudian", EntityType.Builder.of(Cloudian::new, MobCategory.MONSTER).sized(0.8F, 1).clientTrackingRange(12));
 
 
     private static <T extends Entity> RegistryObject<EntityType<T>> register(String name, EntityType.Builder<T> entityTypeBuilder) {
@@ -69,5 +67,6 @@ public class EntityTypeRegistry {
         e.put(EASTER_BUNNY.get(), Rabbit.createAttributes().build());
         e.put(CHICKEN_HARVESTER.get(), ChickenHarvester.createAttributes().build());
         e.put(THROWN_SWORD.get(), ThrownSwordEntity.createAttributes().build());
+        e.put(CLOUDIAN.get(), Cloudian.createAttributes().build());
     }
 }

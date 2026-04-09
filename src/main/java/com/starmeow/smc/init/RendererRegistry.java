@@ -31,6 +31,8 @@ public class RendererRegistry {
         event.registerEntityRenderer(EntityTypeRegistry.THROWN_SWORD.get(), ThrownSwordRenderer::new);
         event.registerEntityRenderer(EntityTypeRegistry.CHICKEN_HARVESTER.get(), ChickenHarvesterRenderer::new);
         event.registerEntityRenderer(EntityTypeRegistry.SWORD_AURA.get(), SwordAuraRenderer::new);
+        event.registerEntityRenderer(EntityTypeRegistry.CLOUDIAN.get(), CloudianRenderer::new);
+
 
 
     }
