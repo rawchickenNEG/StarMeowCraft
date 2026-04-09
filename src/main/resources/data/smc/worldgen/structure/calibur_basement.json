@@ -7,8 +7,8 @@
     "absolute": -23
   },
   "spawn_overrides": {},
-  "terrain_adaptation": "beard_thin",
-  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "step": "underground_structures",
   "size": 1,
   "max_distance_from_center": 100,
   "use_expansion_hack": false
