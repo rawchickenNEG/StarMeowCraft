@@ -746,7 +746,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(Items.DIAMOND_SWORD)
                 .requires(Items.NETHERITE_SWORD)
                 .requires(ItemRegistry.FROSTIUM_SWORD.get())
-                .requires(ItemRegistry.GRIMOIRE.get())
+                .requires(ItemRegistry.KNIFE.get())
                 .requires(ItemRegistry.KATANA.get())
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.DEVOUR_SWORD.get().toString()));
@@ -827,7 +827,7 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('1', Items.NETHERITE_INGOT)
                 .define('2', Items.SMITHING_TABLE)
                 .define('3', Items.GOLD_INGOT)
-                .define('4', ItemRegistry.PERKIN_STAR.get())
+                .define('4', Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SMITHING_TABLE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.ANCIENT_SMITHING_TABLE.get().toString()));
         /*
@@ -852,6 +852,46 @@ public class RecipeGenerator extends RecipeProvider {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.RABBIT_HIDE), Ingredient.of(ItemRegistry.CARROT_PICKAXE.get()), Ingredient.of(Items.GOLD_INGOT), RecipeCategory.TOOLS, ItemRegistry.GOLDEN_CARROT_PICKAXE.get() )
                 .unlocks("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.CARROT_PICKAXE.get()))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.GOLDEN_CARROT_PICKAXE.get() + "_from_smithing"));
+
+        //纹饰
+        SmithingTrimRecipeBuilder.smithingTrim(Ingredient.of(ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get()), Ingredient.of(ItemTags.TRIMMABLE_ARMOR), Ingredient.of(ItemTags.TRIM_MATERIALS), RecipeCategory.TOOLS)
+                .unlocks("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get() + "_smithing_trim"));
+        SmithingTrimRecipeBuilder.smithingTrim(Ingredient.of(ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get()), Ingredient.of(ItemTags.TRIMMABLE_ARMOR), Ingredient.of(ItemTags.TRIM_MATERIALS), RecipeCategory.TOOLS)
+                .unlocks("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get() + "_smithing_trim"));
+        SmithingTrimRecipeBuilder.smithingTrim(Ingredient.of(ItemRegistry.CHOP_ARMOR_TRIM_SMITHING_TEMPLATE.get()), Ingredient.of(ItemTags.TRIMMABLE_ARMOR), Ingredient.of(ItemTags.TRIM_MATERIALS), RecipeCategory.TOOLS)
+                .unlocks("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.CHOP_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.CHOP_ARMOR_TRIM_SMITHING_TEMPLATE.get() + "_smithing_trim"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 2)
+                .pattern("121")
+                .pattern("131")
+                .pattern("111")
+                .define('1', Items.DIAMOND)
+                .define('2', ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get())
+                .define('3', Items.IRON_INGOT)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 2)
+                .pattern("121")
+                .pattern("131")
+                .pattern("111")
+                .define('1', Items.DIAMOND)
+                .define('2', ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get())
+                .define('3', Items.ANCIENT_DEBRIS)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.CHOP_ARMOR_TRIM_SMITHING_TEMPLATE.get(), 2)
+                .pattern("121")
+                .pattern("131")
+                .pattern("111")
+                .define('1', Items.DIAMOND)
+                .define('2', ItemRegistry.CHOP_ARMOR_TRIM_SMITHING_TEMPLATE.get())
+                .define('3', ItemRegistry.CHICKEN_CHOP.get())
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.CHOP_ARMOR_TRIM_SMITHING_TEMPLATE.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.CHOP_ARMOR_TRIM_SMITHING_TEMPLATE.get().toString()));
+
     }
 
     private static void smeltingRecipes(String name, ItemLike ingredient, ItemLike result, float experience, Consumer<FinishedRecipe> consumer) {
