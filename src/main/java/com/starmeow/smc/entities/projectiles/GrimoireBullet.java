@@ -1,5 +1,6 @@
 package com.starmeow.smc.entities.projectiles;
 
+import com.starmeow.smc.config.Config;
 import com.starmeow.smc.init.EntityTypeRegistry;
 import com.starmeow.smc.init.PotionEffectRegistry;
 import net.minecraft.core.BlockPos;
@@ -60,7 +61,9 @@ public class GrimoireBullet extends ThrowableItemProjectile {
     public void tick() {
         super.tick();
         this.setNoGravity(true);
-        this.level().addParticle(ParticleTypes.WAX_OFF, this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
+        if(level().isClientSide() && Config.MAGIC_BULLET_PARTICLE.get()){
+            this.level().addParticle(ParticleTypes.WAX_OFF, this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
+        }
         if (Math.abs(this.getDeltaMovement().x + this.getDeltaMovement().y + this.getDeltaMovement().z)< 0.01){
             this.discard();
         }
@@ -68,7 +71,7 @@ public class GrimoireBullet extends ThrowableItemProjectile {
 
     protected void onHitEntity(EntityHitResult p_37486_) {
         super.onHitEntity(p_37486_);
-        p_37486_.getEntity().hurt(this.damageSources().indirectMagic(this, this.getOwner()), 6.0F + (float)(damage_spell * 1.2));
+        p_37486_.getEntity().hurt(this.damageSources().indirectMagic(this, this.getOwner()), (float)(Config.BULLET_DAMAGE.get() + damage_spell * Config.BULLET_DAMAGE_ENCHANTMENT.get()));
         if (fire_spell != 0){
             p_37486_.getEntity().setSecondsOnFire(fire_spell * 5);
         }

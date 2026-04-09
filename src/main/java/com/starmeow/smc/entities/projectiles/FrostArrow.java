@@ -1,5 +1,6 @@
 package com.starmeow.smc.entities.projectiles;
 
+import com.starmeow.smc.config.Config;
 import com.starmeow.smc.init.EntityTypeRegistry;
 import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.init.PotionEffectRegistry;
@@ -29,7 +30,7 @@ public class FrostArrow extends AbstractArrow {
 
     public void tick() {
         super.tick();
-        if (this.level().isClientSide && !this.inGround) {
+        if (this.level().isClientSide && !this.inGround && Config.FROST_ARROW_PARTICLE.get()) {
             this.level().addParticle(ParticleTypes.SNOWFLAKE, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
         }
     }

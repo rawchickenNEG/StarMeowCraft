@@ -35,6 +35,9 @@ public class LightningSpell extends Enchantment {
     }
 
     public boolean checkCompatibility(Enchantment p_45113_) {
-        return super.checkCompatibility(p_45113_) && p_45113_ != EnchantmentRegistry.FREEZE_SPELL.get() && p_45113_ != EnchantmentRegistry.FIRE_SPELL.get();
+        return super.checkCompatibility(p_45113_)
+                && p_45113_ != EnchantmentRegistry.FREEZE_SPELL.get()
+                && p_45113_ != EnchantmentRegistry.FIRE_SPELL.get()
+                && p_45113_ != EnchantmentRegistry.LAUNCH_SELF.get();
     }
 }

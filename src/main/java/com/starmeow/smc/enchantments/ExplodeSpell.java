@@ -21,4 +21,9 @@ public class ExplodeSpell extends Enchantment {
     public int getMaxCost(int p_44660_) {
         return super.getMinCost(p_44660_) + 50;
     }
+
+    public boolean checkCompatibility(Enchantment p_45113_) {
+        return super.checkCompatibility(p_45113_)
+                && p_45113_ != EnchantmentRegistry.LAUNCH_SELF.get();
+    }
 }

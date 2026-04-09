@@ -68,17 +68,23 @@ public class Grimoire extends Item {
         int es = EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.EXTENSION_SPELL.get(), itemstack);
         if (level instanceof ServerLevel serverLevel && (player.getInventory().contains(ItemRegistry.STAR_DUST.get().getDefaultInstance()) || player.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.INFINITE_SPELL.get(), itemstack) != 0)) {
             if (!player.isCrouching()){
-                GrimoireBullet bullet = new GrimoireBullet(level, player);
-                if (EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.LIGHTNING_SPELL.get(), itemstack) != 0){
-                    bullet.isLightning(true);
+                if(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.LAUNCH_SELF.get(), itemstack) != 0){
+                    double f = ls == 0 ? 1.5f : 1.5f * (float)(ls / 2);
+                    player.setDeltaMovement(player.getLookAngle().x() * f, player.getLookAngle().y() * f, player.getLookAngle().z() * f);
+                    player.hurtMarked = true;
+                }else{
+                    GrimoireBullet bullet = new GrimoireBullet(level, player);
+                    if (EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.LIGHTNING_SPELL.get(), itemstack) != 0){
+                        bullet.isLightning(true);
+                    }
+                    bullet.setDamage(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.DAMAGE_SPELL.get(), itemstack));
+                    bullet.setExplode(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.EXPLODE_SPELL.get(), itemstack));
+                    bullet.setFire(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.FIRE_SPELL.get(), itemstack));
+                    bullet.setFreeze(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.FREEZE_SPELL.get(), itemstack));
+                    bullet.setLaunch(ls);
+                    bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, ls == 0 ? 1.5f : 1.5f * (float)(ls / 2), 1.0F);
+                    level.addFreshEntity(bullet);
                 }
-                bullet.setDamage(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.DAMAGE_SPELL.get(), itemstack));
-                bullet.setExplode(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.EXPLODE_SPELL.get(), itemstack));
-                bullet.setFire(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.FIRE_SPELL.get(), itemstack));
-                bullet.setFreeze(EnchantmentHelper.getItemEnchantmentLevel(EnchantmentRegistry.FREEZE_SPELL.get(), itemstack));
-                bullet.setLaunch(ls);
-                bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, ls == 0 ? 1.5f : 1.5f * (float)(ls / 2), 1.0F);
-                level.addFreshEntity(bullet);
                 level.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_EYE_LAUNCH, SoundSource.PLAYERS, 1F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
                 player.getCooldowns().addCooldown(this, rc == 0 ? 20 : 20 - 4 * rc);
                 itemstack.hurtAndBreak(1, player, (p_40665_) -> {
