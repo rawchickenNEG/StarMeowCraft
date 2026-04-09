@@ -55,7 +55,7 @@ public class RainbowFishingRod extends FishingRodItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return ItemHelper.rainbowColor(super.getName(stack), 20, 0);
+        return ItemHelper.rainbowColor(super.getName(stack), 20, false);
     }
 
     @OnlyIn(Dist.CLIENT)

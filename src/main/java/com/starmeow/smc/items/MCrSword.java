@@ -50,6 +50,13 @@ public class MCrSword extends SwordItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return ItemHelper.rainbowColor(super.getName(stack), 100, 0.5);
+        int[] colors = {
+                ItemHelper.colorToInt(80, 80, 80),
+                ItemHelper.colorToInt(198, 198, 198),
+                ItemHelper.colorToInt(255, 255, 255),
+                ItemHelper.colorToInt(147, 197, 75),
+                ItemHelper.colorToInt(60, 130, 40)
+        };
+        return ItemHelper.customRainbowColor(super.getName(stack), 300, true, 0.5f, colors);
     }
 }

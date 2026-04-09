@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.starmeow.smc.client.renderer.SpecialItemRenderers;
 import com.starmeow.smc.config.Config;
+import com.starmeow.smc.helper.ItemHelper;
+import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.nbt.CompoundTag;
@@ -103,6 +105,19 @@ public class DevourSword extends SwordItem {
         return result;
     }
 
+    @Override
+    public Component getName(ItemStack stack) {
+        int[] colors = {
+                ItemHelper.colorToInt(255, 192, 142 ),
+                ItemHelper.colorToInt(252, 234, 167),
+                ItemHelper.colorToInt(223, 231, 123),
+                ItemHelper.colorToInt(144, 199, 60),
+                ItemHelper.colorToInt(146, 163, 164),
+                ItemHelper.colorToInt(160, 169, 208),
+                ItemHelper.colorToInt(255, 255, 255)
+        };
+        return ItemHelper.customRainbowColor(super.getName(stack), 100, true, 0.16f, colors);
+    }
 
     @Override
     public void initializeClient(java.util.function.Consumer<IClientItemExtensions> consumer) {
@@ -128,11 +143,17 @@ public class DevourSword extends SwordItem {
         CompoundTag tag = stack.getOrCreateTag();
         ListTag list = tag.getList("SMCWeaponStored", Tag.TAG_STRING);
         int size = list.size();
-        tooltip.add(Component.translatable("tooltip.smc.devour_sword").withStyle(ChatFormatting.DARK_PURPLE));
+        tooltip.add(Component.translatable("tooltip.smc.devour_sword").withStyle(ChatFormatting.BLUE));
         if(Config.DEVOUR_SWORD_SHOOT.get()){
-            tooltip.add(Component.translatable("tooltip.smc.devour_sword_1", Config.DEVOUR_SWORD_UPDATE.get()).withStyle(ChatFormatting.DARK_PURPLE));
+            ResourceLocation res = ForgeRegistries.ITEMS.getKey(ItemRegistry.EXCALIBUR.get());
+            StringTag exId = StringTag.valueOf(res.toString());
+            if(!list.contains(exId)){
+                tooltip.add(Component.translatable("tooltip.smc.devour_sword_4").withStyle(ChatFormatting.DARK_GRAY));
+            }else{
+                tooltip.add(Component.translatable("tooltip.smc.devour_sword_1", Config.DEVOUR_SWORD_UPGRADE.get()).withStyle(ChatFormatting.DARK_PURPLE));
+            }
         }
         tooltip.add(Component.translatable("tooltip.smc.devour_sword_2", size).withStyle(ChatFormatting.GOLD));
-        tooltip.add(Component.translatable("tooltip.smc.devour_sword_3").withStyle(ChatFormatting.DARK_GRAY));
+        tooltip.add(Component.translatable("tooltip.smc.devour_sword_3").withStyle(ChatFormatting.BLUE));
     }
 }
