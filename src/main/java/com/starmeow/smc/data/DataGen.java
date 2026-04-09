@@ -144,7 +144,8 @@ public class DataGen {
             list.add(String.valueOf(ItemRegistry.END_CHEST_BOAT.get()));
             list.add(String.valueOf(ItemRegistry.COFFEE.get()));
             list.add(String.valueOf(ItemRegistry.TEMPLATE_SHROUD.get()));
-
+            list.add(String.valueOf(ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get()));
+            list.add(String.valueOf(ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get()));
             for (Object o : list) {
                 this.singleTexture(o.toString(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(StarMeowCraft.MODID, "item/" + o));
             }

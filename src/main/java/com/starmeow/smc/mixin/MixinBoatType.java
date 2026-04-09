@@ -1,6 +1,5 @@
 package com.starmeow.smc.mixin;
 
-import com.starmeow.smc.init.BlockRegistry;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.vehicle.Boat;
@@ -18,6 +17,7 @@ import java.util.List;
 import java.util.function.IntFunction;
 
 @Mixin(value = Boat.Type.class)
+@SuppressWarnings("@Shadow")
 public class MixinBoatType
 {
     //From fireproofboats

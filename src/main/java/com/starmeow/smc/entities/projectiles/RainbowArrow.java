@@ -1,5 +1,6 @@
 package com.starmeow.smc.entities.projectiles;
 
+import com.starmeow.smc.config.Config;
 import com.starmeow.smc.init.EntityTypeRegistry;
 import com.starmeow.smc.init.PotionEffectRegistry;
 import net.minecraft.core.particles.ParticleTypes;
@@ -34,7 +35,7 @@ public class RainbowArrow extends AbstractArrow {
 
     public void tick() {
         super.tick();
-        if (this.level().isClientSide && !this.inGround) {
+        if (this.level().isClientSide && !this.inGround && Config.MAGIC_ARROW_PARTICLE.get()) {
             this.level().addParticle(ParticleTypes.END_ROD, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
         }
     }
@@ -52,7 +53,7 @@ public class RainbowArrow extends AbstractArrow {
             }
             if(level.isRaining() && canSummon){
                 //无尽贪婪天堂陨落长弓同款
-                int number = level.isThundering() ? 15 : 10;
+                int number = level.isThundering() ? Config.ARROW_NUMBER_THUNDER.get() : Config.ARROW_NUMBER_RAIN.get();
                 for(int i = 0; i < number; i++)
                 {
                     double angle = level.getRandom().nextDouble() * 2 * Math.PI;

@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AnvilBlock;
@@ -14,9 +15,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.Collections;
+import java.util.List;
 
 public class GraniteAnvilBlock extends AnvilBlock {
 
@@ -52,7 +57,11 @@ public class GraniteAnvilBlock extends AnvilBlock {
             p_152053_.levelEvent(2001, p_152054_, Block.getId(this.defaultBlockState()));
             p_152053_.playSound((Player)null, p_152054_.getX(), p_152054_.getY(), p_152054_.getZ(), SoundEvents.DRIPSTONE_BLOCK_BREAK, SoundSource.BLOCKS, 1.0F, 0.6F);
         }
+    }
 
+    @Override
+    public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
+        return Collections.singletonList(new ItemStack(this, 1));
     }
 
     static {

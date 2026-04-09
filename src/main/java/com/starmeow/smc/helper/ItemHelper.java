@@ -54,10 +54,10 @@ public class ItemHelper {
 
     public static Component customColor(Component name, int r, int g, int b, boolean bold){
         String text = name.getString();
-        return Component.literal(text).withStyle(style -> style.withColor(colorToInt(r,g,b)));
+        return Component.literal(text).withStyle(style -> style.withColor(colorToInt(r,g,b)).withBold(bold));
     }
 
-    public static Component rainbowColor(Component name, long speed, double boldRate){
+    public static Component rainbowColor(Component name, long speed, boolean bold){
         String text = name.getString();
         long time = Minecraft.getInstance().level != null
                 ? Minecraft.getInstance().level.getGameTime() * speed
@@ -65,13 +65,11 @@ public class ItemHelper {
         float baseHue = ((time % 2000L) / 2000.0F);
 
         MutableComponent result = Component.literal("");
-        java.util.Random random = new java.util.Random(time);
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
-            boolean isBold = boldRate > 0 && random.nextDouble() < boldRate;
             float hue = (baseHue + (text.length() - 1 - i) * 0.05F) % 1.0F;
             int rgb = Mth.hsvToRgb(hue, 1.0F, 1.0F) & 0xFFFFFF;
-            result.append(Component.literal(String.valueOf(ch)).withStyle(style -> style.withColor(rgb).withBold(isBold)));
+            result.append(Component.literal(String.valueOf(ch)).withStyle(style -> style.withColor(rgb).withBold(bold)));
         }
         return result;
     }
@@ -94,15 +92,19 @@ public class ItemHelper {
         MutableComponent result = Component.literal("");
         for (int i = text.length() - 1; i >= 0; i--) {
             char ch = text.charAt(text.length() - 1 - i);
+            float shifted = lerpFactor + i * factor;
 
-            int color1 = colors[currentIndex % colorCount];
-            int color2 = colors[(currentIndex + 1) % colorCount];
+            int indexOffset = (int) Math.floor(shifted);
+            float finalFactor = shifted - indexOffset;
 
-            float finalFactor = (lerpFactor + (i)) % 1.0f;
+            int index = (currentIndex + indexOffset) % colorCount;
+            if (index < 0) index += colorCount;
+
+            int color1 = colors[index];
+            int color2 = colors[(index + 1) % colorCount];
+
             int finalColor = lerpColor(color1, color2, finalFactor);
-
-            result.append(Component.literal(String.valueOf(ch))
-                    .withStyle(style -> style.withColor(finalColor).withBold(bold)));
+            result.append(Component.literal(String.valueOf(ch)).withStyle(style -> style.withColor(finalColor).withBold(bold)));
         }
         return result;
     }

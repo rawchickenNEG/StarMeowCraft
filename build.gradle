@@ -113,10 +113,12 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     runtimeOnly fg.deobf("curse.maven:jei-238222:6600311")
+    runtimeOnly fg.deobf("curse.maven:construction-wand-399558:4684054")
     runtimeOnly fg.deobf("curse.maven:farmers-delight-398521:6917255")
     runtimeOnly fg.deobf("curse.maven:better-combat-by-daedelus-639842:7287334")
     runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
     runtimeOnly fg.deobf("curse.maven:playeranimator-658587:4587214")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:6855440")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 

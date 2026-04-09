@@ -20,7 +20,7 @@ public class ClientForgeEvents {
     private static int lastSentTick = -999999;
 
     public static boolean isValidWeapon(ItemStack stack) {
-        return stack.is(ItemRegistry.DEVOUR_SWORD.get());
+        return stack.is(ItemRegistry.DEVOUR_SWORD.get()) || stack.is(ItemRegistry.EXCALIBUR.get());
     }
 
     public static void sendOncePerTick(Player player) {
