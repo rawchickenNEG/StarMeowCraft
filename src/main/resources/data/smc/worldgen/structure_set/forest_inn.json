@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 15233416,
+    "spacing": 64,
+    "separation": 8
+  },
+  "structures": [
+    {
+      "structure": "smc:forest_inn",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "smc:spore_bud",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "smc:lucky_clover"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raw_iron",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "smc:raw_perkin"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "smc:raw_frostium"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald",
+          "weight": 2
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

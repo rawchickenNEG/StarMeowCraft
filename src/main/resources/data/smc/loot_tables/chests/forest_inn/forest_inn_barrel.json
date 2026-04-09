@@ -1,0 +1,131 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"马尿\",\"color\":\"gold\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:28b,Amplifier:0b,Duration:3600},{Id:12b,Amplifier:0b,Duration:4800},{Id:9b,Amplifier:0b,Duration:600}],CustomPotionColor:16750848}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"生命之水\",\"color\":\"dark_red\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:5b,Amplifier:4b,Duration:600},{Id:20b,Amplifier:1b,Duration:1200},{Id:9b,Amplifier:0b,Duration:1200},{Id:1b,Amplifier:1b,Duration:3600}],CustomPotionColor:15978425}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"龙舌兰\",\"color\":\"blue\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:5b,Amplifier:0b,Duration:1200},{Id:8b,Amplifier:1b,Duration:3600},{Id:9b,Amplifier:0b,Duration:600}],CustomPotionColor:10017472}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"飞天茅台\",\"color\":\"red\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:25b,Amplifier:4b,Duration:200},{Id:28b,Amplifier:1b,Duration:1200},{Id:9b,Amplifier:0b,Duration:600}],CustomPotionColor:13565951}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"威士忌\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:10b,Amplifier:1b,Duration:1200},{Id:11b,Amplifier:0b,Duration:1200},{Id:9b,Amplifier:0b,Duration:600}],CustomPotionColor:5578058}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"蜜雪冰城\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:26b,Amplifier:1b,Duration:3600}],CustomPotionColor:16646020}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"娃哈哈\",\"color\":\"white\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[],CustomPotionColor:16185078}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"百岁山\",\"color\":\"aqua\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[],CustomPotionColor:9154528}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{display:{Name:'{\"text\":\"哈基米南北绿豆浆\",\"color\":\"green\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:26b,Amplifier:1b,Duration:3600},{Id:3b,Amplifier:0b,Duration:3600}],CustomPotionColor:5882118}"
+            }
+          ]
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 5.0,
+        "min": 2.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:honey_bottle",
+          "weight": 1
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 2.0,
+        "min": 1.0
+      }
+    }
+  ]
+}
