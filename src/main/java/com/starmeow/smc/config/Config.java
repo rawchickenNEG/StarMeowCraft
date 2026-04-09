@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -22,6 +23,7 @@ import java.util.stream.Stream;
 public class Config
 {
     public static ForgeConfigSpec COMMON_CONFIG;
+    public static ForgeConfigSpec CLIENT_CONFIG;
     // COMMON
     public static final String LUCKY_CLOVER = "LuckyClover";
     public static ForgeConfigSpec.BooleanValue LUCKY_CLOVER_CREATIVE;
@@ -35,7 +37,7 @@ public class Config
     public static ForgeConfigSpec.BooleanValue DEVOUR_SWORD_SHOOT;
     public static ForgeConfigSpec.DoubleValue DEVOUR_SWORD_ADD;
     public static ForgeConfigSpec.DoubleValue DEVOUR_SWORD_SHOOT_DAMAGE;
-    public static ForgeConfigSpec.IntValue DEVOUR_SWORD_UPDATE;
+    public static ForgeConfigSpec.IntValue DEVOUR_SWORD_UPGRADE;
     public static final String WATERING_CAN = "WateringCan";
     public static ForgeConfigSpec.BooleanValue WATERING_CAN_INFINITY;
     public static final String TEMPLATE_SHROUD = "TemplateShroud";
@@ -45,8 +47,18 @@ public class Config
     public static final String HEIRLOOM_KNIFE = "HeirloomKnife";
     public static ForgeConfigSpec.DoubleValue KNIFE_MIN_ATK;
     public static ForgeConfigSpec.DoubleValue KNIFE_MAX_ATK;
+    public static final String EXCALIBUR = "Excalibur";
+    public static ForgeConfigSpec.DoubleValue AURA_BASE_DAMAGE;
+    public static ForgeConfigSpec.DoubleValue AURA_EXTRA_DAMAGE;
+    public static ForgeConfigSpec.DoubleValue DIVINE_DAMAGE;
     public static final String COFFEE = "CoffeeItem";
     public static ForgeConfigSpec.IntValue COFFEE_COOLDOWN;
+    public static final String RAINBOW_BOW = "RainBow";
+    public static ForgeConfigSpec.IntValue ARROW_NUMBER_RAIN;
+    public static ForgeConfigSpec.IntValue ARROW_NUMBER_THUNDER;
+    public static final String PERKIN_WAND = "PerkinWand";
+    public static ForgeConfigSpec.DoubleValue BULLET_DAMAGE;
+    public static ForgeConfigSpec.DoubleValue BULLET_DAMAGE_ENCHANTMENT;
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_BLACKLIST_KEYWORDS_STRINGS;
@@ -55,8 +67,18 @@ public class Config
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> KNIFE_BLACKLIST_ITEM_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> KNIFE_WHITELIST_ITEM_STRINGS;
 
+    // CLIENT
+    public static final String CLIENT_CONFIGS = "ClientConfig";
+    public static ForgeConfigSpec.BooleanValue LAVA_TRANSPARENT;
+    public static ForgeConfigSpec.BooleanValue FLYING_SWORD_PARTICLE;
+    public static ForgeConfigSpec.BooleanValue SWORD_AURA_PARTICLE;
+    public static ForgeConfigSpec.BooleanValue MAGIC_ARROW_PARTICLE;
+    public static ForgeConfigSpec.BooleanValue MAGIC_BULLET_PARTICLE;
+    public static ForgeConfigSpec.BooleanValue FROST_ARROW_PARTICLE;
+
     static {
         ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
+        ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
 
         COMMON_BUILDER.push(LUCKY_CLOVER);
         LUCKY_CLOVER_CREATIVE = COMMON_BUILDER.comment("If it's true, Lucky Clover will drop banned items (like Debug and Creative items)")
@@ -125,8 +147,8 @@ public class Config
                 .defineInRange("DamageAdd", 0.5, 0, Double.MAX_VALUE);
         DEVOUR_SWORD_SHOOT_DAMAGE = COMMON_BUILDER.comment("Define the percentage of damage inherited from Devour Sword (Devoured sword number * damage inherit * damage add).")
                 .defineInRange("DamageInherit", 0.5, 0, Double.MAX_VALUE);
-        DEVOUR_SWORD_UPDATE = COMMON_BUILDER.comment("Define the sword amount requirement for increase the shooting sword amount.")
-                .defineInRange("UpdateAmount", 9, 0, Integer.MAX_VALUE);
+        DEVOUR_SWORD_UPGRADE = COMMON_BUILDER.comment("Define the sword amount requirement for increase the shooting sword amount.")
+                .defineInRange("UpgradeAmount", 9, 0, Integer.MAX_VALUE);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.push(TEMPLATE_SHROUD);
@@ -163,7 +185,43 @@ public class Config
         COMMON_BUILDER.push(COFFEE);
         COFFEE_COOLDOWN = COMMON_BUILDER.comment("Define the cooldown of Java Coffee (in MC tick)")
                 .defineInRange("CoffeeCD", 200, 0, Integer.MAX_VALUE);
+        COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(EXCALIBUR);
+        AURA_BASE_DAMAGE = COMMON_BUILDER.comment("Define the base damage of sword aura from Excalibur.")
+                .defineInRange("AuraBaseDamage", 15, 0, Double.MAX_VALUE);
+        AURA_EXTRA_DAMAGE = COMMON_BUILDER.comment("Define the extra damage of sword aura from Excalibur. This number is the percentage of damage based on the percentage of target's current health.")
+                .defineInRange("AuraExtraDamage", 15, 0, 100.0);
+        DIVINE_DAMAGE = COMMON_BUILDER.comment("Define the Divine Judgement enchantment provided minimum percentage of damage for sword aura (the larger value between AuraBaseDamage * DivinePercentage and AuraExtraDamage)")
+                .defineInRange("DivinePercentage", 0.3, 0, Double.MAX_VALUE);
+        COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(RAINBOW_BOW);
+        ARROW_NUMBER_RAIN = COMMON_BUILDER.comment("Define the number of falling arrows when raining.")
+                .defineInRange("ArrowNumberRain", 10, 0, Integer.MAX_VALUE);
+        ARROW_NUMBER_THUNDER = COMMON_BUILDER.comment("Define the number of falling arrows when thundering.")
+                .defineInRange("ArrowNumberThunder", 15, 0, Integer.MAX_VALUE);
+        COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(PERKIN_WAND);
+        BULLET_DAMAGE = COMMON_BUILDER.comment("Define the base damage of perkin wand bullet.")
+                .defineInRange("MagicBulletDamage", 6, 0, Double.MAX_VALUE);
+        BULLET_DAMAGE_ENCHANTMENT = COMMON_BUILDER.comment("Define the extra damage of perkin wand bullet from Damage Spell.")
+                .defineInRange("DamageSpellDamage", 1.2, 0, Double.MAX_VALUE);
+        COMMON_BUILDER.pop();
         COMMON_CONFIG = COMMON_BUILDER.build();
+
+        CLIENT_BUILDER.push(CLIENT_CONFIGS);
+        LAVA_TRANSPARENT = CLIENT_BUILDER.comment("Should Lava render in transparent? This will affect on the render of Golden Boats.")
+                .define("LavaTransparent", true);
+        FLYING_SWORD_PARTICLE = CLIENT_BUILDER.comment("Should enable flying sword particle? (From Devour Sword)")
+                .define("FlyingSwordParticle", true);
+        SWORD_AURA_PARTICLE = CLIENT_BUILDER.comment("Should enable sword aura particle?")
+                .define("SwordAuraParticle", true);
+        MAGIC_BULLET_PARTICLE = CLIENT_BUILDER.comment("Should enable magic bullet particle?")
+                .define("MagicBulletParticle", true);
+        MAGIC_ARROW_PARTICLE = CLIENT_BUILDER.comment("Should enable magic arrow particle?")
+                .define("MagicArrowParticle", true);
+        FROST_ARROW_PARTICLE = CLIENT_BUILDER.comment("Should enable frost arrow particle?")
+                .define("FrostArrowParticle", true);
+        CLIENT_CONFIG = CLIENT_BUILDER.build();
     }
 
     public static List<Item> blacklistItems, whitelistItems, easterBunnyEggItems, whitelistSwordItems;
@@ -179,8 +237,13 @@ public class Config
     }
 
     @SubscribeEvent
-    static void onLoad(final ModConfigEvent event)
-    {
+    public static void onConfigLoading(final ModConfigEvent.Loading event) {
+        if (event.getConfig().getType() == ModConfig.Type.COMMON) {
+            reloadCommonConfig();
+        }
+    }
+
+    private static void reloadCommonConfig() {
         Set<Item> blacklistItemsByID = LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS.get().stream()
                 .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
                 .collect(Collectors.toSet());
