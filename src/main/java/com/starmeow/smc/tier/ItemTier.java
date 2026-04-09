@@ -24,4 +24,6 @@ public class ItemTier {
             BlockTags.NEEDS_IRON_TOOL, () -> Ingredient.of(Items.GOLDEN_CARROT));
     public static final Tier DEVOURER = new ForgeTier(4, 8888, 12.0F, 4.0F, 22,
             BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.of(Items.NETHERITE_INGOT));
+    public static final Tier CALIBUR = new ForgeTier(4, 7777, 10.0F, 14.0F, 20,
+            BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.EMPTY);
 }

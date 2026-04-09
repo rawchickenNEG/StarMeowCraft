@@ -97,5 +97,17 @@ public class ItemtagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.SWISS_ARMY_KNIFE.get())
                 .add(ItemRegistry.DIAMOND_SWISS_ARMY_KNIFE.get())
                 .add(ItemRegistry.NETHERITE_SWISS_ARMY_KNIFE.get());
+        this.tag(MCTags.TRIM_MATERIALS)
+                .add(ItemRegistry.PERKIN_INGOT.get())
+                .add(ItemRegistry.FROSTIUM_INGOT.get())
+                .add(ItemRegistry.PERFROSTITE_INGOT.get())
+                .add(ItemRegistry.BROCCOLI.get())
+                .add(ItemRegistry.CHICKEN_CHOP.get())
+                .add(ItemRegistry.RAINBOW_CHIP.get());
+        this.tag(MCTags.TRIM_TEMPLATES)
+                .add(ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get())
+                .add(ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get())
+                .add(ItemRegistry.CHOP_ARMOR_TRIM_SMITHING_TEMPLATE.get());
+
     }
 }

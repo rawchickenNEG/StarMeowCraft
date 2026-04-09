@@ -38,10 +38,14 @@ public class TabRegistry {
                 output.accept(ItemRegistry.RAINBOW_CHIP.get());
                 output.accept(ItemRegistry.BROCCOLI.get());
                 output.accept(ItemRegistry.BROCCOLI_CRATE.get());
+                output.accept(ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get());
+                output.accept(ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
 
                 output.accept(ItemRegistry.EASTER_BUNNY_SPAWN_EGG.get());
                 //blocks
                 output.accept(ItemRegistry.GRANITE_ANVIL.get());
+                output.accept(ItemRegistry.ANCIENT_SMITHING_TABLE.get());
+                output.accept(ItemRegistry.CALIBUR_BLOCK.get());
                 //foods
                 output.accept(ItemRegistry.BROCCOLI.get());
                 output.accept(ItemRegistry.GOLDEN_BROCCOLI.get());
@@ -115,6 +119,8 @@ public class TabRegistry {
                 output.accept(ItemRegistry.NETHERITE_SWISS_ARMY_KNIFE.get());
                 output.accept(ItemRegistry.DEVOUR_SWORD.get());
                 output.accept(ItemRegistry.TEMPLATE_SHROUD.get());
+                output.accept(ItemRegistry.CALIBUR.get());
+                output.accept(ItemRegistry.EXCALIBUR.get());
                 //random_things
                 output.accept(ItemRegistry.KATANA.get());
                 output.accept(ItemRegistry.KNIFE.get());
