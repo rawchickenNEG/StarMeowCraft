@@ -25,7 +25,8 @@
   "effect.smc.peace.description": "生物不再攻击效果持有者，除非它们免疫药水效果。效果持有者无法进行攻击。",
   "effect.smc.no_peace": "不和",
   "effect.smc.no_peace.description": "已弃用",
-
+  "effect.smc.elbow_strike": "肘击",
+  "effect.smc.elbow_strike.description": "增加击退强度，附带特殊音效。",
 
   "entity.smc.grimoire_bullet": "法术飞弹",
   "entity.smc.pea_bullet": "豌豆子弹",
@@ -52,8 +53,10 @@
   "enchantment.smc.heal_spell.desc": "使用治疗法术时回复更多生命值。",
   "enchantment.smc.infinite_spell": "无限法术",
   "enchantment.smc.infinite_spell.desc": "法典将不再消耗星尘。",
-  "enchantment.smc.launch_spell": "弹射法术",
+  "enchantment.smc.launch_spell": "高速飞弹",
   "enchantment.smc.launch_spell.desc": "提升法术飞弹的速度。",
+  "enchantment.smc.launch_self": "人间大炮",
+  "enchantment.smc.launch_self.desc": "将你自己代替飞弹发射出去！",
   "enchantment.smc.lightning_spell": "雷电法术",
   "enchantment.smc.lightning_spell.desc": "雷击目标。",
   "enchantment.smc.protection_spell": "防护力场",
@@ -80,6 +83,8 @@
   "enchantment.smc.life_cycle.desc": "洒水壶能够自动收获并补种成熟的作物。",
   "enchantment.smc.adaption": "适应",
   "enchantment.smc.adaption.desc": "瑞士军刀能够自动切换模式。",
+  "enchantment.smc.divine_judgement": "神圣审判",
+  "enchantment.smc.divine_judgement.desc": "誓约圣剑剑气的额外伤害至少造成剑气伤害一定的百分比。",
 
   "block.smc.pea_shooter_pot_block": "豌豆射手盆栽",
   "block.smc.sunflower_pot_block": "向日葵盆栽",
@@ -333,9 +338,10 @@
   "tooltip.smc.candy_jar_1": "对着空格子可以消耗存储的饱食度来释放随机糖果。",
   "tooltip.smc.candy_jar_2": "喂食和取出会消耗耐久度。",
   "tooltip.smc.devour_sword": "可以吞噬剑类物品来提升攻击，无法吞噬吞噬过的剑类物品。",
-  "tooltip.smc.devour_sword_1": "挥动时发射吞噬过的剑，每吞噬 %s 把剑，发射剑的数量加一。",
+  "tooltip.smc.devour_sword_1": "挥动时发射吞噬过的剑。每吞噬%s把剑，发射剑的数量加一。",
   "tooltip.smc.devour_sword_2": "吞噬数量: %s",
   "tooltip.smc.devour_sword_3": "在工作台中放入该物品，星尘和任意物品即可更换皮肤",
+  "tooltip.smc.devour_sword_4": "发射能力已被封印，吞噬誓约圣剑后解封。",
   "tooltip.smc.battery": "使用后获得电的力量！",
   "tooltip.smc.battery_1": "对苦力怕使用有惊喜",
   "tooltip.smc.knife": "村中圣器",
@@ -344,6 +350,7 @@
   "tooltip.smc.knife_3": "变幻莫测",
   "tooltip.smc.coffee": "世界崩溃前一秒收手",
   "tooltip.smc.coffee_1": "克制之人不寐的解药",
+  "tooltip.smc.calibur": "持有时获得强力负面效果，力量效果可以抵消负面影响。",
   "tooltip.smc.excalibur": "挥动时发射一道剑气，剑气可以穿透方块和实体并对目标额外造成%s%s当前生命值的伤害。",
 
   "tooltip.smc.swiss_army_knife_brush": "已装载刷子模块",
@@ -359,6 +366,16 @@
   "tooltip.smc.bot_mode_1": "开启",
   "tooltip.smc.bot_mode_2": "吸收",
   "tooltip.smc.bot_mode_3": "释放",
+
+  "trim_material.smc.frostium": "霜冻金属",
+  "trim_material.smc.perkin": "珀金",
+  "trim_material.smc.perfrostite": "霜珀合金",
+  "trim_material.smc.broccoli": "西兰花",
+  "trim_material.smc.chicken_chop": "姬排",
+
+  "trim_pattern.smc.netherite_mimic": "下界合金拟态纹饰",
+  "trim_pattern.smc.iron_mimic": "铁拟态纹饰",
+  "trim_pattern.smc.chicken_chop": "姬排盔甲纹饰",
 
   "container.smc.upgrade": "升级装备（不消耗模板）"
 }

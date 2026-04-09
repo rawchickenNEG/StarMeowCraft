@@ -25,6 +25,8 @@
   "effect.smc.peace.description": "Mobs will not attack effect holder, unless mob immune potion effects. Effect holder will not able to attack.",
   "effect.smc.no_peace": "No Peace",
   "effect.smc.no_peace.description": "Deprecated",
+  "effect.smc.elbow_strike": "Elbow Strike",
+  "effect.smc.elbow_strike.description": "Increase knock back strength, add special voices.",
 
   "entity.smc.grimoire_bullet": "Spell Bullet",
   "entity.smc.pea_bullet": "Pea Bullet",
@@ -51,8 +53,10 @@
   "enchantment.smc.heal_spell.desc": "Healing more health when using heal spell.",
   "enchantment.smc.infinite_spell": "Infinite Spell",
   "enchantment.smc.infinite_spell.desc": "Grimoire will never cost Star Dust.",
-  "enchantment.smc.launch_spell": "Launch Spell",
+  "enchantment.smc.launch_spell": "Speed Spell",
   "enchantment.smc.launch_spell.desc": "Speed up the spell bullet.",
+  "enchantment.smc.launch_self": "Launch Self",
+  "enchantment.smc.launch_self.desc": "Launch your self instead of spell bullet!",
   "enchantment.smc.lightning_spell": "Lightning Spell",
   "enchantment.smc.lightning_spell.desc": "Lightning on the target.",
   "enchantment.smc.protection_spell": "Protection Field",
@@ -79,6 +83,8 @@
   "enchantment.smc.life_cycle.desc": "Watering Can harvest max aged crops and replant it automatically.",
   "enchantment.smc.adaption": "Adaption",
   "enchantment.smc.adaption.desc": "Swiss Army Knife will automatically switch the mode.",
+  "enchantment.smc.divine_judgement": "Divine Judgement",
+  "enchantment.smc.divine_judgement.desc": "The extra damage from the Excalibur's sword aura is at least a certain percentage of the auras damage.",
 
   "block.smc.pea_shooter_pot_block": "Pea Shooter Pot",
   "block.smc.sunflower_pot_block": "Sunflower Pot",
@@ -334,12 +340,14 @@
   "tooltip.smc.devour_sword_1": "Launch devoured sword when swinging. Each %s devoured sword will spawn 1 extra sword.",
   "tooltip.smc.devour_sword_2": "Devoured Count: %s",
   "tooltip.smc.devour_sword_3": "Can change weapon skin through putting this item with another item and a Star Dust in crafting table.",
+  "tooltip.smc.devour_sword_4": "Launch ability sealed, need to devour the Excalibur to unseal.",
   "tooltip.smc.knife": "A holy heirloom of the village",
   "tooltip.smc.knife_1": "unbroken through a millennium",
   "tooltip.smc.knife_2": "When the blade’s point touches ground",
   "tooltip.smc.knife_3": "it turns elusive—mutable beyond measure",
   "tooltip.smc.coffee": "Stop before the world crashing",
   "tooltip.smc.coffee_1": "Insomnia cure for the restraint",
+  "tooltip.smc.calibur": "Apply high level negative effects when holding. Negative effects can be neutralized by Strength effect.",
   "tooltip.smc.excalibur": "Emitting a sword aura when swinging, which can go through entities and blocks, and causes %s%s extra damage based on target's current health.",
 
   "tooltip.smc.swiss_army_knife_brush": "Brush Module Loaded",
@@ -355,6 +363,16 @@
   "tooltip.smc.bot_mode_1": "ON",
   "tooltip.smc.bot_mode_2": "ABSORBING",
   "tooltip.smc.bot_mode_3": "RELEASING",
+
+  "trim_material.smc.frostium": "Frostium",
+  "trim_material.smc.perkin": "Perkin",
+  "trim_material.smc.perfrostite": "Perfrostite",
+  "trim_material.smc.broccoli": "Broccoli",
+  "trim_material.smc.chicken_chop": "Chicken Chop",
+
+  "trim_pattern.smc.netherite_mimic": "Netherite Mimic Trim",
+  "trim_pattern.smc.iron_mimic": "Iron Mimic Trim",
+  "trim_pattern.smc.chicken_chop": "Chop Armor Trim",
 
   "container.smc.upgrade": "Upgrade Gear (No Template Consumption)"
 }
