@@ -25,7 +25,7 @@ public class PotionEffectRegistry {
     public static final RegistryObject<MobEffect> CHOP_PROTECTION = MOB_EFFECTS.register("chop_protection", () -> new NoAttributeEffects(MobEffectCategory.BENEFICIAL, -13159));
     public static final RegistryObject<MobEffect> PEACE = MOB_EFFECTS.register("peace", () -> new PeaceEffect(MobEffectCategory.BENEFICIAL, -13159));
     public static final RegistryObject<MobEffect> NO_PEACE = MOB_EFFECTS.register("no_peace", () -> new NoAttributeEffects(MobEffectCategory.NEUTRAL, -13159));
-    public static final RegistryObject<MobEffect> ELBOWING = MOB_EFFECTS.register("elbowing", () -> new ElbowingEffect(MobEffectCategory.BENEFICIAL, 16762624));
+    public static final RegistryObject<MobEffect> ELBOWING = MOB_EFFECTS.register("elbow_strike", () -> new ElbowingEffect(MobEffectCategory.BENEFICIAL, 16762624));
 
 
 }
