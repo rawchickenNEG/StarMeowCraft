@@ -1,6 +1,5 @@
 package com.starmeow.smc.init;
 
-import com.mojang.brigadier.Command;
 import com.starmeow.smc.StarMeowCraft;
 import com.starmeow.smc.items.*;
 import com.starmeow.smc.tier.ArmorTier;
@@ -8,13 +7,12 @@ import com.starmeow.smc.tier.ItemTier;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.datafix.fixes.BlockNameFlatteningFix;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.armortrim.TrimPatterns;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
@@ -158,11 +156,14 @@ public class ItemRegistry {
             createPerfrostiteUpgradeIconList(),
             createePerfrostiteUpgradeMaterialList()
     ));
+    public static final RegistryObject<Item> IRON_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("iron_armor_trim_smithing_template", () -> SmithingTemplateItem.createArmorTrimTemplate(new ResourceLocation("smc", "iron_mimic")));
+    public static final RegistryObject<Item> NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("netherite_armor_trim_smithing_template", () -> SmithingTemplateItem.createArmorTrimTemplate(new ResourceLocation("smc", "netherite_mimic")));
+    public static final RegistryObject<Item> CHOP_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("chop_armor_trim_smithing_template", () -> SmithingTemplateItem.createArmorTrimTemplate(new ResourceLocation("smc", "chicken_chop")));
     public static final RegistryObject<Item> DEVOUR_SWORD = ITEMS.register("devour_sword", () -> new DevourSword(ItemTier.DEVOURER, 0, -2.4F, defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> TEMPLATE_SHROUD = ITEMS.register("template_shroud", () -> new TemplateShroud(ArmorTier.TEMPLATE, ArmorItem.Type.CHESTPLATE, defaultBuilder().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> SPEAR_GUN = ITEMS.register("spear_gun", () -> new SpearGun(defaultBuilder().durability(200)));
-    public static final RegistryObject<Item> COMMAND_BLOCK_WAND = ITEMS.register("command_block_wand", () -> new CommandBlockWand(defaultBuilder().durability(200)));
+    public static final RegistryObject<Item> COMMAND_BLOCK_WAND = ITEMS.register("command_block_wand", () -> new CommandBlockWand(defaultBuilder().rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> RAINBOW_FISHING_ROD = ITEMS.register("rainbow_fishing_rod", () -> new RainbowFishingRod(defaultBuilder().durability(1200)));
     public static final RegistryObject<Item> RAINBOW_BOW = ITEMS.register("rainbow_bow", () -> new RainbowBow(defaultBuilder().durability(1200)));
@@ -191,6 +192,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DIAMOND_SWISS_ARMY_KNIFE = ITEMS.register("diamond_swiss_army_knife", () -> new SwissArmyKnife(Tiers.DIAMOND, 3, -2.4F, defaultBuilder()));
     public static final RegistryObject<Item> NETHERITE_SWISS_ARMY_KNIFE = ITEMS.register("netherite_swiss_army_knife", () -> new SwissArmyKnife(Tiers.NETHERITE, 3, -2.4F, defaultBuilder().fireResistant()));
     public static final RegistryObject<Item> KNIFE = ITEMS.register("knife", () -> new KnifeItem(Tiers.IRON, 3, -2.4F, defaultBuilder().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> CALIBUR = ITEMS.register("calibur", () -> new Calibur(ItemTier.CALIBUR, 15, -3.3F, defaultBuilder().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> EXCALIBUR = ITEMS.register("excalibur", () -> new Excalibur(ItemTier.CALIBUR, 0, -2.4F, defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> CALIBUR_BLOCK = ITEMS.register("calibur_block", () -> new TippedBlockItems(BlockRegistry.CALIBUR_BLOCK.get(), defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> LUCKY_NUGGET = ITEMS.register("lucky_nugget", () -> new LuckyNugget(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(1.1f).fast().build())));
     public static final RegistryObject<Item> MINI_BEDROCK = ITEMS.register("mini_bedrock", () -> new MiniBedrock(defaultBuilder().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee", () -> new CoffeeItem(defaultBuilder().rarity(Rarity.UNCOMMON).food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.5f).build())));

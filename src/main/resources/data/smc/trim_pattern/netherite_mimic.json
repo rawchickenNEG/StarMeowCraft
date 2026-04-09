@@ -1,0 +1,7 @@
+{
+  "asset_id": "smc:netherite_mimic",
+  "description": {
+    "translate": "trim_pattern.smc.netherite_mimic"
+  },
+  "template_item": "smc:netherite_armor_trim_smithing_template"
+}

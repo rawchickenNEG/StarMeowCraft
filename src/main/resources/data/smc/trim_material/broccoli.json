@@ -1,0 +1,9 @@
+{
+  "asset_name": "broccoli",
+  "description": {
+    "color": "#11A036",
+    "translate": "trim_material.smc.broccoli"
+  },
+  "ingredient": "smc:broccoli",
+  "item_model_index": 0.4
+}

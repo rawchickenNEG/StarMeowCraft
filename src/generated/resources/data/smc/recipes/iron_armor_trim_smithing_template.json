@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:diamond"
+    },
+    "2": {
+      "item": "smc:iron_armor_trim_smithing_template"
+    },
+    "3": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "121",
+    "131",
+    "111"
+  ],
+  "result": {
+    "count": 2,
+    "item": "smc:iron_armor_trim_smithing_template"
+  },
+  "show_notification": true
+}

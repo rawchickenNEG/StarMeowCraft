@@ -1,0 +1,7 @@
+{
+  "asset_id": "smc:iron_mimic",
+  "description": {
+    "translate": "trim_pattern.smc.iron_mimic"
+  },
+  "template_item": "smc:iron_armor_trim_smithing_template"
+}

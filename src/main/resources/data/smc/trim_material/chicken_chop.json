@@ -1,0 +1,9 @@
+{
+  "asset_name": "chicken_chop",
+  "description": {
+    "color": "#11A036",
+    "translate": "trim_material.smc.chicken_chop"
+  },
+  "ingredient": "smc:chicken_chop",
+  "item_model_index": 0.4
+}

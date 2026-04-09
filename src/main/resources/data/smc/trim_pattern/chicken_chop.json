@@ -1,0 +1,7 @@
+{
+  "asset_id": "smc:chicken_chop",
+  "description": {
+    "translate": "trim_pattern.smc.chicken_chop"
+  },
+  "template_item": "smc:chop_armor_trim_smithing_template"
+}
