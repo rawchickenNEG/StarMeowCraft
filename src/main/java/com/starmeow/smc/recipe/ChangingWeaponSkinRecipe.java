@@ -3,6 +3,7 @@ package com.starmeow.smc.recipe;
 import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.init.RecipeSerializerRegistry;
 import com.starmeow.smc.items.DevourSword;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -16,7 +17,9 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ChangingWeaponSkinRecipe extends CustomRecipe {
     public static final SimpleCraftingRecipeSerializer<ChangingWeaponSkinRecipe> SERIALIZER = new SimpleCraftingRecipeSerializer<>(ChangingWeaponSkinRecipe::new);
@@ -94,6 +97,39 @@ public class ChangingWeaponSkinRecipe extends CustomRecipe {
                     return true;
 
         return false;
+    }
+
+    @Override
+    public NonNullList<ItemStack> getRemainingItems(CraftingContainer inv) {
+        NonNullList<ItemStack> remaining = NonNullList.withSize(inv.getContainerSize(), ItemStack.EMPTY);
+
+        ItemStack devourSword = null;
+        ItemStack consumeItem = null;
+        ItemStack skinItem = null;
+        int thirdSlot = -1;
+        for (int i = 0; i < inv.getContainerSize(); i++) {
+            ItemStack stack = inv.getItem(i);
+            if (stack.isEmpty()) continue;
+            if (stack.getItem() instanceof DevourSword) {
+                devourSword = stack;
+            }
+            else if (stack.is(CONSUME_ITEM)) {
+                consumeItem = stack;
+            }
+            else {
+                if (skinItem == null) {
+                    skinItem  = stack.copy();
+                    thirdSlot = i;
+                } else {
+                    return remaining;
+                }
+            }
+        }
+        if (devourSword == null || consumeItem == null || skinItem == null) {
+            return remaining;
+        }
+        remaining.set(thirdSlot, skinItem);
+        return remaining;
     }
 
     @Override
