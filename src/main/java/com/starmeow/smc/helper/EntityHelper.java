@@ -2,10 +2,14 @@ package com.starmeow.smc.helper;
 
 import com.starmeow.smc.config.Config;
 import com.starmeow.smc.entities.ThrownSwordEntity;
+import com.starmeow.smc.entities.projectiles.SwordAura;
+import com.starmeow.smc.init.EnchantmentRegistry;
 import com.starmeow.smc.init.EntityTypeRegistry;
+import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.items.DevourSword;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -57,42 +61,71 @@ public class EntityHelper {
         LAST_TICK.put(id, tick);
 
         ItemStack stack = player.getMainHandItem();
-        if (stack.isEmpty()) return;
-        if (!(stack.getItem() instanceof DevourSword)) return;
-
         Level level = player.level();
-        if(!level.isClientSide){
+        if (stack.isEmpty()) return;
+        if(!level.isClientSide) {
             float scale = player.getAttackStrengthScale(0.5f);
             if(scale > 0.9){
-                shootSwordProjectile(stack, player);
+                if (stack.getItem() instanceof DevourSword){
+                    shootDevouredSwordProjectile(stack, player);
+                }
+                if (stack.is(ItemRegistry.EXCALIBUR.get())){
+                    shootExcaliburSwordProjectile(stack, player);
+                }
             }
         }
     }
 
-    public static void shootSwordProjectile(ItemStack stack, LivingEntity entity){
+    public static void shootDevouredSwordProjectile(ItemStack stack, LivingEntity entity){
         if(!Config.DEVOUR_SWORD_SHOOT.get()) return;
 
         Level level = entity.level();
         CompoundTag tag = stack.getOrCreateTag();
-        ListTag list = tag.getList("SMCWeaponStored", Tag.TAG_STRING);
-        if(list.isEmpty())return;
+        ListTag list = tag.getList("SMCWeaponStored", Tag.TAG_STRING).copy();
+        ResourceLocation res = ForgeRegistries.ITEMS.getKey(ItemRegistry.EXCALIBUR.get());
+        StringTag exId = StringTag.valueOf(res.toString());
+        if(list.contains(exId)){
+            list.remove(exId);
+            if(list.isEmpty())return;
 
-        int count = Config.DEVOUR_SWORD_UPDATE.get() != 0 ? 1 + (list.size() / Config.DEVOUR_SWORD_UPDATE.get()) : 1;
+            int count = Config.DEVOUR_SWORD_UPGRADE.get() != 0 ? 1 + (list.size() / Config.DEVOUR_SWORD_UPGRADE.get()) : 1;
 
-        for(int i = 0; i < count; i++){
-            ThrownSwordEntity sword = EntityTypeRegistry.THROWN_SWORD.get().create(level);
+            for(int i = 0; i < count; i++){
+                ThrownSwordEntity sword = EntityTypeRegistry.THROWN_SWORD.get().create(level);
 
-            ItemStack item = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(list.get(entity.getRandom().nextInt(list.size())).getAsString())));
-            EnchantmentHelper.setEnchantments(stack.getAllEnchantments(), item);
-            sword.setItemSlot(EquipmentSlot.MAINHAND, item);
-            sword.setPos(entity.getX(), entity.getEyeY() - 0.1, entity.getZ());
-            sword.shootFromRotation(entity, entity.getXRot(), entity.getYRot(), 0.0F, 1.0F, 25.0F);
-            sword.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(list.size() * Config.DEVOUR_SWORD_SHOOT_DAMAGE.get() * Config.DEVOUR_SWORD_ADD.get());
-            sword.setOwner(entity);
-            level.addFreshEntity(sword);
+                ItemStack item = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(list.get(entity.getRandom().nextInt(list.size())).getAsString())));
+                EnchantmentHelper.setEnchantments(stack.getAllEnchantments(), item);
+                sword.setItemSlot(EquipmentSlot.MAINHAND, item);
+                sword.setPos(entity.getX(), entity.getEyeY() - 0.1, entity.getZ());
+                sword.shootFromRotation(entity, entity.getXRot(), entity.getYRot(), 0.0F, 1.0F, 25.0F);
+                sword.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(list.size() * Config.DEVOUR_SWORD_SHOOT_DAMAGE.get() * Config.DEVOUR_SWORD_ADD.get());
+                sword.setOwner(entity);
+                level.addFreshEntity(sword);
+            }
+
+            level.playSound((Player)null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 0.4F / level.getRandom().nextFloat() + 1F);
+            stack.hurtAndBreak(1, entity, (p_40665_) -> {
+                p_40665_.broadcastBreakEvent(entity.getUsedItemHand());
+            });
         }
 
-        level.playSound((Player)null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1F, 0.4F / level.getRandom().nextFloat() + 1F);
+    }
+
+    public static void shootExcaliburSwordProjectile(ItemStack stack, LivingEntity entity){
+        //if(!Config.DEVOUR_SWORD_SHOOT.get()) return;
+
+        Level level = entity.level();
+        SwordAura sword = EntityTypeRegistry.SWORD_AURA.get().create(level);
+        sword.setPos(entity.getX(), entity.getEyeY() - 0.3, entity.getZ());
+        sword.setYRot(entity.getYHeadRot());
+        sword.setXRot(entity.getXRot());
+        sword.setOwner(entity);
+        if(stack.getEnchantmentLevel(EnchantmentRegistry.DIVINE_JUDGEMENT.get()) != 0){
+            sword.setDivineLevel(stack.getEnchantmentLevel(EnchantmentRegistry.DIVINE_JUDGEMENT.get()));
+        }
+        sword.shootFromRotation(entity, entity.getXRot(), entity.getYRot(), 0.0F, 2.0F, 0.0F);
+        level.addFreshEntity(sword);
+        level.playSound((Player)null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.AMETHYST_CLUSTER_BREAK, SoundSource.PLAYERS, 1F, 2F);
         stack.hurtAndBreak(1, entity, (p_40665_) -> {
             p_40665_.broadcastBreakEvent(entity.getUsedItemHand());
         });
