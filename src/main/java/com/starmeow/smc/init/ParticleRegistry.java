@@ -13,5 +13,6 @@ public class ParticleRegistry {
 
     public static final RegistryObject<SimpleParticleType> DETECTOR_MARK = PARTICLES.register("detector_mark", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> SUNLIGHT = PARTICLES.register("sunlight", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> SWORD_AURA = PARTICLES.register("sword_aura", () -> new SimpleParticleType(false));
 
 }

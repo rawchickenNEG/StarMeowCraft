@@ -1,6 +1,7 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.client.model.ChickenHarvesterModel;
+import com.starmeow.smc.client.model.CloudianModel;
 import com.starmeow.smc.client.model.SpearModel;
 import com.starmeow.smc.client.model.SwordAuraModel;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,6 +17,6 @@ public class ModelLayerRegistry {
         event.registerLayerDefinition(SpearModel.LAYER_LOCATION, SpearModel::createBodyLayer);
         event.registerLayerDefinition(ChickenHarvesterModel.LAYER_LOCATION, ChickenHarvesterModel::createBodyLayer);
         event.registerLayerDefinition(SwordAuraModel.LAYER_LOCATION, SwordAuraModel::createBodyLayer);
-
+        event.registerLayerDefinition(CloudianModel.LAYER_LOCATION, CloudianModel::createBodyLayer);
     }
 }
