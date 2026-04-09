@@ -1,5 +1,6 @@
 package com.starmeow.smc.entities;
 
+import com.starmeow.smc.config.Config;
 import com.starmeow.smc.helper.EntityHelper;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
@@ -64,7 +65,9 @@ public class ThrownSwordEntity extends PathfinderMob implements ItemSupplier {
             discard();
             return;
         }
-        this.level().addParticle(ParticleTypes.WAX_OFF, this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
+        if(level().isClientSide && Config.FLYING_SWORD_PARTICLE.get()){
+            this.level().addParticle(ParticleTypes.WAX_OFF, this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
+        }
         this.checkInsideBlocks();
         if(this.target != null){
             Vec3 targetPos = EntityHelper.getVec3(this.target);

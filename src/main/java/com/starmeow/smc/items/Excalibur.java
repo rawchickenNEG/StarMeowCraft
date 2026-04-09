@@ -50,7 +50,7 @@ public class Excalibur extends SwordItem {
                 ItemHelper.colorToInt(255, 182, 188),
                 ItemHelper.colorToInt(255, 182, 25)
         };
-        return ItemHelper.customRainbowColor(super.getName(stack), 50, true, 0.16f, colors);
+        return ItemHelper.customRainbowColor(super.getName(stack), 100, true, 0.16f, colors);
     }
 
     @OnlyIn(Dist.CLIENT)

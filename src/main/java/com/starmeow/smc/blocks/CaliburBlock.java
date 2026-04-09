@@ -73,7 +73,7 @@ public class CaliburBlock extends Block {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (level.isClientSide) return InteractionResult.SUCCESS;
-        if(player.getEffect(MobEffects.DAMAGE_BOOST).getAmplifier() >= 4){
+        if (player.getEffect(MobEffects.DAMAGE_BOOST) != null && player.getEffect(MobEffects.DAMAGE_BOOST).getAmplifier() >= 4) {
             ItemStack spawnedItem = new ItemStack(ItemRegistry.CALIBUR.get());
             if (!player.getInventory().add(spawnedItem)) {
                 player.drop(spawnedItem, false);
@@ -81,17 +81,19 @@ public class CaliburBlock extends Block {
             LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level);
             if (bolt != null) {
                 bolt.setVisualOnly(true);
-                bolt.moveTo(pos.getX()+0.5, pos.getY(), pos.getZ()+0.5);
+                bolt.moveTo(pos.getX() + 0.5, pos.getY() + 0.1, pos.getZ() + 0.5);
                 level.addFreshEntity(bolt);
             }
             level.destroyBlock(pos, false);
-            if(level instanceof ServerLevel serverLevel){
-                serverLevel.sendParticles(ParticleTypes.WAX_OFF, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 15, 0.5D, 2D, 0.5D, 0.1D);
+            if (level instanceof ServerLevel serverLevel) {
+                serverLevel.sendParticles(ParticleTypes.WAX_OFF, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 15, 0.5D, 2D, 0.5D, 0.1D);
             }
-            level.playSound((Player)null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.TOTEM_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-        }else{
+            level.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.TOTEM_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+        } else {
             player.displayClientMessage(Component.translatable("message.smc.need_strength").withStyle(ChatFormatting.RED), true);
+            level.playSound((Player)null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ANVIL_PLACE, SoundSource.BLOCKS, 1.0F, 2.0F);
         }
+
         return InteractionResult.CONSUME;
     }
 

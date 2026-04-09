@@ -4,6 +4,7 @@ import com.starmeow.smc.client.renderer.SwordAuraRenderer;
 import com.starmeow.smc.config.Config;
 import com.starmeow.smc.entities.ThrownSwordEntity;
 import com.starmeow.smc.init.EntityTypeRegistry;
+import com.starmeow.smc.init.ParticleRegistry;
 import com.starmeow.smc.init.PotionEffectRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -32,6 +33,7 @@ import java.util.UUID;
 public class SwordAura extends ThrowableItemProjectile {
     private int life = 0;
     private Entity owner;
+    private int divine;
     private final List<UUID> attackedEntityUUID = new ArrayList<>();
     public SwordAura(EntityType<? extends SwordAura> p_37411_, Level p_37412_) {
         super(p_37411_, p_37412_);
@@ -47,6 +49,10 @@ public class SwordAura extends ThrowableItemProjectile {
         this.owner = owner;
     }
 
+    public void setDivineLevel(int level){
+        this.divine = level;
+    }
+
     @Nullable
     public LivingEntity getOwner() {
         if (this.owner == null) return null;
@@ -56,11 +62,13 @@ public class SwordAura extends ThrowableItemProjectile {
     public void tick() {
         super.tick();
         this.setNoGravity(true);
-        this.level().addParticle(ParticleTypes.WAX_OFF, this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
+        if(level().isClientSide() && Config.SWORD_AURA_PARTICLE.get()){
+            this.level().addParticle(ParticleRegistry.SWORD_AURA.get(), this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
+        }
         if (Math.abs(this.getDeltaMovement().x + this.getDeltaMovement().y + this.getDeltaMovement().z)< 0.01){
             this.discard();
         }
-        if(life >= 200){
+        if(life >= 80){
             this.discard();
         }else{
             life++;
@@ -77,7 +85,8 @@ public class SwordAura extends ThrowableItemProjectile {
             for(Entity e : hits){
                 if(e instanceof LivingEntity living && !attackedEntityUUID.contains(living.getUUID())){
                     living.invulnerableTime = 0;
-                    living.hurt(this.damageSources().indirectMagic(this, this.getOwner()), (float) (Config.AURA_BASE_DAMAGE.get() + living.getHealth() * Config.AURA_EXTRA_DAMAGE.get() * 0.01f));
+                    float extraDamage = (float) Math.max(Config.AURA_BASE_DAMAGE.get() * this.divine * 0.3f, living.getHealth() * Config.AURA_EXTRA_DAMAGE.get() * 0.01f);
+                    living.hurt(this.damageSources().indirectMagic(this, this.getOwner()), (float) (Config.AURA_BASE_DAMAGE.get() + extraDamage));
                     living.invulnerableTime = 0;
                     attackedEntityUUID.add(living.getUUID());
                 }
