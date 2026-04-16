@@ -1,9 +1,9 @@
 {
   "asset_name": "perfrostite",
   "description": {
-    "color": "#11A036",
+    "color": "#7878B6",
     "translate": "trim_material.smc.perfrostite"
   },
   "ingredient": "smc:perfrostite_ingot",
-  "item_model_index": 0.4
+  "item_model_index": 0.8
 }

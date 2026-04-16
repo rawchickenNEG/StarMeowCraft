@@ -1,9 +1,9 @@
 {
   "asset_name": "frostium",
   "description": {
-    "color": "#11A036",
+    "color": "#84A6E9",
     "translate": "trim_material.smc.frostium"
   },
   "ingredient": "smc:frostium_ingot",
-  "item_model_index": 0.5
+  "item_model_index": 0.8
 }

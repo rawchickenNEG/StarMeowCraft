@@ -39,8 +39,11 @@
         "smc:trims/models/armor/netherite_mimic_leggings",
         "smc:trims/models/armor/iron_mimic",
         "smc:trims/models/armor/iron_mimic_leggings",
+        "smc:trims/models/armor/chainmail_mimic",
+        "smc:trims/models/armor/chainmail_mimic_leggings",
         "smc:trims/models/armor/chicken_chop",
         "smc:trims/models/armor/chicken_chop_leggings"
+
       ],
       "palette_key": "trims/color_palettes/trim_palette",
       "permutations": {

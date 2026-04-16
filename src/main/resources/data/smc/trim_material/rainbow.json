@@ -1,9 +1,9 @@
 {
   "asset_name": "rainbow",
   "description": {
-    "color": "#11A036",
+    "color": "#9058E5",
     "translate": "trim_material.smc.rainbow"
   },
   "ingredient": "smc:rainbow_chip",
-  "item_model_index": 0.4
+  "item_model_index": 1.0
 }

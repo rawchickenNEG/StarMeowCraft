@@ -1,0 +1,7 @@
+{
+  "asset_id": "smc:chainmail_mimic",
+  "description": {
+    "translate": "trim_pattern.smc.chainmail_mimic"
+  },
+  "template_item": "smc:chainmail_armor_trim_smithing_template"
+}

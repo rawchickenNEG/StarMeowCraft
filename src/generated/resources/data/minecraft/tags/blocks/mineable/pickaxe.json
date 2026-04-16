@@ -7,7 +7,9 @@
     "smc:perkin_ore",
     "smc:deepslate_perkin_ore",
     "smc:water_dispenser",
+    "smc:fridge",
     "smc:knife",
+    "smc:ancient_smithing_table",
     "smc:granite_anvil"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "asset_name": "perkin",
   "description": {
-    "color": "#11A036",
+    "color": "#FFC08E",
     "translate": "trim_material.smc.perkin"
   },
   "ingredient": "smc:perkin_ingot",
-  "item_model_index": 0.4
+  "item_model_index": 0.6
 }
