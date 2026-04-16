@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,upper=false,open=false": {
+      "model": "smc:block/fridge_lower",
+      "y": 90
+    },
+    "facing=north,upper=false,open=false": {
+      "model": "smc:block/fridge_lower"
+    },
+    "facing=south,upper=false,open=false": {
+      "model": "smc:block/fridge_lower",
+      "y": 180
+    },
+    "facing=west,upper=false,open=false": {
+      "model": "smc:block/fridge_lower",
+      "y": 270
+    },
+    "facing=east,upper=false,open=true": {
+      "model": "smc:block/fridge_lower_open",
+      "y": 90
+    },
+    "facing=north,upper=false,open=true": {
+      "model": "smc:block/fridge_lower_open"
+    },
+    "facing=south,upper=false,open=true": {
+      "model": "smc:block/fridge_lower_open",
+      "y": 180
+    },
+    "facing=west,upper=false,open=true": {
+      "model": "smc:block/fridge_lower_open",
+      "y": 270
+    },
+    "facing=east,upper=true,open=false": {
+      "model": "smc:block/fridge_upper",
+      "y": 90
+    },
+    "facing=north,upper=true,open=false": {
+      "model": "smc:block/fridge_upper"
+    },
+    "facing=south,upper=true,open=false": {
+      "model": "smc:block/fridge_upper",
+      "y": 180
+    },
+    "facing=west,upper=true,open=false": {
+      "model": "smc:block/fridge_upper",
+      "y": 270
+    },
+    "facing=east,upper=true,open=true": {
+      "model": "smc:block/fridge_upper_open",
+      "y": 90
+    },
+    "facing=north,upper=true,open=true": {
+      "model": "smc:block/fridge_upper_open"
+    },
+    "facing=south,upper=true,open=true": {
+      "model": "smc:block/fridge_upper_open",
+      "y": 180
+    },
+    "facing=west,upper=true,open=true": {
+      "model": "smc:block/fridge_upper_open",
+      "y": 270
+    }
+  }
+}

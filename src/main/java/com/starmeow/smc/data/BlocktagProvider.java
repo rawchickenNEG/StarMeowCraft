@@ -28,10 +28,16 @@ public class BlocktagProvider extends BlockTagsProvider {
                         BlockRegistry.PERKIN_ORE.get(),
                         BlockRegistry.DEEPSLATE_PERKIN_ORE.get(),
                         BlockRegistry.WATER_DISPENSER.get(),
+                        BlockRegistry.FRIDGE.get(),
                         BlockRegistry.KNIFE.get(),
+                        BlockRegistry.ANCIENT_SMITHING_TABLE.get(),
                         BlockRegistry.GRANITE_ANVIL.get()
                 );
 
+        this.tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(
+                        BlockRegistry.BROCCOLI_CRATE_BLOCK.get()
+                );
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(
@@ -40,7 +46,8 @@ public class BlocktagProvider extends BlockTagsProvider {
                         BlockRegistry.BLUE_ICE_FROSTIUM_ORE.get(),
                         BlockRegistry.PERKIN_BLOCK.get(),
                         BlockRegistry.PERKIN_ORE.get(),
-                        BlockRegistry.DEEPSLATE_PERKIN_ORE.get()
+                        BlockRegistry.DEEPSLATE_PERKIN_ORE.get(),
+                        BlockRegistry.ANCIENT_SMITHING_TABLE.get()
                 );
 
         this.tag(BlockTags.ANVIL)
