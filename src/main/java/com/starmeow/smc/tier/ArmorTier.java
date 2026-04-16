@@ -38,6 +38,12 @@ public enum ArmorTier implements ArmorMaterial {
         armor.put(ArmorItem.Type.CHESTPLATE, 11);
         armor.put(ArmorItem.Type.HELMET, 6);
     }), 24, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0f, 0.0f, Ingredient.of(ItemRegistry.FROSTIUM_INGOT.get())),
+    EMPTY("empty", 0, Util.make(new EnumMap<>(ArmorItem.Type.class), armor -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 2);
+        armor.put(ArmorItem.Type.CHESTPLATE, 2);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 0, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0f, 0.0f, Ingredient.EMPTY),
     TEMPLATE("template", 30, Util.make(new EnumMap<>(ArmorItem.Type.class), armor -> {
         armor.put(ArmorItem.Type.BOOTS, 0);
         armor.put(ArmorItem.Type.LEGGINGS, 0);

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "minecraft:feather"
+    },
+    "2": {
+      "item": "minecraft:nether_star"
+    },
+    "3": {
+      "item": "minecraft:elytra"
+    },
+    "4": {
+      "item": "smc:chicken_chop"
+    }
+  },
+  "pattern": [
+    "232",
+    "141",
+    "1 1"
+  ],
+  "result": {
+    "item": "smc:divine_wing"
+  },
+  "show_notification": true
+}
