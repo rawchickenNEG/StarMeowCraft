@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:iron_ingot"
+    },
+    "2": {
+      "item": "minecraft:chest"
+    },
+    "3": {
+      "item": "minecraft:iron_trapdoor"
+    },
+    "4": {
+      "item": "smc:frostium_ingot"
+    }
+  },
+  "pattern": [
+    "423",
+    "411",
+    "423"
+  ],
+  "result": {
+    "item": "smc:fridge"
+  },
+  "show_notification": true
+}
