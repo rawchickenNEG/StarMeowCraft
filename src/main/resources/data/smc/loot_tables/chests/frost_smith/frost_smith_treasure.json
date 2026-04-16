@@ -5,6 +5,17 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
+          "type": "minecraft:item",
+          "name": "smc:perfrostite_upgrade_scroll",
+          "weight": 1
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
           "type": "item",
           "functions": [
             {

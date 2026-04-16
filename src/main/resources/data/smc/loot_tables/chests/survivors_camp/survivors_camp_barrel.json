@@ -5,98 +5,20 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.8
-              },
-              "function": "minecraft:set_damage"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": 30.0,
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:diamond_pickaxe"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.8
-              },
-              "function": "minecraft:set_damage"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": 30.0,
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:diamond_sword"
-        }
-      ],
-      "rolls": 1
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
           "type": "item",
           "functions": [
             {
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 6.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:coal",
-          "weight": 3
-        },
-        {
-          "type": "item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 6.0,
+                "max": 8.0,
                 "min": 4.0
               },
               "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:iron_ingot",
-          "weight": 3
-        },
-        {
-          "type": "item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 6.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:raw_iron",
-          "weight": 3
+          "weight": 1
         },
         {
           "type": "item",
@@ -111,8 +33,8 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:amethyst_shard",
-          "weight": 3
+          "name": "minecraft:coal",
+          "weight": 1
         },
         {
           "type": "item",
@@ -127,16 +49,97 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:raw_gold",
-          "weight": 2
+          "name": "minecraft:hay_block",
+          "weight": 1
         },
         {
           "type": "item",
-          "name": "smc:raw_perkin",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 3.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "smc:jerky",
           "weight": 1
         }
       ],
-      "rolls": 6.0
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16.0,
+                "min": 8.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:potato",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16.0,
+                "min": 8.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:carrot",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16.0,
+                "min": 8.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:beetroot",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16.0,
+                "min": 8.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:wheat",
+          "weight": 1
+        }
+      ],
+      "rolls": 3.0
     }
   ]
 }

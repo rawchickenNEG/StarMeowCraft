@@ -47,6 +47,11 @@
                 "min": 0.8
               },
               "function": "minecraft:set_damage"
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 30.0,
+              "treasure": true
             }
           ],
           "name": "smc:perkin_wand",

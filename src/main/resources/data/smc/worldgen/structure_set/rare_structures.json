@@ -1,11 +1,15 @@
 {
   "placement": {
     "type": "minecraft:random_spread",
-    "salt": 15233416,
+    "salt": 10134137546,
     "spacing": 64,
     "separation": 8
   },
   "structures": [
+    {
+      "structure": "smc:calibur_basement",
+      "weight": 1
+    },
     {
       "structure": "smc:forest_inn",
       "weight": 1

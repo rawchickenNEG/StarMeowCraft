@@ -5,52 +5,73 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "item",
+          "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
+              "damage": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
+                "max": 1.0,
+                "min": 0.8
               },
-              "function": "minecraft:set_count"
+              "function": "minecraft:set_damage"
             }
           ],
-          "name": "smc:astera_apple",
+          "name": "smc:swiss_army_knife",
           "weight": 1
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
+              "damage": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
+                "max": 1.0,
+                "min": 0.8
               },
-              "function": "minecraft:set_count"
+              "function": "minecraft:set_damage"
             }
           ],
-          "name": "smc:astera_jerky",
-          "weight": 1
+          "name": "minecraft:iron_sword",
+          "weight": 3
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
+              "damage": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
+                "max": 1.0,
+                "min": 0.8
               },
-              "function": "minecraft:set_count"
+              "function": "minecraft:set_damage"
             }
           ],
-          "name": "smc:golden_broccoli",
-          "weight": 1
+          "name": "minecraft:iron_pickaxe",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "damage": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.8
+              },
+              "function": "minecraft:set_damage"
+            }
+          ],
+          "name": "minecraft:flint_and_steel",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:compass",
+          "weight": 2
         }
       ],
       "rolls": {
@@ -75,8 +96,8 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:gold_ingot",
-          "weight": 10
+          "name": "minecraft:iron_ingot",
+          "weight": 2
         },
         {
           "type": "item",
@@ -86,29 +107,13 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 8.0,
-                "min": 1.0
+                "min": 4.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:diamond",
-          "weight": 5
-        },
-        {
-          "type": "item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "smc:perkin_ingot",
-          "weight": 3
+          "name": "minecraft:coal",
+          "weight": 1
         },
         {
           "type": "item",
@@ -123,53 +128,33 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "smc:lucky_clover",
-          "weight": 3
+          "name": "minecraft:hay_block",
+          "weight": 1
         },
         {
-          "type": "minecraft:item",
+          "type": "item",
           "functions": [
             {
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 2.0
+                "max": 8.0,
+                "min": 3.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "smc:grass_block_pie",
-          "weight": 5
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "smc:spore_bud",
-          "weight": 10
+          "name": "smc:jerky",
+          "weight": 1
         }
       ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 3.0,
-        "min": 1.0
-      }
+      "rolls": 3.0
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
           "functions": [
             {
               "add": false,
@@ -181,75 +166,59 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:iron_ingot",
-          "weight": 15
+          "name": "minecraft:potato",
+          "weight": 1
         },
         {
-          "type": "minecraft:item",
+          "type": "item",
           "functions": [
             {
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 2.0
+                "max": 16.0,
+                "min": 8.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "smc:broccoli_seeds",
-          "weight": 10
+          "name": "minecraft:carrot",
+          "weight": 1
         },
         {
-          "type": "minecraft:item",
+          "type": "item",
           "functions": [
             {
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 2.0
+                "max": 16.0,
+                "min": 8.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "smc:pea",
-          "weight": 10
+          "name": "minecraft:beetroot",
+          "weight": 1
         },
         {
-          "type": "minecraft:item",
+          "type": "item",
           "functions": [
             {
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 1.0
+                "max": 16.0,
+                "min": 8.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "smc:zongzi",
-          "weight": 5
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 8.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "smc:spicy_bar",
-          "weight": 10
+          "name": "minecraft:wheat",
+          "weight": 1
         }
       ],
-      "rolls": 3.0
+      "rolls": 2.0
     }
   ]
 }

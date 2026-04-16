@@ -5,44 +5,19 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.8
-              },
-              "function": "minecraft:set_damage"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": 30.0,
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:diamond_pickaxe"
+          "type": "item",
+          "name": "smc:pea_shooter_pot",
+          "weight": 1
         },
         {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.8
-              },
-              "function": "minecraft:set_damage"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": 30.0,
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:diamond_sword"
+          "type": "item",
+          "name": "smc:sunflower_pot",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "smc:wallnut_pot",
+          "weight": 1
         }
       ],
       "rolls": 1
@@ -57,46 +32,14 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 6.0,
+                "max": 8.0,
                 "min": 4.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:coal",
-          "weight": 3
-        },
-        {
-          "type": "item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 6.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:iron_ingot",
-          "weight": 3
-        },
-        {
-          "type": "item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 6.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:raw_iron",
-          "weight": 3
+          "name": "minecraft:sunflower",
+          "weight": 1
         },
         {
           "type": "item",
@@ -111,8 +54,8 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:amethyst_shard",
-          "weight": 3
+          "name": "smc:pea",
+          "weight": 1
         },
         {
           "type": "item",
@@ -121,22 +64,69 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
+                "max": 8.0,
+                "min": 4.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:raw_gold",
-          "weight": 2
+          "name": "minecraft:beetroot_seeds",
+          "weight": 1
         },
         {
           "type": "item",
-          "name": "smc:raw_perkin",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:wheat_seeds",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "smc:broccoli_seeds",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:potato",
           "weight": 1
         }
       ],
-      "rolls": 6.0
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 5.0,
+        "min": 3.0
+      }
     }
   ]
 }

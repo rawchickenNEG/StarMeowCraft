@@ -1,0 +1,30 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 10134137546,
+    "spacing": 32,
+    "separation": 8
+  },
+  "structures": [
+    {
+      "structure": "smc:broccoli_farm",
+      "weight": 1
+    },
+    {
+      "structure": "smc:meow_bakery",
+      "weight": 1
+    },
+    {
+      "structure": "smc:frost_smith",
+      "weight": 1
+    },
+    {
+      "structure": "smc:train_camp",
+      "weight": 1
+    },
+    {
+      "structure": "smc:pillager_train_camp",
+      "weight": 1
+    }
+  ]
+}

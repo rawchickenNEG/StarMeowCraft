@@ -1,0 +1,22 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 20431435,
+    "spacing": 16,
+    "separation": 8
+  },
+  "structures": [
+    {
+      "structure": "smc:frog_statue",
+      "weight": 1
+    },
+    {
+      "structure": "smc:fox_statue",
+      "weight": 1
+    },
+    {
+      "structure": "smc:daves_home",
+      "weight": 1
+    }
+  ]
+}

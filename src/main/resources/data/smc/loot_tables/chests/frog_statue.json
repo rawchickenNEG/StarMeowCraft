@@ -5,97 +5,19 @@
       "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.8
-              },
-              "function": "minecraft:set_damage"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": 30.0,
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:diamond_pickaxe"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.8
-              },
-              "function": "minecraft:set_damage"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": 30.0,
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:diamond_sword"
-        }
-      ],
-      "rolls": 1
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
           "type": "item",
           "functions": [
             {
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 6.0,
-                "min": 4.0
+                "max": 8.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:coal",
-          "weight": 3
-        },
-        {
-          "type": "item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 6.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:iron_ingot",
-          "weight": 3
-        },
-        {
-          "type": "item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 6.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:raw_iron",
+          "name": "minecraft:gold_ingot",
           "weight": 3
         },
         {
@@ -111,7 +33,23 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:amethyst_shard",
+          "name": "minecraft:iron_ingot",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:coal",
           "weight": 3
         },
         {
@@ -127,16 +65,112 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:raw_gold",
-          "weight": 2
+          "name": "minecraft:emerald",
+          "weight": 1
         },
         {
           "type": "item",
-          "name": "smc:raw_perkin",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:lapis_lazuli",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
           "weight": 1
         }
       ],
-      "rolls": 6.0
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 5.0,
+        "min": 3.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 8.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "smc:broccoli",
+          "weight": 1
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:pearlescent_froglight",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:verdant_froglight",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:ochre_froglight",
+          "weight": 1
+        }
+      ],
+      "rolls": 1
     }
   ]
 }

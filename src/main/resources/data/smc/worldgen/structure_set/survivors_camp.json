@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 924029113,
+    "spacing": 20,
+    "separation": 8
+  },
+  "structures": [
+    {
+      "structure": "smc:survivors_camp",
+      "weight": 3
+    },
+    {
+      "structure": "smc:pillagers_camp",
+      "weight": 1
+    }
+  ]
+}

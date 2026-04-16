@@ -1,7 +1,7 @@
 {
   "type": "minecraft:jigsaw",
-  "start_pool": "smc:forest_inn",
-  "biomes": "#minecraft:is_forest",
+  "start_pool": "smc:daves_home",
+  "biomes": "#minecraft:has_structure/village_plains",
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
   "start_height": {
     "absolute": 0

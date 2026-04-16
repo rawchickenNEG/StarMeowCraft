@@ -10,7 +10,7 @@
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{display:{Name:'{\"text\":\"马尿\",\"color\":\"gold\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:28b,Amplifier:0b,Duration:3600},{Id:12b,Amplifier:0b,Duration:4800},{Id:9b,Amplifier:0b,Duration:600}],CustomPotionColor:16750848}"
+              "tag": "{display:{Name:'{\"text\":\"马尿\",\"color\":\"gold\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:28b,Amplifier:0b,Duration:3600},{Id:12b,Amplifier:0b,Duration:4800},{Id:9b,Amplifier:0b,Duration:200}],CustomPotionColor:16750848}"
             }
           ]
         },
@@ -30,7 +30,7 @@
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{display:{Name:'{\"text\":\"龙舌兰\",\"color\":\"blue\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:5b,Amplifier:0b,Duration:1200},{Id:8b,Amplifier:1b,Duration:3600},{Id:9b,Amplifier:0b,Duration:600}],CustomPotionColor:10017472}"
+              "tag": "{display:{Name:'{\"text\":\"龙舌兰\",\"color\":\"blue\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:5b,Amplifier:0b,Duration:1200},{Id:8b,Amplifier:1b,Duration:3600},{Id:9b,Amplifier:0b,Duration:200}],CustomPotionColor:10017472}"
             }
           ]
         },
@@ -40,7 +40,7 @@
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{display:{Name:'{\"text\":\"飞天茅台\",\"color\":\"red\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:25b,Amplifier:4b,Duration:200},{Id:28b,Amplifier:1b,Duration:1200},{Id:9b,Amplifier:0b,Duration:600}],CustomPotionColor:13565951}"
+              "tag": "{display:{Name:'{\"text\":\"飞天茅台\",\"color\":\"red\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:25b,Amplifier:4b,Duration:200},{Id:28b,Amplifier:1b,Duration:1200},{Id:9b,Amplifier:0b,Duration:200}],CustomPotionColor:13565951}"
             }
           ]
         },
@@ -50,7 +50,7 @@
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{display:{Name:'{\"text\":\"威士忌\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:10b,Amplifier:1b,Duration:1200},{Id:11b,Amplifier:0b,Duration:1200},{Id:9b,Amplifier:0b,Duration:600}],CustomPotionColor:5578058}"
+              "tag": "{display:{Name:'{\"text\":\"威士忌\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},CustomPotionEffects:[{Id:10b,Amplifier:1b,Duration:1200},{Id:11b,Amplifier:0b,Duration:1200},{Id:9b,Amplifier:0b,Duration:200}],CustomPotionColor:5578058}"
             }
           ]
         },
