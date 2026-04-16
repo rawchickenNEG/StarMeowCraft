@@ -14,6 +14,7 @@ public class SoundRegistry {
 
     public static final RegistryObject<SoundEvent> MUSIC_DISC_LAODA = registerSoundEvents("music_disc_laoda");
     public static final RegistryObject<SoundEvent> MUSIC_DISC_NYAN_CAT = registerSoundEvents("music_disc_nyan_cat");
+    public static final RegistryObject<SoundEvent> MUSIC_DISC_BAD_APPLE = registerSoundEvents("music_disc_bad_apple");
 
     public static final RegistryObject<SoundEvent> ICE_TEA_DRUNK = registerSoundEvents("ice_tea_drunk");
     public static final RegistryObject<SoundEvent> ICE_TEA_KILL = registerSoundEvents("ice_tea_kill");

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:bad_apple"
+    }
+  },
+  "pattern": [
+    "111",
+    "111",
+    "111"
+  ],
+  "result": {
+    "item": "smc:music_disc_bad_apple"
+  },
+  "show_notification": true
+}

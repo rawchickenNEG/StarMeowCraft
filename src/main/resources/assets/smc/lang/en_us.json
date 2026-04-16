@@ -6,7 +6,7 @@
   "effect.smc.frost": "Frost",
   "effect.smc.frost.description": "Freezing effect holder like in Powder Snow block.",
   "effect.smc.frost_burst": "Frost Burst",
-  "effect.smc.frost_burst.description": "Freezing effect holder like in Powder Snow block, deal Amp * 6 Magic damage after effect expired.",
+  "effect.smc.frost_burst.description": "Freezing effect holder like in Powder Snow block, deal Amp * 6 + Amp * 1% * target max HP (at most 10% target max HP) Magic damage after effect expired.",
   "effect.smc.love": "Love",
   "effect.smc.love.description": "Increasing following range, force animals in love, decrease CD for next breeding.",
   "effect.smc.extension": "Extension",
@@ -40,6 +40,7 @@
   "entity.smc.rainbow_fishing_hook": "Rainbow Fishing Hook",
   "entity.smc.salt_fish": "Salt Fish",
   "entity.smc.easter_bunny": "Easter Bunny",
+  "entity.smc.sword_aura": "Sword Aura",
 
   "enchantment.smc.damage_spell": "Damage Spell",
   "enchantment.smc.damage_spell.desc": "Increase the damage of spell bullet.",
@@ -92,6 +93,8 @@
   "block.smc.water_dispenser": "Water Dispenser",
   "block.smc.calibur_block": "Calibur Block",
   "block.smc.potted_broccoli": "Potted Broccoli",
+  "block.smc.fridge": "Fridge",
+  "block.smc.knife": "Heirloom Knife",
 
   "item.smc.broccoli": "Broccoli",
   "item.smc.broccoli_crate": "Broccoli Crate",
@@ -244,11 +247,16 @@
   "item.smc.calibur": "Calibur",
   "item.smc.excalibur": "Excalibur",
   "item.smc.calibur_block": "Calibur Block",
+  "item.smc.divine_wing": "Divine Wing",
+  "item.smc.fridge": "Fridge",
+  "item.smc.bad_apple": "Bad Apple!!",
 
   "item.smc.music_disc_laoda": "Music Disc",
   "item.smc.music_disc_laoda.desc": "牢大の小曲 - See You Again But Children",
   "item.smc.music_disc_nyan_cat": "Music Disc",
   "item.smc.music_disc_nyan_cat.desc": "daniwellP,桃音モモ - Nyan Cat",
+  "item.smc.music_disc_bad_apple": "Music Disc",
+  "item.smc.music_disc_bad_apple.desc": "のみこ,Masayoshi Minoshima - Bad Apple!!",
 
   "item.smc.pea_shooter_pot": "Potted Peashooter",
   "item.smc.sunflower_pot": "Sunflower Peashooter",
@@ -263,6 +271,7 @@
 
   "message.smc.you_cheated_first": "You Cheated First!",
   "message.smc.need_strength": "You don't have enough STRENGTH to pull it out.",
+  "message.smc.not_loottable": "Name is not an available Loottable Resource Location!",
 
   "tooltip.smc.broccoli_boots": "Provides Luck and Speed when equipped.",
   "tooltip.smc.broccoli_hoe": "Has chance to get Bone Meal.",
@@ -349,6 +358,7 @@
   "tooltip.smc.coffee_1": "Insomnia cure for the restraint",
   "tooltip.smc.calibur": "Apply high level negative effects when holding. Negative effects can be neutralized by Strength effect.",
   "tooltip.smc.excalibur": "Emitting a sword aura when swinging, which can go through entities and blocks, and causes %s%s extra damage based on target's current health.",
+  "tooltip.smc.divine_wing": "Provides creative fly ability, the food consumption will increases when you're flying.",
 
   "tooltip.smc.swiss_army_knife_brush": "Brush Module Loaded",
   "tooltip.smc.swiss_army_knife_shears": "Shears Module Loaded",
@@ -364,15 +374,23 @@
   "tooltip.smc.bot_mode_2": "ABSORBING",
   "tooltip.smc.bot_mode_3": "RELEASING",
 
-  "trim_material.smc.frostium": "Frostium",
-  "trim_material.smc.perkin": "Perkin",
-  "trim_material.smc.perfrostite": "Perfrostite",
-  "trim_material.smc.broccoli": "Broccoli",
-  "trim_material.smc.chicken_chop": "Chicken Chop",
+  "tooltip.smc.divine_wing_type.gold": "Gold",
+  "tooltip.smc.divine_wing_type.meow": "Meow",
+  "tooltip.smc.divine_wing_type.black": "Black",
+  "tooltip.smc.divine_wing_type.white": "White",
+
+  "trim_material.smc.frostium": "Frostium Material",
+  "trim_material.smc.perkin": "Perkin Material",
+  "trim_material.smc.perfrostite": "Perfrostite Material",
+  "trim_material.smc.broccoli": "Broccoli Material",
+  "trim_material.smc.chicken_chop": "Chicken Chop Material",
+  "trim_material.smc.rainbow": "Rainbow Material",
 
   "trim_pattern.smc.netherite_mimic": "Netherite Mimic Trim",
   "trim_pattern.smc.iron_mimic": "Iron Mimic Trim",
+  "trim_pattern.smc.chainmail_mimic": "Chainmail Mimic Trim",
   "trim_pattern.smc.chicken_chop": "Chop Armor Trim",
 
-  "container.smc.upgrade": "Upgrade Gear (No Template Consumption)"
+  "container.smc.upgrade": "Upgrade Gear (No Template Consumption)",
+  "container.smc.fridge" : "Fridge"
 }

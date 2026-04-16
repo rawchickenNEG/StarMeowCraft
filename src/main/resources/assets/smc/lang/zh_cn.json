@@ -6,7 +6,7 @@
   "effect.smc.frost": "霜冻",
   "effect.smc.frost.description": "使效果持有者像在细雪中一样冻结。",
   "effect.smc.frost_burst": "霜冻爆发",
-  "effect.smc.frost_burst.description": "使效果持有者像在细雪中一样冻结，效果结束后造成 等级 * 6 的伤害。",
+  "effect.smc.frost_burst.description": "使效果持有者像在细雪中一样冻结，效果结束后造成 等级 * 6 + 等级 * 1% * 目标最大生命值（最多 10% 目标最大生命值）的伤害。",
   "effect.smc.love": "发情",
   "effect.smc.love.description": "增加生物跟随距离，强制使动物发情，减少下一次繁殖的冷却。",
   "effect.smc.extension": "延展",
@@ -40,6 +40,7 @@
   "entity.smc.rainbow_fishing_hook": "彩虹鱼钩",
   "entity.smc.salt_fish": "咸鱼",
   "entity.smc.easter_bunny": "复活节兔子",
+  "entity.smc.sword_aura": "剑气",
 
   "enchantment.smc.damage_spell": "伤害法术",
   "enchantment.smc.damage_spell.desc": "提升法术飞弹的伤害。",
@@ -92,7 +93,8 @@
   "block.smc.water_dispenser": "饮水机",
   "block.smc.calibur_block": "石中剑（方块）",
   "block.smc.potted_broccoli": "西兰花盆栽",
-
+  "block.smc.fridge": "冰箱",
+  "block.smc.knife": "传家宝刀",
 
   "item.smc.broccoli": "西兰花",
   "item.smc.broccoli_crate": "箱装西兰花",
@@ -188,6 +190,8 @@
   "item.smc.music_disc_laoda.desc": "牢大の小曲 - See You Again 小孩版",
   "item.smc.music_disc_nyan_cat": "音乐唱片",
   "item.smc.music_disc_nyan_cat.desc": "daniwellP,桃音モモ - Nyan Cat",
+  "item.smc.music_disc_bad_apple": "音乐唱片",
+  "item.smc.music_disc_bad_apple.desc": "のみこ,Masayoshi Minoshima - Bad Apple!!",
 
   "item.smc.pea_shooter_pot": "盆装豌豆射手",
   "item.smc.sunflower_pot": "盆装向日葵",
@@ -257,12 +261,16 @@
   "item.smc.calibur": "石中剑",
   "item.smc.excalibur": "誓约圣剑",
   "item.smc.calibur_block": "石中剑（方块）",
+  "item.smc.divine_wing": "凌空之翼",
+  "item.smc.fridge": "冰箱",
+  "item.smc.bad_apple": "坏苹果！！",
 
   "item.smc.easter_bunny_spawn_egg": "复活节兔子刷怪蛋",
   "item.smc.salt_fish_spawn_egg": "咸鱼刷怪蛋",
 
   "message.smc.you_cheated_first": "是你先开的！",
   "message.smc.need_strength": "你没有足够的力量拔出它",
+  "message.smc.not_loottable": "名称不是一个可用的战利品表资源路径！",
 
   "tooltip.smc.broccoli_boots": "装备时提供幸运和速度。",
   "tooltip.smc.broccoli_hoe": "有概率获取骨粉。",
@@ -352,6 +360,7 @@
   "tooltip.smc.coffee_1": "克制之人不寐的解药",
   "tooltip.smc.calibur": "持有时获得强力负面效果，力量效果可以抵消负面影响。",
   "tooltip.smc.excalibur": "挥动时发射一道剑气，剑气可以穿透方块和实体并对目标额外造成%s%s当前生命值的伤害。",
+  "tooltip.smc.divine_wing": "获得创造飞行能力，飞行时加快饱食度的消耗。",
 
   "tooltip.smc.swiss_army_knife_brush": "已装载刷子模块",
   "tooltip.smc.swiss_army_knife_shears": "已装载剪刀模块",
@@ -367,15 +376,23 @@
   "tooltip.smc.bot_mode_2": "吸收",
   "tooltip.smc.bot_mode_3": "释放",
 
-  "trim_material.smc.frostium": "霜冻金属",
-  "trim_material.smc.perkin": "珀金",
-  "trim_material.smc.perfrostite": "霜珀合金",
-  "trim_material.smc.broccoli": "西兰花",
-  "trim_material.smc.chicken_chop": "姬排",
+  "tooltip.smc.divine_wing_type.gold": "金色",
+  "tooltip.smc.divine_wing_type.meow": "喵喵",
+  "tooltip.smc.divine_wing_type.black": "黑色",
+  "tooltip.smc.divine_wing_type.white": "白色",
+
+  "trim_material.smc.frostium": "霜冻金属质",
+  "trim_material.smc.perkin": "珀金质",
+  "trim_material.smc.perfrostite": "霜珀合金质",
+  "trim_material.smc.broccoli": "西兰花质",
+  "trim_material.smc.chicken_chop": "姬排质",
+  "trim_material.smc.rainbow": "彩虹质",
 
   "trim_pattern.smc.netherite_mimic": "下界合金拟态纹饰",
   "trim_pattern.smc.iron_mimic": "铁拟态纹饰",
+  "trim_pattern.smc.chainmail_mimic": "锁链拟态纹饰",
   "trim_pattern.smc.chicken_chop": "姬排盔甲纹饰",
 
-  "container.smc.upgrade": "升级装备（不消耗模板）"
+  "container.smc.upgrade": "升级装备（不消耗模板）",
+  "container.smc.fridge" : "冰箱"
 }
