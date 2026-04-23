@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:pitcher_pod"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:pitcher_plant"
+    },
+    {
+      "item": "smc:sniffer_beak"
+    }
+  ],
+  "result": {
+    "item": "smc:sweet_fresh_salad"
+  }
+}

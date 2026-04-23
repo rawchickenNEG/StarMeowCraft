@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "smc:block/cloud_bricks_slab"
+    },
+    "type=double": {
+      "model": "smc:block/cloud_bricks"
+    },
+    "type=top": {
+      "model": "smc:block/cloud_bricks_slab_top"
+    }
+  }
+}

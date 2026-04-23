@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "smc:block/cloud_pillar_top",
+    "side": "smc:block/cloud_pillar"
+  }
+}

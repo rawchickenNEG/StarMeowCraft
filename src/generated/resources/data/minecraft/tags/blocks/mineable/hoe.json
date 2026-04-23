@@ -1,0 +1,20 @@
+{
+  "values": [
+    "smc:cloud",
+    "smc:cirrus_cloud",
+    "smc:thin_cloud",
+    "smc:thin_cirrus_cloud",
+    "smc:cloud_floor",
+    "smc:cloud_pillar",
+    "smc:cloud_bricks",
+    "smc:cloud_wall",
+    "smc:cloud_floor_wall",
+    "smc:cloud_bricks_wall",
+    "smc:cloud_stairs",
+    "smc:cloud_floor_stairs",
+    "smc:cloud_bricks_stairs",
+    "smc:cloud_slab",
+    "smc:cloud_floor_slab",
+    "smc:cloud_bricks_slab"
+  ]
+}

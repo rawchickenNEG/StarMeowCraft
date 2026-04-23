@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "smc:block/cloud_bricks",
+    "side": "smc:block/cloud_bricks",
+    "top": "smc:block/cloud_bricks"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:torchflower_seeds"
+    },
+    {
+      "item": "minecraft:blaze_powder"
+    },
+    {
+      "item": "minecraft:torchflower"
+    },
+    {
+      "item": "smc:sniffer_beak"
+    }
+  ],
+  "result": {
+    "item": "smc:spicy_fried_rice"
+  }
+}

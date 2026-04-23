@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:gold_ingot"
+    },
+    "2": {
+      "item": "minecraft:glass"
+    },
+    "3": {
+      "item": "minecraft:diamond"
+    },
+    "4": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "121",
+    "131",
+    "141"
+  ],
+  "result": {
+    "item": "smc:treasure_detector"
+  },
+  "show_notification": true
+}
