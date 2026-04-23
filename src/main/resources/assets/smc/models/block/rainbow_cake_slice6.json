@@ -1,0 +1,27 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "smc:block/rainbow_cake_bottom",
+		"1": "smc:block/rainbow_cake_side_left",
+		"2": "smc:block/rainbow_cake_side_right",
+		"3": "smc:block/rainbow_cake_top",
+		"4": "smc:block/rainbow_cake_side",
+		"5": "smc:block/rainbow_cake_inner",
+		"particle": "smc:block/rainbow_cake_bottom"
+	},
+	"elements": [
+		{
+			"from": [13, 0, 1],
+			"to": [15, 8, 15],
+			"faces": {
+				"north": {"uv": [1, 8, 3, 16], "texture": "#2"},
+				"east": {"uv": [15, 8, 1, 16], "texture": "#4"},
+				"south": {"uv": [13, 8, 15, 16], "texture": "#1"},
+				"west": {"uv": [1, 8, 15, 16], "texture": "#5"},
+				"up": {"uv": [13, 1, 15, 15], "texture": "#3"},
+				"down": {"uv": [1, 1, 15, 3], "rotation": 90, "texture": "#0", "cullface": "down"}
+			}
+		}
+	]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "tag": "forge:milk"
+    },
+    "2": {
+      "item": "minecraft:sugar"
+    },
+    "3": {
+      "item": "minecraft:egg"
+    },
+    "4": {
+      "item": "minecraft:wheat"
+    },
+    "5": {
+      "item": "smc:broccoli"
+    }
+  },
+  "pattern": [
+    "151",
+    "232",
+    "454"
+  ],
+  "result": {
+    "item": "smc:broccoli_cake"
+  },
+  "show_notification": true
+}

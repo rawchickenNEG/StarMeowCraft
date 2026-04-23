@@ -1,0 +1,22 @@
+{
+  "textures": {
+    "particle": "smc:block/broccoli_cake_side",
+    "bottom": "smc:block/broccoli_cake_bottom",
+    "top": "smc:block/broccoli_cake_top",
+    "side": "smc:block/broccoli_cake_side",
+    "inside": "smc:block/broccoli_cake_inner"
+  },
+  "elements": [
+    {   "from": [ 7, 0, 1 ],
+      "to": [ 15, 8, 15 ],
+      "faces": {
+        "down":  { "texture": "#bottom", "cullface": "down" },
+        "up":    { "texture": "#top" },
+        "north": { "texture": "#side" },
+        "south": { "texture": "#side" },
+        "west":  { "texture": "#inside" },
+        "east":  { "texture": "#side" }
+      }
+    }
+  ]
+}

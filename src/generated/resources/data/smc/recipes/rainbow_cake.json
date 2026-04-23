@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:cloud"
+    },
+    "2": {
+      "item": "minecraft:sugar"
+    },
+    "3": {
+      "item": "minecraft:egg"
+    },
+    "4": {
+      "item": "minecraft:wheat"
+    },
+    "5": {
+      "item": "smc:rainbow_chip"
+    }
+  },
+  "pattern": [
+    "111",
+    "232",
+    "454"
+  ],
+  "result": {
+    "item": "smc:rainbow_cake"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "neapolitan"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "smc:astera_ice_cream"
+    },
+    {
+      "item": "smc:broccoli"
+    },
+    {
+      "item": "smc:frost_berries"
+    }
+  ],
+  "result": {
+    "item": "smc:smc_ice_cream",
+    "count": 1
+  }
+}

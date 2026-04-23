@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "bites=0": {
+      "model": "smc:block/broccoli_cake_block"
+    },
+    "bites=1": {
+      "model": "smc:block/broccoli_cake_block_slice1"
+    },
+    "bites=2": {
+      "model": "smc:block/broccoli_cake_block_slice2"
+    },
+    "bites=3": {
+      "model": "smc:block/broccoli_cake_block_slice3"
+    },
+    "bites=4": {
+      "model": "smc:block/broccoli_cake_block_slice4"
+    },
+    "bites=5": {
+      "model": "smc:block/broccoli_cake_block_slice5"
+    },
+    "bites=6": {
+      "model": "smc:block/broccoli_cake_block_slice6"
+    }
+  }
+}
