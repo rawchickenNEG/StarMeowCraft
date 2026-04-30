@@ -22,13 +22,12 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -36,7 +35,7 @@ import java.util.EnumSet;
 import java.util.function.Predicate;
 
 public class Cloudian extends Monster {
-    protected static final int ATTACK_TIME = 20;
+    protected static final int ATTACK_TIME = 60;
     private static final EntityDataAccessor<Boolean> DATA_ID_MOVING;
     private static final EntityDataAccessor<Integer> DATA_ID_ATTACK_TARGET;
     private float clientSideTailAnimation;
@@ -47,14 +46,12 @@ public class Cloudian extends Monster {
     @Nullable
     private LivingEntity clientSideCachedAttackTarget;
     private int clientSideAttackTime;
-    private boolean clientSideTouchedGround;
     @Nullable
     protected RandomStrollGoal randomStrollGoal;
 
     public Cloudian(EntityType<? extends Cloudian> p_32810_, Level p_32811_) {
         super(p_32810_, p_32811_);
         this.xpReward = 10;
-        //this.setPathfindingMalus(BlockPathTypes.OPEN, 0.0F);
         this.moveControl = new Cloudian.GuardianMoveControl(this);
         this.clientSideTailAnimation = this.random.nextFloat();
         this.clientSideTailAnimationO = this.clientSideTailAnimation;
@@ -102,6 +99,12 @@ public class Cloudian extends Monster {
 
     public int getAttackDuration() {
         return ATTACK_TIME;
+    }
+
+    @Override
+    public boolean updateInWaterStateAndDoFluidPushing() {
+        this.setSwimming(true);
+        return true;
     }
 
     void setActiveAttackTarget(int p_32818_) {
@@ -171,7 +174,11 @@ public class Cloudian extends Monster {
     }
 
     public float getWalkTargetValue(BlockPos p_32831_, LevelReader p_32832_) {
-        return p_32832_.getBlockState(p_32831_).is(Blocks.AIR) ? 10.0F + p_32832_.getPathfindingCostFromLightLevels(p_32831_) : super.getWalkTargetValue(p_32831_, p_32832_);
+        if (p_32832_.getBlockState(p_32831_).getBlock() instanceof TrapDoorBlock) {
+            return -1F;
+        }
+        //return p_32832_.getBlockState(p_32831_).is(Blocks.AIR) ? 10.0F + p_32832_.getPathfindingCostFromLightLevels(p_32831_) : super.getWalkTargetValue(p_32831_, p_32832_);
+        return super.getWalkTargetValue(p_32831_, p_32832_);
     }
 
     public void aiStep() {
@@ -370,8 +377,16 @@ public class Cloudian extends Monster {
         public void tick() {
             LivingEntity $$0 = this.guardian.getTarget();
             if ($$0 != null) {
+                double dist = this.guardian.distanceToSqr($$0);
+                if (dist < 16.0) {
+                    Vec3 dir = this.guardian.position().subtract($$0.position()).normalize();
+                    Vec3 fleePos = this.guardian.position().add(dir.scale(8));
+                    this.guardian.getNavigation().moveTo(fleePos.x, fleePos.y, fleePos.z, 1.2D);
+                    return;
+                }
+
                 this.guardian.getNavigation().stop();
-                this.guardian.getLookControl().setLookAt($$0, 90.0F, 90.0F);
+                this.guardian.getLookControl().setLookAt($$0, 90F, 90F);
                 if (!this.guardian.hasLineOfSight($$0)) {
                     this.guardian.setTarget(null);
                 } else {

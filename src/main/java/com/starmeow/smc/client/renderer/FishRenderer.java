@@ -1,6 +1,7 @@
 package com.starmeow.smc.client.renderer;
 
 import com.starmeow.smc.entities.SaltFish;
+import com.starmeow.smc.entities.SaltFishLagacy;
 import net.minecraft.client.model.CodModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

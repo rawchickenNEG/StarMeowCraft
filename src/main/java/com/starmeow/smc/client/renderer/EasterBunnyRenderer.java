@@ -12,14 +12,14 @@ import net.minecraft.resources.ResourceLocation;
 public class EasterBunnyRenderer extends MobRenderer<EasterBunny, RabbitModel<EasterBunny>> {
 
     public EasterBunnyRenderer(EntityRendererProvider.Context p_174360_) {
-        super(p_174360_, new RabbitModel(p_174360_.bakeLayer(ModelLayers.RABBIT)), 0.6F);
+        super(p_174360_, new RabbitModel(p_174360_.bakeLayer(ModelLayers.RABBIT)), 0.45F);
     }
 
     @Override
     public void render(EasterBunny entity, float entityYaw, float partialTicks,
                        PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
-        poseStack.scale(2.0F, 2.0F, 2.0F);
+        poseStack.scale(1.5F, 1.5F, 1.5F);
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
         poseStack.popPose();
     }

@@ -26,7 +26,7 @@ import org.joml.Matrix4f;
 
 @OnlyIn(Dist.CLIENT)
 public class CloudianRenderer extends MobRenderer<Cloudian, CloudianModel> {
-    private static final ResourceLocation GUARDIAN_LOCATION = new ResourceLocation("textures/entity/guardian.png");
+    private static final ResourceLocation GUARDIAN_LOCATION = new ResourceLocation("smc:textures/entity/cloudian.png");
     private static final ResourceLocation GUARDIAN_BEAM_LOCATION = new ResourceLocation("textures/entity/guardian_beam.png");
     private static final RenderType BEAM_RENDER_TYPE;
 
@@ -60,6 +60,12 @@ public class CloudianRenderer extends MobRenderer<Cloudian, CloudianModel> {
         double $$4 = Mth.lerp((double)p_114805_, p_114803_.yOld, p_114803_.getY()) + p_114804_;
         double $$5 = Mth.lerp((double)p_114805_, p_114803_.zOld, p_114803_.getZ());
         return new Vec3($$3, $$4, $$5);
+    }
+
+    @Override
+    protected RenderType getRenderType(Cloudian entity, boolean bodyVisible, boolean translucent, boolean glowing) {
+        ResourceLocation texture = this.getTextureLocation(entity);
+        return RenderType.entityTranslucent(texture);
     }
 
     public void render(Cloudian p_114829_, float p_114830_, float p_114831_, PoseStack p_114832_, MultiBufferSource p_114833_, int p_114834_) {

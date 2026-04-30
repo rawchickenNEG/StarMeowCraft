@@ -1,5 +1,6 @@
 package com.starmeow.smc.entities.ai.goal;
 
+import com.starmeow.smc.helper.BlockHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.SectionPos;
@@ -66,7 +67,7 @@ public class ChickenHarvestGoal extends MoveToBlockGoal {
     protected void harvestTarget(BlockPos pos) {
         BlockState blockstate = this.removerMob.level().getBlockState(pos);
         Block block = blockstate.getBlock();
-        if (isMaxAgedBlock(blockstate)){
+        if (BlockHelper.isMaxAgedBlock(blockstate)){
             if(!(block instanceof StemBlock)){
                 this.harvestCrops(pos);
             }
@@ -101,7 +102,7 @@ public class ChickenHarvestGoal extends MoveToBlockGoal {
                 Block.dropResources(state, level, pos, null);
             }
             level.levelEvent(2001, pos, Block.getId(level.getBlockState(pos)));
-            BlockState seeds = setBlockAge(state, 0);
+            BlockState seeds = BlockHelper.setBlockAge(state, 0);
             level.setBlockAndUpdate(pos, seeds);
         }
     }
@@ -132,39 +133,9 @@ public class ChickenHarvestGoal extends MoveToBlockGoal {
         if (chunkaccess == null) {
             return false;
         } else {
-            return isMaxAgedBlock(chunkaccess.getBlockState(p_25851_))
+            return BlockHelper.isMaxAgedBlock(chunkaccess.getBlockState(p_25851_))
                     || chunkaccess.getBlockState(p_25851_).getBlock() instanceof StemGrownBlock
                     || CaveVines.hasGlowBerries(chunkaccess.getBlockState(p_25851_));
         }
-    }
-
-    public boolean isMaxAgedBlock(BlockState state){
-        boolean hasAge = state.getProperties().stream().anyMatch(prop -> prop instanceof IntegerProperty && "age".equals(prop.getName().toLowerCase()));
-        if (hasAge) {
-            for (var prop : state.getProperties()) {
-                if (prop instanceof IntegerProperty intProp && "age".equals(intProp.getName().toLowerCase())) {
-                    int ageValue = state.getValue(intProp);
-                    int maxAgeValue = intProp.max;
-                    if(ageValue == maxAgeValue){
-                        if(!(state.getBlock() instanceof StemBlock)){
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public BlockState setBlockAge(BlockState state, int age){
-        boolean hasAge = state.getProperties().stream().anyMatch(prop -> prop instanceof IntegerProperty && "age".equals(prop.getName().toLowerCase()));
-        if (hasAge) {
-            for (var prop : state.getProperties()) {
-                if (prop instanceof IntegerProperty intProp && "age".equals(intProp.getName().toLowerCase())) {
-                    return state.setValue(intProp, age);
-                }
-            }
-        }
-        return state;
     }
 }

@@ -1,41 +1,53 @@
 package com.starmeow.smc.entities;
 
 import com.starmeow.smc.entities.ai.goal.ChickenHarvestGoal;
+import com.starmeow.smc.helper.BlockHelper;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public class ChickenHarvester extends Chicken {
+public class ChickenHarvester extends Animal {
     private static final Ingredient FOOD_ITEMS;
     public float flap;
     public float flapSpeed;
     public float oFlapSpeed;
     public float oFlap;
     public float flapping = 1.0F;
+    private float nextFlap = 1.0F;
     public int eggTime;
 
-    public ChickenHarvester(EntityType<? extends Chicken> p_28236_, Level p_28237_) {
+    public ChickenHarvester(EntityType<? extends ChickenHarvester> p_28236_, Level p_28237_) {
         super(p_28236_, p_28237_);
         this.eggTime = this.random.nextInt(1000) + 200;
-
+        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
     }
 
     protected void registerGoals() {
@@ -94,12 +106,46 @@ public class ChickenHarvester extends Chicken {
 
         this.flap += this.flapping * 2.0F;
         if (!this.level().isClientSide && this.isAlive() && !this.isBaby() && --this.eggTime <= 0) {
-            this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-            //this.spawnAtLocation(Items.EGG);
+            this.playSound(SoundEvents.BONE_MEAL_USE, 1.0F, (this.random.nextFloat()) * 0.2F + 0.9F);
+            this.fertilizingCrops();
             this.gameEvent(GameEvent.ENTITY_PLACE);
             this.eggTime = this.random.nextInt(1000) + 200;
         }
 
+    }
+
+    public void fertilizingCrops(){
+        int r = 6;
+        for (BlockPos tmpPos : BlockPos.withinManhattan(this.blockPosition(), r * 2 + 1, r * 2 + 1, r * 2 + 1)){
+            if(Math.round(BlockHelper.getBlockPosDistance(tmpPos, this.blockPosition())) <= r){
+                BlockState state = level().getBlockState(tmpPos);
+                if(BlockHelper.isGrowingAgedBlock(state)){
+
+                    this.level().setBlock(tmpPos, BlockHelper.setBlockAgeToMax(state), 3);
+                    this.level().levelEvent(3009, tmpPos, 0);
+                }
+            }
+        }
+    }
+
+    protected boolean isFlapping() {
+        return this.flyDist > this.nextFlap;
+    }
+
+    protected void onFlap() {
+        this.nextFlap = this.flyDist + this.flapSpeed / 2.0F;
+    }
+
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.CHICKEN_AMBIENT;
+    }
+
+    protected SoundEvent getHurtSound(DamageSource p_28262_) {
+        return SoundEvents.CHICKEN_HURT;
+    }
+
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.CHICKEN_DEATH;
     }
 
     @Nullable

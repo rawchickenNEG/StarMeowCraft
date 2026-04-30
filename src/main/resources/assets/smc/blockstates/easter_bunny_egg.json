@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "hatch=0": {
+      "model": "smc:block/easter_bunny_egg"
+    },
+    "hatch=1": {
+      "model": "smc:block/easter_bunny_egg_slightly_cracked"
+    },
+    "hatch=2": {
+      "model": "smc:block/easter_bunny_egg_very_cracked"
+    }
+  }
+}
