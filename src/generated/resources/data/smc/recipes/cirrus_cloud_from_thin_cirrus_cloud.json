@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:thin_cirrus_cloud"
+    }
+  },
+  "pattern": [
+    "11",
+    "11"
+  ],
+  "result": {
+    "item": "smc:cirrus_cloud"
+  },
+  "show_notification": true
+}

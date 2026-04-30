@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:cirrus_cloud"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "smc:thin_cirrus_cloud"
+  }
+}

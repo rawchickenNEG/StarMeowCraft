@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:cloud"
+    }
+  },
+  "pattern": [
+    "111"
+  ],
+  "result": {
+    "count": 6,
+    "item": "smc:cloud_slab"
+  },
+  "show_notification": true
+}

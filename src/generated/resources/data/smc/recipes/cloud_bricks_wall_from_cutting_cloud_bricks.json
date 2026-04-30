@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "smc:cloud_bricks"
+  },
+  "result": "smc:cloud_bricks_wall"
+}
