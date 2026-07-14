@@ -9,6 +9,7 @@ import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.init.NetworkRegistry;
 import com.starmeow.smc.init.PotionEffectRegistry;
 import com.starmeow.smc.items.DevourSword;
+import com.starmeow.smc.helper.WeaponHelper;
 import com.starmeow.smc.packet.EndBoatControlPacket;
 import com.starmeow.smc.packet.SwordSlashC2S;
 import com.starmeow.smc.packet.WingBoostC2S;
@@ -49,9 +50,6 @@ public class ClientForgeEvents {
     private static long lastHealthTime;
     private static long healthBlinkTime;
 
-    public static boolean isValidWeapon(ItemStack stack) {
-        return (stack.is(ItemRegistry.DEVOUR_SWORD.get()) && !DevourSword.hasZenishAbility(stack)) || stack.is(ItemRegistry.EXCALIBUR.get()) || stack.is(ItemRegistry.MEOWMERE.get());
-    }
 
     public static void sendOncePerTick(Player player) {
         int now = player.tickCount;
@@ -67,7 +65,7 @@ public class ClientForgeEvents {
         if (player == null) return;
 
         ItemStack stack = player.getMainHandItem();
-        if (!isValidWeapon(stack)) return;
+        if (!WeaponHelper.isValidWeapon(stack)) return;
 
         if (Minecraft.getInstance().player != player) return;
 

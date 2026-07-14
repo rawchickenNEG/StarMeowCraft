@@ -289,7 +289,7 @@ public class AttackEvents {
     public static void onAttackEntityForShootSword(AttackEntityEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         ItemStack stack = player.getMainHandItem();
-        if (!ClientForgeEvents.isValidWeapon(stack)) return;
+        if (!com.starmeow.smc.helper.WeaponHelper.isValidWeapon(stack)) return;
         EntityHelper.shootSwordProjectileByPlayer(player);
     }
 
