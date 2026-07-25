@@ -132,6 +132,15 @@ public class TabRegistry {
                 output.accept(ItemRegistry.CHOCLIZ_BERRY.get());
                 output.accept(ItemRegistry.PEA.get());
                 output.accept(ItemRegistry.PEA_POD.get());
+
+                output.accept(ItemRegistry.BROCCOLI_LOLLIPOP.get());
+                output.accept(ItemRegistry.FROST_LOLLIPOP.get());
+                output.accept(ItemRegistry.PERKIN_LOLLIPOP.get());
+                output.accept(ItemRegistry.COLORFUL_ICE_CREAM.get());
+                output.accept(ItemRegistry.CHOP_KEBAB.get());
+                output.accept(ItemRegistry.RAW_TOMAHAWK_STEAK.get());
+                output.accept(ItemRegistry.TOMAHAWK_STEAK.get());
+
                 if (ModList.get().isLoaded("farmersdelight")) {
                     output.accept(ItemRegistry.ASTERA_CAKE.get());
                     output.accept(ItemRegistry.ASTERA_CAKE_SLICE.get());
@@ -296,7 +305,8 @@ public class TabRegistry {
                 output.accept(ItemRegistry.COLORFUL_ICE_CREAM.get());
                 output.accept(ItemRegistry.CHOP_SHIELD.get());
                 output.accept(ItemRegistry.CHOP_KEBAB.get());
-
+                output.accept(ItemRegistry.RAW_TOMAHAWK_STEAK.get());
+                output.accept(ItemRegistry.TOMAHAWK_STEAK.get());
                 output.accept(ItemRegistry.FOX_HELMET.get());
                 output.accept(ItemRegistry.FOX_CHESTPLATE.get());
                 output.accept(ItemRegistry.FOX_LEGGINGS.get());

@@ -214,6 +214,8 @@
   "item.smc.oreeper": "Oreeper",
   "item.smc.battery": "Battery",
   "item.smc.bloom_cake": "Bloom Cake",
+  "item.smc.raw_tomahawk_steak": "Raw Tomahawk Steak",
+  "item.smc.tomahawk_steak": "Tomahawk Steak",
 
   "item.smc.frostium_ingot": "Frostium Ingot",
   "item.smc.frostium_nugget": "Frostium Nugget",
@@ -604,6 +606,8 @@
   "tooltip.smc.infinite_fuel": "Not consume.",
   "tooltip.smc.zenish": "QAQ",
   "tooltip.smc.zenish_1": "Shoot traceable flying swords quickly to the target you're looking, target killing by flying sword is regard as killing by weapon in killer's hand.",
+  "tooltip.smc.raw_tomahawk_steak": "It would be better to cook it.",
+  "tooltip.smc.tomahawk_steak": "Delicious!",
 
   "tooltip.smc.frostium_shackles": "Remove all extra step height, can absorb Anvil to decrease your moving speed, increase your knock back resistance and armor.",
   "tooltip.smc.frostium_shackles_0": "Absorbed Anvil Count: %s",

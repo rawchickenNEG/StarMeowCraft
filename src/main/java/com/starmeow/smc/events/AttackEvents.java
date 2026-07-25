@@ -11,6 +11,7 @@ import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.init.NetworkRegistry;
 import com.starmeow.smc.init.PotionEffectRegistry;
 import com.starmeow.smc.init.SoundRegistry;
+import com.starmeow.smc.items.DevourSword;
 import com.starmeow.smc.items.DollItems;
 import com.starmeow.smc.items.FoxArmorItems;
 import com.starmeow.smc.items.FrostiumBow;
@@ -289,8 +290,12 @@ public class AttackEvents {
     public static void onAttackEntityForShootSword(AttackEntityEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         ItemStack stack = player.getMainHandItem();
-        if (!ClientForgeEvents.isValidWeapon(stack)) return;
+        if (!isValidWeapon(stack)) return;
         EntityHelper.shootSwordProjectileByPlayer(player);
+    }
+
+    public static boolean isValidWeapon(ItemStack stack) {
+        return (stack.is(ItemRegistry.DEVOUR_SWORD.get()) && !DevourSword.hasZenishAbility(stack)) || stack.is(ItemRegistry.EXCALIBUR.get()) || stack.is(ItemRegistry.MEOWMERE.get());
     }
 
     @SubscribeEvent

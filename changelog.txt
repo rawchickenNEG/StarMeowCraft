@@ -1,5 +1,19 @@
 SMC 1.20.1 Changelog
 
+-1.1.4
+    Add edible weapon into food tab.
+    Add Tomahawk Steak and Raw Tomahawk Steak into food tab and gears tab.
+    Add recipe for Jinkera.
+    Change Tomahawk Steak and Raw Tomahawk Steak durability.
+    Change edible weapon durability consumption from percentage to constant (10% -> 5).
+    Fix Devour Knife tag issue.
+    Fix Salt Fish Block has no drop issue.
+    Fix Swiss Army Knife items with shear mode breaking cobweb blocks has no drop issue.
+    Fix bug of invalid attack in server.
+    Fix Netherite Cladding provide incorrect durability issue.
+    Fix Zenish incorrect crafting recipe issue.
+    Fridge block will not keep loot table tag in lower part.
+    Sword Aura will discard when touching unload chunk.
 -1.1.3
     Add Curios API and Caelus API dependency.
     Add some new curios.

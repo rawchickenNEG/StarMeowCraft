@@ -925,6 +925,7 @@ public class RecipeGenerator extends RecipeProvider {
         cookingRecipes("cooked_salt_fish_slice", ItemRegistry.RAW_SALT_FISH_SLICE.get(), ItemRegistry.COOKED_SALT_FISH_SLICE.get(), 1F, consumer, true);
         cookingRecipes("fried_chicken_harvester_egg", ItemRegistry.CHICKEN_HARVESTER_EGG.get(), ItemRegistry.FRIED_CHICKEN_HARVESTER_EGG.get(), 1F, consumer, true);
         cookingRecipes("fried_easter_bunny_egg", ItemRegistry.EASTER_BUNNY_EGG.get(), ItemRegistry.FRIED_EASTER_BUNNY_EGG.get(), 1F, consumer, true);
+        cookingRecipes("tomahawk_steak", ItemRegistry.RAW_TOMAHAWK_STEAK.get(), ItemRegistry.TOMAHAWK_STEAK.get(), 1F, consumer, true);
 
         //杂项
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MUSIC_DISC_LAODA.get())
@@ -1307,7 +1308,14 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(ItemRegistry.STAR_DUST.get())
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.LAVA_BUCKET))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.INFINITE_FUEL.get().toString()));
-
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUPER_BONEMEAL.get())
+                .pattern("121")
+                .pattern("212")
+                .pattern("121")
+                .define('1', Items.BONE_MEAL)
+                .define('2', ItemRegistry.STAR_DUST.get())
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.STAR_DUST.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.SUPER_BONEMEAL.get().toString()));
         /*
         ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ItemRegistry.NETHERITE_SWISS_ARMY_KNIFE.get())
                 .requires(Items.NETHERITE_AXE)

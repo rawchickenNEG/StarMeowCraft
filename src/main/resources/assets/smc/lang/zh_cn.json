@@ -214,6 +214,8 @@
   "item.smc.oreeper": "奥力怕",
   "item.smc.battery": "电池",
   "item.smc.bloom_cake": "绽放花糕",
+  "item.smc.raw_tomahawk_steak": "生战斧牛排",
+  "item.smc.tomahawk_steak": "战斧牛排",
 
   "item.smc.frostium_ingot": "霜冻金属锭",
   "item.smc.frost_eye": "霜冻之眼",
@@ -607,6 +609,8 @@
   "tooltip.smc.red_frame_glasses": "降低村民的交易价格",
   "tooltip.smc.zenish": "QAQ",
   "tooltip.smc.zenish_1": "可以快速向看向的目标发射能追踪的飞剑，飞剑击杀的目标视为被玩家手中的武器击杀。",
+  "tooltip.smc.raw_tomahawk_steak": "最好先烹饪一下",
+  "tooltip.smc.tomahawk_steak": "超绝美味！",
 
   "tooltip.smc.frostium_shackles": "移除你的台阶高度增益，可以吸收铁砧来降低移动速度并提升击退抗性和护甲值。",
   "tooltip.smc.frostium_shackles_0": "吸收的铁砧数量：%s",

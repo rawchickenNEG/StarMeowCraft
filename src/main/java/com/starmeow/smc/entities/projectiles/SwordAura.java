@@ -65,7 +65,7 @@ public class SwordAura extends ThrowableItemProjectile {
         if(level().isClientSide() && Config.SWORD_AURA_PARTICLE.get()){
             this.level().addParticle(ParticleRegistry.SWORD_AURA.get(), this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.0D, 0.0D, 0.0D);
         }
-        if (Math.abs(this.getDeltaMovement().x + this.getDeltaMovement().y + this.getDeltaMovement().z)< 0.01){
+        if (Math.abs(this.getDeltaMovement().x + this.getDeltaMovement().y + this.getDeltaMovement().z)< 0.01 || this.touchingUnloadedChunk()){
             this.discard();
         }
         if(life >= 80){

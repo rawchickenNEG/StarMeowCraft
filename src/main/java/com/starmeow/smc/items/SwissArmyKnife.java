@@ -261,6 +261,9 @@ public class SwissArmyKnife extends SwordItem {
             case 4 -> {
                 return state.is(BlockTags.MINEABLE_WITH_HOE) && tier;
             }
+            case 5 -> {
+                return isCorrectToolForDrops(state);
+            }
             default -> {
                 return state.is(BlockTags.SWORD_EFFICIENT) && tier;
             }

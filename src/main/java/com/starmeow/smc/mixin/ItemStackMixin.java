@@ -57,7 +57,7 @@ public abstract class ItemStackMixin {
         int i = itemStack.getEnchantmentLevel(EnchantmentRegistry.NEHTERITE_CLADDING.get());
         if(i > 0){
             int maxDamageBase = itemStack.getItem().getMaxDamage(itemStack);
-            cir.setReturnValue(maxDamageBase + maxDamageBase * (i / 4));
+            cir.setReturnValue(maxDamageBase + (maxDamageBase / 4 * i));
         }
     }
 }

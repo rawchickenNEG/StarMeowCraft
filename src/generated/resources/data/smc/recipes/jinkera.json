@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:bone_meal"
+    },
+    "2": {
+      "item": "smc:star_dust"
+    }
+  },
+  "pattern": [
+    "121",
+    "212",
+    "121"
+  ],
+  "result": {
+    "item": "smc:jinkera"
+  },
+  "show_notification": true
+}

@@ -31,38 +31,12 @@ public class LollipopItem extends SwordItem {
         if (isEdible()) {
             p_42925_.eat(p_42924_, p_42923_.copy());
             if(p_42925_ instanceof Player player){
-                p_42923_.hurtAndBreak(p_42923_.getMaxDamage() / 10, player, (p_40665_) -> {
+                p_42923_.hurtAndBreak(5, player, (p_40665_) -> {
                     p_40665_.broadcastBreakEvent(player.getUsedItemHand());
                 });
             }
         }
         return p_42923_;
-        /*
-        if (p_42925_ instanceof Player player){
-            int foodLevel = 2;
-            float satLevel = 2.5F;
-            boolean flag = false;
-            if(p_42923_.is(ItemRegistry.COLORFUL_ICE_CREAM.get())){
-                flag = true;
-            }
-            player.getFoodData().setFoodLevel(player.getFoodData().getFoodLevel() + (flag ? 4 : 1) * foodLevel);
-            player.getFoodData().setSaturation(player.getFoodData().getSaturationLevel() + satLevel);
-            p_42924_.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, player.getSoundSource(), 0.5F, player.getVoicePitch());
-            p_42923_.hurtAndBreak(p_42923_.getMaxDamage() / 10, player, (p_40665_) -> {
-                p_40665_.broadcastBreakEvent(player.getUsedItemHand());
-            });
-            if(p_42923_.is(ItemRegistry.BROCCOLI_LOLLIPOP.get()) || flag){
-                player.addEffect(new MobEffectInstance(PotionEffectRegistry.POISON_RESISTANCE.get(), 100));
-            }
-            if(p_42923_.is(ItemRegistry.FROST_LOLLIPOP.get()) || flag){
-                player.addEffect(new MobEffectInstance(PotionEffectRegistry.FROST_RESISTANCE.get(), 100));
-            }
-            if(p_42923_.is(ItemRegistry.PERKIN_LOLLIPOP.get()) || flag){
-                player.addEffect(new MobEffectInstance(PotionEffectRegistry.STAR_LIGHT.get(), 100));
-            }
-        }
-        return p_42923_;
-         */
     }
 
     public UseAnim getUseAnimation(ItemStack p_42931_) {

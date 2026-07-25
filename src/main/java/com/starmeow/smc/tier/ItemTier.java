@@ -37,9 +37,9 @@ public class ItemTier {
             BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.of(ItemRegistry.SALT_FISH.get()));
     public static final Tier ZINC = new ForgeTier(2, 350, 8.0F, 3.0F, 10,
             BlockTags.NEEDS_IRON_TOOL, () -> Ingredient.of(ItemRegistry.ZINC_INGOT.get()));
-    public static final Tier BEEF = new ForgeTier(1, 150, 4.0F, 1.0F, 10,
+    public static final Tier BEEF = new ForgeTier(1, 50, 4.0F, 1.0F, 10,
             BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.BEEF));
-    public static final Tier COOKED_BEEF = new ForgeTier(1, 150, 6.0F, 2.0F, 10,
+    public static final Tier COOKED_BEEF = new ForgeTier(1, 50, 6.0F, 2.0F, 10,
             BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.COOKED_BEEF));
     public static final Tier END_ROD = new ForgeTier(1, 250, 6.0F, 1.0F, 25,
             BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.END_ROD));

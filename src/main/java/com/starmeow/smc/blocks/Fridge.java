@@ -74,8 +74,8 @@ public class Fridge extends BaseEntityBlock {
                 BlockEntity $$6 = p_221051_.getBlockEntity(p_221052_);
                 if ($$6 instanceof FridgeBlockEntity blockEntity && !p_221050_.getValue(OPEN)) {
                     ResourceLocation res = new ResourceLocation("smc:chests/fridge");
-                    blockEntity.unpackLootTable(null);
                     blockEntity.setLootTable(res, 0);
+                    blockEntity.unpackLootTable(null);
                     blockEntity.freezeWater();
                 }
             }
