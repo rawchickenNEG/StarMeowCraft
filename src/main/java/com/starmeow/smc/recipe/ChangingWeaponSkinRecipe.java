@@ -46,7 +46,9 @@ public class ChangingWeaponSkinRecipe extends CustomRecipe {
                         ItemStack sword = stackList.get(0).getItem() instanceof DevourSword ? stackList.get(0).copy() : (stackList.get(1).getItem() instanceof DevourSword ? stackList.get(1).copy() : stackList.get(2).copy());
 
                         ItemStack skin = getItemStack(stackList);
-                        if(skin != null) DevourSword.setSkinItem(sword, skin);
+                        if(skin != null){
+                            DevourSword.setSkinItem(sword, skin);
+                        }
 
                     return sword;
                 }
@@ -116,7 +118,8 @@ public class ChangingWeaponSkinRecipe extends CustomRecipe {
             }
             else {
                 if (skinItem == null) {
-                    skinItem  = stack.copy();
+                    skinItem = stack.copy();
+                    skinItem.setCount(1);
                     thirdSlot = i;
                 } else {
                     return remaining;

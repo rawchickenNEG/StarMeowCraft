@@ -1,5 +1,7 @@
 SMC 1.20.1 Changelog
 
+-1.1.5
+    Fix Devour Sword changing skin duplicate item issue.
 -1.1.4
     Add edible weapon into food tab.
     Add Tomahawk Steak and Raw Tomahawk Steak into food tab and gears tab.
