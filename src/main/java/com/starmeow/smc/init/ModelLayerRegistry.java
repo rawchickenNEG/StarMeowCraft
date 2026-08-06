@@ -1,6 +1,7 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.client.model.*;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,10 +17,9 @@ public class ModelLayerRegistry {
         event.registerLayerDefinition(SwordAuraModel.LAYER_LOCATION, SwordAuraModel::createBodyLayer);
         event.registerLayerDefinition(CloudianModel.LAYER_LOCATION, CloudianModel::createBodyLayer);
         event.registerLayerDefinition(DivineWingModel.LAYER_LOCATION, DivineWingModel::createBodyLayer);
-        event.registerLayerDefinition(DivineHaloModel.LAYER_LOCATION, DivineHaloModel::createBodyLayer);
         event.registerLayerDefinition(FoxTailModel.LAYER_LOCATION, FoxTailModel::createBodyLayer);
-        event.registerLayerDefinition(RedFrameGlassesModel.LAYER_LOCATION, RedFrameGlassesModel::createBodyLayer);
+        event.registerLayerDefinition(RedFrameGlassesModel.LAYER_LOCATION, RedFrameGlassesModel::createArmorLayer);
+        event.registerLayerDefinition(DivineHaloModel.LAYER_LOCATION, DivineHaloModel::createArmorLayer);
         event.registerLayerDefinition(SpearHookModel.LAYER_LOCATION, SpearHookModel::createBodyLayer);
-
     }
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-09T23:40:11.7942396	Tags for minecraft:item mod id smc
+// 1.20.1	2026-08-06T02:35:54.9305191	Tags for minecraft:item mod id smc
 e1637c05d5561527644f2c71d6d172d9b18be7a3 data/farmersdelight/tags/items/tools/knives.json
 6ddb26f62487e2f1691999b5c3549e4a5bf5e8fb data/forge/tags/items/cooked_beef.json
 c3c27458abd0552603e7efa5057e67df2cdca0e5 data/forge/tags/items/cooked_chicken.json
@@ -12,7 +12,7 @@ dc6f3ffcfbb1726cc50831b09b1838c92ba01aa6 data/forge/tags/items/nuggets.json
 c40d2af5b9d641cfe03153b06b58287d24ff6fe4 data/forge/tags/items/raw_materials.json
 91ddaf006bacafc41b0f6feb97f3e72e29e12451 data/forge/tags/items/seeds.json
 221f08adb13bcd94eefe37596a8687c8f6467f19 data/forge/tags/items/storage_blocks.json
-8f9bdc9c16cde257a9a0babdb507d9110bf75c9c data/forge/tags/items/tools/knives.json
+e1637c05d5561527644f2c71d6d172d9b18be7a3 data/forge/tags/items/tools/knives.json
 53131f4fff5922171605b9efb83372419ecb44a5 data/forge/tags/items/vegetables.json
 2a5596f730098e1d7f77f2e7382de034252f3f3d data/minecraft/tags/items/arrows.json
 f8bb5ef68b303cfd626312faa436e9cb7ad506cc data/minecraft/tags/items/music_discs.json

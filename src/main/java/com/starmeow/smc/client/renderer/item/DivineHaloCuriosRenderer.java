@@ -46,8 +46,7 @@ public class DivineHaloCuriosRenderer implements ICurioRenderer {
         LivingEntity entity = slotContext.entity();
 
         ICurioRenderer.followBodyRotations(entity, model);
-
-        model.copyPropertiesTo((HumanoidModel<LivingEntity>) renderLayerParent.getModel());
+        //model.copyPropertiesTo((HumanoidModel<LivingEntity>) renderLayerParent.getModel());
         matrixStack.pushPose();
         if(stack.getTag() != null){
             String variant = stack.getTag().getString("SMCHaloVariant");

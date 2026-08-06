@@ -1,7 +1,11 @@
 SMC 1.20.1 Changelog
 
 -1.1.5
+    Add forge knife tag for Devour Knife and Cleaver.
+    Add config for Devour Knife damage addition amount.
     Fix Devour Sword changing skin duplicate item issue.
+    Fix Steak Axe item incorrect durability consuming issue.
+    Remove unused curios slots.
 -1.1.4
     Add edible weapon into food tab.
     Add Tomahawk Steak and Raw Tomahawk Steak into food tab and gears tab.

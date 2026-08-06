@@ -1,4 +1,6 @@
 {
   "replace": false,
-  "values": ["smc:fox_tail"]
+  "values": [
+    "smc:fox_tail"
+  ]
 }

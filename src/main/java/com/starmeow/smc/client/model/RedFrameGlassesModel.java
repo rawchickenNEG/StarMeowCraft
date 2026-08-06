@@ -25,16 +25,10 @@ public class RedFrameGlassesModel extends HumanoidModel<LivingEntity> {
 		this.glasses = this.head.getChild("glasses");
 	}
 
-	public static LayerDefinition createBodyLayer() {
-		MeshDefinition meshdefinition = new MeshDefinition();
+	public static LayerDefinition createArmorLayer() {
+		MeshDefinition meshdefinition = HumanoidModel.createMesh(new CubeDeformation(0.5F), 0.0F);
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create(), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("hat", CubeListBuilder.create(), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("body", CubeListBuilder.create(), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create(), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create(), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create(), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create(), PartPose.ZERO);
+		PartDefinition head = partdefinition.getChild("head");
 		PartDefinition glasses = head.addOrReplaceChild("glasses", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.2F)), PartPose.offset(0.0F, -4.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 32, 32);

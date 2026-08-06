@@ -43,6 +43,8 @@ public class Config
     public static ForgeConfigSpec.DoubleValue DEVOUR_SWORD_SHOOT_DAMAGE;
     public static ForgeConfigSpec.IntValue DEVOUR_SWORD_UPGRADE;
     public static ForgeConfigSpec.IntValue DEVOUR_SWORD_MAX;
+    public static final String DEVOUR_KNIFE = "DevourKnife";
+    public static ForgeConfigSpec.DoubleValue DEVOUR_KNIFE_ADD;
     public static final String DIVINE_HALO = "DivineHalo";
     public static ForgeConfigSpec.DoubleValue DIVINE_HALO_MAX_REDUCE;
     public static ForgeConfigSpec.DoubleValue DIVINE_HALO_MIN_REDUCE;
@@ -186,6 +188,11 @@ public class Config
                 .defineInRange("UpgradeAmount", 9, 0, Integer.MAX_VALUE);
         DEVOUR_SWORD_MAX = COMMON_BUILDER.comment("Define the max shooting sword amount.")
                 .defineInRange("MaxShootingAmount", 6, 1, Integer.MAX_VALUE);
+        COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.push(DEVOUR_KNIFE);
+        DEVOUR_KNIFE_ADD = COMMON_BUILDER.comment("Define the amount of damage increased by each knife.")
+                .defineInRange("DamageAdd", 0.25, 0, Double.MAX_VALUE);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.push(DIVINE_HALO);

@@ -23,7 +23,7 @@ public class SteakAxeItem extends AxeItem {
         if (isEdible()) {
             p_42925_.eat(p_42924_, p_42923_.copy());
             if(p_42925_ instanceof Player player){
-                p_42923_.hurtAndBreak(p_42923_.getMaxDamage() / 35, player, (p_40665_) -> {
+                p_42923_.hurtAndBreak(5, player, (p_40665_) -> {
                     p_40665_.broadcastBreakEvent(player.getUsedItemHand());
                 });
             }

@@ -4,14 +4,9 @@
   ],
   "slots": [
     "charm",
-    "ring",
     "back",
     "belt",
     "head",
-    "hands",
-    "bracelet",
-    "necklace",
-    "curio",
     "feet"
   ]
 }

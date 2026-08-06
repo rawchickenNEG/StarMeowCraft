@@ -43,10 +43,7 @@ public class RedFrameGlassesCuriosRenderer implements ICurioRenderer {
         LivingEntity entity = slotContext.entity();
 
         ICurioRenderer.followBodyRotations(entity, model);
-
-        model.copyPropertiesTo((HumanoidModel<LivingEntity>) renderLayerParent.getModel());
         matrixStack.pushPose();
-        model.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         VertexConsumer vertexConsumer = renderTypeBuffer.getBuffer(
                 RenderType.entityCutoutNoCull(new ResourceLocation("smc:textures/models/red_frame_glasses.png"))
         );

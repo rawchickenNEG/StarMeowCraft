@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-07T18:03:11.5387177	Recipes
+// 1.20.1	2026-07-22T18:07:22.0852464	Recipes
 c28075a42ada70473f08c68f49640bf235a97563 data/minecraft/advancements/recipes/decorations/cloud_from_smelting.json
 3e54715b864b3f5065dcfb775ff89a083f13360e data/minecraft/advancements/recipes/decorations/thin_cloud_from_smelting.json
 b37839f4e378ae2138caffa8bd1561e9edcd212b data/minecraft/recipes/cloud_from_smelting.json
@@ -179,6 +179,7 @@ b5e0841a76546829be15af5d24549455e6487009 data/smc/advancements/recipes/misc/jerk
 9860f69d1a13b75bd3686eb035c4c28037d12520 data/smc/advancements/recipes/misc/jerky_from_campfire.json
 5f2d4f907149c95773f09311f179f4440ed8667f data/smc/advancements/recipes/misc/jerky_from_smoking.json
 e4422b6b98cdd090fb746f39656f8566f24adf8f data/smc/advancements/recipes/misc/jerky_puring.json
+bad94e03eaaade866cb49a8fdc06e2d65960e28e data/smc/advancements/recipes/misc/jinkera.json
 903dbcf7519be121df718555ad365060de4f9bba data/smc/advancements/recipes/misc/light_meal.json
 d8d9ffd95ce9bc7a798dd00408c7e312c5264602 data/smc/advancements/recipes/misc/lucky_nugget.json
 83cccb3f633c8324896706e1c78b6719a11b289f data/smc/advancements/recipes/misc/map_puring.json
@@ -239,6 +240,9 @@ fb6a8f03e044dfdff229e8483850d4c64c0d6fbc data/smc/advancements/recipes/misc/spic
 97487d7cb7909ea2475595bcbb88279ead3cd031 data/smc/advancements/recipes/misc/template_shroud.json
 b4289cee893f3a0a62c477866570187e84bda07b data/smc/advancements/recipes/misc/terracotta_puring.json
 5944fdcd94db6f0e8c5818f9473d0cb8e3f871e9 data/smc/advancements/recipes/misc/tnet.json
+22646cd7b80725a333ee5e814c053b01cffd7fac data/smc/advancements/recipes/misc/tomahawk_steak_from_campfire.json
+505859ad328004a62cfab657799e6c026e0f700f data/smc/advancements/recipes/misc/tomahawk_steak_from_smelting.json
+0fce1f68981236f7ee323df0f686827e806302cf data/smc/advancements/recipes/misc/tomahawk_steak_from_smoking.json
 c562d723a13890f042b1020fd00a30fe5a708536 data/smc/advancements/recipes/misc/torch_puring.json
 b0d60c07dbcbc1205931b4c18394c2bf8bcffa0e data/smc/advancements/recipes/misc/treasure_detector.json
 57fe154f4551ae94b634cf50e0e61d17bc5e9365 data/smc/advancements/recipes/misc/tuff_zinc_ore_to_ingot_from_blasting.json
@@ -456,6 +460,7 @@ c4a1aafa5caf9c0c12ff12fda2ae25cd3abae03f data/smc/recipes/jerky_2_from_campfire.
 5250becdd40bd938e7b27bf0722d5c3141066c84 data/smc/recipes/jerky_from_campfire.json
 b4e735cbed5492e0c5308ce9d5b988ebd33d9202 data/smc/recipes/jerky_from_smoking.json
 c9a55904c82de6e273c1f6fa6d6359f2914ee565 data/smc/recipes/jerky_puring.json
+bcbb49070d3fcfd572e726c76b55cf92793c6f51 data/smc/recipes/jinkera.json
 57d3bf1f301a80b7fe0a2cb60609d4752f754ff6 data/smc/recipes/light_meal.json
 5836293498ec8aa6b99f50f562160c404ddf9b03 data/smc/recipes/lollipop_broccoli.json
 bfbf5459a52fc99c26b874921725fbb6d72f2275 data/smc/recipes/lollipop_frost.json
@@ -550,6 +555,9 @@ b68610f0cf43e5999662670baa72afbb9f740c03 data/smc/recipes/steamed_pea_flour_cake
 e0256a774063de7cae83eaddaf72e074636b8259 data/smc/recipes/thin_cirrus_cloud_from_cirrus_cloud.json
 4e3ab64ff5da4e7389559eabf3ef67125ed9cd17 data/smc/recipes/thin_cloud_from_cloud.json
 8990f24a4eca3b6e1796aa2a57323399d1ad3922 data/smc/recipes/tnet.json
+690c918c1b1aa6d712595366f325b03046138824 data/smc/recipes/tomahawk_steak_from_campfire.json
+a72fa7301d9742ce7b8cab3dbb373790583d842e data/smc/recipes/tomahawk_steak_from_smelting.json
+91df22468985f1f03fb4f123249030f6081731ad data/smc/recipes/tomahawk_steak_from_smoking.json
 e06887f4e6209b28f77a25529d3123a32ee031bd data/smc/recipes/torch_puring.json
 a558a9bd8cc99337faca6dfb6356aaa2c0fe8308 data/smc/recipes/treasure_detector.json
 85ef280a4f9c80edf3a9721c01d8a71378e9bf14 data/smc/recipes/tuff_zinc_ore_to_ingot_from_blasting.json
