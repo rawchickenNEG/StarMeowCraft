@@ -23,6 +23,7 @@ public class RedFrameGlassesModel extends HumanoidModel<LivingEntity> {
 		super(root);
 		this.head = root.getChild("head");
 		this.glasses = this.head.getChild("glasses");
+		this.head.skipDraw = true;
 	}
 
 	public static LayerDefinition createArmorLayer() {

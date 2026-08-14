@@ -1,0 +1,26 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "smc:item/chainsaw_off_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/chainsaw_item"
+    },
+    "ground": {
+      "parent": "smc:item/chainsaw_item"
+    },
+    "fixed": {
+      "parent": "smc:item/chainsaw_item"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "on": 1.0
+      },
+      "model": "smc:item/chainsaw_on"
+    }
+  ]
+}

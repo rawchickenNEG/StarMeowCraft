@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "smc:zinc_saw"
+    },
+    "2": {
+      "item": "minecraft:redstone"
+    },
+    "3": {
+      "item": "minecraft:chain"
+    },
+    "4": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    " 33",
+    "413",
+    "24 "
+  ],
+  "result": {
+    "item": "smc:chainsaw"
+  },
+  "show_notification": true
+}

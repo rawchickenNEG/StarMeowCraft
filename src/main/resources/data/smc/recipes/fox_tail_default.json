@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "smc:fox_tail"
+    },
+    {
+      "item": "smc:pure_fox_fur"
+    }
+  ],
+  "result": {
+    "item": "smc:fox_tail",
+    "nbt": "{SMCTailVariant:\"\"}"
+  }
+}

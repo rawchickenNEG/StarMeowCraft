@@ -1,0 +1,18 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+    "parent": "smc:item/chainsaw_on_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/chainsaw_item"
+    },
+    "ground": {
+      "parent": "smc:item/chainsaw_item"
+    },
+    "fixed": {
+      "parent": "smc:item/chainsaw_item"
+    }
+  }
+}

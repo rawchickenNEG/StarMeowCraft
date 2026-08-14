@@ -312,6 +312,12 @@
   "item.smc.redstone_ice_cream": "Redstone Ice Cream",
   "item.smc.deluxe_cake": "§f§l[§c§lSup§6§ler §e§lDe§a§llu§b§lxe §9§lCa§5§lke§f§l]§r",
   "item.smc.deluxe_cake_slice": "§f§l[§c§lSup§6§ler §e§lDe§a§llu§b§lxe §9§lCa§5§lke§f§l §c§lSli§6§lce]§r",
+  "item.smc.pumpkin_pile": "Pumpkin Pile",
+  "item.smc.melon_half": "Half Melon",
+  "item.smc.chainsaw": "Chainsaw",
+  "item.smc.bowl_of_gqkj_char_siu_pork_knuckle_rice": "Bowl Of Char Siu Pork Knuckle Rice",
+  "item.smc.gqkj_char_siu_pork_knuckle_rice": "JQKA's Char Siu Pork Knuckle Rice",
+  "item.smc.noway_bro": "No way, Bro?",
 
   "item.smc.carrot_pickaxe": "Carrot Pickaxe",
   "item.smc.golden_carrot_pickaxe": "Golden Carrot Pickaxe",
@@ -440,6 +446,7 @@
   "message.smc.need_strength": "You don't have enough STRENGTH to pull it out.",
   "message.smc.not_loottable": "Name is not an available Loottable Resource Location!",
   "message.smc.devour_zenish": "QAQ",
+  "message.smc.take_serving": "You need a %s to eat this.",
 
   "tooltip.smc.broccoli_boots": "Provides Luck and Speed when equipped.",
   "tooltip.smc.broccoli_hoe": "Has chance to get Bone Meal.",
@@ -608,6 +615,7 @@
   "tooltip.smc.zenish_1": "Shoot traceable flying swords quickly to the target you're looking, target killing by flying sword is regard as killing by weapon in killer's hand.",
   "tooltip.smc.raw_tomahawk_steak": "It would be better to cook it.",
   "tooltip.smc.tomahawk_steak": "Delicious!",
+  "tooltip.smc.chainsaw": "Can felling very fast when powered, hold right mouse to hurt targes ahead very quickly.",
 
   "tooltip.smc.frostium_shackles": "Remove all extra step height, can absorb Anvil to decrease your moving speed, increase your knock back resistance and armor.",
   "tooltip.smc.frostium_shackles_0": "Absorbed Anvil Count: %s",
@@ -651,6 +659,14 @@
   "tooltip.smc.divine_halo_type.broccoli": "Broccoli",
   "tooltip.smc.divine_halo_type.d": ":D",
   "tooltip.smc.divine_halo_type.zinc": "Zinc",
+
+  "tooltip.smc.fox_tail_type.default": "Default",
+  "tooltip.smc.fox_tail_type.bf_meow": "BF_Meow",
+  "tooltip.smc.fox_tail_type.fox": "Fox",
+  "tooltip.smc.fox_tail_type.snow_fox": "Snow Fox",
+  "tooltip.smc.fox_tail_type.starjump": "Starjump",
+  "tooltip.smc.fox_tail_type.huacai": "Huacai",
+  "tooltip.smc.fox_tail_type.zinc": "Zinc",
 
   "trim_material.smc.frostium": "Frostium Material",
   "trim_material.smc.perkin": "Perkin Material",

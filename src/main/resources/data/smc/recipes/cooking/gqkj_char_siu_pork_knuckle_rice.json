@@ -1,0 +1,38 @@
+{
+  "type": "farmersdelight:cooking",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "container": {
+    "item": "minecraft:decorated_pot"
+  },
+  "cookingtime": 400,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "farmersdelight:smoked_ham"
+    },
+    {
+      "item": "smc:chicken_harvester_egg"
+    },
+    {
+      "tag": "forge:salad_ingredients"
+    },
+    {
+      "tag": "forge:crops/rice"
+    },
+    {
+      "item": "smc:ice_tea"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "smc:gqkj_char_siu_pork_knuckle_rice"
+  }
+}

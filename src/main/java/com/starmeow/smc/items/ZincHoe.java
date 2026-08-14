@@ -88,6 +88,9 @@ public class ZincHoe extends HoeItem {
                     ItemStack scanItem = player.getInventory().getItem(i);
                     if(scanItem.is(ItemRegistry.BATTERY.get())){
                         scanItem.setDamageValue(scanItem.getDamageValue() + 1);
+                        if(scanItem.getDamageValue() >= scanItem.getMaxDamage()){
+                            scanItem.shrink(1);
+                        }
                         itemstack.getOrCreateTag().putInt("SMCZincPower", getPower(itemstack) + 1);
                     }
                 }

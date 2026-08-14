@@ -295,7 +295,12 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('2', Items.BONE)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.RAW_TOMAHAWK_STEAK.get() + "_2"));
-
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.MELON), RecipeCategory.FOOD, ItemRegistry.MELON_HALF.get(), 2)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.MELON))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.MELON_HALF.get().toString()));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.PUMPKIN), RecipeCategory.FOOD, ItemRegistry.PUMPKIN_PILE.get(), 2)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.PUMPKIN))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.PUMPKIN_PILE.get().toString()));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.CHICKEN_HARVESTER_EGG_SANDWICH.get())
                 .requires(Items.BREAD)
                 .requires(ItemRegistry.FRIED_CHICKEN_HARVESTER_EGG.get())
@@ -1316,6 +1321,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('2', ItemRegistry.STAR_DUST.get())
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.STAR_DUST.get()))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.SUPER_BONEMEAL.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.CHAINSAW.get())
+                .pattern(" 33")
+                .pattern("413")
+                .pattern("24 ")
+                .define('1', ItemRegistry.ZINC_AXE.get())
+                .define('2', Items.REDSTONE)
+                .define('3', Items.CHAIN)
+                .define('4', Items.IRON_BLOCK)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.ZINC_AXE.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.CHAINSAW.get().toString()));
         /*
         ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ItemRegistry.NETHERITE_SWISS_ARMY_KNIFE.get())
                 .requires(Items.NETHERITE_AXE)

@@ -2,10 +2,13 @@ package com.starmeow.smc.items.curiosequipable;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.starmeow.smc.helper.ItemHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -96,9 +99,21 @@ public class FoxTail extends Item implements ICurioItem {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn)
     {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        CompoundTag tag = stack.getOrCreateTag();
+        String variant = tag.getString("SMCTailVariant");
+        String variantStr = "tooltip.smc.fox_tail_type.";
         tooltip.add(Component.translatable("tooltip.smc.fox_tail").withStyle(ChatFormatting.AQUA));
         tooltip.add(Component.translatable("tooltip.smc.fox_tail_0").withStyle(ChatFormatting.AQUA));
         tooltip.add(Component.translatable("tooltip.smc.fox_tail_1").withStyle(ChatFormatting.AQUA));
+        switch (variant){
+            case "fox" -> tooltip.add(Component.translatable(variantStr + "fox").withStyle(Style.EMPTY.withColor(TextColor.fromRgb(0xE17B24))));
+            case "snow_fox" -> tooltip.add(Component.translatable(variantStr + "snow_fox").withStyle(Style.EMPTY.withColor(TextColor.fromRgb(0xD7E2D9))));
+            case "huacai" -> tooltip.add(Component.translatable(variantStr + "huacai").withStyle(Style.EMPTY.withColor(TextColor.fromRgb(0x587A2F))));
+            case "bf_meow" -> tooltip.add(Component.translatable(variantStr + "bf_meow").withStyle(Style.EMPTY.withColor(TextColor.fromRgb(0xFFC08E))));
+            case "starjump" -> tooltip.add(Component.translatable(variantStr + "starjump").withStyle(Style.EMPTY.withColor(TextColor.fromRgb(0x84A6E9))));
+            case "zinc" -> tooltip.add(Component.translatable(variantStr + "zinc").withStyle(Style.EMPTY.withColor(ItemHelper.colorToInt(114, 114, 158))));
+            default -> tooltip.add(Component.translatable(variantStr + "default").withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)));
+        }
     }
 
 }

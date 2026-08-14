@@ -316,10 +316,20 @@ public class ItemRegistry {
             .alwaysEat().build())));
     public static final RegistryObject<Item> CHOCLIZ = ITEMS.register("chocliz", () -> new Chocliz(defaultBuilder().food((new FoodProperties.Builder()).nutrition(4).saturationMod(0.35f).alwaysEat().build())));
     public static final RegistryObject<Item> CHOCLIZ_BERRY = ITEMS.register("chocliz_berry", () -> new Chocliz(defaultBuilder().food((new FoodProperties.Builder()).nutrition(4).saturationMod(0.35f).alwaysEat().build())));
+    public static final RegistryObject<Item> MELON_HALF = ITEMS.register("melon_half", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(7).saturationMod(0.35f).build())));
+    public static final RegistryObject<Item> PUMPKIN_PILE = ITEMS.register("pumpkin_pile", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(7).saturationMod(0.35f).build())));
 
     public static final RegistryObject<Item> ZONGZI = ITEMS.register("zongzi", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(6).saturationMod(0.5f)
             .effect(new MobEffectInstance(PotionEffectRegistry.PEACE.get(), 600), 1)
             .alwaysEat().build())));
+    public static final RegistryObject<Item> GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE = ITEMS.register("gqkj_char_siu_pork_knuckle_rice", () -> new ItemNameBlockItem(BlockRegistry.GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get(), defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> BOWL_OF_GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE = ITEMS.register("bowl_of_gqkj_char_siu_pork_knuckle_rice", () -> new Item(defaultBuilder().craftRemainder(Items.FLOWER_POT).rarity(Rarity.EPIC).food((new FoodProperties.Builder()).nutrition(20).saturationMod(0.85f)
+            .effect(new MobEffectInstance(PotionEffectRegistry.ELBOWING.get(), 3600, 2), 1.0F)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 3600, 2), 1.0F)
+            .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 3600, 2), 1.0F)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 3600, 2), 1.0F)
+            .effect(new MobEffectInstance(PotionEffectRegistry.CHOP_PROTECTION.get(), 3600, 0), 1.0F)
+            .build())));
     public static final RegistryObject<Item> CHOP_KEBAB = ITEMS.register("chop_kebab", () -> new LollipopItem(ItemTier.LOLLIPOP, 15, -3.1F, defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.65f).build())));
     public static final RegistryObject<Item> STAR_DUST = ITEMS.register("star_dust", () -> new Item(defaultBuilder()));
     public static final RegistryObject<Item> PERKIN_INGOT = ITEMS.register("perkin_ingot", () -> new Item(defaultBuilder()));
@@ -364,6 +374,7 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> SPEAR_GUN = ITEMS.register("spear_gun", () -> new SpearGun(defaultBuilder().durability(200)));
     public static final RegistryObject<Item> COMMAND_BLOCK_WAND = ITEMS.register("command_block_wand", () -> new CommandBlockWand(defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> CHAINSAW = ITEMS.register("chainsaw", () -> new ChainsawItem(ItemTier.ZINC, 1.5F, -1.5F, defaultBuilder()));
 
     public static final RegistryObject<Item> RAINBOW_FISHING_ROD = ITEMS.register("rainbow_fishing_rod", () -> new RainbowFishingRod(defaultBuilder().durability(1200)));
     public static final RegistryObject<Item> RAINBOW_BOW = ITEMS.register("rainbow_bow", () -> new RainbowBow(defaultBuilder().durability(1200)));

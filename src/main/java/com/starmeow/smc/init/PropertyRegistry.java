@@ -80,6 +80,8 @@ public class PropertyRegistry {
                 itemstack.getTag() != null && itemstack.getTag().contains("SMCWeaponSkin") ? 1.0F : 0.0F);
         ItemProperties.register(ItemRegistry.DEVOUR_KNIFE.get(), new ResourceLocation(StarMeowCraft.MODID, "disguised"), (itemstack, level, entity, number) ->
                 itemstack.getTag() != null && itemstack.getTag().contains("SMCWeaponSkin") ? 1.0F : 0.0F);
+        ItemProperties.register(ItemRegistry.CHAINSAW.get(), new ResourceLocation("on"), (itemstack, level, entity, number) ->
+                itemstack.getOrCreateTag().getBoolean("SMCChainsawUsing") ? 1.0F : 0.0F);
     }
 
     @SubscribeEvent

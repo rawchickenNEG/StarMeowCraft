@@ -1,10 +1,19 @@
 SMC 1.20.1 Changelog
 
+-1.1.7
+    Add JQKA's Char Siu Pork Knuckle Rice (From VEFC).
+    Change Salt Fish Block collision box and add waterlog property.
+    Fix Divine Halo and Red Frame Glasses renderer issue.
+-1.1.6
+    Add Chainsaw item.
+    Add simple edible pumpkin and melon foods.
+    Add Fox Tail item skin changing recipes.
 -1.1.5
     Add forge knife tag for Devour Knife and Cleaver.
     Add config for Devour Knife damage addition amount.
     Fix Devour Sword changing skin duplicate item issue.
     Fix Steak Axe item incorrect durability consuming issue.
+    Fix Red Frame Glasses and Halo curios model animation issue.
     Remove unused curios slots.
 -1.1.4
     Add edible weapon into food tab.

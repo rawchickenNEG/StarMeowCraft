@@ -15,6 +15,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetPassengersPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -61,9 +62,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.awt.event.ItemEvent;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Mod.EventBusSubscriber
 public class InteractEvents {
@@ -230,6 +229,70 @@ public class InteractEvents {
             if(event.getExpToDrop() != 0){
                 ExperienceOrb xpOrb = new ExperienceOrb(level, player.getX(), player.getY(), player.getZ(), event.getExpToDrop() * 3);
                 level.addFreshEntity(xpOrb);
+            }
+        }
+        if (item.is(ItemRegistry.CHAINSAW.get())) {
+            CompoundTag tag = item.getTag();
+            if (tag != null && tag.contains("SMCZincPower")) {
+                int lim = Math.min(256, tag.getInt("SMCZincPower"));
+
+                if (lim <= 0) return;
+
+                BlockPos startPos = event.getPos();
+                Block targetBlock = event.getState().getBlock();
+
+                List<BlockPos> selected = new ArrayList<>();
+                Set<BlockPos> visited = new HashSet<>();
+                Queue<BlockPos> queue = new ArrayDeque<>();
+
+                selected.add(startPos);
+                visited.add(startPos);
+                queue.add(startPos);
+
+                while (!queue.isEmpty() && selected.size() < lim) {
+                    BlockPos current = queue.poll();
+                    for (int x = -1; x <= 1; x++) {
+                        for (int y = -1; y <= 1; y++) {
+                            for (int z = -1; z <= 1; z++) {
+                                if (x == 0 && y == 0 && z == 0) {
+                                    continue;
+                                }
+                                BlockPos next = current.offset(x, y, z);
+                                if (!visited.add(next)) {
+                                    continue;
+                                }
+                                BlockState state = level.getBlockState(next);
+                                if (state.getBlock() != targetBlock) {
+                                    continue;
+                                }
+                                selected.add(next);
+                                queue.add(next);
+                                if (selected.size() >= lim) {
+                                    break;
+                                }
+                            }
+                            if (selected.size() >= lim) {
+                                break;
+                            }
+                        }
+                        if (selected.size() >= lim) {
+                            break;
+                        }
+                    }
+                }
+
+                for (BlockPos blockPos : selected) {
+                    BlockState state = level.getBlockState(blockPos);
+                    if (state.isAir()) {
+                        continue;
+                    }
+                    if (!event.getPlayer().getAbilities().instabuild) {
+                        Block.dropResources(state, level, blockPos, level.getBlockEntity(blockPos), event.getPlayer(), item);
+                        item.mineBlock(level, state, blockPos, event.getPlayer());
+                    }
+
+                    level.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
+                }
             }
         }
     }

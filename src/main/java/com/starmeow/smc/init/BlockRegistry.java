@@ -84,4 +84,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> FROST_PIE_BLOCK = BLOCKS.register("frost_pie_block", () -> new BasePieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), ItemRegistry.FROST_PIE_SLICE));
     public static final RegistryObject<Block> SALT_FISH_PIE_BLOCK = BLOCKS.register("salt_fish_pie_block", () -> new BasePieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), ItemRegistry.SALT_FISH_PIE_SLICE));
 
+    public static final RegistryObject<Block> GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE = BLOCKS.register("gqkj_char_siu_pork_knuckle_rice", () -> new PorkRiceBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT), ItemRegistry.BOWL_OF_GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE, true));
+
 }

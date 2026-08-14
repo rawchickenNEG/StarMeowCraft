@@ -29,6 +29,7 @@ public class DivineHaloModel extends HumanoidModel<LivingEntity> {
 		this.halo_part = this.fixed.getChild("halo_part");
 		this.rot_down = this.halo_part.getChild("rot_down");
 		this.rot_up = this.halo_part.getChild("rot_up");
+		this.head.skipDraw = true;
 	}
 
 	public static LayerDefinition createArmorLayer() {

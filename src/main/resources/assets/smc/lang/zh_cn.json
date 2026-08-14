@@ -330,6 +330,9 @@
   "item.smc.redstone_ice_cream": "红石冰激凌",
   "item.smc.deluxe_cake": "§f§l『§c§l超§6§l级§e§l豪§a§l华§b§l大§9§l蛋§5§l糕§f§l』§r",
   "item.smc.deluxe_cake_slice": "§f§l『§c§l超§6§l级§e§l豪§a§l华§b§l大§9§l蛋§5§l糕§c§l切§6§l片§f§l』§r",
+  "item.smc.pumpkin_pile": "小南瓜堆",
+  "item.smc.melon_half": "半个西瓜",
+  "item.smc.chainsaw": "链锯",
 
   "item.smc.carrot_pickaxe": "胡萝卜镐",
   "item.smc.golden_carrot_pickaxe": "金胡萝卜镐",
@@ -348,6 +351,9 @@
   "item.smc.snow_fox_shawl": "雪狐披肩",
   "item.smc.fox_tail": "星寰幻尾",
   "item.smc.command_block_wand": "命令之杖",
+  "item.smc.bowl_of_gqkj_char_siu_pork_knuckle_rice": "碗装叉烧猪肘饭",
+  "item.smc.gqkj_char_siu_pork_knuckle_rice": "JQKA的叉烧猪肘饭",
+  "item.smc.noway_bro": "补食，哥们？",
 
   "item.smc.candy_jar": "糖果罐",
   "item.smc.devour_sword": "千刃锻锋",
@@ -441,6 +447,7 @@
   "message.smc.need_strength": "你没有足够的力量拔出它",
   "message.smc.not_loottable": "名称不是一个可用的战利品表资源路径！",
   "message.smc.devour_zenish": "QAQ",
+  "message.smc.take_serving": "你需要用一个%s来吃它",
 
   "tooltip.smc.broccoli_boots": "装备时提供幸运和速度。",
   "tooltip.smc.broccoli_hoe": "有概率获取骨粉。",
@@ -611,6 +618,7 @@
   "tooltip.smc.zenish_1": "可以快速向看向的目标发射能追踪的飞剑，飞剑击杀的目标视为被玩家手中的武器击杀。",
   "tooltip.smc.raw_tomahawk_steak": "最好先烹饪一下",
   "tooltip.smc.tomahawk_steak": "超绝美味！",
+  "tooltip.smc.chainsaw": "充能时可以快速伐木，右键使用时对前方持续造成伤害",
 
   "tooltip.smc.frostium_shackles": "移除你的台阶高度增益，可以吸收铁砧来降低移动速度并提升击退抗性和护甲值。",
   "tooltip.smc.frostium_shackles_0": "吸收的铁砧数量：%s",
@@ -649,9 +657,17 @@
   "tooltip.smc.divine_halo_type.apostle": "使徒",
   "tooltip.smc.divine_halo_type.helicopter": "直升机",
   "tooltip.smc.divine_halo_type.perfrostite": "霜珀合金",
-  "tooltip.smc.divine_halo_type.broccoli": "西兰花",
+  "tooltip.smc.divine_halo_type.broccoli": "花菜",
   "tooltip.smc.divine_halo_type.d": ":D",
   "tooltip.smc.divine_halo_type.zinc": "靛锌",
+
+  "tooltip.smc.fox_tail_type.default": "默认",
+  "tooltip.smc.fox_tail_type.bf_meow": "小喵",
+  "tooltip.smc.fox_tail_type.fox": "赤狐",
+  "tooltip.smc.fox_tail_type.snow_fox": "雪狐",
+  "tooltip.smc.fox_tail_type.starjump": "星跃",
+  "tooltip.smc.fox_tail_type.huacai": "花菜",
+  "tooltip.smc.fox_tail_type.zinc": "靛锌",
 
   "trim_material.smc.frostium": "霜冻金属质",
   "trim_material.smc.perkin": "珀金质",

@@ -212,6 +212,10 @@ public class TabRegistry {
                 output.accept(ItemRegistry.GIANT_CARROT.get());
                 output.accept(ItemRegistry.SNOW_GOLEM_ICE_CREAM.get());
                 output.accept(ItemRegistry.DANDELION_SALAD.get());
+                output.accept(ItemRegistry.MELON_HALF.get());
+                output.accept(ItemRegistry.PUMPKIN_PILE.get());
+                output.accept(ItemRegistry.GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get());
+                output.accept(ItemRegistry.BOWL_OF_GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get());
                 //meals
                 output.accept(ItemRegistry.BOILED_BROCCOLI.get());
                 output.accept(ItemRegistry.LIGHT_MEAL.get());
@@ -336,6 +340,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.ROAD_SIGN.get());
                 output.accept(ItemRegistry.MEOWMERE.get());
                 output.accept(ItemRegistry.ZENISH.get());
+                output.accept(ItemRegistry.CHAINSAW.get());
                 //饰品
                 output.accept(ItemRegistry.DIVINE_WING.get());
                 output.accept(ItemRegistry.DIVINE_SHARD.get());

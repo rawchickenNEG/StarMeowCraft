@@ -225,7 +225,10 @@ public class DataGen {
             list.add(String.valueOf(ItemRegistry.PURE_FOX_FUR.get()));
             list.add(String.valueOf(ItemRegistry.INFINITE_FUEL.get()));
             list.add(String.valueOf(ItemRegistry.RED_FRAME_GLASSES.get()));
-
+            list.add(String.valueOf(ItemRegistry.PUMPKIN_PILE.get()));
+            list.add(String.valueOf(ItemRegistry.MELON_HALF.get()));
+            list.add(String.valueOf(ItemRegistry.BOWL_OF_GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get()));
+            list.add(String.valueOf(ItemRegistry.GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get()));
             for (Object o : list) {
                 this.singleTexture(o.toString(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(StarMeowCraft.MODID, "item/" + o));
             }
