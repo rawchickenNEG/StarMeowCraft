@@ -55,8 +55,14 @@ public class ItemHelper {
         Matcher matcher = pattern.matcher(name);
 
         if (matcher.find()) {
-            return Integer.parseInt(matcher.group());
+            try {
+                long parsedValue = Long.parseLong(matcher.group());
+                return Math.toIntExact(parsedValue);
+            } catch (NumberFormatException | ArithmeticException e) {
+                return -1;
+            }
         }
+
         return -1;
     }
 
