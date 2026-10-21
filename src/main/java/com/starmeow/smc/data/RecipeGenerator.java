@@ -155,6 +155,12 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(ForgeTags.SEEDS)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.ZONGZI.get().toString()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.BLOCKBENCH.get())
+                .requires(ItemTags.WOODEN_STAIRS)
+                .requires(Items.COOKIE)
+                .requires(Items.BLUE_DYE)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.BLOCKBENCH.get().toString()));
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BROCCOLI_CRATE.get())
                 .pattern("111")
                 .pattern("111")
@@ -308,7 +314,39 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(Items.BEETROOT)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.CHICKEN_HARVESTER_EGG_SANDWICH.get().toString()));
-       //霜冻工具
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.BURGER.get())
+                .requires(Items.BREAD)
+                .requires(SMCTags.MEAT_COMPAT)
+                .requires(Items.KELP)
+                .requires(Items.BEETROOT)
+                .requires(Items.CARROT)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.BURGER.get().toString()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.MOONCAKE.get())
+                .requires(Items.WHEAT)
+                .requires(Items.SUGAR)
+                .requires(Items.WHEAT)
+                .requires(Items.SUGAR)
+                .requires(ForgeTags.SEEDS)
+                .requires(ForgeTags.SEEDS)
+                .requires(ForgeTags.SEEDS)
+                .requires(ForgeTags.SEEDS)
+                .requires(ForgeTags.SEEDS)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.MOONCAKE.get().toString()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.MOON_CAKE.get())
+                .requires(Items.END_STONE)
+                .requires(Items.SUGAR)
+                .requires(Items.END_STONE)
+                .requires(Items.SUGAR)
+                .requires(Items.GOLDEN_APPLE)
+                .requires(Items.SUGAR)
+                .requires(Items.END_STONE)
+                .requires(Items.SUGAR)
+                .requires(Items.END_STONE)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.MOON_CAKE.get().toString()));
+        //霜冻工具
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemRegistry.FROSTIUM_PICKAXE.get())
                 .pattern("111")
                 .pattern(" 2 ")
@@ -908,6 +946,29 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('3', Items.NETHER_STAR)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.MEOWMERE.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemRegistry.GRAND_SWORD.get())
+                .pattern("a1b")
+                .pattern("c1d")
+                .pattern("323")
+                .define('1', Items.EMERALD)
+                .define('2',Items.GOLDEN_SWORD)
+                .define('3', Items.GOLD_NUGGET)
+                .define('a', Items.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .define('b', Items.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .define('c', Items.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .define('d', Items.HOST_ARMOR_TRIM_SMITHING_TEMPLATE)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.GRAND_SWORD.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemRegistry.SAVAGE_SWORD.get())
+                .pattern("a1a")
+                .pattern("a1a")
+                .pattern("323")
+                .define('1', Items.NETHERITE_INGOT)
+                .define('2',Items.GOLDEN_SWORD)
+                .define('3', Items.GOLD_INGOT)
+                .define('a', Ingredient.of(Items.WARD_ARMOR_TRIM_SMITHING_TEMPLATE, Items.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE,  Items.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE, Items.VEX_ARMOR_TRIM_SMITHING_TEMPLATE))
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.SAVAGE_SWORD.get().toString()));
 
         //矿物冶炼
         smeltingRecipes("blue_ice_frostium_ore_to_ingot", ItemRegistry.BLUE_ICE_FROSTIUM_ORE.get(), ItemRegistry.FROSTIUM_INGOT.get(), 0.35F, consumer);
@@ -1171,6 +1232,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .requires(ItemRegistry.CHOCOLATE_SWORD.get())
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.ZENISH.get().toString()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ItemRegistry.RUYI_JINGU_BANG.get())
+                .requires(ItemRegistry.ZINC_PICKAXE.get())
+                .requires(ItemRegistry.CALIBUR.get())
+                .requires(ItemRegistry.FROSTIUM_AXE.get())
+                .requires(ItemRegistry.GOLDEN_HANGER.get())
+                .requires(ItemRegistry.SUGARCANE_ROD.get())
+                .requires(ItemRegistry.RAINBOW_BOW.get())
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.RUYI_JINGU_BANG.get().toString()));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.WATER_DISPENSER.get())
                 .requires(Items.WATER_BUCKET)
                 .requires(Items.GLASS)
@@ -1304,6 +1375,14 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('2', Items.LIGHTNING_ROD)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.END_ROD))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.ROD_SWORD.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUGARCANE_ROD.get())
+                .pattern("1")
+                .pattern("1")
+                .pattern("1")
+                .define('1', Items.SUGAR_CANE)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SUGAR_CANE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.SUGARCANE_ROD.get().toString()));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.INFINITE_FUEL.get())
                 .requires(Items.COAL_BLOCK)
                 .requires(Items.BLAZE_ROD)
@@ -1331,6 +1410,16 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('4', Items.IRON_BLOCK)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.ZINC_AXE.get()))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.CHAINSAW.get().toString()));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.WANTED_LIST.get())
+                .requires(Items.ROTTEN_FLESH)
+                .requires(ItemRegistry.TODAYS_MENU.get())
+                .requires(Items.IRON_SWORD)
+                .requires(Items.BONE)
+                .requires(Items.GUNPOWDER)
+                .requires(Items.SPIDER_EYE)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.TODAYS_MENU.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.WANTED_LIST.get().toString()));
+
         /*
         ShapelessRecipeBuilder.shapeless(RecipeCategory.TOOLS, ItemRegistry.NETHERITE_SWISS_ARMY_KNIFE.get())
                 .requires(Items.NETHERITE_AXE)

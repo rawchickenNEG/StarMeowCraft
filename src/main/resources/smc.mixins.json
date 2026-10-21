@@ -5,20 +5,26 @@
   "minVersion": "0.8",
   "refmap": "smc.refmap.json",
   "client": [
+    "HumanoidArmorLayerMixin",
     "KeyboardHanderMixin",
     "LivingEntityRendererMixin",
-    "MouseHandlerMixin"
+    "LocalPlayerMixin",
+    "MouseHandlerMixin",
+    "MultiPlayerGameModeMixin"
   ],
   "mixins": [
     "AnvilBlockMixin",
     "EntityMixin",
+    "FishingHookMixin",
     "FoxMixin",
     "ItemEntityMixin",
+    "ItemMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
     "MixinBoat",
     "MixinBoatType",
     "MixinChestBoat",
+    "PlayerMixin",
     "RepairItemRecipeMixin",
     "ServerGamePacketListenerImplMixin",
     "ServerPlayerMixin",

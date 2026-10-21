@@ -67,6 +67,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> COOKED_DIRT = ITEMS.register("cooked_dirt", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(4).saturationMod(0).build())));
     public static final RegistryObject<Item> GRASS_BLOCK_PIE = ITEMS.register("grass_block_pie", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.5f).build())));
     public static final RegistryObject<Item> HIGH_CALCIUM_MILK = ITEMS.register("high_calcium_milk", () -> new HighCalciumMilk(defaultBuilder()));
+    public static final RegistryObject<Item> WILD_DOG_MILK = ITEMS.register("wild_dog_milk", () -> new WildDogMilk(defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> BLOOM_CAKE = ITEMS.register("bloom_cake", () -> new BloomCakeItem(defaultBuilder().craftRemainder(Items.FLOWER_POT).food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.5f)
             .effect(new MobEffectInstance(PotionEffectRegistry.BLOOMING.get(), 1800, 0), 1.0F)
             .alwaysEat().build())));
@@ -205,7 +206,7 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> FOX_FUR = ITEMS.register("fox_fur", () -> new TippedItems(defaultBuilder()));
     public static final RegistryObject<Item> SNOW_FOX_FUR = ITEMS.register("snow_fox_fur", () -> new TippedItems(defaultBuilder()));
-    public static final RegistryObject<Item> PURE_FOX_FUR = ITEMS.register("pure_fox_fur", () -> new TippedItems(defaultBuilder().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> PURE_FOX_FUR = ITEMS.register("pure_fox_fur", () -> new PureFoxFurItem(defaultBuilder().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> FOX_HELMET = ITEMS.register("fox_hat", () -> new FoxArmorItems(ArmorTier.FOX, ArmorItem.Type.HELMET, defaultBuilder()));
     public static final RegistryObject<Item> FOX_CHESTPLATE = ITEMS.register("fox_shawl", () -> new FoxArmorItems(ArmorTier.FOX, ArmorItem.Type.CHESTPLATE, defaultBuilder()));
@@ -318,7 +319,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHOCLIZ_BERRY = ITEMS.register("chocliz_berry", () -> new Chocliz(defaultBuilder().food((new FoodProperties.Builder()).nutrition(4).saturationMod(0.35f).alwaysEat().build())));
     public static final RegistryObject<Item> MELON_HALF = ITEMS.register("melon_half", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(7).saturationMod(0.35f).build())));
     public static final RegistryObject<Item> PUMPKIN_PILE = ITEMS.register("pumpkin_pile", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(7).saturationMod(0.35f).build())));
-
+    public static final RegistryObject<Item> LOTUS_POND = ITEMS.register("lotus_pond", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(4).saturationMod(0.35f)
+            .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 3600), 1)
+            .alwaysEat().build())));
     public static final RegistryObject<Item> ZONGZI = ITEMS.register("zongzi", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(6).saturationMod(0.5f)
             .effect(new MobEffectInstance(PotionEffectRegistry.PEACE.get(), 600), 1)
             .alwaysEat().build())));
@@ -330,6 +333,22 @@ public class ItemRegistry {
             .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 3600, 2), 1.0F)
             .effect(new MobEffectInstance(PotionEffectRegistry.CHOP_PROTECTION.get(), 3600, 0), 1.0F)
             .build())));
+    public static final RegistryObject<Item> FRIENDS_DRINK = ITEMS.register("friends_drink", () -> new FriendsDrink(defaultBuilder().food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.5f)
+            .effect(new MobEffectInstance(PotionEffectRegistry.OHH_YE_YE.get(), 6000), 1)
+            .alwaysEat().build())));
+    public static final RegistryObject<Item> BURGER = ITEMS.register("burger", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(10).saturationMod(0.85f)
+            .effect(new MobEffectInstance(MobEffects.SATURATION, 100), 1)
+            .alwaysEat().build())));
+    public static final RegistryObject<Item> CATBURGER = ITEMS.register("catburger", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(10).saturationMod(0.85f)
+            .effect(new MobEffectInstance(MobEffects.SATURATION, 100), 1)
+            .effect(new MobEffectInstance(PotionEffectRegistry.MEOW.get(), -1), 1)
+            .alwaysEat().build())));
+    public static final RegistryObject<Item> MOONCAKE = ITEMS.register("mooncake", () -> new Item(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.65f).build())));
+    public static final RegistryObject<Item> MOON_CAKE = ITEMS.register("moon_cake", () -> new MoonCake(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.65f).alwaysEat().build()).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> NOEL_COOKIE = ITEMS.register("noel_cookie", () -> new NoelCookie(defaultBuilder().food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.65f)
+            .effect(new MobEffectInstance(PotionEffectRegistry.STAR_LIGHT.get(), 1200, 1), 1.0F)
+            .alwaysEat().build()).rarity(Rarity.RARE)));
+
     public static final RegistryObject<Item> CHOP_KEBAB = ITEMS.register("chop_kebab", () -> new LollipopItem(ItemTier.LOLLIPOP, 15, -3.1F, defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(0.65f).build())));
     public static final RegistryObject<Item> STAR_DUST = ITEMS.register("star_dust", () -> new Item(defaultBuilder()));
     public static final RegistryObject<Item> PERKIN_INGOT = ITEMS.register("perkin_ingot", () -> new Item(defaultBuilder()));
@@ -368,12 +387,12 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHAINMAIL_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("chainmail_armor_trim_smithing_template", () -> SmithingTemplateItem.createArmorTrimTemplate(new ResourceLocation("smc", "chainmail_mimic")));
     public static final RegistryObject<Item> NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("netherite_armor_trim_smithing_template", () -> SmithingTemplateItem.createArmorTrimTemplate(new ResourceLocation("smc", "netherite_mimic")));
     public static final RegistryObject<Item> CHOP_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("chop_armor_trim_smithing_template", () -> SmithingTemplateItem.createArmorTrimTemplate(new ResourceLocation("smc", "chicken_chop")));
-    public static final RegistryObject<Item> DEVOUR_SWORD = ITEMS.register("devour_sword", () -> new DevourSword(ItemTier.DEVOURER, 0, -2.4F, defaultBuilder().rarity(Rarity.EPIC)));
-    public static final RegistryObject<Item> DEVOUR_KNIFE = ITEMS.register("devour_knife", () -> new DevourSword(ItemTier.DEVOURER, -2, -2.0F, defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> DEVOUR_SWORD = ITEMS.register("devour_sword", () -> new DevourSword(ItemTier.DEVOURER, 0, -2.4F, defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> DEVOUR_KNIFE = ITEMS.register("devour_knife", () -> new DevourSword(ItemTier.DEVOURER, -2, -2.0F, defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> TEMPLATE_SHROUD = ITEMS.register("template_shroud", () -> new TemplateShroud(ArmorTier.TEMPLATE, ArmorItem.Type.CHESTPLATE, defaultBuilder().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> SPEAR_GUN = ITEMS.register("spear_gun", () -> new SpearGun(defaultBuilder().durability(200)));
-    public static final RegistryObject<Item> COMMAND_BLOCK_WAND = ITEMS.register("command_block_wand", () -> new CommandBlockWand(defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> COMMAND_BLOCK_WAND = ITEMS.register("command_block_wand", () -> new CommandBlockWand(defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> CHAINSAW = ITEMS.register("chainsaw", () -> new ChainsawItem(ItemTier.ZINC, 1.5F, -1.5F, defaultBuilder()));
 
     public static final RegistryObject<Item> RAINBOW_FISHING_ROD = ITEMS.register("rainbow_fishing_rod", () -> new RainbowFishingRod(defaultBuilder().durability(1200)));
@@ -407,13 +426,18 @@ public class ItemRegistry {
     public static final RegistryObject<Item> NETHERITE_SWISS_ARMY_KNIFE = ITEMS.register("netherite_swiss_army_knife", () -> new SwissArmyKnife(Tiers.NETHERITE, 3, -2.4F, defaultBuilder().fireResistant()));
     public static final RegistryObject<Item> KNIFE = ITEMS.register("knife", () -> new KnifeItem(Tiers.IRON, 3, -2.4F, defaultBuilder().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> CLEAVER = ITEMS.register("cleaver", () -> new KnifeItem(Tiers.IRON, 1, -2.0F, defaultBuilder().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> CALIBUR = ITEMS.register("calibur", () -> new Calibur(ItemTier.CALIBUR, 15, -3.3F, defaultBuilder().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> EXCALIBUR = ITEMS.register("excalibur", () -> new Excalibur(ItemTier.CALIBUR, 0, -2.4F, defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> CALIBUR = ITEMS.register("calibur", () -> new Calibur(ItemTier.CALIBUR, 15, -3.3F, defaultBuilder().rarity(Rarity.UNCOMMON).fireResistant()));
+    public static final RegistryObject<Item> EXCALIBUR = ITEMS.register("excalibur", () -> new Excalibur(ItemTier.CALIBUR, 0, -2.4F, defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> CALIBUR_BLOCK = ITEMS.register("calibur_block", () -> new TippedBlockItems(BlockRegistry.CALIBUR_BLOCK.get(), defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> ROD_SWORD = ITEMS.register("rod_sword", () -> new SwordItem(ItemTier.END_ROD, 1, 0F, defaultBuilder()));
     public static final RegistryObject<Item> MEOWMERE = ITEMS.register("meowmere", () -> new Meowmere(ItemTier.MEOWMERE, 8, -2.2F, defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> ROAD_SIGN = ITEMS.register("road_sign", () -> new RoadSign(Tiers.IRON, 7, -3.3F, defaultBuilder().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> ZENISH = ITEMS.register("zenish", () -> new Zenish(ItemTier.ZENISH, 8, 0F, defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> ZENISH = ITEMS.register("zenish", () -> new Zenish(ItemTier.ZENISH, 8, 0F, defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> EMPERORS_NEW_SWORD = ITEMS.register("emperors_new_sword", () -> new EmperorsNewSword(ItemTier.CALIBUR, 0, -1.0F, defaultBuilder()));
+    public static final RegistryObject<Item> GRAND_SWORD = ITEMS.register("grand_sword", () -> new GrandSword(ItemTier.GRAND, 3, -2.4F, defaultBuilder()));
+    public static final RegistryObject<Item> SAVAGE_SWORD = ITEMS.register("savage_sword", () -> new SavageSword(ItemTier.SAVAGE, 4, -2.4F, defaultBuilder().fireResistant()));
+    public static final RegistryObject<Item> SUGARCANE_ROD = ITEMS.register("sugarcane_rod", () -> new SugarcaneRod(ItemTier.SUGARCANE, 0, -2.2F, defaultBuilder()));
+    public static final RegistryObject<Item> RUYI_JINGU_BANG = ITEMS.register("ruyi_jingu_bang", () -> new RuyiJinguBang(ItemTier.CALIBUR, 5, -2.2F, defaultBuilder().fireResistant()));
 
     public static final RegistryObject<Item> LUCKY_NUGGET = ITEMS.register("lucky_nugget", () -> new LuckyNugget(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(1.1f).fast().alwaysEat().build())));
     public static final RegistryObject<Item> MINI_BEDROCK = ITEMS.register("mini_bedrock", () -> new MiniBedrock(defaultBuilder().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
@@ -426,12 +450,13 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHOCOLATE_CHESTPLATE = ITEMS.register("chocolate_chestplate", () -> new ChocolateArmorItems(ArmorTier.CHOCOLATE, ArmorItem.Type.CHESTPLATE, defaultBuilder()));
     public static final RegistryObject<Item> CHOCOLATE_LEGGINGS = ITEMS.register("chocolate_leggings", () -> new ChocolateArmorItems(ArmorTier.CHOCOLATE, ArmorItem.Type.LEGGINGS, defaultBuilder()));
     public static final RegistryObject<Item> CHOCOLATE_BOOTS = ITEMS.register("chocolate_boots", () -> new ChocolateArmorItems(ArmorTier.CHOCOLATE, ArmorItem.Type.BOOTS, defaultBuilder()));
-    public static final RegistryObject<Item> DIVINE_WING = ITEMS.register("divine_wing", () -> new DivineWing(ArmorTier.EMPTY, ArmorItem.Type.CHESTPLATE, defaultBuilder().rarity(Rarity.EPIC)));
-    public static final RegistryObject<Item> DIVINE_HALO = ITEMS.register("divine_halo", () -> new DivineHalo(ArmorTier.EMPTY, ArmorItem.Type.HELMET, defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> DIVINE_WING = ITEMS.register("divine_wing", () -> new DivineWing(ArmorTier.EMPTY, ArmorItem.Type.CHESTPLATE, defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> DIVINE_HALO = ITEMS.register("divine_halo", () -> new DivineHalo(ArmorTier.EMPTY, ArmorItem.Type.HELMET, defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> CREATIVE_HALO = ITEMS.register("creative_halo", () -> new CreativeHalo(ArmorTier.EMPTY, ArmorItem.Type.HELMET, defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> DIVINE_SHARD = ITEMS.register("divine_shard", () -> new DivineShard(ArmorTier.EMPTY, ArmorItem.Type.HELMET, defaultBuilder().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SUPER_BONEMEAL = ITEMS.register("jinkera", () -> new SuperBonemeal(defaultBuilder()));
     public static final RegistryObject<Item> HANGER = ITEMS.register("hanger", () -> new Hanger(Tiers.IRON, 3, -2.4F,defaultBuilder().stacksTo(1).durability(200)));
-    public static final RegistryObject<Item> GOLDEN_HANGER = ITEMS.register("golden_hanger", () -> new GoldenHanger(Tiers.GOLD, 3, -2.4F,defaultBuilder().stacksTo(1).durability(200).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> GOLDEN_HANGER = ITEMS.register("golden_hanger", () -> new GoldenHanger(Tiers.GOLD, 3, -2.4F,defaultBuilder().stacksTo(1).durability(200).rarity(Rarity.EPIC).fireResistant()));
 
     public static final RegistryObject<Item> GOOGOO_STEW = ITEMS.register("googoo_stew", () -> new TippedItems(defaultBuilder().food((new FoodProperties.Builder()).nutrition(8).saturationMod(1.0f)
             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 1800, 1), 1.0F)
@@ -444,6 +469,12 @@ public class ItemRegistry {
     public static final RegistryObject<Item> END_ROD_CANDY = ITEMS.register("end_rod_candy", () -> new TippedItems(defaultBuilder().food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.5f)
             .effect(new MobEffectInstance(MobEffects.GLOWING, 36000, 0), 1.0F)
             .alwaysEat().build())));
+    public static final RegistryObject<Item> WANGQING_BEEF_NOODLES = ITEMS.register("wangqing_beef_noodles", () -> new WangqingBeefNoodles(defaultBuilder().food((new FoodProperties.Builder()).nutrition(12).saturationMod(0.85f).build())));
+    public static final RegistryObject<Item> BOILED_TRAFFIC_LIGHT = ITEMS.register("boiled_traffic_light", () -> new TippedItems(defaultBuilder().food((new FoodProperties.Builder()).nutrition(6).saturationMod(0.5f)
+            .effect(new MobEffectInstance(PotionEffectRegistry.RED_LIGHT_STOP.get(), 600, 0), 1.0F)
+            .alwaysEat().build())));
+    public static final RegistryObject<Item> BLOCKBENCH = ITEMS.register("blockbench", () -> new TippedItems(defaultBuilder().food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.3f).build())));
+
     public static final RegistryObject<Item> GOLDEN_BOAT = ITEMS.register("golden_boat", () -> new BoatItem(false, Boat.Type.byName("golden"), (new Item.Properties()).stacksTo(1)));
     public static final RegistryObject<Item> GOLDEN_CHEST_BOAT = ITEMS.register("golden_chest_boat", () -> new BoatItem(true, Boat.Type.byName("golden"), (new Item.Properties()).stacksTo(1).fireResistant()));
     public static final RegistryObject<Item> GOLDEN_TRANSPARENT_BOAT = ITEMS.register("golden_transparent_boat", () -> new BoatItem(false, Boat.Type.byName("glass_golden"), (new Item.Properties()).stacksTo(1).fireResistant()));
@@ -451,6 +482,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> END_CHEST_BOAT = ITEMS.register("end_chest_boat", () -> new BoatItem(true, Boat.Type.byName("end"), (new Item.Properties()).stacksTo(1).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> FROSTIUM_SHACKLES = ITEMS.register("frostium_shackles", () -> new FrostiumShackles(defaultBuilder().stacksTo(1).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> TODAYS_MENU = ITEMS.register("todays_menu", () -> new TodaysMenu(defaultBuilder().stacksTo(1).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> REWARD_BAG = ITEMS.register("reward_bag", () -> new RewardBag(defaultBuilder().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> WANTED_LIST = ITEMS.register("wanted_list", () -> new WantedList(defaultBuilder().stacksTo(1).rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> DOCKING_STATION = ITEMS.register("docking_station", () -> new DockingStation(defaultBuilder().stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> SMC_ICON = ITEMS.register("smc_icon", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> ICON_FOOD = ITEMS.register("icon_food", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
@@ -458,7 +493,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> ICON_COMPAT = ITEMS.register("icon_compat", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> ICON_BLOCK = ITEMS.register("icon_block", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
 
-    public static final RegistryObject<Item> MCR_SWORD = ITEMS.register("mcr_sword", () -> new MCrSword(Tiers.DIAMOND, 99999, -2.4F, defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> MCR_SWORD = ITEMS.register("mcr_sword", () -> new MCrSword(Tiers.DIAMOND, 99999, -2.4F, defaultBuilder().rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> GOD_PICKAXE = ITEMS.register("god_pickaxe", () -> new GodPickaxe(ItemTier.GOD, 0, -2.4F, defaultBuilder().rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> MUSIC_DISC_LAODA = ITEMS.register("music_disc_laoda",

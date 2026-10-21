@@ -21,6 +21,8 @@ public class SoundRegistry {
     public static final RegistryObject<SoundEvent> ICE_TEA_KILL = registerSoundEvents("ice_tea_kill");
     public static final RegistryObject<SoundEvent> ICE_TEA_DEATH = registerSoundEvents("ice_tea_death");
 
+    public static final RegistryObject<SoundEvent> NOEL_EAT = registerSoundEvents("noel_eat");
+
     private static RegistryObject<SoundEvent> registerSoundEvents(String name) {
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(StarMeowCraft.MODID, name)));
     }

@@ -4,6 +4,7 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import com.starmeow.smc.client.renderer.item.CustomArmorRenderProperties;
 import com.starmeow.smc.helper.CuriosHelper;
+import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -22,7 +23,6 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import top.theillusivec4.caelus.api.CaelusApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
@@ -39,7 +39,7 @@ public class DivineWing extends ArmorItem implements ICurioItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> attributeMap = ArrayListMultimap.create();
-        attributeMap.put(CaelusApi.getInstance().getFlightAttribute(), new AttributeModifier(UUID.fromString("53016504-1341-6422-2424-032531187451"), "elytra", 1, AttributeModifier.Operation.ADDITION));
+        //attributeMap.put(CaelusApi.getInstance().getFlightAttribute(), new AttributeModifier(UUID.fromString("53016504-1341-6422-2424-032531187451"), "elytra", 1, AttributeModifier.Operation.ADDITION));
         return attributeMap;
     }
 
@@ -59,9 +59,10 @@ public class DivineWing extends ArmorItem implements ICurioItem {
 
     private void onActiveTick(ItemStack stack, Level level, Player player){
         if(!level.isClientSide()) {
+            if(player.isSpectator()) return;
             CompoundTag tag = stack.getOrCreateTag();
             boolean fly = tag.getBoolean("SMCWingAbility");
-            if(player.getAbilities().flying && !player.getAbilities().instabuild){
+            if(player.getAbilities().flying && !player.getAbilities().instabuild && !CuriosHelper.hasCharm(player, ItemRegistry.DIVINE_HALO.get()) && !player.getItemBySlot(EquipmentSlot.HEAD).is(ItemRegistry.DIVINE_HALO.get())){
                 if(level.getGameTime() % 4L == 0L){
                     player.getFoodData().addExhaustion(1.0f);
                 }
@@ -98,7 +99,7 @@ public class DivineWing extends ArmorItem implements ICurioItem {
             int nextFlightTick = flightTicks + 1;
             if (nextFlightTick % 10 == 0) {
                 entity.gameEvent(GameEvent.ELYTRA_GLIDE);
-                if(entity instanceof Player player && !player.getAbilities().instabuild){
+                if(entity instanceof Player player && !player.getAbilities().instabuild && !CuriosHelper.hasCharm(entity, ItemRegistry.DIVINE_HALO.get()) && !player.getItemBySlot(EquipmentSlot.HEAD).is(ItemRegistry.DIVINE_HALO.get())){
                     player.getFoodData().addExhaustion(1.0f);
                 }
             }
@@ -153,6 +154,7 @@ public class DivineWing extends ArmorItem implements ICurioItem {
         tooltip.add(Component.translatable(string).withStyle(ChatFormatting.BLUE));
         tooltip.add(Component.translatable(string + "_1").withStyle(ChatFormatting.BLUE));
         tooltip.add(Component.translatable(string + "_2").withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable(string + "_3").withStyle(ChatFormatting.BLUE));
         switch (variant){
             case "black" -> tooltip.add(Component.translatable(variantStr + "black").withStyle(ChatFormatting.DARK_RED));
             case "meow" -> tooltip.add(Component.translatable(variantStr + "meow").withStyle(ChatFormatting.GOLD));

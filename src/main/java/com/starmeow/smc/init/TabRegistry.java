@@ -57,6 +57,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.FOX_FUR.get());
                 output.accept(ItemRegistry.SNOW_FOX_FUR.get());
                 output.accept(ItemRegistry.PURE_FOX_FUR.get());
+                output.accept(ItemRegistry.CHICKEN_TAIL_FEATHER.get());
                 output.accept(ItemRegistry.IRON_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                 output.accept(ItemRegistry.CHAINMAIL_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                 output.accept(ItemRegistry.NETHERITE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
@@ -105,6 +106,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.HANGER.get());
                 output.accept(ItemRegistry.GOLDEN_HANGER.get());
                 output.accept(ItemRegistry.INFINITE_FUEL.get());
+                output.accept(ItemRegistry.REWARD_BAG.get());
 
                 output.accept(ItemRegistry.EASTER_BUNNY_SPAWN_EGG.get());
                 output.accept(ItemRegistry.CLOUDIAN_SPAWN_EGG.get());
@@ -216,6 +218,15 @@ public class TabRegistry {
                 output.accept(ItemRegistry.PUMPKIN_PILE.get());
                 output.accept(ItemRegistry.GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get());
                 output.accept(ItemRegistry.BOWL_OF_GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get());
+                output.accept(ItemRegistry.WILD_DOG_MILK.get());
+                output.accept(ItemRegistry.WANGQING_BEEF_NOODLES.get());
+                output.accept(ItemRegistry.BOILED_TRAFFIC_LIGHT.get());
+                output.accept(ItemRegistry.BLOCKBENCH.get());
+                output.accept(ItemRegistry.FRIENDS_DRINK.get());
+                output.accept(ItemRegistry.MOONCAKE.get());
+                output.accept(ItemRegistry.MOON_CAKE.get());
+                output.accept(ItemRegistry.NOEL_COOKIE.get());
+
                 //meals
                 output.accept(ItemRegistry.BOILED_BROCCOLI.get());
                 output.accept(ItemRegistry.LIGHT_MEAL.get());
@@ -228,6 +239,8 @@ public class TabRegistry {
                 output.accept(ItemRegistry.COOKED_DIRT.get());
                 output.accept(ItemRegistry.BLOOM_CAKE.get());
                 output.accept(ItemRegistry.RAINBOW_COOKIE.get());
+                output.accept(ItemRegistry.BURGER.get());
+                output.accept(ItemRegistry.CATBURGER.get());
                 output.accept(ItemRegistry.DELUXE_CAKE.get());
 
             }).build());
@@ -341,6 +354,12 @@ public class TabRegistry {
                 output.accept(ItemRegistry.MEOWMERE.get());
                 output.accept(ItemRegistry.ZENISH.get());
                 output.accept(ItemRegistry.CHAINSAW.get());
+                output.accept(ItemRegistry.GRAND_SWORD.get());
+                output.accept(ItemRegistry.SAVAGE_SWORD.get());
+                output.accept(ItemRegistry.EMPERORS_NEW_SWORD.get());
+                output.accept(ItemRegistry.SUGARCANE_ROD.get());
+                output.accept(ItemRegistry.RUYI_JINGU_BANG.get());
+
                 //饰品
                 output.accept(ItemRegistry.DIVINE_WING.get());
                 output.accept(ItemRegistry.DIVINE_SHARD.get());
@@ -349,6 +368,11 @@ public class TabRegistry {
                 output.accept(ItemRegistry.FROSTIUM_SHACKLES.get());
                 output.accept(ItemRegistry.GLITCH_PARTICLE.get());
                 output.accept(ItemRegistry.RED_FRAME_GLASSES.get());
+                output.accept(ItemRegistry.TODAYS_MENU.get());
+                output.accept(ItemRegistry.WANTED_LIST.get());
+                output.accept(ItemRegistry.REWARD_BAG.get());
+                //output.accept(ItemRegistry.DOCKING_STATION.get());
+
                 //特殊
                 output.accept(ItemRegistry.MCR_SWORD.get());
                 output.accept(ItemRegistry.GOD_PICKAXE.get());
@@ -397,6 +421,7 @@ public class TabRegistry {
                     output.accept(ItemRegistry.SALT_FISH_PIE_SLICE.get());
                 }
                 output.accept(ItemRegistry.GOD_PICKAXE.get());
+                output.accept(ItemRegistry.LOTUS_POND.get());
 
             }).build());
 }

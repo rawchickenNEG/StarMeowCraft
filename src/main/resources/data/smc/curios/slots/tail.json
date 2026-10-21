@@ -1,0 +1,8 @@
+{
+  "size": 1,
+  "order": 114,
+  "icon": "smc:slot/empty_tail_slot",
+  "add_cosmetic": false,
+  "render_toggle": true,
+  "drop_rule": "DEFAULT"
+}

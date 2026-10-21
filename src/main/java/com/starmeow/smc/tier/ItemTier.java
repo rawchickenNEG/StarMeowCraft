@@ -43,4 +43,10 @@ public class ItemTier {
             BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.COOKED_BEEF));
     public static final Tier END_ROD = new ForgeTier(1, 250, 6.0F, 1.0F, 25,
             BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.END_ROD));
+    public static final Tier SAVAGE = new ForgeTier(4, 1540, 8.0F, 5.0F, 25,
+            BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.of(Items.GOLD_INGOT));
+    public static final Tier GRAND = new ForgeTier(3, 1260, 8.0F, 4.0F, 25,
+            BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.of(Items.EMERALD));
+    public static final Tier SUGARCANE = new ForgeTier(1, 50, 4.0F, 2.0F, 1,
+            BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.SUGAR_CANE));
 }

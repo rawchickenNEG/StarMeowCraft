@@ -4,6 +4,7 @@ package com.starmeow.smc.init;
 import com.starmeow.smc.StarMeowCraft;
 import com.starmeow.smc.recipe.AddKnifeToolsRecipe;
 import com.starmeow.smc.recipe.ChangingWeaponSkinRecipe;
+import com.starmeow.smc.recipe.SwitchEnchantGlowRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -18,4 +19,7 @@ public class RecipeSerializerRegistry {
 
     public static final RegistryObject<RecipeSerializer<AddKnifeToolsRecipe>> ADD_KNIFE_TOOLS =
             SERIALIZERS.register("add_knife_tools", () -> AddKnifeToolsRecipe.SERIALIZER);
+
+    public static final RegistryObject<RecipeSerializer<SwitchEnchantGlowRecipe>> SWITCH_GLOWING =
+            SERIALIZERS.register("switch_glowing", () -> SwitchEnchantGlowRecipe.SERIALIZER);
 }

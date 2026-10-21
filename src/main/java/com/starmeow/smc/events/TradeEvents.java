@@ -60,5 +60,16 @@ public class TradeEvents {
                     0
             ));
         }
+        if (event.getType() == VillagerProfession.BUTCHER) {
+            List<VillagerTrades.ItemListing> trade5 = event.getTrades().get(5);
+            trade5.add(new BasicItemListing(
+                    new ItemStack(Items.EMERALD, 32),
+                    new ItemStack(ItemRegistry.GIANT_CARROT.get(), 1),
+                    new ItemStack(ItemRegistry.TODAYS_MENU.get(), 1),
+                    1,
+                    30,
+                    0
+            ));
+        }
     }
 }

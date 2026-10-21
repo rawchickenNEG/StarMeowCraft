@@ -1,0 +1,33 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/bastion_treasure"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/end_city_treasure"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/ancient_city"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/buried_treasure"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "smc:chests/cloudy_garden/cloudy_garden_treasure"
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "smc:chests/forest_inn/forest_inn_treasure"
+        }
+      ]
+    }
+  ]
+}

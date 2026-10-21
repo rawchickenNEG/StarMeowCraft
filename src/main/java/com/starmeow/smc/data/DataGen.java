@@ -229,6 +229,21 @@ public class DataGen {
             list.add(String.valueOf(ItemRegistry.MELON_HALF.get()));
             list.add(String.valueOf(ItemRegistry.BOWL_OF_GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get()));
             list.add(String.valueOf(ItemRegistry.GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get()));
+            list.add(String.valueOf(ItemRegistry.CREATIVE_HALO.get()));
+            list.add(String.valueOf(ItemRegistry.LOTUS_POND.get()));
+            list.add(String.valueOf(ItemRegistry.WILD_DOG_MILK.get()));
+            list.add(String.valueOf(ItemRegistry.WANGQING_BEEF_NOODLES.get()));
+            list.add(String.valueOf(ItemRegistry.TODAYS_MENU.get()));
+            list.add(String.valueOf(ItemRegistry.REWARD_BAG.get()));
+            list.add(String.valueOf(ItemRegistry.WANTED_LIST.get()));
+            list.add(String.valueOf(ItemRegistry.BOILED_TRAFFIC_LIGHT.get()));
+            list.add(String.valueOf(ItemRegistry.BLOCKBENCH.get()));
+            list.add(String.valueOf(ItemRegistry.FRIENDS_DRINK.get()));
+            list.add(String.valueOf(ItemRegistry.BURGER.get()));
+            list.add(String.valueOf(ItemRegistry.CATBURGER.get()));
+            list.add(String.valueOf(ItemRegistry.MOONCAKE.get()));
+            list.add(String.valueOf(ItemRegistry.NOEL_COOKIE.get()));
+
             for (Object o : list) {
                 this.singleTexture(o.toString(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(StarMeowCraft.MODID, "item/" + o));
             }
@@ -267,6 +282,9 @@ public class DataGen {
             listtools.add(String.valueOf(ItemRegistry.RAW_MINT_TOMAHAWK_STEAK.get()));
             listtools.add(String.valueOf(ItemRegistry.TOMAHAWK_STEAK.get()));
             listtools.add(String.valueOf(ItemRegistry.MINT_TOMAHAWK_STEAK.get()));
+            listtools.add(String.valueOf(ItemRegistry.EMPERORS_NEW_SWORD.get()));
+            listtools.add(String.valueOf(ItemRegistry.GRAND_SWORD.get()));
+            listtools.add(String.valueOf(ItemRegistry.SAVAGE_SWORD.get()));
 
             for (Object o : listtools) {
                 this.singleTexture(o.toString(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(StarMeowCraft.MODID, "item/" + o));

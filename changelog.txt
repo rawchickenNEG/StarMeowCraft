@@ -1,5 +1,34 @@
 SMC 1.20.1 Changelog
 
+-1.1.9
+    Add Mooncake, Moon Cake, Noel Cookie.
+    Fix Lotus Pond recipe issue.
+    Fix incorrect description.
+    Fix Red Light Stop effect not converting to Green Light Go effect issue.
+-1.1.8
+    Add remove enchanting glitter crafting recipe for Pure Fox Fur.
+    Add more config for Cleaver and Knife item.
+    Add Invisible Armor enchantment.
+    Add Curios change event for Divine Wing to avoid switching curios still keep flying issue.
+    Add Creative Halo.
+    Add Savage Sword, Grand Sword and Emperor's New Sword.
+    Add fire-resistant ability to some expensive items (Devour weapons, divine items, Zenish).
+    Add forge knife tag in Cleaver Block random select pool.
+    Add config for Calibur block required effect and effect level.
+    Add new ability for Divine Wing.
+    Change Katana reach range.
+    Change Fox Tail slot type to Tail.
+    Change mod sounds to mono output.
+    Change Perkin Spear attack range.
+    Change Ore Detector displaying translated name instead of block ID.
+    Change default config of Excalibur sword aura percentage damage amount.
+    Change Cloudy Garden Kitchen, Forest Inn Barrel, Forest Inn Snack, Meow Bakery Brew and Meow Bakery Common loot tables.
+    Fix Chicken Tail Feather item is not in creative tab issue.
+    Fix Salt Fish Roll recipe issue.
+    Optimize Divine Wing elytra flying function when using as a curio.
+    Optimize Spear Gun, more available distance and fix block bottom hook on issue.
+    Remove Caelus API requirement.
+    Remove belt slot provided by this mod.
 -1.1.7
     Add JQKA's Char Siu Pork Knuckle Rice (From VEFC).
     Change Salt Fish Block collision box and add waterlog property.

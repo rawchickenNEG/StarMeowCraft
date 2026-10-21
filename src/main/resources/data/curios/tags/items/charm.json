@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "smc:glitch_particle"
+    "smc:glitch_particle",
+    "smc:todays_menu",
+    "smc:wanted_list"
   ]
 }

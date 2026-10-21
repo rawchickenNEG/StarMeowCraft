@@ -3,7 +3,6 @@ package com.starmeow.smc.events;
 import com.starmeow.smc.cache.MiningFaceCache;
 import com.starmeow.smc.config.Config;
 import com.starmeow.smc.entities.EasterBunny;
-import com.starmeow.smc.helper.BlockHelper;
 import com.starmeow.smc.helper.CuriosHelper;
 import com.starmeow.smc.helper.ItemHelper;
 import com.starmeow.smc.init.BlockRegistry;
@@ -11,6 +10,8 @@ import com.starmeow.smc.init.EnchantmentRegistry;
 import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.init.PotionEffectRegistry;
 import com.starmeow.smc.items.SwissArmyKnife;
+import com.starmeow.smc.items.curiosequipable.TodaysMenu;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -26,8 +27,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -46,22 +45,20 @@ import net.minecraft.world.level.block.entity.BrushableBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.enchanting.EnchantmentLevelSetEvent;
+import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.EntityMobGriefingEvent;
 import net.minecraftforge.event.entity.EntityMountEvent;
-import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.ItemFishedEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import top.theillusivec4.curios.api.event.CurioChangeEvent;
 
-import java.awt.event.ItemEvent;
 import java.util.*;
 
 @Mod.EventBusSubscriber
@@ -390,11 +387,40 @@ public class InteractEvents {
 
     @SubscribeEvent
     public static void onEquipmentChange(LivingEquipmentChangeEvent event) {
-        if(event.getEntity() instanceof Player player){
-            if (!player.isCreative() && !player.isSpectator() && event.getFrom().is(ItemRegistry.DIVINE_WING.get()) && !event.getTo().is(ItemRegistry.DIVINE_WING.get())) {
-                player.getAbilities().mayfly = false;
-                player.getAbilities().flying = false;
-                player.onUpdateAbilities();
+        if(event.getEntity() instanceof ServerPlayer player){
+            if (player.gameMode.getGameModeForPlayer().isSurvival()){
+                if(event.getFrom().is(ItemRegistry.DIVINE_WING.get()) && !event.getTo().is(ItemRegistry.DIVINE_WING.get())){
+                    player.getAbilities().mayfly = false;
+                    player.getAbilities().flying = false;
+                    player.onUpdateAbilities();
+                }
+                if(event.getFrom().is(ItemRegistry.CREATIVE_HALO.get()) && !event.getTo().is(ItemRegistry.CREATIVE_HALO.get())){
+                    player.getAbilities().instabuild = false;
+                    player.getAbilities().invulnerable = false;
+                    player.getAbilities().mayfly = false;
+                    player.getAbilities().flying = false;
+                    player.onUpdateAbilities();
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onCurioChange(CurioChangeEvent event) {
+        if(event.getEntity() instanceof ServerPlayer player){
+            if (player.gameMode.getGameModeForPlayer().isSurvival()){
+                if(event.getFrom().is(ItemRegistry.DIVINE_WING.get()) && !event.getTo().is(ItemRegistry.DIVINE_WING.get())){
+                    player.getAbilities().mayfly = false;
+                    player.getAbilities().flying = false;
+                    player.onUpdateAbilities();
+                }
+                if(event.getFrom().is(ItemRegistry.CREATIVE_HALO.get()) && !event.getTo().is(ItemRegistry.CREATIVE_HALO.get())){
+                    player.getAbilities().instabuild = false;
+                    player.getAbilities().invulnerable = false;
+                    player.getAbilities().mayfly = false;
+                    player.getAbilities().flying = false;
+                    player.onUpdateAbilities();
+                }
             }
         }
     }
@@ -422,6 +448,21 @@ public class InteractEvents {
                         player.drop(itemStack, false);
                     }
                 }
+            }
+            if(CuriosHelper.hasCharm(event.getEntity(), ItemRegistry.TODAYS_MENU.get())){
+                ItemStack menuStack = CuriosHelper.getCharm(event.getEntity(), ItemRegistry.TODAYS_MENU.get());
+                Item food = event.getItem().getItem();
+                if(!TodaysMenu.finishedAllWantedFoods(menuStack) && !TodaysMenu.wantedFoodFinished(menuStack, food)){
+                    TodaysMenu.setWantedFoodFinished(menuStack, food);
+                    TodaysMenu.addWantedFoodReward(food, event.getEntity());
+                    if(TodaysMenu.finishedAllWantedFoods(menuStack) && event.getEntity() instanceof Player player){
+                        player.sendSystemMessage(Component.translatable("message.smc.todays_menu_1").withStyle(ChatFormatting.LIGHT_PURPLE));
+                        player.playNotifySound(SoundEvents.BEACON_POWER_SELECT, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    }
+                }
+                System.out.println("Player menu: " + TodaysMenu.getTodayWantedFoods(event.getEntity()));
+                System.out.println("Item menu: " + TodaysMenu.getTodayWantedFoodsFromItem(menuStack));
+                System.out.println("Item Finished: " + TodaysMenu.getFinishedWantedFoodsFromItem(menuStack));
             }
         }
     }
@@ -540,6 +581,14 @@ public class InteractEvents {
                     player.connection.send(new ClientboundSetPassengersPacket(boat));
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onServerChat(ServerChatEvent event) {
+        if(event.getPlayer().hasEffect(PotionEffectRegistry.MEOW.get())){
+            String raw = event.getRawText();
+            event.setMessage(Component.literal(raw).append(Component.translatable("message.smc.add_meow")));
         }
     }
 }

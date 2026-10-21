@@ -41,7 +41,7 @@ public class PerkinSpear extends Item implements Vanishable {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> $$1 = ImmutableMultimap.builder();
         $$1.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 7.0, AttributeModifier.Operation.ADDITION));
         $$1.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -3.0, AttributeModifier.Operation.ADDITION));
-        $$1.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(UUID.fromString("12345678-1234-1244-1234-176545624534"), "Tool modifier", 3.0, AttributeModifier.Operation.ADDITION));
+        $$1.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(UUID.fromString("12345678-1234-1244-1234-176545624534"), "Tool modifier", 2.5, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = $$1.build();
     }
 

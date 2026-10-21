@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "smc:zinc_hammer"
+    },
+    {
+      "item": "smc:calibur"
+    },
+    {
+      "item": "smc:frostium_axe"
+    },
+    {
+      "item": "smc:golden_hanger"
+    },
+    {
+      "item": "smc:sugarcane_rod"
+    },
+    {
+      "item": "smc:rainbow_bow"
+    }
+  ],
+  "result": {
+    "item": "smc:ruyi_jingu_bang"
+  }
+}

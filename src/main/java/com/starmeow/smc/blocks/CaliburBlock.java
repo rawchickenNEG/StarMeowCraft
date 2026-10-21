@@ -1,5 +1,6 @@
 package com.starmeow.smc.blocks;
 
+import com.starmeow.smc.config.Config;
 import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -11,6 +12,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -72,8 +74,10 @@ public class CaliburBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        super.use(state, level, pos, player, hand, hit);
         if (level.isClientSide) return InteractionResult.SUCCESS;
-        if (player.getEffect(MobEffects.DAMAGE_BOOST) != null && player.getEffect(MobEffects.DAMAGE_BOOST).getAmplifier() >= 4) {
+        MobEffect effect = Config.CaliburRequiredEffect;
+        if (effect != null && player.getEffect(effect) != null && player.getEffect(effect).getAmplifier() >= Config.CALIBUR_EFFECT_LEVEL.get()) {
             ItemStack spawnedItem = new ItemStack(ItemRegistry.CALIBUR.get());
             if (!player.getInventory().add(spawnedItem)) {
                 player.drop(spawnedItem, false);

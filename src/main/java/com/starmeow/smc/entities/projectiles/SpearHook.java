@@ -29,23 +29,10 @@ public class SpearHook extends FishingHook {
         player.fishing = this;
     }
 
-    private boolean shouldStopFishing(Player p_37137_) {
-        ItemStack itemstack = p_37137_.getMainHandItem();
-        ItemStack itemstack1 = p_37137_.getOffhandItem();
-        boolean flag = itemstack.canPerformAction(ToolActions.FISHING_ROD_CAST);
-        boolean flag1 = itemstack1.canPerformAction(ToolActions.FISHING_ROD_CAST);
-        if (!p_37137_.isRemoved() && p_37137_.isAlive() && (flag || flag1) && !(this.distanceToSqr(p_37137_) > 1024.0)) {
-            return false;
-        } else {
-            this.discard();
-            return true;
-        }
-    }
-
     public int retrieve(ItemStack p_37157_) {
         super.retrieve(p_37157_);
         Player player = this.getPlayerOwner();
-        if (!this.level().isClientSide && player != null && !this.shouldStopFishing(player)) {
+        if (!this.level().isClientSide && player != null) {
             if (this.hookedIn != null) {
                 this.pullEntity(this.hookedIn);
                 CriteriaTriggers.FISHING_ROD_HOOKED.trigger((ServerPlayer)player, p_37157_, this, Collections.emptyList());
@@ -81,14 +68,22 @@ public class SpearHook extends FishingHook {
 
     public void tick(){
         super.tick();
-        if (!stuck && (this.horizontalCollision || this.onGround())) {
-            stuck = true;
-            stuckPos = position();
-        }
         if (this.stuck && this.stuckPos != null) {
             this.setDeltaMovement(Vec3.ZERO);
-            this.setPos(this.stuckPos.x, this.stuckPos.y, this.stuckPos.z
-            );
+            this.setPos(this.stuckPos.x, this.stuckPos.y, this.stuckPos.z);
+        }
+    }
+
+    @Override
+    protected void onHitBlock(BlockHitResult result) {
+        super.onHitBlock(result);
+
+        if (!this.stuck) {
+            this.stuck = true;
+            this.stuckPos = result.getLocation();
+
+            this.setDeltaMovement(Vec3.ZERO);
+            this.setPos(this.stuckPos.x, this.stuckPos.y, this.stuckPos.z);
         }
     }
 }

@@ -36,6 +36,7 @@ public class EntityTypeRegistry {
     public static final RegistryObject<EntityType<BroccoliFishingHook>> BROCCOLI_FISHING_HOOK = throwableItem("broccoli_fishing_hook", BroccoliFishingHook::new);
     public static final RegistryObject<EntityType<RainbowFishingHook>> RAINBOW_FISHING_HOOK = throwableItem("rainbow_fishing_hook", RainbowFishingHook::new);
     public static final RegistryObject<EntityType<SpearHook>> SPEAR_HOOK = throwableItem("spear_hook", SpearHook::new);
+    public static final RegistryObject<EntityType<GiantRuyiJinguBang>> GIANT_RUYI_JINGU_BANG = jinGuBang("giant_ruyi_jingu_bang", GiantRuyiJinguBang::new);
 
     public static final RegistryObject<EntityType<SaltFish>> SALT_FISH = register("salt_fish", EntityType.Builder.of(SaltFish::new, MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final RegistryObject<EntityType<EasterBunny>> EASTER_BUNNY = register("easter_bunny", EntityType.Builder.of(EasterBunny::new, MobCategory.CREATURE).sized(0.8F, 1).clientTrackingRange(12));
@@ -61,6 +62,11 @@ public class EntityTypeRegistry {
     private static <T extends Entity> RegistryObject<EntityType<T>> abstractArrow(String name, EntityType.EntityFactory<T> factory) {
         return ENTITY_TYPES.register(name, () -> (EntityType.Builder.of(factory, MobCategory.MISC).sized(0.5F, 0.5F)
                 .clientTrackingRange(4).updateInterval(20).build(name)));
+    }
+
+    private static <T extends Entity> RegistryObject<EntityType<T>> jinGuBang(String name, EntityType.EntityFactory<T> factory) {
+        return ENTITY_TYPES.register(name, () -> (EntityType.Builder.of(factory, MobCategory.MISC).sized(5.0F, 5.0F)
+                .clientTrackingRange(64).updateInterval(1).build(name)));
     }
 
     @SubscribeEvent

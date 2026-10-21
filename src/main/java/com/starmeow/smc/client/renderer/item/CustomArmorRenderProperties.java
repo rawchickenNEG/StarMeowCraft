@@ -50,7 +50,7 @@ public class CustomArmorRenderProperties implements IClientItemExtensions {
         Item item = itemStack.getItem();
         if (item == ItemRegistry.DIVINE_WING.get()) {
             return WING_MODEL;
-        } else if (item == ItemRegistry.DIVINE_HALO.get() || item == ItemRegistry.DIVINE_SHARD.get()) {
+        } else if (item == ItemRegistry.DIVINE_HALO.get() || item == ItemRegistry.DIVINE_SHARD.get() || item == ItemRegistry.CREATIVE_HALO.get()) {
             return HALO_MODEL;
         } else if (item == ItemRegistry.FOX_TAIL.get()) {
             return TAIL_MODEL;

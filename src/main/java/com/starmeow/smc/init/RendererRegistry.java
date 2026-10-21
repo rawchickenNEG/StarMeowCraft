@@ -38,6 +38,7 @@ public class RendererRegistry {
         event.registerEntityRenderer(EntityTypeRegistry.CLOUDIAN.get(), CloudianRenderer::new);
         event.registerEntityRenderer(EntityTypeRegistry.BROCCOLI_NUKE.get(), BroccoliBombRenderer::new);
         event.registerEntityRenderer(EntityTypeRegistry.MEOW_BALL.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(EntityTypeRegistry.GIANT_RUYI_JINGU_BANG.get(), GiantRuyiJinguBangRenderer::new);
 
     }
 

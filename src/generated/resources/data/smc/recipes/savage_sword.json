@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "2": {
+      "item": "minecraft:golden_sword"
+    },
+    "3": {
+      "item": "minecraft:gold_ingot"
+    },
+    "a": [
+      {
+        "item": "minecraft:ward_armor_trim_smithing_template"
+      },
+      {
+        "item": "minecraft:silence_armor_trim_smithing_template"
+      },
+      {
+        "item": "minecraft:sentry_armor_trim_smithing_template"
+      },
+      {
+        "item": "minecraft:vex_armor_trim_smithing_template"
+      }
+    ]
+  },
+  "pattern": [
+    "a1a",
+    "a1a",
+    "323"
+  ],
+  "result": {
+    "item": "smc:savage_sword"
+  },
+  "show_notification": true
+}

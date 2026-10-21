@@ -51,10 +51,21 @@ public class Calibur extends SwordItem {
         }
     }
 
+    public boolean mineBlock(ItemStack p_43282_, Level p_43283_, BlockState p_43284_, BlockPos p_43285_, LivingEntity p_43286_) {
+        if (p_43286_.hasEffect(MobEffects.DAMAGE_BOOST) && p_43284_.getDestroySpeed(p_43283_, p_43285_) != 0.0F) {
+            p_43282_.hurtAndBreak(2, p_43286_, (p_43276_) -> {
+                p_43276_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+            });
+        }
+
+        return true;
+    }
+
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn)
     {
         String string = "tooltip.smc." + stack.getItem();
         tooltip.add(Component.translatable(string).withStyle(ChatFormatting.BLUE));
+        tooltip.add(Component.translatable(string + "_1").withStyle(ChatFormatting.RED));
     }
 }

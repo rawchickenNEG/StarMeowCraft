@@ -39,6 +39,7 @@ public class ClientEvents {
         CuriosRendererRegistry.register(ItemRegistry.DIVINE_HALO.get(), DivineHaloCuriosRenderer::new);
         CuriosRendererRegistry.register(ItemRegistry.FOX_TAIL.get(), FoxTailCuriosRenderer::new);
         CuriosRendererRegistry.register(ItemRegistry.RED_FRAME_GLASSES.get(), RedFrameGlassesCuriosRenderer::new);
+        CuriosRendererRegistry.register(ItemRegistry.CREATIVE_HALO.get(), DivineHaloCuriosRenderer::new);
 
         if(Config.LAVA_TRANSPARENT.get()){
             ItemBlockRenderTypes.setRenderLayer(Fluids.LAVA, RenderType.translucent());

@@ -1,5 +1,6 @@
 package com.starmeow.smc.events;
 
+import com.ibm.icu.impl.Pair;
 import com.starmeow.smc.config.Config;
 import com.starmeow.smc.entities.ChickenHarvester;
 import com.starmeow.smc.entities.EasterBunny;
@@ -15,9 +16,14 @@ import com.starmeow.smc.items.DevourSword;
 import com.starmeow.smc.items.DollItems;
 import com.starmeow.smc.items.FoxArmorItems;
 import com.starmeow.smc.items.FrostiumBow;
+import com.starmeow.smc.items.curiosequipable.TodaysMenu;
+import com.starmeow.smc.items.curiosequipable.WantedList;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -31,6 +37,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Animal;
@@ -42,15 +49,24 @@ import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.warden.Warden;
+import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.armortrim.ArmorTrim;
+import net.minecraft.world.item.armortrim.TrimMaterial;
+import net.minecraft.world.item.armortrim.TrimPattern;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.ProjectileImpactEvent;
@@ -60,8 +76,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Mod.EventBusSubscriber
 public class AttackEvents {
@@ -256,6 +271,51 @@ public class AttackEvents {
                     if(entity.isOnFire() && (event.getSource().is(DamageTypeTags.IS_EXPLOSION) || event.getSource().is(DamageTypeTags.IS_FIRE))){
                         int amp = source.getEffect(PotionEffectRegistry.FEVER_SPICY.get()).getAmplifier() + 1;
                         event.setAmount(event.getAmount() * (1 + 0.3F * amp));
+                    }
+                }
+                //皇帝的新剑伤害
+                if(weapon.is(ItemRegistry.EMPERORS_NEW_SWORD.get())){
+                    if(attacker.isInvisible()){
+                        event.setAmount(event.getAmount() * (1 + (float)(Config.EMPEROR_DAMAGE.get() * 0.01F) * (float)(1 - attacker.getVisibilityPercent(entity))));
+                    }else{
+                        event.setAmount(0);
+                    }
+                }
+                //暴虐之剑计算额外伤害
+                if (weapon.is(ItemRegistry.SAVAGE_SWORD.get())) {
+                    HashSet<TrimMaterial> materials = new HashSet<>();
+                    HashSet<TrimPattern> patterns = new HashSet<>();
+                    boolean hasTempShroud = false;
+                    for(ItemStack armor : attacker.getArmorSlots()){
+                        if(armor.is(ItemRegistry.TEMPLATE_SHROUD.get())){
+                            hasTempShroud = true;
+                        }
+                        Optional<ArmorTrim> optionalTrim = ArmorTrim.getTrim(level.registryAccess(), armor);
+                        if (optionalTrim.isPresent()) {
+                            ArmorTrim trim = optionalTrim.get();
+                            Holder<TrimMaterial> material = trim.material();
+                            Holder<TrimPattern> pattern = trim.pattern();
+                            materials.add(material.get());
+                            patterns.add(pattern.get());
+                        }
+                    }
+                    event.setAmount(event.getAmount() * (1 + (float)(Config.SAVAGE_DAMAGE.get() * 0.01F) * (materials.size() + patterns.size() + (hasTempShroud ? 2 : 0))));
+                }
+                //猎杀名单加攻
+                if(CuriosHelper.hasCharm(entity, ItemRegistry.WANTED_LIST.get())){
+                    ItemStack wantedList = CuriosHelper.getCharm(entity, ItemRegistry.WANTED_LIST.get());
+                    List<EntityType<?>> entityTypes = WantedList.getTodayWantedMobsFromItem(wantedList);
+                    if(attacker != null && entityTypes.contains(attacker.getType())){
+                        event.setAmount(event.getAmount() * 1.5F);
+                        level.playSound(null, entity.getOnPos(), SoundEvents.WITHER_SKELETON_HURT, SoundSource.NEUTRAL, 1, 2F);
+                    }
+                }
+                if(CuriosHelper.hasCharm(attacker, ItemRegistry.WANTED_LIST.get())){
+                    ItemStack wantedList = CuriosHelper.getCharm(attacker, ItemRegistry.WANTED_LIST.get());
+                    List<EntityType<?>> entityTypes = WantedList.getTodayWantedMobsFromItem(wantedList);
+                    if(entityTypes.contains(entity.getType())){
+                        event.setAmount(event.getAmount() * 1.5F);
+                        level.playSound(null, attacker.getOnPos(), SoundEvents.WITHER_SKELETON_HURT, SoundSource.NEUTRAL, 1, 2F);
                     }
                 }
                 //测试用伤害
@@ -470,6 +530,7 @@ public class AttackEvents {
 
     @SubscribeEvent
     public static void onEntityLoot(LivingDropsEvent event) {
+        //额外掉落相关
         if (!event.getEntity().level().isClientSide()) {
             LivingEntity entity = event.getEntity();
             Entity source = event.getSource().getEntity();
@@ -542,6 +603,68 @@ public class AttackEvents {
                 if(head != null){
                     if(absoluteDrop || entity.getRandom().nextInt(100) < 30){
                         entity.spawnAtLocation(head);
+                    }
+                }
+            }
+            //隐形铁剑僵尸掉落皇帝的新剑
+            if (entity instanceof Zombie zombie && zombie.isInvisible() && zombie.getMainHandItem().is(Items.IRON_SWORD)) {
+                EntityHelper.addEntityDrops(event, ItemRegistry.EMPERORS_NEW_SWORD.get());
+            }
+            //啥子村民掉落煮红绿灯
+            if (entity instanceof Villager villager && villager.getVillagerData().getProfession() == VillagerProfession.NITWIT) {
+                EntityHelper.addEntityDrops(event, ItemRegistry.BOILED_TRAFFIC_LIGHT.get());
+            }
+        }
+        //战利品叠加相关
+        if (event.getEntity().level() instanceof ServerLevel level) {
+            LivingEntity entity = event.getEntity();
+            if(event.getSource().getEntity() instanceof LivingEntity attacker){
+                ResourceLocation lootId = entity.getLootTable();
+                LootParams ctx = new LootParams.Builder(level)
+                        .withParameter(LootContextParams.THIS_ENTITY, entity)
+                        .withParameter(LootContextParams.ORIGIN, entity.position())
+                        .withParameter(LootContextParams.DAMAGE_SOURCE, event.getSource())
+                        .withOptionalParameter(LootContextParams.KILLER_ENTITY, attacker)
+                        .create(LootContextParamSets.ENTITY);
+                if(attacker.getMainHandItem().is(ItemRegistry.GRAND_SWORD.get())){
+                    HashSet<Pair<TrimPattern, TrimMaterial>> mp = new HashSet<>();
+                    boolean hasTrim = false;
+                    boolean hasTempShroud = false;
+                    int armorCount = 1;
+                    for(ItemStack armor : attacker.getArmorSlots()){
+                        if(armor.isEmpty()) continue;
+                        if(armor.is(ItemRegistry.TEMPLATE_SHROUD.get())){
+                            hasTrim = true;
+                            hasTempShroud = true;
+                            continue;
+                        }
+                        Optional<ArmorTrim> optionalTrim = ArmorTrim.getTrim(level.registryAccess(), armor);
+                        if (optionalTrim.isPresent()) {
+                            ArmorTrim trim = optionalTrim.get();
+                            Holder<TrimMaterial> material = trim.material();
+                            Holder<TrimPattern> pattern = trim.pattern();
+                            mp.add(Pair.of(pattern.get(), material.get()));
+                            hasTrim = true;
+                        }
+                        armorCount++;
+                    }
+                    if(hasTrim){
+                        int count = armorCount - mp.size() + (hasTempShroud ? 1 : 0);
+                        for(int i = 0; i < count; i++){
+                            if(attacker.getRandom().nextInt(100) < Config.GRAND_CHANGE.get()){
+                                Objects.requireNonNull(level.getServer()).getLootData().getLootTable(lootId).getRandomItems(ctx, s -> entity.spawnAtLocation(s, 1.0F));
+                            }
+                        }
+                    }
+                }
+                if(CuriosHelper.hasCharm(attacker, ItemRegistry.WANTED_LIST.get())){
+                    ItemStack wantedList = CuriosHelper.getCharm(attacker, ItemRegistry.WANTED_LIST.get());
+                    List<EntityType<?>> entityTypes = WantedList.getTodayWantedMobsFromItem(wantedList);
+                    if(entityTypes.contains(entity.getType())){
+                        for(int i = 0; i < 2; i++){
+                            Objects.requireNonNull(level.getServer()).getLootData().getLootTable(lootId).getRandomItems(ctx, s -> entity.spawnAtLocation(s, 1.0F));
+                        }
+                        WantedList.setWantedMobFinished(wantedList, entity.getType());
                     }
                 }
             }

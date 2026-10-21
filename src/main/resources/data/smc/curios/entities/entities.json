@@ -5,8 +5,8 @@
   "slots": [
     "charm",
     "back",
-    "belt",
     "head",
-    "feet"
+    "feet",
+    "tail"
   ]
 }

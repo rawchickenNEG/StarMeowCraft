@@ -37,6 +37,7 @@ public class EnchantmentRegistry {
     public static final RegistryObject<Enchantment> ANCHOR_HOLD = ENCHANTMENT.register("anchor_hold", () -> new AnchorHold(Enchantment.Rarity.COMMON));
     public static final RegistryObject<Enchantment> INHERITANCE = ENCHANTMENT.register("inheritance", () -> new Inheritance(Enchantment.Rarity.RARE));
     public static final RegistryObject<Enchantment> NEHTERITE_CLADDING = ENCHANTMENT.register("netherite_cladding", () -> new NetheriteCladding(Enchantment.Rarity.RARE));
+    public static final RegistryObject<Enchantment> INVISIBLE_ARMOR = ENCHANTMENT.register("invisible_armor", () -> new InvisibleArmor(Enchantment.Rarity.COMMON));
 
     public static final EnchantmentCategory GRIMOIRE = EnchantmentCategory.create("grimoire", item -> item instanceof Grimoire);
     public static final EnchantmentCategory SLINGSHOT = EnchantmentCategory.create("slingshot", item -> item instanceof Slingshot);

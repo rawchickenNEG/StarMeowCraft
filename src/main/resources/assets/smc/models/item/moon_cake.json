@@ -1,0 +1,56 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "smc:item/moon_cake4"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "phase": 0
+      },
+      "model": "smc:item/moon_cake0"
+    },
+    {
+      "predicate": {
+        "phase": 1
+      },
+      "model": "smc:item/moon_cake1"
+    },
+    {
+      "predicate": {
+        "phase": 2
+      },
+      "model": "smc:item/moon_cake2"
+    },
+    {
+      "predicate": {
+        "phase": 3
+      },
+      "model": "smc:item/moon_cake3"
+    },
+    {
+      "predicate": {
+        "phase": 4
+      },
+      "model": "smc:item/moon_cake4"
+    },
+    {
+      "predicate": {
+        "phase": 5
+      },
+      "model": "smc:item/moon_cake5"
+    },
+    {
+      "predicate": {
+        "phase": 6
+      },
+      "model": "smc:item/moon_cake6"
+    },
+    {
+      "predicate": {
+        "phase": 7
+      },
+      "model": "smc:item/moon_cake7"
+    }
+  ]
+}

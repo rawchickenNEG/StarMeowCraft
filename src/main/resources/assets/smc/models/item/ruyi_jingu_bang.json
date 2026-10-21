@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "smc:item/ruyi_jingu_bang_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "smc:item/ruyi_jingu_bang_item"
+    },
+    "ground": {
+      "parent": "smc:item/ruyi_jingu_bang_item"
+    },
+    "fixed": {
+      "parent": "smc:item/ruyi_jingu_bang_item"
+    }
+  },
+  "textures": {
+    "layer0": "smc:item/ruyi_jingu_bang"
+  }
+}

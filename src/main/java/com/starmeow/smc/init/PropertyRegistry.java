@@ -1,10 +1,13 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.StarMeowCraft;
+import com.starmeow.smc.helper.Wobble;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,6 +19,7 @@ import java.time.LocalDate;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class PropertyRegistry {
+    private static final Wobble MOON_CAKE_WOBBLE = new Wobble();
     @SubscribeEvent
     public static void propertyOverrideRegistry(FMLClientSetupEvent event) {
         ItemProperties.register(ItemRegistry.BROCCOLI_FISHING_ROD.get(), new ResourceLocation("cast"), (itemstack, level, entity, number) ->
@@ -37,6 +41,18 @@ public class PropertyRegistry {
         });
         ItemProperties.register(ItemRegistry.SMC_ICON.get(), new ResourceLocation("aprilfoolsday"), (itemstack, level, entity, number) ->
                 LocalDate.now().toString().substring(5).equals("04-01") ? 1.0F : 0.0F);
+        ItemProperties.register(ItemRegistry.MOON_CAKE.get(), new ResourceLocation("phase"), (itemstack, level, entity, number) -> {
+            if (level == null) {
+                return 0.0F;
+            }
+            if (level.dimensionType().natural()) {
+                return (float) level.getMoonPhase();
+            }
+            double target = Math.random();
+            double rotation = MOON_CAKE_WOBBLE.wobble(level, target);
+            return (float) (rotation * 8.0D);
+            }
+        );
         ItemProperties.register(ItemRegistry.CANDY_JAR.get(), new ResourceLocation("foodlevel"), (itemstack, level, entity, number) -> {
             CompoundTag tag = itemstack.getTag();
             return tag != null ? tag.getInt("SMCFoodBagStored") : 0.0F;
@@ -91,5 +107,4 @@ public class PropertyRegistry {
         ComposterBlock.COMPOSTABLES.put(ItemRegistry.PEA.get(), 0.3f);
         ComposterBlock.COMPOSTABLES.put(ItemRegistry.PEA_POD.get(), 0.65f);
     }
-
 }

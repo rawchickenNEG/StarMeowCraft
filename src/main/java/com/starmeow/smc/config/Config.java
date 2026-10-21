@@ -2,6 +2,7 @@ package com.starmeow.smc.config;
 import com.starmeow.smc.StarMeowCraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -65,10 +66,19 @@ public class Config
     public static final String HEIRLOOM_KNIFE = "HeirloomKnife";
     public static ForgeConfigSpec.DoubleValue KNIFE_MIN_ATK;
     public static ForgeConfigSpec.DoubleValue KNIFE_MAX_ATK;
+    public static ForgeConfigSpec.BooleanValue KNIFE_USE_CLOVER_BLACKLIST;
+    public static final String CALIBUR = "Calibur";
+    public static final ForgeConfigSpec.ConfigValue<String> CALIBUR_EFFECT;
+    public static ForgeConfigSpec.IntValue CALIBUR_EFFECT_LEVEL;
     public static final String EXCALIBUR = "Excalibur";
     public static ForgeConfigSpec.DoubleValue AURA_BASE_DAMAGE;
     public static ForgeConfigSpec.DoubleValue AURA_EXTRA_DAMAGE;
     public static ForgeConfigSpec.DoubleValue DIVINE_DAMAGE;
+    public static final String GIANT_JINGU_BANG = "GiantJinGuBang";
+    public static ForgeConfigSpec.DoubleValue BANG_BASE_DAMAGE;
+    public static ForgeConfigSpec.DoubleValue BANG_EXTRA_DAMAGE;
+    public static ForgeConfigSpec.DoubleValue BANG_DOT_DAMAGE;
+    public static ForgeConfigSpec.IntValue BANG_CD;
     public static final String COFFEE = "CoffeeItem";
     public static ForgeConfigSpec.IntValue COFFEE_COOLDOWN;
     public static final String RAINBOW_BOW = "RainBow";
@@ -82,10 +92,15 @@ public class Config
     public static ForgeConfigSpec.BooleanValue ENABLE_BEDROCK;
     public static final String MCR_SWORD = "MCrSword";
     public static ForgeConfigSpec.BooleanValue MCR_DAMAGE_ABILITY;
+    public static final String GRAND_SWORD = "GrandSword";
+    public static ForgeConfigSpec.DoubleValue GRAND_CHANGE;
+    public static final String SAVAGE_SWORD = "SavageSword";
+    public static ForgeConfigSpec.DoubleValue SAVAGE_DAMAGE;
+    public static final String EMPEROR_SWORD = "EmperorsNewSword";
+    public static ForgeConfigSpec.DoubleValue EMPEROR_DAMAGE;
     public static final String VILLAGE_STRUCTURE = "VillageStructures";
     public static ForgeConfigSpec.BooleanValue ENABLE_LATRINE;
     public static ForgeConfigSpec.BooleanValue ENABLE_FAULT_HOUSE;
-    public static final String RED_FRAME_GLASSES = "RadFrameGlasses";
     public static ForgeConfigSpec.IntValue GLASSES_REPUTATION;
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS;
@@ -94,6 +109,8 @@ public class Config
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_WHITELIST_KEYWORDS_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> KNIFE_BLACKLIST_ITEM_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> KNIFE_WHITELIST_ITEM_STRINGS;
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> CLEAVER_BLACKLIST_ITEM_STRINGS;
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> CLEAVER_WHITELIST_ITEM_STRINGS;
 
     // CLIENT
     public static final String CLIENT_CONFIGS = "ClientConfig";
@@ -238,6 +255,8 @@ public class Config
                 .defineInRange("MinDamageRage", 5, 0, Double.MAX_VALUE);
         KNIFE_MAX_ATK = COMMON_BUILDER.comment("Define the max damage provided by sword from Heirloom Knife.")
                 .defineInRange("MaxDamageRage", 8, 0, Double.MAX_VALUE);
+        KNIFE_USE_CLOVER_BLACKLIST = COMMON_BUILDER.comment("Should Heirloom Knife use Lucky Clover blacklist configs?")
+                .define("KnifeUseCloverBlacklist", true);
         KNIFE_WHITELIST_ITEM_STRINGS = COMMON_BUILDER
                 .comment("A list of sword items which Heirloom Knife can only contain. Empty means no whitelist.")
                 .comment("If anything in this list, it will not be limited by the blacklist from Lucky Clover.")
@@ -245,10 +264,20 @@ public class Config
                         List.of(), Config::validateItemName);
         KNIFE_BLACKLIST_ITEM_STRINGS = COMMON_BUILDER
                 .comment("A list of sword items which can never be obtained from Heirloom Knife.")
-                .comment("This list is based on the Lucky Clover blacklist.")
+                .comment("This list is based on the Lucky Clover blacklist, use KnifeUseCloverBlacklist to control this.")
                 .defineListAllowEmpty("HeirloomKnifeBlacklistItems",
                         List.of("smc:devour_sword"
                         ), Config::validateItemName);
+        CLEAVER_WHITELIST_ITEM_STRINGS = COMMON_BUILDER
+                .comment("A list of knife items which Heirloom Cleaver can only contain. Empty means no whitelist.")
+                .comment("If anything in this list, it will not be limited by the blacklist from Lucky Clover.")
+                .defineListAllowEmpty("HeirloomCleaverWhitelistItems",
+                        List.of(), Config::validateItemName);
+        CLEAVER_BLACKLIST_ITEM_STRINGS = COMMON_BUILDER
+                .comment("A list of knife items which can never be obtained from Heirloom Cleaver.")
+                .comment("This list is based on the Lucky Clover blacklist, use KnifeUseCloverBlacklist to control this.")
+                .defineListAllowEmpty("HeirloomCleaverBlacklistItems",
+                        List.of(), Config::validateItemName);
         COMMON_BUILDER.pop();
         COMMON_BUILDER.push(COFFEE);
         COFFEE_COOLDOWN = COMMON_BUILDER.comment("Define the cooldown of Java Coffee (in MC tick)")
@@ -258,14 +287,34 @@ public class Config
         MCR_DAMAGE_ABILITY = COMMON_BUILDER.comment("Whether to enable the all damage hit ability of MCr Sword (MCr Sword will apply all type of damage on the target).")
                 .define("MCrAllDamageAbility", false);
         COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.push(CALIBUR);
+        CALIBUR_EFFECT = COMMON_BUILDER.comment("Define the required effect ID for pull out Calibur block.")
+                .define("CaliburRequiredEffectID", "minecraft:strength", Config::validateItemName);
+        CALIBUR_EFFECT_LEVEL = COMMON_BUILDER.comment("Define the required effect level for pull out Calibur block. 0 means I, 1 means II and so on.")
+                .defineInRange("CaliburRequiredEffectLevel", 4, 0, 100);
+        COMMON_BUILDER.pop();
+
         COMMON_BUILDER.push(EXCALIBUR);
         AURA_BASE_DAMAGE = COMMON_BUILDER.comment("Define the base damage of sword aura from Excalibur.")
                 .defineInRange("AuraBaseDamage", 15, 0, Double.MAX_VALUE);
         AURA_EXTRA_DAMAGE = COMMON_BUILDER.comment("Define the extra damage of sword aura from Excalibur. This number is the percentage of damage based on the percentage of target's current health.")
-                .defineInRange("AuraExtraDamage", 15, 0, 100.0);
+                .defineInRange("AuraExtraDamage", 5, 0, 100.0);
         DIVINE_DAMAGE = COMMON_BUILDER.comment("Define the Divine Judgement enchantment provided minimum percentage of damage for sword aura (the larger value between AuraBaseDamage * DivinePercentage and AuraExtraDamage)")
                 .defineInRange("DivinePercentage", 0.3, 0, Double.MAX_VALUE);
         COMMON_BUILDER.pop();
+
+        COMMON_BUILDER.push(GIANT_JINGU_BANG);
+        BANG_BASE_DAMAGE = COMMON_BUILDER.comment("Define the base damage of Giant JinGu Bang from Ruyi Jingu Bang.")
+                .defineInRange("BangBaseDamage", 50, 0, Double.MAX_VALUE);
+        BANG_EXTRA_DAMAGE = COMMON_BUILDER.comment("Define the extra damage of Giant JinGu Bang from Ruyi Jingu Bang. This number is the percentage of damage based on the percentage of target's current health.")
+                .defineInRange("BangExtraDamage", 25, 0, 100.0);
+        BANG_DOT_DAMAGE = COMMON_BUILDER.comment("Define the dot damage of Giant JinGu Bang from Ruyi Jingu Bang after landed.")
+                .defineInRange("BangBaseDamage", 10, 0, Double.MAX_VALUE);
+        BANG_CD = COMMON_BUILDER.comment("Define the cooldown of Ruyi Jingu Bang ability (in MC tick)")
+                .defineInRange("BangAbilityCD", 200, 0, Integer.MAX_VALUE);
+        COMMON_BUILDER.pop();
+
         COMMON_BUILDER.push(RAINBOW_BOW);
         ARROW_NUMBER_RAIN = COMMON_BUILDER.comment("Define the number of falling arrows when raining.")
                 .defineInRange("ArrowNumberRain", 10, 0, Integer.MAX_VALUE);
@@ -294,6 +343,18 @@ public class Config
         GLASSES_REPUTATION = COMMON_BUILDER.comment("Define the villager reputation provided by Red Frame Glasses")
                 .defineInRange("GlassReputation", 70, 1, Integer.MAX_VALUE);
         COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(GRAND_SWORD);
+        GRAND_CHANGE = COMMON_BUILDER.comment("Define the chance of getting extra loots for Grand Sword.")
+                .defineInRange("GrandSwordChange", 25, 0, Double.MAX_VALUE);
+        COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(SAVAGE_SWORD);
+        SAVAGE_DAMAGE = COMMON_BUILDER.comment("Define the extra damage of Savage Sword by each different trim pattern and materials.")
+                .defineInRange("SavageSwordDamage", 25, 0, Double.MAX_VALUE);
+        COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(EMPEROR_SWORD);
+        EMPEROR_DAMAGE = COMMON_BUILDER.comment("Define the max extra damage of Emperor's New Sword when the visibility percent is decreasing.")
+                .defineInRange("EmperorsNewSwordDamage", 150, 0, Double.MAX_VALUE);
+        COMMON_BUILDER.pop();
         COMMON_CONFIG = COMMON_BUILDER.build();
 
         CLIENT_BUILDER.push(CLIENT_CONFIGS);
@@ -312,11 +373,16 @@ public class Config
         CLIENT_CONFIG = CLIENT_BUILDER.build();
     }
 
-    public static List<Item> blacklistItems, whitelistItems, easterBunnyEggItems, whitelistSwordItems;
-
+    public static List<Item> blacklistItems, whitelistItems, easterBunnyEggItems, whitelistSwordItems, whitelistKnifeItems;
+    public static MobEffect CaliburRequiredEffect;
     private static boolean validateItemName(final Object obj)
     {
         return obj instanceof final String itemName && ForgeRegistries.ITEMS.containsKey(new ResourceLocation(itemName));
+    }
+
+    private static boolean validateEffectName(final Object obj)
+    {
+        return obj instanceof final String effectName && ForgeRegistries.MOB_EFFECTS.containsKey(new ResourceLocation(effectName));
     }
 
     private static boolean validateString(final Object obj)
@@ -332,6 +398,8 @@ public class Config
     }
 
     private static void reloadCommonConfig() {
+        CaliburRequiredEffect = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(CALIBUR_EFFECT.get()));
+
         Set<Item> blacklistItemsByID = LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS.get().stream()
                 .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
                 .collect(Collectors.toSet());
@@ -345,6 +413,14 @@ public class Config
                 .collect(Collectors.toSet());
 
         Set<Item> blacklistSwordItemsByID = KNIFE_BLACKLIST_ITEM_STRINGS.get().stream()
+                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
+                .collect(Collectors.toSet());
+
+        Set<Item> whitelistKnifeItemsByID = CLEAVER_WHITELIST_ITEM_STRINGS.get().stream()
+                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
+                .collect(Collectors.toSet());
+
+        Set<Item> blacklistKnifeItemsByID = CLEAVER_BLACKLIST_ITEM_STRINGS.get().stream()
                 .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
                 .collect(Collectors.toSet());
 
@@ -393,7 +469,21 @@ public class Config
         if(!whitelistSwordItemsByID.isEmpty()){
             whitelistSwordItems = whitelistSwordItemsByID.stream().toList();
         }else{
-            whitelistSwordItems = whitelist.stream().filter(item -> !blacklistSwordItemsByID.contains(item)).toList();
+            if(KNIFE_USE_CLOVER_BLACKLIST.get()){
+                whitelistSwordItems = whitelist.stream().filter(item -> !blacklistSwordItemsByID.contains(item)).toList();
+            }else{
+                whitelistSwordItems = BuiltInRegistries.ITEM.stream().filter(item -> !blacklistSwordItemsByID.contains(item)).toList();
+            }
+        }
+
+        if(!whitelistKnifeItemsByID.isEmpty()){
+            whitelistKnifeItems = whitelistSwordItemsByID.stream().toList();
+        }else{
+            if(KNIFE_USE_CLOVER_BLACKLIST.get()){
+                whitelistKnifeItems = whitelist.stream().filter(item -> !blacklistKnifeItemsByID.contains(item)).toList();
+            }else{
+                whitelistKnifeItems = BuiltInRegistries.ITEM.stream().filter(item -> !blacklistKnifeItemsByID.contains(item)).toList();
+            }
         }
     }
 }

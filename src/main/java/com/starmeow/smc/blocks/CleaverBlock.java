@@ -35,9 +35,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CleaverBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(3.0, 0.0, 7.0, 13.0, 14.0, 9.0);
@@ -69,7 +68,9 @@ public class CleaverBlock extends Block {
         if (level.isClientSide) return InteractionResult.SUCCESS;
         if(!player.isCrouching()){
             Random random = new Random();
-            List<Item> items = Config.whitelistSwordItems.stream().filter(item -> item.builtInRegistryHolder().is(TagKey.create(Registries.ITEM,new ResourceLocation("farmersdelight:tools/knives"))) && item != ItemRegistry.CLEAVER.get()).toList();
+            Set<Item> knives = Config.whitelistKnifeItems.stream().filter(item -> item.builtInRegistryHolder().is(TagKey.create(Registries.ITEM, new ResourceLocation("farmersdelight:tools/knives"))) && item != ItemRegistry.CLEAVER.get()).collect(Collectors.toSet());
+            knives.addAll(Config.whitelistKnifeItems.stream().filter(item -> item.builtInRegistryHolder().is(TagKey.create(Registries.ITEM, new ResourceLocation("forge:tools/knives"))) && item != ItemRegistry.CLEAVER.get()).collect(Collectors.toSet()));
+            List<Item> items = knives.stream().toList();
             Item randomItem = items.get(random.nextInt(items.size()));
             ItemStack spawnedItem = new ItemStack(randomItem);
             level.addFreshEntity(new ItemEntity(level, player.getX(), player.getY(), player.getZ(), spawnedItem));

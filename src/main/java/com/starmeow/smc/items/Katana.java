@@ -31,7 +31,7 @@ public class Katana extends SwordItem {
         builder.putAll(this.getDefaultAttributeModifiers(slot));
         double addition = getCount(stack) * 0.1;
         if (slot == EquipmentSlot.MAINHAND) {
-            builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(UUID.fromString("68024817-4632-8753-1084-367085658492"), "atk_range", 4.0D, AttributeModifier.Operation.ADDITION));
+            builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(UUID.fromString("68024817-4632-8753-1084-367085658492"), "atk_range", 1.5D, AttributeModifier.Operation.ADDITION));
             builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("68024817-4632-8753-1084-367954234584"), "atk_damage", addition, AttributeModifier.Operation.MULTIPLY_TOTAL));
         }
         return builder.build();

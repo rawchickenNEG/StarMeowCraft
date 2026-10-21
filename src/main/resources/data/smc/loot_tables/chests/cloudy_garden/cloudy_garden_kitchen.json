@@ -121,6 +121,22 @@
           ],
           "name": "smc:astera_pudding",
           "weight": 1
+        },
+        {
+          "type": "item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "smc:noel_cookie",
+          "weight": 1
         }
       ],
       "rolls": 3.0
@@ -142,7 +158,7 @@
             }
           ],
           "name": "smc:sweet_fresh_salad",
-          "weight": 1
+          "weight": 49
         },
         {
           "type": "item",
@@ -158,7 +174,7 @@
             }
           ],
           "name": "smc:spicy_fried_rice",
-          "weight": 1
+          "weight": 50
         }
       ],
       "rolls": 3.0
@@ -197,6 +213,23 @@
           ],
           "name": "smc:salt_fish",
           "weight": 1
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "smc:wild_dog_milk",
+          "weight": 1,
+          "quality": 1
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 99,
+          "quality": -1
         }
       ],
       "rolls": 1.0

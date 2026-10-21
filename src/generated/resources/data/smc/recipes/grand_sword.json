@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "1": {
+      "item": "minecraft:emerald"
+    },
+    "2": {
+      "item": "minecraft:golden_sword"
+    },
+    "3": {
+      "item": "minecraft:gold_nugget"
+    },
+    "a": {
+      "item": "minecraft:wayfinder_armor_trim_smithing_template"
+    },
+    "b": {
+      "item": "minecraft:raiser_armor_trim_smithing_template"
+    },
+    "c": {
+      "item": "minecraft:shaper_armor_trim_smithing_template"
+    },
+    "d": {
+      "item": "minecraft:host_armor_trim_smithing_template"
+    }
+  },
+  "pattern": [
+    "a1b",
+    "c1d",
+    "323"
+  ],
+  "result": {
+    "item": "smc:grand_sword"
+  },
+  "show_notification": true
+}

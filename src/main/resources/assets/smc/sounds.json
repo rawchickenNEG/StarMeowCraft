@@ -17,6 +17,14 @@
       "smc:hahaha"
     ]
   },
+  "noel_eat": {
+    "subtitle": "sounds.smc.noel_eat",
+    "sounds": [
+      "smc:noel_0",
+      "smc:noel_1",
+      "smc:noel_2"
+    ]
+  },
   "music_disc_laoda": {
     "sounds": [
       {

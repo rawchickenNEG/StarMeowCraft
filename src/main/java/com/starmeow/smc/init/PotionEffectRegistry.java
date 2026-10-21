@@ -33,6 +33,9 @@ public class PotionEffectRegistry {
     public static final RegistryObject<MobEffect> SNOW_STEP = MOB_EFFECTS.register("snow_step", () -> new SnowStepEffect(MobEffectCategory.NEUTRAL, 16777215));
     public static final RegistryObject<MobEffect> OVER_SPEED = MOB_EFFECTS.register("over_speed", () -> new OverSpeedEffect(MobEffectCategory.NEUTRAL, 9392939));
     public static final RegistryObject<MobEffect> BLOOMING = MOB_EFFECTS.register("blooming", () -> new BloomingEffect(MobEffectCategory.BENEFICIAL, -13159));
-
-
+    public static final RegistryObject<MobEffect> RED_LIGHT_STOP = MOB_EFFECTS.register("red_light_stop", () -> new RedLightEffect(MobEffectCategory.BENEFICIAL, 0xA60002));
+    public static final RegistryObject<MobEffect> GREEN_LIGHT_GO = MOB_EFFECTS.register("green_light_go", () -> new GreenLightEffect(MobEffectCategory.BENEFICIAL, 0x00DA3D));
+    public static final RegistryObject<MobEffect> YELLOW_LIGHT_SLOW = MOB_EFFECTS.register("yellow_light_slow", () -> new YellowLightEffect(MobEffectCategory.BENEFICIAL, 0xFEE934));
+    public static final RegistryObject<MobEffect> OHH_YE_YE = MOB_EFFECTS.register("ohh_ye_ye", () -> new NoAttributeEffects(MobEffectCategory.BENEFICIAL, 0x65534F));
+    public static final RegistryObject<MobEffect> MEOW = MOB_EFFECTS.register("meow", () -> new NoAttributeEffects(MobEffectCategory.BENEFICIAL, -13159));
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "bettercombat:wand",
+  "attributes": {
+    "attack_range": 4.5
+  }
+}

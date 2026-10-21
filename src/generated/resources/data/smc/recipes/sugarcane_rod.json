@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:sugar_cane"
+    }
+  },
+  "pattern": [
+    "1",
+    "1",
+    "1"
+  ],
+  "result": {
+    "item": "smc:sugarcane_rod"
+  },
+  "show_notification": true
+}

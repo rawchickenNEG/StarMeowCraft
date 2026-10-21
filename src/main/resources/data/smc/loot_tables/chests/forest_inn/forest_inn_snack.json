@@ -162,6 +162,23 @@
         }
       ],
       "rolls": 6.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "smc:wild_dog_milk",
+          "weight": 1,
+          "quality": 1
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 199,
+          "quality": -1
+        }
+      ],
+      "rolls": 1.0
     }
   ]
 }

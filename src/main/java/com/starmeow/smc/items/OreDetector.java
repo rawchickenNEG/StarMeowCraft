@@ -112,7 +112,7 @@ public class OreDetector extends Item {
         String string = "tooltip.smc." + stack.getItem();
         String string1 = "tooltip.smc." + stack.getItem() + "_2";
         CompoundTag tag = stack.getOrCreateTag();
-        String name = tag.getString("SMCDetectorBlock");
+        String name = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(tag.getString("SMCDetectorBlock"))).getName().getString();
         tooltip.add(Component.translatable(string).withStyle(ChatFormatting.BLUE));
         tooltip.add(Component.translatable(string + "_0").withStyle(ChatFormatting.BLUE));
         tooltip.add(Component.translatable(string + "_1").withStyle(ChatFormatting.BLUE));

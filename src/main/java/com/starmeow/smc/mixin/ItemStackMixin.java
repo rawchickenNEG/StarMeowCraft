@@ -3,6 +3,7 @@ import com.starmeow.smc.init.EnchantmentRegistry;
 import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.init.SoundRegistry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -48,16 +49,6 @@ public abstract class ItemStackMixin {
                 p_41624_.level().playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundRegistry.MUSIC_DISC_GOD_PICKAXE.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
                 itemStack.shrink(1);
             }
-        }
-    }
-
-    @Inject(method = "getMaxDamage", at = @At("HEAD"), cancellable = true)
-    private void smc$changeMaxDamage(CallbackInfoReturnable<Integer> cir){
-        ItemStack itemStack = (ItemStack)(Object)this;
-        int i = itemStack.getEnchantmentLevel(EnchantmentRegistry.NEHTERITE_CLADDING.get());
-        if(i > 0){
-            int maxDamageBase = itemStack.getItem().getMaxDamage(itemStack);
-            cir.setReturnValue(maxDamageBase + (maxDamageBase / 4 * i));
         }
     }
 }

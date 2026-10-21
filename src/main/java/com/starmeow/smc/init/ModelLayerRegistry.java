@@ -21,5 +21,7 @@ public class ModelLayerRegistry {
         event.registerLayerDefinition(RedFrameGlassesModel.LAYER_LOCATION, RedFrameGlassesModel::createArmorLayer);
         event.registerLayerDefinition(DivineHaloModel.LAYER_LOCATION, DivineHaloModel::createArmorLayer);
         event.registerLayerDefinition(SpearHookModel.LAYER_LOCATION, SpearHookModel::createBodyLayer);
+        event.registerLayerDefinition(GiantRuyiJinguBangModel.LAYER_LOCATION, GiantRuyiJinguBangModel::createBodyLayer);
+
     }
 }

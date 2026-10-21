@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -38,6 +39,17 @@ public class EffectEvents {
                 player.onUpdateAbilities();
             }
         }
+        if(event.getEffectInstance().getDuration() <= 1){
+            if(mobeffect == PotionEffectRegistry.YELLOW_LIGHT_SLOW.get()){
+                entity.addEffect(new MobEffectInstance(PotionEffectRegistry.RED_LIGHT_STOP.get(), 600));
+            }
+            if(mobeffect == PotionEffectRegistry.RED_LIGHT_STOP.get()){
+                entity.addEffect(new MobEffectInstance(PotionEffectRegistry.GREEN_LIGHT_GO.get(), 600));
+            }
+            if(mobeffect == PotionEffectRegistry.GREEN_LIGHT_GO.get()){
+                entity.addEffect(new MobEffectInstance(PotionEffectRegistry.YELLOW_LIGHT_SLOW.get(), 60));
+            }
+        }
     }
 
     @SubscribeEvent
@@ -51,6 +63,11 @@ public class EffectEvents {
         }
         if(entity.hasEffect(PotionEffectRegistry.POISON_RESISTANCE.get())){
             if (effect == MobEffects.POISON || effect == MobEffects.WITHER){
+                event.setResult(Event.Result.DENY);
+            }
+        }
+        if(entity.hasEffect(PotionEffectRegistry.RED_LIGHT_STOP.get()) && entity.getEffect(PotionEffectRegistry.RED_LIGHT_STOP.get()).getDuration() > 5){
+            if (effect == PotionEffectRegistry.YELLOW_LIGHT_SLOW.get() || effect == PotionEffectRegistry.GREEN_LIGHT_GO.get()){
                 event.setResult(Event.Result.DENY);
             }
         }

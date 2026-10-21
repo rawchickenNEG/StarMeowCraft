@@ -3,6 +3,7 @@ package com.starmeow.smc.items.curiosequipable;
 import com.starmeow.smc.client.renderer.item.CustomArmorRenderProperties;
 import com.starmeow.smc.config.Config;
 import com.starmeow.smc.helper.ItemHelper;
+import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -79,7 +80,11 @@ public class DivineHalo extends ArmorItem implements ICurioItem {
         CompoundTag tag = stack.getOrCreateTag();
         String variant = tag.getString("SMCHaloVariant");
         if(variant.isBlank()){
-            return "smc:textures/models/halo/default.png";
+            if(stack.is(ItemRegistry.CREATIVE_HALO.get())){
+                return "smc:textures/models/halo/creative.png";
+            }else{
+                return "smc:textures/models/halo/default.png";
+            }
         } else {
             return "smc:textures/models/halo/" + variant + ".png";
         }
