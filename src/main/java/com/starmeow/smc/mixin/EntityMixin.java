@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.annotation.Nullable;
+import java.util.Objects;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin {
@@ -29,16 +30,25 @@ public abstract class EntityMixin {
 
     @Inject(method = "isInWater", at = @At("HEAD"), cancellable = true)
     private void smc$isInWaterWhenHasEffect(CallbackInfoReturnable<Boolean> cir) {
-        Entity entity = (Entity)(Object)this;
-        if(entity instanceof LivingEntity living && living.hasEffect(PotionEffectRegistry.OCEAN_AVATAR.get())){
-            if(living instanceof Player player){
-                if(player.isSwimming()){
-                    cir.setReturnValue(true);
-                }
-            }else{
-                cir.setReturnValue(true);
-            }
+      final Entity entity = (Entity)(Object)this;
+      if (!(entity instanceof LivingEntity living)) {
+        return;
+      }
+      
+      // HACK illaujaq: Fix #8.
+      final boolean hasEffect = Objects.nonNull(living.getActiveEffectsMap()) &&
+          living.hasEffect(PotionEffectRegistry.OCEAN_AVATAR.get());
+      if (!hasEffect) {
+        return;
+      }
+      
+      if(living instanceof Player player){
+        if(player.isSwimming()){
+          cir.setReturnValue(true);
         }
+      } else {
+        cir.setReturnValue(true);
+      }
     }
 
     @Inject(method = "isInRain", at = @At("HEAD"), cancellable = true)

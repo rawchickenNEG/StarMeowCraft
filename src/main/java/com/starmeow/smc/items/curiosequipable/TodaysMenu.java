@@ -13,8 +13,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.RandomSequence;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,20 +20,19 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.joml.Vector3f;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class TodaysMenu extends Item implements ICurioItem {
     public TodaysMenu(Properties p_41383_) {
@@ -117,26 +114,44 @@ public class TodaysMenu extends Item implements ICurioItem {
         }
     }
 
-    public static void addWantedFoodReward(Item food, LivingEntity living){
-        ArrayList<MobEffectInstance> list = new ArrayList<>(living.getActiveEffects());
-        list.removeIf(mei -> !mei.getEffect().isBeneficial());
-        if(!list.isEmpty()){
-            if(food.getFoodProperties().getNutrition() >= 12){
-                for(MobEffectInstance mei : list){
-                    living.addEffect(new MobEffectInstance(mei.getEffect(), mei.getDuration() + 600, mei.getAmplifier(), mei.isAmbient(), mei.isVisible(), mei.showIcon()));
-                }
-            }else if(food.getFoodProperties().getNutrition() >= 8){
-                for(MobEffectInstance mei : list){
-                    living.addEffect(new MobEffectInstance(mei.getEffect(), mei.getDuration() + 200, mei.getAmplifier(), mei.isAmbient(), mei.isVisible(), mei.showIcon()));
-                }
-            }else{
-                MobEffectInstance effect = list.get(living.getRandom().nextInt(list.size()));
-                living.addEffect(new MobEffectInstance(effect.getEffect(), effect.getDuration() + 200, effect.getAmplifier(), effect.isAmbient(), effect.isVisible(), effect.showIcon()));
+    public static void addWantedFoodReward(Item food, Player player){
+      final FoodProperties foodProperties = food.getFoodProperties();
+      // NOTE illaujaq: {@link Item#getFoodProperties} is @Nullable. Check and er-return if it's null.
+      if (Objects.isNull(foodProperties)) {
+        return;
+      }
+      
+      final List<MobEffectInstance> beneficialEffects = player.getActiveEffects().stream()
+          .filter(it -> it.getEffect().isBeneficial())
+          .toList();
+      
+        if(!beneficialEffects.isEmpty()){
+          if(foodProperties.getNutrition() >= 12) {
+            for(MobEffectInstance mei : beneficialEffects){
+              player.addEffect(copyMobEffectInstanceWithModif(mei, 600));
             }
+          } else if(foodProperties.getNutrition() >= 8) {
+            for(MobEffectInstance mei : beneficialEffects){
+              player.addEffect(copyMobEffectInstanceWithModif(mei, 200));
+            }
+          } else {
+            MobEffectInstance effect = beneficialEffects.get(player.getRandom().nextInt(beneficialEffects.size()));
+            player.addEffect(copyMobEffectInstanceWithModif(effect, 200));
+          }
         }
-        if(living instanceof Player player){
-            player.playNotifySound(SoundEvents.BEACON_ACTIVATE, SoundSource.PLAYERS, 1.0F, 1.0F);
-        }
+        
+      player.playNotifySound(SoundEvents.BEACON_ACTIVATE, SoundSource.PLAYERS, 1.0F, 1.0F);
+    }
+    
+    private static MobEffectInstance copyMobEffectInstanceWithModif(final MobEffectInstance effect, final int modif) {
+      return new MobEffectInstance(
+          effect.getEffect(),
+          effect.getDuration() + modif,
+          effect.getAmplifier(),
+          effect.isAmbient(),
+          effect.isVisible(),
+          effect.showIcon()
+      );
     }
 
     public List<Item> generateTodayWantedFoods(LivingEntity living){
