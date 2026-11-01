@@ -3,14 +3,10 @@ package com.starmeow.smc.entities.projectiles;
 import com.starmeow.smc.helper.BlockHelper;
 import com.starmeow.smc.init.EntityTypeRegistry;
 import com.starmeow.smc.init.ItemRegistry;
-import com.starmeow.smc.init.PotionEffectRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.core.particles.ItemParticleOption;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
@@ -24,15 +20,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.fluids.IFluidBlock;
 import org.joml.Vector3f;
-
-import java.util.List;
 
 public class ThrownBroccoliBoom extends ThrowableItemProjectile {
     public ThrownBroccoliBoom(EntityType<? extends ThrownBroccoliBoom> entityType, Level level) {

@@ -1,7 +1,6 @@
 package com.starmeow.smc.items;
 
 import com.starmeow.smc.init.ItemRegistry;
-import com.starmeow.smc.init.SoundRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;

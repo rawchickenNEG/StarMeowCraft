@@ -1,11 +1,7 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.client.renderer.*;
-import net.minecraft.client.renderer.entity.ChickenRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.client.renderer.entity.TntRenderer;
-import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

@@ -2,9 +2,7 @@ package com.starmeow.smc.client.renderer.item;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.starmeow.smc.client.model.DivineWingModel;
 import com.starmeow.smc.client.model.FoxTailModel;
-import com.starmeow.smc.items.curiosequipable.DivineWing;
 import com.starmeow.smc.items.curiosequipable.FoxTail;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;

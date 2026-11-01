@@ -1,18 +1,13 @@
 package com.starmeow.smc.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import com.starmeow.smc.client.model.SpearModel;
 import com.starmeow.smc.client.model.SwordAuraModel;
-import com.starmeow.smc.entities.ThrownSwordEntity;
 import com.starmeow.smc.entities.projectiles.SwordAura;
-import com.starmeow.smc.entities.projectiles.ThrownSpear;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;

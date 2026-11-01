@@ -4,7 +4,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraftforge.common.ForgeMod;
 
 public class ElbowingEffect extends MobEffect {
     public ElbowingEffect(MobEffectCategory p_19451_, int p_19452_) {

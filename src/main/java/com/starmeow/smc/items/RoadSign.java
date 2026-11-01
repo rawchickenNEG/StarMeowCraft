@@ -1,7 +1,5 @@
 package com.starmeow.smc.items;
 
-import com.starmeow.smc.config.Config;
-import com.starmeow.smc.helper.ItemHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;

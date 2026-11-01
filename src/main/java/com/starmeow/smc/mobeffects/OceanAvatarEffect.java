@@ -1,11 +1,8 @@
 package com.starmeow.smc.mobeffects;
 
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Animal;
 
 public class OceanAvatarEffect extends MobEffect {
     public OceanAvatarEffect(MobEffectCategory p_19451_, int p_19452_) {

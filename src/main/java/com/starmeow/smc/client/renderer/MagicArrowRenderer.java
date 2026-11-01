@@ -1,7 +1,6 @@
 package com.starmeow.smc.client.renderer;
 
 import com.starmeow.smc.entities.projectiles.MagicArrow;
-import com.starmeow.smc.entities.projectiles.RainbowArrow;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.core.BlockPos;

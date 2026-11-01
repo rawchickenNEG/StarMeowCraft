@@ -1,7 +1,6 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.client.model.*;
-import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
