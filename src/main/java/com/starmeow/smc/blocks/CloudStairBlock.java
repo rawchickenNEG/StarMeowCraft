@@ -10,7 +10,6 @@ import net.minecraft.world.level.storage.loot.LootParams;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class CloudStairBlock extends StairBlock {
     public CloudStairBlock(BlockState p_56862_, Properties p_56863_) {

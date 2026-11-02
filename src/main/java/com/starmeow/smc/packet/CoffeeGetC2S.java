@@ -1,6 +1,5 @@
 package com.starmeow.smc.packet;
 
-import com.starmeow.smc.helper.EntityHelper;
 import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;

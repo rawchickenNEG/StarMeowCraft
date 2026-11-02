@@ -1,14 +1,12 @@
 package com.starmeow.smc.items;
 
 import com.starmeow.smc.helper.PlayerHelper;
-import com.starmeow.smc.init.EnchantmentRegistry;
 import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;

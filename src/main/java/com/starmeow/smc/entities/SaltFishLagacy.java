@@ -1,6 +1,5 @@
 package com.starmeow.smc.entities;
 
-import com.starmeow.smc.init.EntityTypeRegistry;
 import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;

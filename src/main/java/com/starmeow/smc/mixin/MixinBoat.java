@@ -2,9 +2,6 @@ package com.starmeow.smc.mixin;
 
 import com.starmeow.smc.helper.EntityHelper;
 import com.starmeow.smc.init.ItemRegistry;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;

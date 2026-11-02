@@ -1,7 +1,6 @@
 package com.starmeow.smc.data;
 
 import com.starmeow.smc.StarMeowCraft;
-import com.starmeow.smc.init.BlockRegistry;
 import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.tags.FDTags;
 import com.starmeow.smc.tags.ForgeTags;

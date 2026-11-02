@@ -1,6 +1,5 @@
 package com.starmeow.smc.mobeffects;
 
-import com.starmeow.smc.init.PotionEffectRegistry;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffects;

@@ -1,11 +1,7 @@
 package com.starmeow.smc.entities.projectiles;
 
 import com.starmeow.smc.init.EntityTypeRegistry;
-import com.starmeow.smc.init.PotionEffectRegistry;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;

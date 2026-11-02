@@ -4,12 +4,9 @@ import com.starmeow.smc.helper.DamageHelper;
 import com.starmeow.smc.init.DamageTypeRegistry;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.ForgeMod;
 
 public class OverSpeedEffect extends MobEffect {
     public OverSpeedEffect(MobEffectCategory p_19451_, int p_19452_) {

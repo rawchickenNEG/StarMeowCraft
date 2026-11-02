@@ -1,7 +1,6 @@
 package com.starmeow.smc.blocks;
 
 import com.mojang.datafixers.util.Pair;
-import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;

@@ -29,7 +29,7 @@ import org.spongepowered.asm.launch.MixinBootstrap;
 public class StarMeowCraft
 {
     public static final String MODID = "smc";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public StarMeowCraft()
     {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);

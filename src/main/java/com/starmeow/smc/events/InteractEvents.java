@@ -1,5 +1,6 @@
 package com.starmeow.smc.events;
 
+import com.starmeow.smc.StarMeowCraft;
 import com.starmeow.smc.cache.MiningFaceCache;
 import com.starmeow.smc.config.Config;
 import com.starmeow.smc.entities.EasterBunny;
@@ -29,13 +30,19 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.NeutralMob;
 import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.animal.SnowGolem;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -148,13 +155,13 @@ public class InteractEvents {
                 if (block.getBlock() instanceof LiquidBlock){
                     if (block.is(Blocks.LAVA)){
                         level.setBlock(nearPos, Blocks.OBSIDIAN.defaultBlockState(), 3);
-                        level.playSound((Player)null, nearPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 0.2F, 1.0F);
+                        level.playSound(null, nearPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 0.2F, 1.0F);
                     } else if (block.is(Blocks.WATER)){
                         level.setBlock(nearPos, Blocks.ICE.defaultBlockState(), 3);
-                        level.playSound((Player)null, nearPos, SoundEvents.GLASS_PLACE, SoundSource.NEUTRAL, 0.2F, 1.0F);
+                        level.playSound(null, nearPos, SoundEvents.GLASS_PLACE, SoundSource.NEUTRAL, 0.2F, 1.0F);
                     } else {
                         level.setBlock(nearPos, Blocks.MUD.defaultBlockState(), 3);
-                        level.playSound((Player)null, nearPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 0.2F, 1.0F);
+                        level.playSound(null, nearPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 0.2F, 1.0F);
                     }
                 }
             }
@@ -424,47 +431,72 @@ public class InteractEvents {
             }
         }
     }
-
-    @SubscribeEvent
+  
+  // NOTE illaujaq: Refactor: Merge here into an early return.
+  //                Most opts can't happen when the EntityLiving isn't a EntityPlayer.
+  //                And sorry for format, NEG. Please format it by your self.
+  @SubscribeEvent
     public static void onFoodConsume(LivingEntityUseItemEvent.Finish event) {
-        if(!event.getEntity().level().isClientSide()){
-            if(event.getItem().is(Items.APPLE) && event.getEntity() instanceof Player player){
-                boolean flag = false;
-                boolean badOmen = player.hasEffect(MobEffects.BAD_OMEN);
-                if(player.getRandom().nextInt(100) < Config.BAD_APPLE_RATE.get() && !badOmen){
-                    flag = true;
-                } else if (player.getRandom().nextInt(100) < Config.BAD_APPLE_RATE_WITH_EFFECT.get() && badOmen){
-                    flag = true;
-                    int time = player.getEffect(MobEffects.BAD_OMEN).getDuration();
-                    int amp = player.getEffect(MobEffects.BAD_OMEN).getAmplifier();
-                    player.removeEffect(MobEffects.BAD_OMEN);
-                    if(amp != 0){
-                        player.addEffect(new MobEffectInstance(MobEffects.BAD_OMEN, time, amp - 1));
-                    }
-                }
-                if(flag){
-                    ItemStack itemStack = new ItemStack(ItemRegistry.BAD_APPLE.get());
-                    if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
-                    }
-                }
-            }
-            if(CuriosHelper.hasCharm(event.getEntity(), ItemRegistry.TODAYS_MENU.get())){
-                ItemStack menuStack = CuriosHelper.getCharm(event.getEntity(), ItemRegistry.TODAYS_MENU.get());
-                Item food = event.getItem().getItem();
-                if(!TodaysMenu.finishedAllWantedFoods(menuStack) && !TodaysMenu.wantedFoodFinished(menuStack, food)){
-                    TodaysMenu.setWantedFoodFinished(menuStack, food);
-                    TodaysMenu.addWantedFoodReward(food, event.getEntity());
-                    if(TodaysMenu.finishedAllWantedFoods(menuStack) && event.getEntity() instanceof Player player){
-                        player.sendSystemMessage(Component.translatable("message.smc.todays_menu_1").withStyle(ChatFormatting.LIGHT_PURPLE));
-                        player.playNotifySound(SoundEvents.BEACON_POWER_SELECT, SoundSource.PLAYERS, 1.0F, 1.0F);
-                    }
-                }
-                System.out.println("Player menu: " + TodaysMenu.getTodayWantedFoods(event.getEntity()));
-                System.out.println("Item menu: " + TodaysMenu.getTodayWantedFoodsFromItem(menuStack));
-                System.out.println("Item Finished: " + TodaysMenu.getFinishedWantedFoodsFromItem(menuStack));
-            }
+      if (!(event.getEntity() instanceof Player player) || player.level().isClientSide()) {
+        return;
+      }
+      
+      if(event.getItem().is(Items.APPLE)){
+        boolean flag = false;
+        final MobEffectInstance effect = player.getEffect(MobEffects.BAD_OMEN);
+        final boolean badOmen = Objects.nonNull(effect);
+        
+        if(player.getRandom().nextInt(100) < Config.BAD_APPLE_RATE.get() && !badOmen) {
+          flag = true;
+        } else if (player.getRandom().nextInt(100) < Config.BAD_APPLE_RATE_WITH_EFFECT.get() && badOmen){
+          flag = true;
+          
+          int time = effect.getDuration();
+          int amp = effect.getAmplifier();
+          player.removeEffect(MobEffects.BAD_OMEN);
+          if(amp > 0) {
+            player.addEffect(new MobEffectInstance(MobEffects.BAD_OMEN, time, amp - 1));
+          }
         }
+        
+        if(flag) {
+          ItemStack itemStack = new ItemStack(ItemRegistry.BAD_APPLE.get());
+          if (!player.getInventory().add(itemStack)) {
+            player.drop(itemStack, false);
+          }
+        }
+      }
+      
+      if(!CuriosHelper.hasCharm(player, ItemRegistry.TODAYS_MENU.get())) {
+        return;
+      }
+      
+      final ItemStack menuStack = CuriosHelper.getCharm(player, ItemRegistry.TODAYS_MENU.get());
+      final Item foodItem = event.getItem().getItem();
+      final boolean finishAll = TodaysMenu.finishedAllWantedFoods(menuStack);
+      final boolean fulfillWishing = TodaysMenu.wantedFoodFinished(menuStack, foodItem);
+//      XXX illaujaq: May I checked it? All right I join it in {@link TodaysMenu#addWantedFoodReward}.
+//      final FoodProperties foodProperties = foodItem.getFoodProperties(event.getItem(), event.getEntity());
+//      if (Objects.isNull(foodProperties)) {
+//        return;
+//      }
+      
+      if (Objects.isNull(menuStack)) {
+        return;
+      }
+      
+      if(!finishAll && !fulfillWishing){
+        TodaysMenu.setWantedFoodFinished(menuStack, foodItem);
+        TodaysMenu.addWantedFoodReward(foodItem, player);
+        if(TodaysMenu.finishedAllWantedFoods(menuStack)){
+          player.sendSystemMessage(Component.translatable("message.smc.todays_menu_1").withStyle(ChatFormatting.LIGHT_PURPLE));
+          player.playNotifySound(SoundEvents.BEACON_POWER_SELECT, SoundSource.PLAYERS, 1.0F, 1.0F);
+        }
+      }
+      
+      StarMeowCraft.LOGGER.debug("Player menu: {}", TodaysMenu.getTodayWantedFoods(event.getEntity()));
+      StarMeowCraft.LOGGER.debug("Item menu: {}", TodaysMenu.getTodayWantedFoodsFromItem(menuStack));
+      StarMeowCraft.LOGGER.debug("Item Finished: {}", TodaysMenu.getFinishedWantedFoodsFromItem(menuStack));
     }
 
     /*

@@ -1,15 +1,12 @@
 package com.starmeow.smc.items;
 
 import com.starmeow.smc.config.Config;
-import com.starmeow.smc.entities.ThrownSwordEntity;
 import com.starmeow.smc.entities.projectiles.GiantRuyiJinguBang;
-import com.starmeow.smc.entities.projectiles.ThrownBroccoliBoom;
 import com.starmeow.smc.helper.ItemHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
