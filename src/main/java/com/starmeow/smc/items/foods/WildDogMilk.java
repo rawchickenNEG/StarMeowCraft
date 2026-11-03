@@ -2,6 +2,7 @@ package com.starmeow.smc.items.foods;
 
 import com.starmeow.smc.helper.ItemHelper;
 import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -28,7 +29,18 @@ public class WildDogMilk extends Item {
         for (MobEffectInstance ins : list) {
             livingEntity.addEffect(new MobEffectInstance(ins.getEffect(), -1, ins.getAmplifier(), true, ins.isVisible()));
         }
+        CompoundTag tag = pStack.getTag();
+        if (livingEntity instanceof Player && !((Player)livingEntity).getAbilities().instabuild) {
+            if (tag == null || !tag.getBoolean("SMCIsEternal")) {
+                pStack.shrink(1);
+            }
+        }
         return itemstack;
+    }
+
+    public boolean isFoil(ItemStack pStack) {
+        CompoundTag tag = pStack.getTag();
+        return tag != null && tag.getBoolean("SMCIsEternal");
     }
 
     public int getUseDuration(ItemStack p_42933_) {

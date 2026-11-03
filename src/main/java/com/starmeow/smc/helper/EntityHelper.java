@@ -17,6 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
@@ -206,12 +207,17 @@ public class EntityHelper {
     public static void shootMeowBall(ItemStack stack, LivingEntity entity){
         Level level = entity.level();
         MeowBall sword = EntityTypeRegistry.MEOW_BALL.get().create(level);
+        RandomSource random = entity.getRandom();
         sword.setPos(entity.getX(), entity.getEyeY() - 0.3, entity.getZ());
         sword.setYRot(entity.getYHeadRot());
         sword.setXRot(entity.getXRot());
         sword.setOwner(entity);
-        sword.setItem(new ItemStack(ItemRegistry.RAINBOW_COOKIE.get()));
         sword.shootFromRotation(entity, entity.getXRot(), entity.getYRot(), 0.0F, 1.5F, 0.0F);
+        if(random.nextInt(128) == 0){
+            sword.setVariant(5);
+        }else{
+            sword.setVariant(entity.getRandom().nextInt(0, 5));
+        }
         level.addFreshEntity(sword);
         level.playSound((Player)null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.CAT_AMBIENT, SoundSource.PLAYERS, 1F, 2F);
         stack.hurtAndBreak(1, entity, (p_40665_) -> {

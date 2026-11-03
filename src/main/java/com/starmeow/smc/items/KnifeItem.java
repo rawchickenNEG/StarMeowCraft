@@ -1,5 +1,6 @@
 package com.starmeow.smc.items;
 
+import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -37,9 +38,15 @@ public class KnifeItem extends SwordItem {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn)
     {
         String string = "tooltip.smc.knife";
-        tooltip.add(Component.translatable(string).withStyle(ChatFormatting.DARK_AQUA));
+        tooltip.add(Component.translatable(string + "_0").withStyle(ChatFormatting.DARK_AQUA));
         tooltip.add(Component.translatable(string + "_1").withStyle(ChatFormatting.DARK_AQUA));
         tooltip.add(Component.translatable(string + "_2").withStyle(ChatFormatting.DARK_AQUA));
         tooltip.add(Component.translatable(string + "_3").withStyle(ChatFormatting.DARK_AQUA));
+        if(stack.is(ItemRegistry.KNIFE.get())){
+            tooltip.add(Component.translatable("tooltip.smc.knife").withStyle(ChatFormatting.BLUE));
+        }
+        if(stack.is(ItemRegistry.CLEAVER.get())){
+            tooltip.add(Component.translatable("tooltip.smc.cleaver").withStyle(ChatFormatting.BLUE));
+        }
     }
 }

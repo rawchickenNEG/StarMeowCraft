@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "2": {
+      "item": "smc:zinc_ingot"
+    },
+    "3": {
+      "item": "minecraft:iron_ingot"
+    },
+    "4": {
+      "item": "minecraft:observer"
+    }
+  },
+  "pattern": [
+    "323",
+    "343"
+  ],
+  "result": {
+    "item": "smc:automatic_device"
+  },
+  "show_notification": true
+}

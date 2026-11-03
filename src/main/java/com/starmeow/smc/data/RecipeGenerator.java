@@ -1015,6 +1015,13 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('1', ItemRegistry.BAD_APPLE.get())
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.BAD_APPLE.get()))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.MUSIC_DISC_BAD_APPLE.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.MUSIC_DISC_FRIENDS_DRINK.get())
+                .pattern("111")
+                .pattern("111")
+                .pattern("111")
+                .define('1', ItemRegistry.FRIENDS_DRINK.get())
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.FRIENDS_DRINK.get()))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.MUSIC_DISC_FRIENDS_DRINK.get().toString()));
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ItemRegistry.RAINBOW_COOKIE.get(), 8)
                 .pattern("121")
                 .define('1', Items.WHEAT)
@@ -1332,6 +1339,25 @@ public class RecipeGenerator extends RecipeProvider {
                 .define('4', Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE)
                 .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SMITHING_TABLE))
                 .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.ANCIENT_SMITHING_TABLE.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.POTATO_SERVER.get())
+                .pattern(" 1 ")
+                .pattern("323")
+                .pattern("343")
+                .define('1', Items.POTATO)
+                .define('2', Items.ENDER_PEARL)
+                .define('3', Items.IRON_INGOT)
+                .define('4', Items.REDSTONE_BLOCK)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.POTATO_SERVER.get().toString()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.AUTOMATIC_DEVICE.get())
+                .pattern("323")
+                .pattern("343")
+                .define('2', ItemRegistry.ZINC_INGOT.get())
+                .define('3', Items.IRON_INGOT)
+                .define('4', Items.OBSERVER)
+                .unlockedBy("crafting_table", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRAFTING_TABLE))
+                .save(consumer, new ResourceLocation(StarMeowCraft.MODID, ItemRegistry.AUTOMATIC_DEVICE.get().toString()));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.EASTER_BUNNY_EGG.get())
                 .requires(SMCTags.EASTER_BUNNY_EGG_COMPONENTS)
                 .requires(ItemRegistry.PERKIN_INGOT.get())

@@ -1,0 +1,104 @@
+# Code and Asset Licensing Notice
+
+This project uses separate licensing terms for source code and artistic assets.
+
+## Source Code
+
+Unless otherwise indicated in individual files or third-party notices, the original source code of this project is licensed under the MIT License.
+
+The MIT License applies only to software source code and does **not** apply to the artistic, audiovisual, or other creative assets listed below.
+
+Third-party code remains subject to its respective original license.
+
+## Artistic and Creative Assets
+
+Unless otherwise explicitly stated, all original artistic and creative assets included in this project are:
+
+**Copyright © BFMeow, rawchickenNEG. All Rights Reserved.**
+
+This includes, but is not limited to:
+
+- Textures;
+- Sprites;
+- Models;
+- Model textures;
+- Animations;
+- Icons;
+- Logos;
+- User interface artwork;
+- Illustrations;
+- Visual designs;
+- Promotional artwork;
+- Other original artistic assets.
+
+These assets are **not licensed under the MIT License**.
+
+### Unauthorized Reuse
+
+Unless explicit permission has been granted by the copyright holder, you may not:
+
+- Extract these assets for use in another mod, game, resource pack, project, or product;
+- Copy or redistribute these assets separately;
+- Modify and reuse these assets in another project;
+- Re-upload these assets;
+- Claim these assets as your own work;
+- Incorporate these assets into derivative projects;
+- Use these assets in unofficial ports, forks, backports, or loader ports of this mod;
+- Include these assets in a modified or independently distributed version of this mod.
+
+Permission to use the source code under the MIT License does **not** grant permission to use or redistribute these assets.
+
+### Unofficial Ports and Forks
+
+The MIT License permits use and modification of the source code.
+
+However, the artistic and creative assets covered by this section remain All Rights Reserved.
+
+Therefore, an unofficial port, fork, backport, or modified version may use or adapt the MIT-licensed source code, but may not include, redistribute, copy, or reuse the protected assets without prior explicit permission from the copyright holder.
+
+Projects created from the MIT-licensed source code must replace the protected assets with independently created assets unless permission has been granted.
+
+### AI and Machine Learning Restrictions
+
+The protected assets may not be used, in whole or in part, for:
+
+- Generative AI training;
+- Machine learning training;
+- Dataset creation;
+- LoRA training;
+- Checkpoint training;
+- Style imitation or style-learning datasets;
+- Image-generation model training;
+- Audio-generation model training;
+- Multimodal model training;
+- Automated content-generation systems;
+- Any other artificial intelligence or machine learning training purpose.
+
+This restriction applies to original assets as well as modified, cropped, recolored, resized, converted, extracted, or otherwise transformed versions of those assets.
+
+The assets may not be uploaded to services, repositories, datasets, or platforms for the purpose of AI training, model training, dataset collection, style learning, or similar machine-learning use.
+
+### Normal Display and Showcase
+
+Normal display of the assets as part of gameplay, screenshots, videos, reviews, streams, documentation, or showcases does not by itself constitute redistribution of the assets.
+
+However, extracting or providing the original asset files separately remains prohibited unless permission has been granted.
+
+## Third-Party Assets
+
+Assets originating from third-party projects are not covered by the All Rights Reserved terms above unless the copyright holder has granted such authority.
+
+Third-party assets remain governed by their respective original licenses and copyright holders.
+
+Nothing in this notice is intended to restrict rights granted under an applicable third-party license.
+
+## License Priority
+
+Where applicable:
+
+- Original source code → MIT License;
+- Original artistic and creative assets → All Rights Reserved and the restrictions above;
+- Third-party code → its original third-party license;
+- Third-party assets → their original third-party license or terms.
+
+If a file contains an explicit license or copyright notice, that file-specific notice takes precedence for that file.

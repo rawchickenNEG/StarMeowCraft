@@ -31,6 +31,7 @@ public class BlocktagProvider extends BlockTagsProvider {
                         BlockRegistry.WATER_DISPENSER.get(),
                         BlockRegistry.FRIDGE.get(),
                         BlockRegistry.KNIFE.get(),
+                        BlockRegistry.CLEAVER.get(),
                         BlockRegistry.ANCIENT_SMITHING_TABLE.get(),
                         BlockRegistry.GRANITE_ANVIL.get(),
                         BlockRegistry.ZINC_BLOCK.get(),

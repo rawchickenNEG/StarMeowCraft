@@ -26,9 +26,7 @@ public class LuckyNugget extends Item {
 
     public ItemStack finishUsingItem(ItemStack p_42923_, Level p_42924_, LivingEntity p_42925_) {
         Random random = new Random();
-        List<MobEffect> effects = BuiltInRegistries.MOB_EFFECT.stream().filter(effect ->
-                !effect.isInstantenous() && !effect.equals(MobEffects.SATURATION)
-        ).toList();
+        List<MobEffect> effects = Config.nuggetWhitelistEffects;
         MobEffect randomEffect = effects.get(random.nextInt(effects.size()));
         if(!p_42924_.isClientSide()){
             int duration = Config.LUCKY_NUGGET_DURATION.get();

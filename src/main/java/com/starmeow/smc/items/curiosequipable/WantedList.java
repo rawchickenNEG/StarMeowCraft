@@ -1,5 +1,6 @@
 package com.starmeow.smc.items.curiosequipable;
 
+import com.starmeow.smc.config.Config;
 import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -104,9 +105,7 @@ public class WantedList extends Item implements ICurioItem {
     public List<EntityType<?>> generateTodayWantedList(LivingEntity living){
         int maxWanted = 6;
         HashSet<EntityType<?>> wantedMobs = new HashSet<>();
-        List<EntityType<?>> allMobs = BuiltInRegistries.ENTITY_TYPE.stream().filter(entity ->
-                entity.getCategory() == MobCategory.MONSTER
-        ).toList();
+        List<EntityType<?>> allMobs = Config.huntListEntities;
         while(wantedMobs.size() < maxWanted){
             wantedMobs.add(allMobs.get(living.getRandom().nextInt(allMobs.size())));
         }

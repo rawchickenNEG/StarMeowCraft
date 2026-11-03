@@ -3,6 +3,9 @@ import com.starmeow.smc.StarMeowCraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -17,6 +20,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -101,17 +106,23 @@ public class Config
     public static final String VILLAGE_STRUCTURE = "VillageStructures";
     public static ForgeConfigSpec.BooleanValue ENABLE_LATRINE;
     public static ForgeConfigSpec.BooleanValue ENABLE_FAULT_HOUSE;
+    public static final String RED_GLASSES = "RedFrameGlasses";
     public static ForgeConfigSpec.IntValue GLASSES_REPUTATION;
+    public static final String TODAYS_MENU = "TodaysMenu";
+    public static final String WANTED_LIST = "WantedList";
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS;
-    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_BLACKLIST_KEYWORDS_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_WHITELIST_ITEM_STRINGS;
-    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_CLOVER_WHITELIST_KEYWORDS_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> KNIFE_BLACKLIST_ITEM_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> KNIFE_WHITELIST_ITEM_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> CLEAVER_BLACKLIST_ITEM_STRINGS;
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> CLEAVER_WHITELIST_ITEM_STRINGS;
-
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_NUGGET_BLACKLIST_EFFECTS_STRINGS;
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> LUCKY_NUGGET_WHITELIST_EFFECTS_STRINGS;
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> WANTED_LIST_BLACKLIST_ENTITIES_STRINGS;
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> WANTED_LIST_WHITELIST_ENTITIES_STRINGS;
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> TODAYS_MENU_BLACKLIST_ITEMS_STRINGS;
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>> TODAYS_MENU_WHITELIST_ITEMS_STRINGS;
     // CLIENT
     public static final String CLIENT_CONFIGS = "ClientConfig";
     public static ForgeConfigSpec.BooleanValue LAVA_TRANSPARENT;
@@ -133,7 +144,7 @@ public class Config
         LUCKY_CLOVER_CD = COMMON_BUILDER.comment("Define the cooldown of Lucky Clover (in MC tick)")
                 .defineInRange("LuckyCloverCD", 20, 0, Integer.MAX_VALUE);
         LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS = COMMON_BUILDER
-                .comment("A list of items which can never be obtained from Lucky Clover.")
+                .comment("A list of items (ID or Regex) which can never be obtained from Lucky Clover.")
                 .defineListAllowEmpty("LuckyCloverBlacklistItems",
                         List.of("minecraft:bedrock",
                                 "minecraft:command_block",
@@ -154,26 +165,17 @@ public class Config
                                 "slashblade:slashblade",
                                 "tacz:ammo",
                                 "tacz:modern_kinetic_gun",
-                                "tacz:attachment"
-                        ), Config::validateItemName);
+                                "tacz:attachment",
+                                ".*creative.*",
+                                ".*debug.*",
+                                "^avaritia.*"
+                        ), Config::validateItemRule);
 
-        LUCKY_CLOVER_BLACKLIST_KEYWORDS_STRINGS = COMMON_BUILDER
-                .comment("A list of keywords. Items ID with those keywords can never be obtained from Lucky Clover.")
-                .comment("If you want to ban all items from one mod, write \"mod_id:\", example: \"avaritia:\"")
-                .defineListAllowEmpty("LuckyCloverBlacklistKeywords",
-                        List.of("creative",
-                                "debug"
-                        ), Config::validateString);
         LUCKY_CLOVER_WHITELIST_ITEM_STRINGS = COMMON_BUILDER
-                .comment("(Not recommended!) A list of items which Lucky Clover can only contain. Empty means no whitelist.")
+                .comment("(Not recommended!) A list of items (ID or Regex) which Lucky Clover can only contain. Empty means no whitelist.")
                 .defineListAllowEmpty("LuckyCloverWhitelistItems",
-                        List.of(), Config::validateItemName);
+                        List.of(), Config::validateItemRule);
 
-        LUCKY_CLOVER_WHITELIST_KEYWORDS_STRINGS = COMMON_BUILDER
-                .comment("A list of keywords. Lucky Clover can only contain Items which their ID with those keywords. Empty means no whitelist.")
-                .comment("If you want to add all items from one mod or only from minecraft, write \"mod_id:\", example: \"minecraft:\", \"farmersdelight:\"")
-                .defineListAllowEmpty("LuckyCloverWhitelistKeywords",
-                        List.of(), Config::validateString);
         LUCKY_CLOVER_DISABLE = COMMON_BUILDER.comment("If it's true, Lucky Clover will lose the ability of dropping items.")
                 .define("LuckyCloverDisable", false);
         COMMON_BUILDER.pop();
@@ -185,6 +187,16 @@ public class Config
                 .defineInRange("LuckyNuggetAmp", 0, 0, 100);
         LUCKY_NUGGET_INFINITE = COMMON_BUILDER.comment("If it's true, the duration of effects gives by Lucky Nugget will be infinite.")
                 .define("LuckyNuggetInfinite", false);
+        LUCKY_NUGGET_WHITELIST_EFFECTS_STRINGS = COMMON_BUILDER
+                .comment("A list of effects (ID or Regex) which can only be applied by Lucky Nugget. Empty means no whitelist.")
+                .defineListAllowEmpty("LuckyNuggetWhitelistEffects",
+                        List.of(), Config::validateEffectRule);
+        LUCKY_NUGGET_BLACKLIST_EFFECTS_STRINGS = COMMON_BUILDER
+                .comment("A list of effects (ID or Regex) which can never be applied by Lucky Nugget, white list will override this config.")
+                .defineListAllowEmpty("LuckyNuggetBlacklistEffects",
+                        List.of(
+                                "minecraft:saturation"
+                        ), Config::validateEffectRule);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.push(BAD_APPLE);
@@ -258,26 +270,29 @@ public class Config
         KNIFE_USE_CLOVER_BLACKLIST = COMMON_BUILDER.comment("Should Heirloom Knife use Lucky Clover blacklist configs?")
                 .define("KnifeUseCloverBlacklist", true);
         KNIFE_WHITELIST_ITEM_STRINGS = COMMON_BUILDER
-                .comment("A list of sword items which Heirloom Knife can only contain. Empty means no whitelist.")
+                .comment("A list of sword items (ID or Regex) which Heirloom Knife can only contain. Empty means no whitelist.")
                 .comment("If anything in this list, it will not be limited by the blacklist from Lucky Clover.")
                 .defineListAllowEmpty("HeirloomKnifeWhitelistItems",
-                        List.of(), Config::validateItemName);
+                        List.of(), Config::validateItemRule);
         KNIFE_BLACKLIST_ITEM_STRINGS = COMMON_BUILDER
-                .comment("A list of sword items which can never be obtained from Heirloom Knife.")
+                .comment("A list of sword items (ID or Regex) which can never be obtained from Heirloom Knife.")
                 .comment("This list is based on the Lucky Clover blacklist, use KnifeUseCloverBlacklist to control this.")
                 .defineListAllowEmpty("HeirloomKnifeBlacklistItems",
-                        List.of("smc:devour_sword"
-                        ), Config::validateItemName);
+                        List.of(
+                                "smc:devour_sword"
+                        ), Config::validateItemRule);
         CLEAVER_WHITELIST_ITEM_STRINGS = COMMON_BUILDER
-                .comment("A list of knife items which Heirloom Cleaver can only contain. Empty means no whitelist.")
+                .comment("A list of knife items (ID or Regex) which Heirloom Cleaver can only contain. Empty means no whitelist.")
                 .comment("If anything in this list, it will not be limited by the blacklist from Lucky Clover.")
                 .defineListAllowEmpty("HeirloomCleaverWhitelistItems",
-                        List.of(), Config::validateItemName);
+                        List.of(), Config::validateItemRule);
         CLEAVER_BLACKLIST_ITEM_STRINGS = COMMON_BUILDER
-                .comment("A list of knife items which can never be obtained from Heirloom Cleaver.")
+                .comment("A list of knife items (ID or Regex) which can never be obtained from Heirloom Cleaver.")
                 .comment("This list is based on the Lucky Clover blacklist, use KnifeUseCloverBlacklist to control this.")
                 .defineListAllowEmpty("HeirloomCleaverBlacklistItems",
-                        List.of(), Config::validateItemName);
+                        List.of(
+
+                        ), Config::validateItemRule);
         COMMON_BUILDER.pop();
         COMMON_BUILDER.push(COFFEE);
         COFFEE_COOLDOWN = COMMON_BUILDER.comment("Define the cooldown of Java Coffee (in MC tick)")
@@ -290,7 +305,7 @@ public class Config
 
         COMMON_BUILDER.push(CALIBUR);
         CALIBUR_EFFECT = COMMON_BUILDER.comment("Define the required effect ID for pull out Calibur block.")
-                .define("CaliburRequiredEffectID", "minecraft:strength", Config::validateItemName);
+                .define("CaliburRequiredEffectID", "minecraft:strength", Config::validateEffectRule);
         CALIBUR_EFFECT_LEVEL = COMMON_BUILDER.comment("Define the required effect level for pull out Calibur block. 0 means I, 1 means II and so on.")
                 .defineInRange("CaliburRequiredEffectLevel", 4, 0, 100);
         COMMON_BUILDER.pop();
@@ -310,7 +325,7 @@ public class Config
         BANG_EXTRA_DAMAGE = COMMON_BUILDER.comment("Define the extra damage of Giant JinGu Bang from Ruyi Jingu Bang. This number is the percentage of damage based on the percentage of target's current health.")
                 .defineInRange("BangExtraDamage", 25, 0, 100.0);
         BANG_DOT_DAMAGE = COMMON_BUILDER.comment("Define the dot damage of Giant JinGu Bang from Ruyi Jingu Bang after landed.")
-                .defineInRange("BangBaseDamage", 10, 0, Double.MAX_VALUE);
+                .defineInRange("BangDotDamage", 10, 0, Double.MAX_VALUE);
         BANG_CD = COMMON_BUILDER.comment("Define the cooldown of Ruyi Jingu Bang ability (in MC tick)")
                 .defineInRange("BangAbilityCD", 200, 0, Integer.MAX_VALUE);
         COMMON_BUILDER.pop();
@@ -339,7 +354,7 @@ public class Config
         ENABLE_FAULT_HOUSE = COMMON_BUILDER.comment("Whether to enable Fault House structures placing in Villages.")
                 .define("EnableFaultHouse", true);
         COMMON_BUILDER.pop();
-        COMMON_BUILDER.push(DIVINE_SHARD);
+        COMMON_BUILDER.push(RED_GLASSES);
         GLASSES_REPUTATION = COMMON_BUILDER.comment("Define the villager reputation provided by Red Frame Glasses")
                 .defineInRange("GlassReputation", 70, 1, Integer.MAX_VALUE);
         COMMON_BUILDER.pop();
@@ -355,6 +370,35 @@ public class Config
         EMPEROR_DAMAGE = COMMON_BUILDER.comment("Define the max extra damage of Emperor's New Sword when the visibility percent is decreasing.")
                 .defineInRange("EmperorsNewSwordDamage", 150, 0, Double.MAX_VALUE);
         COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(TODAYS_MENU);
+        TODAYS_MENU_WHITELIST_ITEMS_STRINGS = COMMON_BUILDER
+                .comment("A list of foods (ID or Regex) which can only be list on Today's Menu. Empty means no whitelist.")
+                .defineListAllowEmpty("TodaysMenuWhitelistFoods",
+                        List.of(), Config::validateItemRule);
+        TODAYS_MENU_BLACKLIST_ITEMS_STRINGS = COMMON_BUILDER
+                .comment("A list of foods (ID or Regex) which can never be list on Today's Menu, white list will override this config.")
+                .defineListAllowEmpty("TodaysMenuBlacklistFoods",
+                        List.of(
+                                "smc:icon_food",
+                                "^avaritia.*",
+                                "^enigmatic.*"
+                        ), Config::validateItemRule);
+        COMMON_BUILDER.pop();
+        COMMON_BUILDER.push(WANTED_LIST);
+        WANTED_LIST_WHITELIST_ENTITIES_STRINGS = COMMON_BUILDER
+                .comment("A list of monsters (ID or Regex) which can only be list on Wanted List. Empty means no whitelist.")
+                .defineListAllowEmpty("WantedListWhitelistMonsters",
+                        List.of(), Config::validateEntityTypeRule);
+        WANTED_LIST_BLACKLIST_ENTITIES_STRINGS = COMMON_BUILDER
+                .comment("A list of monsters (ID or Regex) which can never be list on Wanted List, white list will override this config.")
+                .defineListAllowEmpty("WantedListBlacklistMonsters",
+                        List.of(
+                                "minecraft:giant",
+                                ".*servant.*"
+                        ), Config::validateEntityTypeRule);
+        COMMON_BUILDER.pop();
+
+
         COMMON_CONFIG = COMMON_BUILDER.build();
 
         CLIENT_BUILDER.push(CLIENT_CONFIGS);
@@ -373,16 +417,128 @@ public class Config
         CLIENT_CONFIG = CLIENT_BUILDER.build();
     }
 
-    public static List<Item> blacklistItems, whitelistItems, easterBunnyEggItems, whitelistSwordItems, whitelistKnifeItems;
+    public static List<Item> blacklistItems, whitelistItems, easterBunnyEggItems, whitelistSwordItems, whitelistKnifeItems, whitelistMenuFoodItems;
+    public static List<MobEffect> nuggetWhitelistEffects;
+    public static List<EntityType<?>> huntListEntities;
     public static MobEffect CaliburRequiredEffect;
-    private static boolean validateItemName(final Object obj)
-    {
-        return obj instanceof final String itemName && ForgeRegistries.ITEMS.containsKey(new ResourceLocation(itemName));
+
+    private static boolean matchesItemRule(Item item, String rule) {
+        ResourceLocation id = ForgeRegistries.ITEMS.getKey(item);
+        if (id == null) {
+            return false;
+        }
+        String itemId = id.toString();
+        //ID
+        if (itemId.equals(rule)) {
+            return true;
+        }
+        //Regex
+        try {
+            return Pattern.matches(rule, itemId);
+        }
+        catch (PatternSyntaxException e) {
+            return false;
+        }
     }
 
-    private static boolean validateEffectName(final Object obj)
-    {
-        return obj instanceof final String effectName && ForgeRegistries.MOB_EFFECTS.containsKey(new ResourceLocation(effectName));
+    private static boolean matchesEffectRule(MobEffect effect, String rule) {
+        ResourceLocation id = ForgeRegistries.MOB_EFFECTS.getKey(effect);
+        if (id == null) {
+            return false;
+        }
+        String effectId = id.toString();
+        //ID
+        if (effectId.equals(rule)) {
+            return true;
+        }
+        //Regex
+        try {
+            return Pattern.matches(rule, effectId);
+        }
+        catch (PatternSyntaxException e) {
+            return false;
+        }
+    }
+
+    private static boolean matchesEntityTypeRule(EntityType<?> entityType, String rule) {
+        ResourceLocation id = ForgeRegistries.ENTITY_TYPES.getKey(entityType);
+        if (id == null) {
+            return false;
+        }
+        String entityTypeId = id.toString();
+        //ID
+        if (entityTypeId.equals(rule)) {
+            return true;
+        }
+        //Regex
+        try {
+            return Pattern.matches(rule, entityTypeId);
+        }
+        catch (PatternSyntaxException e) {
+            return false;
+        }
+    }
+
+    private static boolean validateItemRule(final Object obj) {
+        if (!(obj instanceof String rule)) {
+            return false;
+        }
+        //ID
+        try {
+            ResourceLocation id = new ResourceLocation(rule);
+            if (ForgeRegistries.ITEMS.containsKey(id)) {
+                return true;
+            }
+        } catch (Exception ignored) {
+        }
+        //Regex
+        try {
+            Pattern.compile(rule);
+            return true;
+        } catch (PatternSyntaxException e) {
+            return false;
+        }
+    }
+    private static boolean validateEffectRule(final Object obj) {
+        if (!(obj instanceof String rule)) {
+            return false;
+        }
+        //ID
+        try {
+            ResourceLocation id = new ResourceLocation(rule);
+            if (ForgeRegistries.MOB_EFFECTS.containsKey(id)) {
+                return true;
+            }
+        } catch (Exception ignored) {
+        }
+        //Regex
+        try {
+            Pattern.compile(rule);
+            return true;
+        } catch (PatternSyntaxException e) {
+            return false;
+        }
+    }
+
+    private static boolean validateEntityTypeRule(final Object obj) {
+        if (!(obj instanceof String rule)) {
+            return false;
+        }
+        //ID
+        try {
+            ResourceLocation id = new ResourceLocation(rule);
+            if (ForgeRegistries.ENTITY_TYPES.containsKey(id)) {
+                return true;
+            }
+        } catch (Exception ignored) {
+        }
+        //Regex
+        try {
+            Pattern.compile(rule);
+            return true;
+        } catch (PatternSyntaxException e) {
+            return false;
+        }
     }
 
     private static boolean validateString(final Object obj)
@@ -400,29 +556,65 @@ public class Config
     private static void reloadCommonConfig() {
         CaliburRequiredEffect = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(CALIBUR_EFFECT.get()));
 
-        Set<Item> blacklistItemsByID = LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS.get().stream()
-                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
-                .collect(Collectors.toSet());
+        Set<Item> blacklistItemsByID = BuiltInRegistries.ITEM.stream()
+                .filter(item -> LUCKY_CLOVER_BLACKLIST_ITEM_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesItemRule(item, rule))
+                ).collect(Collectors.toSet());
 
-        Set<Item> whitelistItemsByID = LUCKY_CLOVER_WHITELIST_ITEM_STRINGS.get().stream()
-                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
-                .collect(Collectors.toSet());
+        Set<Item> whitelistItemsByID = BuiltInRegistries.ITEM.stream()
+                .filter(item -> LUCKY_CLOVER_WHITELIST_ITEM_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesItemRule(item, rule))
+                ).collect(Collectors.toSet());
 
-        Set<Item> whitelistSwordItemsByID = KNIFE_WHITELIST_ITEM_STRINGS.get().stream()
-                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
-                .collect(Collectors.toSet());
+        Set<Item> whitelistSwordItemsByID = BuiltInRegistries.ITEM.stream()
+                .filter(item -> KNIFE_WHITELIST_ITEM_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesItemRule(item, rule))
+                ).collect(Collectors.toSet());
 
-        Set<Item> blacklistSwordItemsByID = KNIFE_BLACKLIST_ITEM_STRINGS.get().stream()
-                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
-                .collect(Collectors.toSet());
+        Set<Item> blacklistSwordItemsByID = BuiltInRegistries.ITEM.stream()
+                .filter(item -> KNIFE_BLACKLIST_ITEM_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesItemRule(item, rule))
+                ).collect(Collectors.toSet());
 
-        Set<Item> whitelistKnifeItemsByID = CLEAVER_WHITELIST_ITEM_STRINGS.get().stream()
-                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
-                .collect(Collectors.toSet());
+        Set<Item> whitelistKnifeItemsByID = BuiltInRegistries.ITEM.stream()
+                .filter(item -> CLEAVER_WHITELIST_ITEM_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesItemRule(item, rule))
+                ).collect(Collectors.toSet());
 
-        Set<Item> blacklistKnifeItemsByID = CLEAVER_BLACKLIST_ITEM_STRINGS.get().stream()
-                .map(itemName -> ForgeRegistries.ITEMS.getValue(new ResourceLocation(itemName)))
-                .collect(Collectors.toSet());
+        Set<Item> blacklistKnifeItemsByID = BuiltInRegistries.ITEM.stream()
+                .filter(item -> CLEAVER_BLACKLIST_ITEM_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesItemRule(item, rule))
+                ).collect(Collectors.toSet());
+
+        Set<Item> whitelistFoodItemsByID = BuiltInRegistries.ITEM.stream()
+                .filter(item -> TODAYS_MENU_WHITELIST_ITEMS_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesItemRule(item, rule))
+                ).collect(Collectors.toSet());
+
+        Set<Item> blacklistFoodItemsByID = BuiltInRegistries.ITEM.stream()
+                .filter(item -> TODAYS_MENU_BLACKLIST_ITEMS_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesItemRule(item, rule))
+                ).collect(Collectors.toSet());
+
+        Set<EntityType<?>> whitelistEntityTypesByID = BuiltInRegistries.ENTITY_TYPE.stream()
+                .filter(entity -> WANTED_LIST_WHITELIST_ENTITIES_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesEntityTypeRule(entity, rule))
+                ).collect(Collectors.toSet());
+
+        Set<EntityType<?>> blacklistEntityTypesByID = BuiltInRegistries.ENTITY_TYPE.stream()
+                .filter(entity -> WANTED_LIST_BLACKLIST_ENTITIES_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesEntityTypeRule(entity, rule))
+                ).collect(Collectors.toSet());
+
+        Set<MobEffect> whitelistEffectsByID = BuiltInRegistries.MOB_EFFECT.stream()
+                .filter(effect -> LUCKY_NUGGET_WHITELIST_EFFECTS_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesEffectRule(effect, rule))
+                ).collect(Collectors.toSet());
+
+        Set<MobEffect> blacklistEffectsByID = BuiltInRegistries.MOB_EFFECT.stream()
+                .filter(effect -> LUCKY_NUGGET_BLACKLIST_EFFECTS_STRINGS.get().stream()
+                        .anyMatch(rule -> matchesEffectRule(effect, rule))
+                ).collect(Collectors.toSet());
 
         Set<Item> blacklistBlocksUnbreakable = BuiltInRegistries.ITEM.stream().filter(item -> {
             if(item instanceof BlockItem blockItem){
@@ -432,29 +624,11 @@ public class Config
             return false;
         }).collect(Collectors.toSet());
 
-        Set<Item> blacklistItemsByKeyword = ForgeRegistries.ITEMS.getEntries().stream()
-                .filter(entry -> {
-                    ResourceLocation rl = entry.getKey().location();
-                    String id = rl.toString();
-                    return LUCKY_CLOVER_BLACKLIST_KEYWORDS_STRINGS.get().stream().anyMatch(id::contains);
-                })
-                .map(Map.Entry::getValue)
-                .collect(Collectors.toSet());
-
-        Set<Item> whitelistItemsByKeyword = ForgeRegistries.ITEMS.getEntries().stream()
-                .filter(entry -> {
-                    ResourceLocation rl = entry.getKey().location();
-                    String id = rl.toString();
-                    return LUCKY_CLOVER_WHITELIST_KEYWORDS_STRINGS.get().stream().anyMatch(id::contains);
-                })
-                .map(Map.Entry::getValue)
-                .collect(Collectors.toSet());
-
-        Set<Item> blacklist = Stream.of(blacklistItemsByID, blacklistItemsByKeyword, blacklistBlocksUnbreakable)
+        Set<Item> blacklist = Stream.of(blacklistItemsByID, blacklistBlocksUnbreakable)
                 .flatMap(Set::stream)
                 .collect(Collectors.toSet());
 
-        Set<Item> whitelist0 = Stream.of(whitelistItemsByID, whitelistItemsByKeyword)
+        Set<Item> whitelist0 = Stream.of(whitelistItemsByID)
                 .flatMap(Set::stream)
                 .collect(Collectors.toSet());
 
@@ -469,21 +643,41 @@ public class Config
         if(!whitelistSwordItemsByID.isEmpty()){
             whitelistSwordItems = whitelistSwordItemsByID.stream().toList();
         }else{
-            if(KNIFE_USE_CLOVER_BLACKLIST.get()){
-                whitelistSwordItems = whitelist.stream().filter(item -> !blacklistSwordItemsByID.contains(item)).toList();
-            }else{
-                whitelistSwordItems = BuiltInRegistries.ITEM.stream().filter(item -> !blacklistSwordItemsByID.contains(item)).toList();
+            if (KNIFE_USE_CLOVER_BLACKLIST.get()) {
+                whitelistSwordItems = whitelistItems.stream().filter(item -> !blacklistSwordItemsByID.contains(item)).toList();
             }
         }
 
         if(!whitelistKnifeItemsByID.isEmpty()){
-            whitelistKnifeItems = whitelistSwordItemsByID.stream().toList();
+            whitelistKnifeItems = whitelistKnifeItemsByID.stream().toList();
         }else{
-            if(KNIFE_USE_CLOVER_BLACKLIST.get()){
-                whitelistKnifeItems = whitelist.stream().filter(item -> !blacklistKnifeItemsByID.contains(item)).toList();
-            }else{
-                whitelistKnifeItems = BuiltInRegistries.ITEM.stream().filter(item -> !blacklistKnifeItemsByID.contains(item)).toList();
+            if (KNIFE_USE_CLOVER_BLACKLIST.get()) {
+                whitelistKnifeItems = whitelistItems.stream().filter(item -> !blacklistKnifeItemsByID.contains(item)).toList();
             }
+        }
+
+        if(!whitelistFoodItemsByID.isEmpty()){
+            whitelistMenuFoodItems = whitelistFoodItemsByID.stream().toList();
+        }else{
+            whitelistMenuFoodItems = BuiltInRegistries.ITEM.stream()
+                    .filter(item -> item.getFoodProperties() != null && item.getFoodProperties().getNutrition() >= 4)
+                    .filter(item -> !blacklistFoodItemsByID.contains(item)).toList();
+        }
+
+        if(!whitelistEffectsByID.isEmpty()){
+            nuggetWhitelistEffects = whitelistEffectsByID.stream().toList();
+        }else{
+            nuggetWhitelistEffects = BuiltInRegistries.MOB_EFFECT.stream()
+                    .filter(effect -> !effect.isInstantenous())
+                    .filter(effect -> !blacklistEffectsByID.contains(effect)).toList();
+        }
+
+        if(!whitelistEntityTypesByID.isEmpty()){
+            huntListEntities = whitelistEntityTypesByID.stream().toList();
+        }else{
+            huntListEntities = BuiltInRegistries.ENTITY_TYPE.stream()
+                    .filter(type -> type.getCategory() == MobCategory.MONSTER)
+                    .filter(entities -> !blacklistEntityTypesByID.contains(entities)).toList();
         }
     }
 }

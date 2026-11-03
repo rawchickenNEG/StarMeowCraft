@@ -1,6 +1,7 @@
 package com.starmeow.smc.init;
 
 import com.starmeow.smc.client.model.*;
+import net.minecraft.world.entity.animal.Cat;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,6 +22,7 @@ public class ModelLayerRegistry {
         event.registerLayerDefinition(DivineHaloModel.LAYER_LOCATION, DivineHaloModel::createArmorLayer);
         event.registerLayerDefinition(SpearHookModel.LAYER_LOCATION, SpearHookModel::createBodyLayer);
         event.registerLayerDefinition(GiantRuyiJinguBangModel.LAYER_LOCATION, GiantRuyiJinguBangModel::createBodyLayer);
+        event.registerLayerDefinition(CatBallModel.LAYER_LOCATION, CatBallModel::createBodyLayer);
 
     }
 }

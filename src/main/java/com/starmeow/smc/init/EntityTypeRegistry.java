@@ -30,7 +30,7 @@ public class EntityTypeRegistry {
     public static final RegistryObject<EntityType<ThrownSwordEntity>> THROWN_SWORD = abstractArrow("thrown_sword", ThrownSwordEntity::new);
     public static final RegistryObject<EntityType<MagicArrow>> MAGIC_ARROW = abstractArrow("magic_arrow", MagicArrow::new);
     public static final RegistryObject<EntityType<SwordAura>> SWORD_AURA = swordAura("sword_aura", SwordAura::new);
-    public static final RegistryObject<EntityType<MeowBall>> MEOW_BALL = swordAura("meow_ball", MeowBall::new);
+    public static final RegistryObject<EntityType<MeowBall>> MEOW_BALL = meowBall("meow_ball", MeowBall::new);
     public static final RegistryObject<EntityType<ThrownBroccoliBoom>> THROWN_BROCCOLI_BOOM = throwableItem("thrown_broccoli_boom", ThrownBroccoliBoom::new);
     public static final RegistryObject<EntityType<BroccoliFishingHook>> BROCCOLI_FISHING_HOOK = throwableItem("broccoli_fishing_hook", BroccoliFishingHook::new);
     public static final RegistryObject<EntityType<RainbowFishingHook>> RAINBOW_FISHING_HOOK = throwableItem("rainbow_fishing_hook", RainbowFishingHook::new);
@@ -55,6 +55,11 @@ public class EntityTypeRegistry {
 
     private static <T extends Entity> RegistryObject<EntityType<T>> swordAura(String name, EntityType.EntityFactory<T> factory) {
         return ENTITY_TYPES.register(name, () -> (EntityType.Builder.of(factory, MobCategory.MISC).sized(1.5F, 1.5F)
+                .clientTrackingRange(4).updateInterval(10).build(name)));
+    }
+
+    private static <T extends Entity> RegistryObject<EntityType<T>> meowBall(String name, EntityType.EntityFactory<T> factory) {
+        return ENTITY_TYPES.register(name, () -> (EntityType.Builder.of(factory, MobCategory.MISC).sized(1.0F, 1.0F)
                 .clientTrackingRange(4).updateInterval(10).build(name)));
     }
 

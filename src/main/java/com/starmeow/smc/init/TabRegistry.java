@@ -2,8 +2,10 @@ package com.starmeow.smc.init;
 
 import com.starmeow.smc.StarMeowCraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -71,6 +73,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.FRIDGE.get());
                 output.accept(ItemRegistry.EASTER_BUNNY_EGG.get());
                 output.accept(ItemRegistry.CHICKEN_HARVESTER_EGG.get());
+                output.accept(ItemRegistry.POTATO_SERVER.get());
 
                 //random_things
                 output.accept(ItemRegistry.BROCCOLI_BOMB.get());
@@ -107,6 +110,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.GOLDEN_HANGER.get());
                 output.accept(ItemRegistry.INFINITE_FUEL.get());
                 output.accept(ItemRegistry.REWARD_BAG.get());
+                output.accept(ItemRegistry.AUTOMATIC_DEVICE.get());
 
                 output.accept(ItemRegistry.EASTER_BUNNY_SPAWN_EGG.get());
                 output.accept(ItemRegistry.CLOUDIAN_SPAWN_EGG.get());
@@ -117,6 +121,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.MUSIC_DISC_NYAN_CAT.get());
                 output.accept(ItemRegistry.MUSIC_DISC_BAD_APPLE.get());
                 output.accept(ItemRegistry.MUSIC_DISC_GOD_PICKAXE.get());
+                output.accept(ItemRegistry.MUSIC_DISC_FRIENDS_DRINK.get());
                 //dev
                 output.accept(ItemRegistry.MCR_SWORD.get());
                 output.accept(ItemRegistry.COMMAND_BLOCK_WAND.get());
@@ -219,6 +224,7 @@ public class TabRegistry {
                 output.accept(ItemRegistry.GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get());
                 output.accept(ItemRegistry.BOWL_OF_GQKJ_CHAR_SIU_PORK_KNUCKLE_RICE.get());
                 output.accept(ItemRegistry.WILD_DOG_MILK.get());
+                output.accept(eternalWildDogMilk());
                 output.accept(ItemRegistry.WANGQING_BEEF_NOODLES.get());
                 output.accept(ItemRegistry.BOILED_TRAFFIC_LIGHT.get());
                 output.accept(ItemRegistry.BLOCKBENCH.get());
@@ -424,4 +430,11 @@ public class TabRegistry {
                 output.accept(ItemRegistry.LOTUS_POND.get());
 
             }).build());
+
+    private static ItemStack eternalWildDogMilk(){
+        ItemStack stack = new ItemStack(ItemRegistry.WILD_DOG_MILK.get());
+        CompoundTag tag = stack.getOrCreateTag();
+        tag.putBoolean("SMCIsEternal", true);
+        return stack;
+    }
 }

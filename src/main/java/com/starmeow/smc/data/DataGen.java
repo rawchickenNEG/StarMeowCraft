@@ -243,6 +243,8 @@ public class DataGen {
             list.add(String.valueOf(ItemRegistry.CATBURGER.get()));
             list.add(String.valueOf(ItemRegistry.MOONCAKE.get()));
             list.add(String.valueOf(ItemRegistry.NOEL_COOKIE.get()));
+            list.add(String.valueOf(ItemRegistry.MUSIC_DISC_FRIENDS_DRINK.get()));
+            list.add(String.valueOf(ItemRegistry.AUTOMATIC_DEVICE.get()));
 
             for (Object o : list) {
                 this.singleTexture(o.toString(), new ResourceLocation("item/generated"), "layer0", new ResourceLocation(StarMeowCraft.MODID, "item/" + o));

@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -39,6 +40,25 @@ public class ItemHelper {
             }
         }
         return false;
+    }
+
+    public static ItemStack getPlayerItemStack(Player player, Item item) {
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.is(item)) {
+                return stack;
+            }
+        }
+        for (ItemStack stack : player.getInventory().armor) {
+            if (stack.is(item)) {
+                return stack;
+            }
+        }
+        for (ItemStack stack : player.getInventory().offhand) {
+            if (stack.is(item)) {
+                return stack;
+            }
+        }
+        return ItemStack.EMPTY;
     }
 
     public static boolean unModifiedIsDamaged(ItemStack itemStack){

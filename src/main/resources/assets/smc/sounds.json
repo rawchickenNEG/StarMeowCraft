@@ -56,5 +56,13 @@
         "stream": true
       }
     ]
+  },
+  "music_disc_friends_drink": {
+    "sounds": [
+      {
+        "name": "smc:music_disc_friends_drink",
+        "stream": true
+      }
+    ]
   }
 }

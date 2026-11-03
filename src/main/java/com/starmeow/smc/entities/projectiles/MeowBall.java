@@ -4,12 +4,17 @@ import com.starmeow.smc.config.Config;
 import com.starmeow.smc.entities.ThrownSwordEntity;
 import com.starmeow.smc.init.EntityTypeRegistry;
 import com.starmeow.smc.init.ParticleRegistry;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -22,17 +27,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class MeowBall extends ThrowableItemProjectile {
+public class MeowBall extends ThrowableProjectile {
     private int life = 0;
     private Entity owner;
     private final List<UUID> attackedEntityUUID = new ArrayList<>();
-
+    private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(MeowBall.class, EntityDataSerializers.INT);
     public MeowBall(EntityType<? extends MeowBall> p_37411_, Level p_37412_) {
         super(p_37411_, p_37412_);
     }
 
     public MeowBall(Level level, double x, double y, double z) {
-        super(EntityTypeRegistry.SWORD_AURA.get(), x, y, z, level);
+        super(EntityTypeRegistry.MEOW_BALL.get(), x, y, z, level);
     }
 
     public void handleEntityEvent(byte p_37484_) {
@@ -99,6 +104,19 @@ public class MeowBall extends ThrowableItemProjectile {
                 }
             }
         }
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        this.entityData.define(VARIANT, 0);
+    }
+
+    public int getVariant() {
+        return this.entityData.get(VARIANT);
+    }
+
+    public void setVariant(int variant) {
+        this.entityData.set(VARIANT, Mth.clamp(variant, 0, 5));
     }
 
     protected Item getDefaultItem() {

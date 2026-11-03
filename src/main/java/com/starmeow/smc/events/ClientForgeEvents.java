@@ -5,10 +5,13 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.starmeow.smc.StarMeowCraft;
 import com.starmeow.smc.cache.MiningFaceCache;
 import com.starmeow.smc.helper.CuriosHelper;
+import com.starmeow.smc.helper.ItemHelper;
 import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.init.NetworkRegistry;
 import com.starmeow.smc.init.PotionEffectRegistry;
+import com.starmeow.smc.items.AutomaticDeviceItem;
 import com.starmeow.smc.items.DevourSword;
+import com.starmeow.smc.mixin.MinecraftInvoker;
 import com.starmeow.smc.packet.EndBoatControlPacket;
 import com.starmeow.smc.packet.SwordSlashC2S;
 import com.starmeow.smc.packet.WingBoostC2S;
@@ -17,6 +20,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -88,6 +92,7 @@ public class ClientForgeEvents {
                     }
                 }
 
+                //末地船上下移动
                 if (player.getVehicle() instanceof Boat boat){
                     if (boat.getVariant() != Boat.Type.byName("end")) return;
 
@@ -97,6 +102,7 @@ public class ClientForgeEvents {
                     NetworkRegistry.CHANNEL.sendToServer(new EndBoatControlPacket(jumping, shift));
                 }
 
+                //鞘翅推进
                 boolean boost = mc.options.keyJump.isDown();
                 if(player.isFallFlying() && (player.getItemBySlot(EquipmentSlot.CHEST).is(ItemRegistry.DIVINE_WING.get()) || CuriosHelper.hasCharm(player, ItemRegistry.DIVINE_WING.get())) && !player.getCooldowns().isOnCooldown(ItemRegistry.DIVINE_WING.get())){
                     if(boost && !lastBoostPressed){
@@ -104,6 +110,19 @@ public class ClientForgeEvents {
                     }
                 }
                 lastBoostPressed = boost;
+
+                //自动攻击
+                ItemStack autoDevice = ItemHelper.getPlayerItemStack(player, ItemRegistry.AUTOMATIC_DEVICE.get());
+                if(!autoDevice.isEmpty() && autoDevice.getItem() instanceof AutomaticDeviceItem){
+                    CompoundTag tag = autoDevice.getOrCreateTag();
+                    boolean auto = tag.getBoolean("SMCAutoAttack");
+                    boolean fullyAuto = tag.getBoolean("SMCFullyAutoAttack");
+                    if(player.getAttackStrengthScale(0.0F) >= 1.0F){
+                        if ((mc.options.keyAttack.isDown() && auto) || fullyAuto) {
+                            ((MinecraftInvoker) mc).smc$startAttack();
+                        }
+                    }
+                }
             }
 
 

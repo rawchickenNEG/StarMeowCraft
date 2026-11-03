@@ -9,6 +9,7 @@
     "KeyboardHanderMixin",
     "LivingEntityRendererMixin",
     "LocalPlayerMixin",
+    "MinecraftInvoker",
     "MouseHandlerMixin",
     "MultiPlayerGameModeMixin"
   ],

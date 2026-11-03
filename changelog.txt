@@ -1,5 +1,27 @@
 SMC 1.20.1 Changelog
 
+-1.2.0
+    Add Friends Drink Music Disc.
+    Add Assets License.
+    Add description on Knife and Cleaver item.
+    Add description on A cup of Java item.
+    Add Hobbit House structure.
+    Add Automatic Device item.
+    Add Eternal Wild Dog Milk (need add NBT).
+    Add blacklist and whitelist config for Today's Menu, Wanted List and Lucky Nugget.
+    Change Rainbow Dash effect particle to a full rainbow trail.
+    Change Knife and Cleaver need use shift to place in the world.
+    Change Ice Cream items Chinese translations.
+    Change Food Icon edible.
+    Change Meowball projectile from Meowmere.
+    Change all ID and keywords configs to ID and regex configs.
+    Fix Ruyi Jingu Bang dot damage config issue.
+    Fix Wild Dog Milk not consuming issue.
+    Fix Cleaver Block cannot dig with pickaxe issue.
+    Fix Today's Menu food consuming event issue when eating food without food properties.
+    Fix handle integer overflow in item name extraction issue (by: Mgazul)
+    Fix Calibur, Heirloom Cleaver config entry issue.
+    Fix Red Frame Glasses config name issue.
 -1.1.9
     Add Mooncake, Moon Cake, Noel Cookie.
     Fix Lotus Pond recipe issue.

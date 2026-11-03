@@ -20,17 +20,6 @@ public class RainbowEffect extends MobEffect {
         if(entity instanceof Player player){
             player.getAbilities().mayfly = true;
         }
-        if(entity.level() instanceof ServerLevel level){
-            float height = entity.getBbHeight();
-            int step = 16;
-            for(int i = 0; i < step; i++){
-                float r = 0.5f * (float)Math.cos(i / (0.5f * step) * Math.PI) + 0.5f;
-                float g = 0.5f * (float)Math.cos(i / (0.5f * step) * Math.PI - 2 * Math.PI / 3) + 0.5f;
-                float b = 0.5f * (float)Math.cos(i / (0.5f * step) * Math.PI + 2 * Math.PI / 3) + 0.5f;
-                DustParticleOptions options = new DustParticleOptions(new Vector3f(r, g, b), 1);
-                level.sendParticles(options, entity.getX(), entity.getY() + height * (i / (float)step) , entity.getZ(), 1, 0, 0, 0, 0);
-            }
-        }
     }
 
     public boolean isDurationEffectTick(int duration, int amplifier) {

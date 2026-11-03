@@ -17,6 +17,10 @@
     {
       "structure": "smc:daves_home",
       "weight": 1
+    },
+    {
+      "structure": "smc:hobbit_house",
+      "weight": 1
     }
   ]
 }

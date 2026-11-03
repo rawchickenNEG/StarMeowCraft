@@ -29,7 +29,8 @@ public class ItemtagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.MUSIC_DISC_LAODA.get())
                 .add(ItemRegistry.MUSIC_DISC_NYAN_CAT.get())
                 .add(ItemRegistry.MUSIC_DISC_BAD_APPLE.get())
-                .add(ItemRegistry.MUSIC_DISC_GOD_PICKAXE.get());
+                .add(ItemRegistry.MUSIC_DISC_GOD_PICKAXE.get())
+                .add(ItemRegistry.MUSIC_DISC_FRIENDS_DRINK.get());
         this.tag(ForgeTags.CHICKEN).add(Items.COOKED_CHICKEN);
         this.tag(ForgeTags.BEEF).add(Items.COOKED_BEEF);
         this.tag(ForgeTags.MUTTON).add(Items.COOKED_MUTTON);

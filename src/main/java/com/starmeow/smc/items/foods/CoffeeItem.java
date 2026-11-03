@@ -50,7 +50,8 @@ public class CoffeeItem extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn)
     {
         String string = "tooltip.smc." + stack.getItem();
-        tooltip.add(Component.translatable(string).withStyle(ChatFormatting.DARK_AQUA));
+        tooltip.add(Component.translatable(string + "_0").withStyle(ChatFormatting.DARK_AQUA));
         tooltip.add(Component.translatable(string + "_1").withStyle(ChatFormatting.DARK_AQUA));
+        tooltip.add(Component.translatable(string).withStyle(ChatFormatting.BLUE));
     }
 }

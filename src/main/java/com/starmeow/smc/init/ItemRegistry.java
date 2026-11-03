@@ -225,6 +225,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WATER_DISPENSER = ITEMS.register("water_dispenser", () -> new ItemNameBlockItem(BlockRegistry.WATER_DISPENSER.get(), defaultBuilder()));
     public static final RegistryObject<Item> FRIDGE = ITEMS.register("fridge", () -> new ItemNameBlockItem(BlockRegistry.FRIDGE.get(), defaultBuilder()));
     public static final RegistryObject<Item> BROCCOLI_NUKE = ITEMS.register("broccoli_nuke", () -> new ItemNameBlockItem(BlockRegistry.BROCCOLI_NUKE.get(), defaultBuilder()));
+    public static final RegistryObject<Item> POTATO_SERVER = ITEMS.register("potato_server", () -> new ItemNameBlockItem(BlockRegistry.POTATO_SERVER.get(), defaultBuilder()));
 
     public static final RegistryObject<Item> GRIMOIRE = ITEMS.register("perkin_wand", () -> new Grimoire(defaultBuilder().durability(350)));
 
@@ -443,6 +444,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> MINI_BEDROCK = ITEMS.register("mini_bedrock", () -> new MiniBedrock(defaultBuilder().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> COFFEE = ITEMS.register("coffee", () -> new CoffeeItem(defaultBuilder().rarity(Rarity.UNCOMMON).food((new FoodProperties.Builder()).nutrition(2).saturationMod(0.5f).build())));
     public static final RegistryObject<Item> BOT = ITEMS.register("bot", () -> new BotItem(defaultBuilder().stacksTo(1).rarity(Rarity.RARE).fireResistant()));
+    public static final RegistryObject<Item> AUTOMATIC_DEVICE = ITEMS.register("automatic_device", () -> new AutomaticDeviceItem(defaultBuilder().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> CARROT_PICKAXE = ITEMS.register("carrot_pickaxe", () -> new CarrotPickaxe(ItemTier.CARROT, -1, -2.8F, defaultBuilder(), false));
     public static final RegistryObject<Item> GOLDEN_CARROT_PICKAXE = ITEMS.register("golden_carrot_pickaxe", () -> new CarrotPickaxe(ItemTier.GOLDEN_CARROT, -1, -2.8F, defaultBuilder(), true));
     public static final RegistryObject<Item> CHOCOLATE_SWORD = ITEMS.register("chocolate_sword", () -> new ChocolateSword(Tiers.WOOD, 3, -2.4F, defaultBuilder()));
@@ -488,7 +490,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DOCKING_STATION = ITEMS.register("docking_station", () -> new DockingStation(defaultBuilder().stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> SMC_ICON = ITEMS.register("smc_icon", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
-    public static final RegistryObject<Item> ICON_FOOD = ITEMS.register("icon_food", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> ICON_FOOD = ITEMS.register("icon_food", () -> new Item(defaultBuilder().rarity(Rarity.EPIC).food((new FoodProperties.Builder()).nutrition(512).saturationMod(0.5f)
+            .effect(new MobEffectInstance(PotionEffectRegistry.PEACE.get(), -1, 0), 1.0F)
+            .build())));
     public static final RegistryObject<Item> ICON_GEAR = ITEMS.register("icon_gear", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> ICON_COMPAT = ITEMS.register("icon_compat", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> ICON_BLOCK = ITEMS.register("icon_block", () -> new Item(defaultBuilder().rarity(Rarity.EPIC)));
@@ -498,12 +502,14 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> MUSIC_DISC_LAODA = ITEMS.register("music_disc_laoda",
             () -> new RecordItem(6, SoundRegistry.MUSIC_DISC_LAODA, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 2420));
-    public static final RegistryObject<Item> MUSIC_DISC_NYAN_CAT= ITEMS.register("music_disc_nyan_cat",
+    public static final RegistryObject<Item> MUSIC_DISC_NYAN_CAT = ITEMS.register("music_disc_nyan_cat",
             () -> new RecordItem(6, SoundRegistry.MUSIC_DISC_NYAN_CAT, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 4520));
-    public static final RegistryObject<Item> MUSIC_DISC_BAD_APPLE= ITEMS.register("music_disc_bad_apple",
+    public static final RegistryObject<Item> MUSIC_DISC_BAD_APPLE = ITEMS.register("music_disc_bad_apple",
             () -> new RecordItem(6, SoundRegistry.MUSIC_DISC_BAD_APPLE, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 4640));
-    public static final RegistryObject<Item> MUSIC_DISC_GOD_PICKAXE= ITEMS.register("music_disc_god_pickaxe",
+    public static final RegistryObject<Item> MUSIC_DISC_GOD_PICKAXE = ITEMS.register("music_disc_god_pickaxe",
             () -> new RecordItem(2, SoundRegistry.MUSIC_DISC_GOD_PICKAXE, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 400));
+    public static final RegistryObject<Item> MUSIC_DISC_FRIENDS_DRINK = ITEMS.register("music_disc_friends_drink",
+            () -> new RecordItem(6, SoundRegistry.MUSIC_DISC_FRIENDS_DRINK, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 3740));
 
     public static final RegistryObject<Item> DOLL_1 = ITEMS.register("doll_bf_meow", () -> new DollItems(BlockRegistry.DOLL_1.get(), defaultBuilder().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> DOLL_2 = ITEMS.register("doll_huacai", () -> new DollItems(BlockRegistry.DOLL_2.get(), defaultBuilder().rarity(Rarity.EPIC)));

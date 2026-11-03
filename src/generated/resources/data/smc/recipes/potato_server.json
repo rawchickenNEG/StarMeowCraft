@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "1": {
+      "item": "minecraft:potato"
+    },
+    "2": {
+      "item": "minecraft:ender_pearl"
+    },
+    "3": {
+      "item": "minecraft:iron_ingot"
+    },
+    "4": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "pattern": [
+    " 1 ",
+    "323",
+    "343"
+  ],
+  "result": {
+    "item": "smc:potato_server"
+  },
+  "show_notification": true
+}
