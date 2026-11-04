@@ -1,5 +1,6 @@
 package com.starmeow.smc.mixin;
 
+import com.starmeow.smc.init.EnchantmentRegistry;
 import com.starmeow.smc.init.ItemRegistry;
 import com.starmeow.smc.init.SoundRegistry;
 import net.minecraft.core.particles.ParticleTypes;
@@ -13,6 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.function.Consumer;
 
@@ -24,13 +26,11 @@ public abstract class ItemStackMixin {
       ItemStack itemStack = (ItemStack)(Object)this;
       
       final boolean flag = damage >= itemStack.getMaxDamage() - itemStack.getDamageValue();
-      if (user.level().isClientSide || !(user instanceof Player player) || flag) {
+      if (user.level().isClientSide || !(user instanceof Player player) || !flag) {
         return;
       }
-      
-      assert user.level() instanceof ServerLevel;
-      final ServerLevel serverLevel = (ServerLevel) user.level();
-      
+
+      if (!(user.level() instanceof ServerLevel serverLevel)) return;
       if(itemStack.is(ItemRegistry.CALIBUR.get())){
         ItemStack spawnedItem = new ItemStack(ItemRegistry.EXCALIBUR.get());
         if (itemStack.hasTag()){
@@ -50,6 +50,16 @@ public abstract class ItemStackMixin {
         }
         serverLevel.playSound(null, player.getX(), player.getY(), player.getZ(), SoundRegistry.MUSIC_DISC_GOD_PICKAXE.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
         itemStack.shrink(1);
+      }
+    }
+
+    @Inject(method = "getMaxDamage", at = @At("HEAD"), cancellable = true)
+    private void smc$changeMaxDamage(CallbackInfoReturnable<Integer> cir){
+      ItemStack itemStack = (ItemStack)(Object)this;
+      int i = itemStack.getEnchantmentLevel(EnchantmentRegistry.NEHTERITE_CLADDING.get());
+      if(i > 0){
+        int maxDamageBase = itemStack.getItem().getMaxDamage(itemStack);
+        cir.setReturnValue(maxDamageBase + (maxDamageBase / 4 * i));
       }
     }
 }

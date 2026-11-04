@@ -3,6 +3,7 @@ package com.starmeow.smc.items.curiosequipable;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import com.starmeow.smc.config.Config;
+import com.starmeow.smc.helper.CuriosHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -97,6 +98,8 @@ public class TodaysMenu extends Item implements ICurioItem {
     public static boolean finishedAllWantedFoods(ItemStack stack){
         List<Item> wantedFoods = getTodayWantedFoodsFromItem(stack);
         List<Item> finishedFoods = getFinishedWantedFoodsFromItem(stack);
+
+        if(wantedFoods.isEmpty() || finishedFoods.isEmpty()) return false;
         for(Item food : wantedFoods){
             if(!finishedFoods.contains(food)) return false;
         }
@@ -215,18 +218,22 @@ public class TodaysMenu extends Item implements ICurioItem {
         }
     }
 
-    public boolean checkMenuIsCorrect(LivingEntity living, ItemStack stack){
-        for(Item item : getTodayWantedFoodsFromItem(stack)){
-            if(!getTodayWantedFoods(living).contains(item)){
-                return false;
-            }
-        }
-        return true;
+    public boolean checkMenuIsCorrect(LivingEntity living, ItemStack stack) {
+        return new HashSet<>(getTodayWantedFoods(living)).equals(new HashSet<>(getTodayWantedFoodsFromItem(stack)));
     }
 
     public boolean getMenuIsCorrect(ItemStack stack){
         CompoundTag stackData = stack.getOrCreateTag();
         return stackData.getBoolean("SMCMenuIsCorrect");
+    }
+
+    public boolean getMenuIsCorrect2(ItemStack stack){
+        CompoundTag stackData = stack.getOrCreateTag();
+        return stackData.contains("SMCMenuIsCorrect");
+    }
+
+    public boolean canEquip(SlotContext slotContext, ItemStack stack) {
+        return !CuriosHelper.hasCharm(slotContext.entity(), stack.getItem());
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -258,7 +265,9 @@ public class TodaysMenu extends Item implements ICurioItem {
             }
         }
         else {
-            tooltip.add(Component.translatable(string + "_4").withStyle(ChatFormatting.RED));
+            if(getMenuIsCorrect2(stack)){
+                tooltip.add(Component.translatable(string + "_4").withStyle(ChatFormatting.RED));
+            }
         }
     }
 }

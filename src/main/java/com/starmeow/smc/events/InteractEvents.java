@@ -362,7 +362,7 @@ public class InteractEvents {
             BlockPos placePos = clickedPos.relative(face);
             BlockState target = level.getBlockState(placePos);
             boolean placed = false;
-            if (!level.mayInteract(player, placePos) || !player.mayUseItemAt(placePos, face, stack) || !target.canBeReplaced()) return;
+            if (!level.mayInteract(player, placePos) || !player.mayUseItemAt(placePos, face, stack) || !target.canBeReplaced() || !player.isCrouching()) return;
             if (stack.is(ItemRegistry.KNIFE.get())) {
                 BlockState placeState = BlockRegistry.KNIFE.get().defaultBlockState();
                 int flags = Block.UPDATE_ALL;
@@ -452,7 +452,7 @@ public class InteractEvents {
             if(CuriosHelper.hasCharm(event.getEntity(), ItemRegistry.TODAYS_MENU.get())){
                 ItemStack menuStack = CuriosHelper.getCharm(event.getEntity(), ItemRegistry.TODAYS_MENU.get());
                 Item food = event.getItem().getItem();
-                if(!TodaysMenu.finishedAllWantedFoods(menuStack) && !TodaysMenu.wantedFoodFinished(menuStack, food)){
+                if(menuStack != null && TodaysMenu.getTodayWantedFoodsFromItem(menuStack).contains(food) && !TodaysMenu.wantedFoodFinished(menuStack, food)){
                     TodaysMenu.setWantedFoodFinished(menuStack, food);
                     TodaysMenu.addWantedFoodReward(food, event.getEntity());
                     if(TodaysMenu.finishedAllWantedFoods(menuStack) && event.getEntity() instanceof Player player){

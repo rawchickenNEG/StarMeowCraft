@@ -705,6 +705,8 @@
   "tooltip.smc.boiled_traffic_light": "击杀傻子村民获得",
   "tooltip.smc.blockbench": "+1 建模水平 +1 像素绘制水平",
   "tooltip.smc.moon_cake": "提供增益效果，效果强度随月相而变化，白天无效果",
+  "tooltip.smc.ancient_smithing_table": "不会消耗锻造模版物品",
+  "tooltip.smc.potato_server": "激活时加载3x3的区块，但是需要消耗范围内的马铃薯作物供能",
 
   "tooltip.smc.frostium_shackles": "移除你的台阶高度增益，可以吸收铁砧来降低移动速度并提升击退抗性和护甲值。",
   "tooltip.smc.frostium_shackles_0": "吸收的铁砧数量：%s",

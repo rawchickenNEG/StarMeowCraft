@@ -68,12 +68,12 @@ public class TabRegistry {
                 //blocks
                 output.accept(ItemRegistry.GRANITE_ANVIL.get());
                 output.accept(ItemRegistry.ANCIENT_SMITHING_TABLE.get());
+                output.accept(ItemRegistry.POTATO_SERVER.get());
                 output.accept(ItemRegistry.CALIBUR_BLOCK.get());
                 output.accept(ItemRegistry.WATER_DISPENSER.get());
                 output.accept(ItemRegistry.FRIDGE.get());
                 output.accept(ItemRegistry.EASTER_BUNNY_EGG.get());
                 output.accept(ItemRegistry.CHICKEN_HARVESTER_EGG.get());
-                output.accept(ItemRegistry.POTATO_SERVER.get());
 
                 //random_things
                 output.accept(ItemRegistry.BROCCOLI_BOMB.get());
@@ -91,10 +91,11 @@ public class TabRegistry {
                 output.accept(ItemRegistry.LUCKY_CLOVER.get());
                 output.accept(ItemRegistry.LUCKY_NUGGET.get());
                 output.accept(ItemRegistry.BAD_APPLE.get());
+                output.accept(ItemRegistry.GIANT_CARROT.get());
                 output.accept(ItemRegistry.ORE_DETECTOR.get());
                 output.accept(ItemRegistry.TREASURE_DETECTOR.get());
-                output.accept(ItemRegistry.GIANT_CARROT.get());
                 output.accept(ItemRegistry.BOT.get());
+                output.accept(ItemRegistry.AUTOMATIC_DEVICE.get());
                 output.accept(ItemRegistry.CANDY_JAR.get());
                 output.accept(ItemRegistry.BROCCOLI_CANDY.get());
                 output.accept(ItemRegistry.FROST_CANDY.get());
@@ -110,7 +111,6 @@ public class TabRegistry {
                 output.accept(ItemRegistry.GOLDEN_HANGER.get());
                 output.accept(ItemRegistry.INFINITE_FUEL.get());
                 output.accept(ItemRegistry.REWARD_BAG.get());
-                output.accept(ItemRegistry.AUTOMATIC_DEVICE.get());
 
                 output.accept(ItemRegistry.EASTER_BUNNY_SPAWN_EGG.get());
                 output.accept(ItemRegistry.CLOUDIAN_SPAWN_EGG.get());

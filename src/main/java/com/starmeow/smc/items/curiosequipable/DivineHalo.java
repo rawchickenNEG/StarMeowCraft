@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class DivineHalo extends ArmorItem implements ICurioItem {
+public class DivineHalo extends ArmorItem implements BaseCurioItem {
 
     public DivineHalo(ArmorMaterial p_40386_, Type p_266831_, Properties p_40388_) {
         super(p_40386_, p_266831_, p_40388_);

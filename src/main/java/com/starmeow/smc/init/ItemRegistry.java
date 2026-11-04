@@ -221,11 +221,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RED_FRAME_GLASSES = ITEMS.register("red_frame_glasses", () -> new CommonCurioItem(defaultBuilder().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> GRANITE_ANVIL = ITEMS.register("granite_anvil", () -> new ItemNameBlockItem(BlockRegistry.GRANITE_ANVIL.get(), defaultBuilder()));
-    public static final RegistryObject<Item> ANCIENT_SMITHING_TABLE = ITEMS.register("ancient_smithing_table", () -> new ItemNameBlockItem(BlockRegistry.ANCIENT_SMITHING_TABLE.get(), defaultBuilder()));
+    public static final RegistryObject<Item> ANCIENT_SMITHING_TABLE = ITEMS.register("ancient_smithing_table", () -> new TippedBlockItems(BlockRegistry.ANCIENT_SMITHING_TABLE.get(), defaultBuilder()));
     public static final RegistryObject<Item> WATER_DISPENSER = ITEMS.register("water_dispenser", () -> new ItemNameBlockItem(BlockRegistry.WATER_DISPENSER.get(), defaultBuilder()));
     public static final RegistryObject<Item> FRIDGE = ITEMS.register("fridge", () -> new ItemNameBlockItem(BlockRegistry.FRIDGE.get(), defaultBuilder()));
     public static final RegistryObject<Item> BROCCOLI_NUKE = ITEMS.register("broccoli_nuke", () -> new ItemNameBlockItem(BlockRegistry.BROCCOLI_NUKE.get(), defaultBuilder()));
-    public static final RegistryObject<Item> POTATO_SERVER = ITEMS.register("potato_server", () -> new ItemNameBlockItem(BlockRegistry.POTATO_SERVER.get(), defaultBuilder()));
+    public static final RegistryObject<Item> POTATO_SERVER = ITEMS.register("potato_server", () -> new TippedBlockItems(BlockRegistry.POTATO_SERVER.get(), defaultBuilder()));
 
     public static final RegistryObject<Item> GRIMOIRE = ITEMS.register("perkin_wand", () -> new Grimoire(defaultBuilder().durability(350)));
 

@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class FrostiumShackles extends Item implements ICurioItem {
+public class FrostiumShackles extends Item implements BaseCurioItem {
 
     public FrostiumShackles(Properties p_41383_) {
         super(p_41383_);

@@ -1,7 +1,9 @@
 package com.starmeow.smc.blocks;
 
 import com.starmeow.smc.blockentities.PotatoServerBlockEntity;
+import com.starmeow.smc.helper.BlockHelper;
 import com.starmeow.smc.init.BlockEntityRegistry;
+import com.starmeow.smc.init.EnchantmentRegistry;
 import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,6 +18,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -35,6 +38,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -56,24 +60,6 @@ public class PotatoServerBlock extends BaseEntityBlock {
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(ACTIVE, false).setValue(POTATO_STATE, 0));
     }
 
-    //Todo: Delete this
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
-            Level level,
-            BlockState state,
-            BlockEntityType<T> type
-    ) {
-        if (level.isClientSide) {
-            return null;
-        }
-
-        return createTickerHelper(
-                type,
-                BlockEntityRegistry.POTATO_SERVER.get(),
-                PotatoServerBlockEntity::serverTick
-        );
-    }
-
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, ACTIVE, POTATO_STATE);
@@ -90,7 +76,7 @@ public class PotatoServerBlock extends BaseEntityBlock {
         boolean active = !state.getValue(ACTIVE);
         BlockState newState = state.setValue(ACTIVE, active);
         level.setBlock(pos, newState, Block.UPDATE_ALL);
-        level.playSound((Player)null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.WOODEN_BUTTON_CLICK_ON, SoundSource.BLOCKS, 1.0F, 1.0F);
+        level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.WOODEN_BUTTON_CLICK_ON, SoundSource.BLOCKS, 1.0F, 1.0F);
 
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof PotatoServerBlockEntity loader) {
@@ -146,11 +132,31 @@ public class PotatoServerBlock extends BaseEntityBlock {
         return p_55486_.getValue(ACTIVE);
     }
 
-    public void randomTick(BlockState p_221918_, ServerLevel p_221919_, BlockPos p_221920_, RandomSource p_221921_) {
-        if (p_221918_.getValue(ACTIVE)) {
-            p_221919_.setBlock(p_221920_, p_221918_.setValue(ACTIVE, Boolean.valueOf(false)), 3);
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (state.getValue(ACTIVE) && random.nextInt(100) < 20) {
+            int r = 7;
+            ArrayList<BlockPos> potatoPoses = new ArrayList<>();
+            for (BlockPos tmpPos : BlockPos.withinManhattan(pos, r, r, r)){
+                BlockState blockstate = level.getBlockState(tmpPos);
+                if(blockstate.is(Blocks.POTATOES) && BlockHelper.isMaxAgedBlock(blockstate)){
+                    potatoPoses.add(tmpPos.immutable());
+                }
+            }
+            if(potatoPoses.isEmpty()){
+                level.setBlock(pos, state.setValue(ACTIVE, Boolean.FALSE), 3);
+                BlockEntity blockEntity = level.getBlockEntity(pos);
+                if (blockEntity instanceof PotatoServerBlockEntity loader) {
+                    loader.disableChunkLoading();
+                }
+            }else{
+                BlockPos selectedPos = potatoPoses.get(random.nextInt(potatoPoses.size()));
+                BlockState potatoState = level.getBlockState(selectedPos);
+                if (!potatoState.is(Blocks.POTATOES)) return;
+                level.levelEvent(2001, selectedPos, Block.getId(potatoState));
+                BlockState newState = potatoState.setValue(PotatoBlock.AGE, 0);
+                level.setBlock(selectedPos, newState, Block.UPDATE_ALL);
+            }
         }
-
     }
 
     public void animateTick(BlockState p_221913_, Level p_221914_, BlockPos p_221915_, RandomSource p_221916_) {

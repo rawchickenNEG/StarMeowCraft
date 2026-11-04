@@ -12,7 +12,7 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.UUID;
 
-public class DockingStation extends Item implements ICurioItem {
+public class DockingStation extends Item implements BaseCurioItem {
 
     public DockingStation(Properties p_41383_) {
         super(p_41383_);

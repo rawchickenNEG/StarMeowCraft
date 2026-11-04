@@ -1,5 +1,20 @@
 SMC 1.20.1 Changelog
 
+-1.2.1
+    Add description for Potato Server and Ancient Smithing Table.
+    Change Automatic Device texture.
+    Change creative tab sequence for some items.
+    Change Potato Server operation way.
+    Change Invisible Armor and Anchor Hold enchantments rarity.
+    Fix Netherite Cladding enchantment not working issue.
+    Fix Calibur and God Pickaxe converting issue.
+    Fix DivinePercentage config not working issue.
+    Fix Knife and Cleaver still can place without crouching issue.
+    Fix Wanted List give player reward bag after the first equip.
+    Fix Wanted List and Today's Menu tooltip issue when not equipped.
+    Fix Wanted List and Today's Menu can only refresh one at the refresh time issue.
+    Fix Today's Menu incorrectly provide effect duration issue.
+    Fix the issue of same curios items can equip more than 1.
 -1.2.0
     Add Friends Drink Music Disc.
     Add Assets License.

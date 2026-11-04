@@ -17,25 +17,6 @@ public class PotatoServerBlockEntity extends BlockEntity {
         super(BlockEntityRegistry.POTATO_SERVER.get(), pos, state);
     }
 
-    //Todo: Delete this
-    public static void serverTick(
-            Level level,
-            BlockPos pos,
-            BlockState state,
-            PotatoServerBlockEntity blockEntity
-    ) {
-        if (level.isClientSide) {
-            return;
-        }
-
-        if (level.getGameTime() % 100 == 0) {
-            System.out.println(
-                    "[PotatoServer] still ticking at "
-                            + pos
-            );
-        }
-    }
-
     @Override
     public void onLoad() {
         super.onLoad();

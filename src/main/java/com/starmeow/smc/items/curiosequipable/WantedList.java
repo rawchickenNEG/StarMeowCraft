@@ -1,6 +1,7 @@
 package com.starmeow.smc.items.curiosequipable;
 
 import com.starmeow.smc.config.Config;
+import com.starmeow.smc.helper.CuriosHelper;
 import com.starmeow.smc.init.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -53,7 +54,7 @@ public class WantedList extends Item implements ICurioItem {
             CompoundTag data = player.getPersistentData();
 
             long currentDay = player.level().getDayTime() / 24000L;
-            long lastRefreshDay = data.getLong("SMCMenuDay");
+            long lastRefreshDay = data.getLong("SMCListDay");
 
             if (currentDay != lastRefreshDay) {
                 if(finishedAllWantedMobs(stack)){
@@ -67,7 +68,7 @@ public class WantedList extends Item implements ICurioItem {
                 }
 
                 setTodayWantedMobs(player, stack);
-                data.putLong("SMCMenuDay", currentDay);
+                data.putLong("SMCListDay", currentDay);
                 CompoundTag stackData = stack.getOrCreateTag();
                 stackData.putBoolean("SMCMenuIsCorrect", checkMenuIsCorrect(slotContext.entity(), stack));
                 player.playNotifySound(SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 1.0F, 1.0F);
@@ -81,6 +82,8 @@ public class WantedList extends Item implements ICurioItem {
     public static boolean finishedAllWantedMobs(ItemStack stack){
         List<EntityType<?>> wantedMobs = getTodayWantedMobsFromItem(stack);
         List<EntityType<?>> finishedMobs = getFinishedWantedMobsFromItem(stack);
+
+        if(wantedMobs.isEmpty() || finishedMobs.isEmpty()) return false;
         for(EntityType<?> entityType : wantedMobs){
             if(!finishedMobs.contains(entityType)) return false;
         }
@@ -169,18 +172,18 @@ public class WantedList extends Item implements ICurioItem {
         }
     }
 
-    public boolean checkMenuIsCorrect(LivingEntity living, ItemStack stack){
-        for(EntityType<?> entityType : getTodayWantedMobsFromItem(stack)){
-            if(!getTodayWantedMobs(living).contains(entityType)){
-                return false;
-            }
-        }
-        return true;
+    public boolean checkMenuIsCorrect(LivingEntity living, ItemStack stack) {
+        return new HashSet<>(getTodayWantedMobs(living)).equals(new HashSet<>(getTodayWantedMobsFromItem(stack)));
     }
 
     public boolean getMenuIsCorrect(ItemStack stack){
         CompoundTag stackData = stack.getOrCreateTag();
         return stackData.getBoolean("SMCMenuIsCorrect");
+    }
+
+    public boolean getMenuIsCorrect2(ItemStack stack){
+        CompoundTag stackData = stack.getOrCreateTag();
+        return stackData.contains("SMCMenuIsCorrect");
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -203,7 +206,9 @@ public class WantedList extends Item implements ICurioItem {
             }
         }
         else {
-            tooltip.add(Component.translatable(string + "_4").withStyle(ChatFormatting.RED));
+            if(getMenuIsCorrect2(stack)){
+                tooltip.add(Component.translatable(string + "_4").withStyle(ChatFormatting.RED));
+            }
         }
     }
 }

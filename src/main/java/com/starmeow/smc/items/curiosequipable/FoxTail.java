@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class FoxTail extends Item implements ICurioItem {
+public class FoxTail extends Item implements BaseCurioItem {
 
     public FoxTail(Properties p_41383_) {
         super(p_41383_);

@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class DivineWing extends ArmorItem implements ICurioItem {
+public class DivineWing extends ArmorItem implements BaseCurioItem {
     public DivineWing(ArmorMaterial p_40386_, Type p_266831_, Properties p_40388_) {
         super(p_40386_, p_266831_, p_40388_);
     }

@@ -702,6 +702,8 @@
   "tooltip.smc.boiled_traffic_light": "Obtain through killing nitwit villager",
   "tooltip.smc.blockbench": "+1 Modeling level +1 Pixel Art level",
   "tooltip.smc.moon_cake": "Provides beneficial effects, effect level will change as the moon phase changes, not effective during day time.",
+  "tooltip.smc.ancient_smithing_table": "Not consume Smithing Template Items",
+  "tooltip.smc.potato_server": "Load 3x3 chunks when activating, but needs consuming potato crops in a range as energy supplement.",
 
   "tooltip.smc.frostium_shackles": "Remove all extra step height, can absorb Anvil to decrease your moving speed, increase your knock back resistance and armor.",
   "tooltip.smc.frostium_shackles_0": "Absorbed Anvil Count: %s",
